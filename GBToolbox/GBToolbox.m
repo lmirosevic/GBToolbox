@@ -326,17 +326,19 @@ static char gbDescriptionKey;
 
 #pragma mark - UITableView Category
 
-#define kIsScrolledToBottomTolerance 2
-
 @implementation UITableView (GBToolbox)
 
--(BOOL)isScrolledToBottom {
-    if (self.contentSize.height - self.bounds.size.height - self.contentOffset.y <= kIsScrolledToBottomTolerance) {
+-(BOOL)isScrolledToBottomWithTolerance:(CGFloat)tolerance {
+    if (self.contentSize.height - self.bounds.size.height - self.contentOffset.y <= tolerance) {
         return YES;
     }
     else {
         return NO;
     }
+}
+
+-(BOOL)isScrolledToBottom {
+    return [self isScrolledToBottomWithTolerance:0];
 }
 
 @end

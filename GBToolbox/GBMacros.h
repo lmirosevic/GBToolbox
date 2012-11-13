@@ -48,7 +48,7 @@ typedef enum {
 #define vcsb(storyboardID, storyboardName) [[UIStoryboard storyboardWithName:sb(storyboardName) bundle:nil] instantiateViewControllerWithIdentifier:storyboardID]
 
 //Object instantiation
-#define ai(Class) [[Class alloc] init]
+#define ai(Class) [[Class alloc] init] //might be easier to just use new instead
 
 //Rotation
 typedef enum {

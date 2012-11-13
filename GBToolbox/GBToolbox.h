@@ -155,5 +155,6 @@ typedef void(^HandlerBlock)(void);
 
 //detecting when the tableview is scrolled fully down
 @property (nonatomic, readonly) BOOL isScrolledToBottom;
+-(BOOL)isScrolledToBottomWithTolerance:(CGFloat)tolerance;
 
 @end
