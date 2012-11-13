@@ -68,6 +68,7 @@ typedef enum {
 
 //Lazy instantiation
 #define _lazy(Class, propertyName, ivar) -(Class *)propertyName {if (!ivar) {ivar = [[Class alloc] init];}return ivar;}
+//add an atomic version
 
 //Array
 #define a(...) [NSArray arrayWithObjects: __VA_ARGS__, nil]

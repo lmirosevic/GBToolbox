@@ -168,8 +168,51 @@ static NSTimeInterval __time;
     return [NSDate timeIntervalSinceReferenceDate] - __time;
 }
 
-@end
 
+#pragma mark - Convenience
+
+// truthy/falsy
+BOOL Truthy(id object) {
+    return (object && (object != [NSNull null]));
+}
+
+BOOL Falsy(id object) {
+    return !Truthy(object);
+}
+
+
+// even/odd
+BOOL EvenInt(int number) {
+    return (number%2 == 0);
+}
+
+BOOL EvenUInt(uint number) {
+    return (number%2 == 0);
+}
+
+BOOL EvenInteger(NSInteger number) {
+    return (number%2 == 0);
+}
+
+BOOL EvenUInteger(NSUInteger number) {
+    return (number%2 == 0);
+}
+
+BOOL OddInt(int number) {
+    return !EvenInt(number);
+}
+BOOL OddUInt(uint number) {
+    return !EvenUInt(number);
+}
+BOOL OddInteger(NSInteger number) {
+    return !EvenInteger(number);
+}
+
+BOOL OddUInteger(NSUInteger number) {
+    return !EvenUInteger(number);
+}
+
+@end
 
 
 #pragma mark - String category
@@ -196,7 +239,6 @@ static NSTimeInterval __time;
 -(UIImage *)cropToRect:(CGRect)rect {
     CGImageRef imageRef = CGImageCreateWithImageInRect([self CGImage], rect);
     
-    //    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
     UIImage *croppedImage = [[UIImage alloc] initWithCGImage:imageRef scale:1.0 orientation:self.imageOrientation];
     
     CGImageRelease(imageRef);
@@ -258,6 +300,43 @@ static NSTimeInterval __time;
 
 -(void)callBlock:(HandlerBlock)block {
     block();
+}
+
+@end
+
+
+#pragma mark - NSObject Category
+
+#import <objc/runtime.h>
+
+@implementation NSObject (GBToolbox)
+
+static char gbDescriptionKey;
+
+-(void)setGbDescription:(NSString *)gbDescription {
+    objc_setAssociatedObject(self, &gbDescriptionKey, gbDescription, OBJC_ASSOCIATION_COPY);
+}
+
+-(NSString *)gbDescription {
+    return objc_getAssociatedObject(self, &gbDescriptionKey);
+}
+
+@end
+
+
+#pragma mark - UITableView Category
+
+#define kIsScrolledToBottomTolerance 2
+
+@implementation UITableView (GBToolbox)
+
+-(BOOL)isScrolledToBottom {
+    if (self.contentSize.height - self.bounds.size.height - self.contentOffset.y <= kIsScrolledToBottomTolerance) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
 
 @end

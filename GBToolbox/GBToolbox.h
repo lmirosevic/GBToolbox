@@ -1,3 +1,10 @@
+//distill the press and hold guy from GBPingInitiatorViewController, look at the following methods:
+//
+//-(void)touchUp:(id)sender tapHandler:(void(^)(void))tapHandler;
+//-(void)touchDown:(id)sender pressAndHoldHandler:(void(^)(void))pressAndHoldHandler;
+
+
+
 //
 //  GBToolbox.h
 //  Goonbee Toolbox
@@ -62,14 +69,31 @@ GBMatrixGrid GBMatrixGridMake(NSUInteger rows, NSUInteger columns);
 // UIView convenience
 NSUInteger tagFromUIViewSubclass(id sender);
 
+
 #pragma mark - Timing
 
 // tic toc
 +(void)tic;
 +(NSTimeInterval)toc;
 
+//BOOL StringIsNumber(NSString *string);
 
-BOOL StringIsNumber(NSString *string);
+
+#pragma mark - Convenience
+
+// truthy/falsy
+BOOL Truthy(id object);
+BOOL Falsy(id object);
+
+// even/odd
+BOOL EvenInt(int number);
+BOOL EvenUInt(uint number);
+BOOL EvenInteger(NSInteger number);
+BOOL EvenUInteger(NSUInteger number);
+BOOL OddInt(int number);
+BOOL OddUInt(uint number);
+BOOL OddInteger(NSInteger number);
+BOOL OddUInteger(NSUInteger number);
 
 @end
 
@@ -103,15 +127,33 @@ BOOL StringIsNumber(NSString *string);
 
 @end
 
+
 #pragma mark - NSTimer Category
 
 @interface NSTimer (GBToolbox)
 
-//identifier 
-
-
 //blocks
 typedef void(^HandlerBlock)(void);
 +(NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats withBlock:(HandlerBlock)handler;
+
+@end
+
+
+#pragma mark - NSObject Category
+
+@interface NSObject (GBToolbox)
+
+//identifier
+@property (nonatomic, copy) NSString *gbDescription;
+
+@end
+
+
+#pragma mark - UITableView Category
+
+@interface UITableView (GBToolbox)
+
+//detecting when the tableview is scrolled fully down
+@property (nonatomic, readonly) BOOL isScrolledToBottom;
 
 @end
