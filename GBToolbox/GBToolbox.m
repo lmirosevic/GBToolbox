@@ -36,6 +36,18 @@ CGFloat ThresholdFloat(CGFloat value, CGFloat min, CGFloat max) {
     }
 }
 
+double ThresholdDouble(double value, double min, double max) {
+    if (value < min) {
+        return min;
+    }
+    else if (value > max) {
+        return max;
+    }
+    else {
+        return value;
+    }
+}
+
 int ThresholdInt(int value, int min, int max) {
     if (value < min) {
         return min;

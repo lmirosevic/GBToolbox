@@ -35,6 +35,7 @@
 
 // threshold
 CGFloat ThresholdFloat(CGFloat value, CGFloat min, CGFloat max);
+double ThresholdDouble(double value, double min, double max);
 int ThresholdInt(int value, int min, int max);
 
 // degrees & radians
