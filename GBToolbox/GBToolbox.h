@@ -135,6 +135,7 @@ BOOL OddUInteger(NSUInteger number);
 //blocks
 typedef void(^HandlerBlock)(void);
 +(NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats withBlock:(HandlerBlock)handler;
++(NSTimer *)timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats withBlock:(HandlerBlock)handler;
 
 @end
 
