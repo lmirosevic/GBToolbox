@@ -79,4 +79,7 @@ typedef enum {
 //Debugging
 #define _b(expression) expression ? @"YES" : @"NO"
 
+//Strings
+#define IsEmptyString(string) (((string == nil) || ([string isEqualToString:@""])) ? YES : NO)
+
 #endif
