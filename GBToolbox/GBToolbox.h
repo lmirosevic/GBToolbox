@@ -53,6 +53,15 @@ GBRange GBRangeMake(CGFloat min, CGFloat max);
 double EaseOutExponential(double frame, double start, double delta, double totalFrames);
 double EaseOutQuadratic(double frame, double start, double delta, double totalFrames);
 
+// linear algebra
+typedef struct {
+    CGFloat x;
+    CGFloat y;
+} GBVector2D;
+
+CGFloat ScalarAbsolute(CGFloat value);
+CGFloat Vector2DMagnitude(GBVector2D vector);
+
 
 #pragma mark - UI
 

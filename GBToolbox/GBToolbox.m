@@ -23,7 +23,7 @@
 
 #pragma mark - Math
 
-//threshold
+// threshold
 CGFloat ThresholdFloat(CGFloat value, CGFloat min, CGFloat max) {
     if (value < min) {
         return min;
@@ -60,7 +60,7 @@ int ThresholdInt(int value, int min, int max) {
     }
 }
 
-//degrees & radians
+// degrees & radians
 CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 CGFloat RadiansToDegrees(CGFloat radians) {return radians * 180 / M_PI;};
 
@@ -72,7 +72,7 @@ GBRange GBRangeMake(CGFloat min, CGFloat max) {
     return newRange;
 }
 
-//easing
+// easing
 double EaseOutExponential(double frame, double start, double delta, double totalFrames) {
 	return delta * ( -pow( 2, -30 * (double)frame/(double)totalFrames ) + 1 ) + start;
 }
@@ -80,6 +80,16 @@ double EaseOutExponential(double frame, double start, double delta, double total
 double EaseOutQuadratic(double frame, double start, double delta, double totalFrames) {
     frame /= totalFrames;
 	return -delta * frame*(frame-2) + start;
+}
+
+// vectors
+
+CGFloat ScalarAbsolute(CGFloat value) {
+    return value >= 0 ? value : -value;
+}
+
+CGFloat Vector2DMagnitude(GBVector2D vector) {
+    return pow(vector.x * vector.x + vector.y * vector.y, 0.5);
 }
 
 
