@@ -177,6 +177,17 @@ NSUInteger tagFromUIViewSubclass(id sender) {
     else return 0;
 }
 
+// Screen locking
++(BOOL)isAutoScreenLockingEnabled {
+	UIApplication *me = [UIApplication sharedApplication];
+	return me.idleTimerDisabled;
+}
+
++(void)enableAutoScreenLocking:(BOOL)enable {
+	UIApplication *me = [UIApplication sharedApplication];
+	me.idleTimerDisabled = !enable;
+}
+
 #pragma mark - timing
 
 // tic toc

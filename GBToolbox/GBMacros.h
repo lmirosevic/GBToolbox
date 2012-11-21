@@ -71,6 +71,9 @@ typedef enum {
 #define _set(...) ([NSSet setWithArray:@[__VA_ARGS__]])
 //add an atomic version
 
+//Resource Bundles
+#define _res(bundle, resource) [NSString stringWithFormat:@"%@Resources.bundle/%@", bundle, resource]
+
 //Array
 //#define a(...) [NSArray arrayWithObjects: __VA_ARGS__, nil]//foo legacy
 

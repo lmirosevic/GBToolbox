@@ -79,6 +79,9 @@ GBMatrixGrid GBMatrixGridMake(NSUInteger rows, NSUInteger columns);
 // UIView convenience
 NSUInteger tagFromUIViewSubclass(id sender);
 
+// screen locking
++(BOOL)isAutoScreenLockingEnabled;
++(void)enableAutoScreenLocking:(BOOL)enable;
 
 #pragma mark - Timing
 
