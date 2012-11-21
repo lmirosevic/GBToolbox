@@ -68,14 +68,13 @@ typedef enum {
 
 //Lazy instantiation
 #define _lazy(Class, propertyName, ivar) -(Class *)propertyName {if (!ivar) {ivar = [[Class alloc] init];}return ivar;}
-#define _set(...) ([NSSet setWithArray:@[__VA_ARGS__]])
 //add an atomic version
+
+//Set
+#define _set(...) ([NSSet setWithArray:@[__VA_ARGS__]])
 
 //Resource Bundles
 #define _res(bundle, resource) [NSString stringWithFormat:@"%@Resources.bundle/%@", bundle, resource]
-
-//Array
-//#define a(...) [NSArray arrayWithObjects: __VA_ARGS__, nil]//foo legacy
 
 //Singleton
 #define _singleton(Class, accessor) +(Class *)accessor {static Class *accessor;@synchronized(self) {if (!accessor) {accessor = [[Class alloc] init];}return accessor;}}
