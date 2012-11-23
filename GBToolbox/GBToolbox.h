@@ -118,6 +118,10 @@ BOOL OddUInteger(NSUInteger number);
 //check if string is integer
 -(BOOL)isInteger;
 
+//check if it contains a substring
+-(BOOL)containsSubstring:(NSString *)substring; //this is case sensitive
+-(BOOL)containsSubstring:(NSString *)substring caseSensitive:(BOOL)isCaseSensitive;
+
 @end
 
 

@@ -260,6 +260,15 @@ BOOL OddUInteger(NSUInteger number) {
     return [alphaNums isSupersetOfSet:stringSet];
 }
 
+//check if it contains a substring
+-(BOOL)containsSubstring:(NSString *)substring {
+    return [self containsSubstring:substring caseSensitive:YES];
+}
+
+-(BOOL)containsSubstring:(NSString *)substring caseSensitive:(BOOL)isCaseSensitive {
+    return [self rangeOfString:substring options:(isCaseSensitive ? 0 : NSCaseInsensitiveSearch)].location != NSNotFound;
+}
+
 @end
 
 
