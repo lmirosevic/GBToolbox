@@ -22,7 +22,6 @@
 @implementation GBToolbox
 
 #pragma mark - Math
-
 // threshold
 CGFloat ThresholdFloat(CGFloat value, CGFloat min, CGFloat max) {
     if (value < min) {

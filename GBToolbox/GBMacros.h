@@ -28,7 +28,7 @@
 #define l(...) NSLog(__VA_ARGS__)
 
 //Localisation
-#define s(string, description) NSLocalizedString(string, description)
+#define _s(string, description) NSLocalizedString(string, description)
 
 //Universal app device detection
 typedef enum {
@@ -83,6 +83,8 @@ typedef enum {
 #define _b(expression) expression ? @"YES" : @"NO"
 
 //Strings
-#define IsEmptyString(string) (((string == nil) || ([string isEqualToString:@""])) ? YES : NO)
+#define IsEmptyString(string) ((![string isKindOfClass:[NSString class]] || (string == nil) || ([string isEqualToString:@""])) ? YES : NO)
+#define NotEmptyString(string) !IsEmptyString(string)
+#define _f(string, ...) ([NSString stringWithFormat:string, __VA_ARGS__])
 
 #endif
