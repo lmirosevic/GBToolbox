@@ -84,7 +84,7 @@ typedef enum {
 
 //Strings
 #define IsEmptyString(string) ((![string isKindOfClass:[NSString class]] || (string == nil) || ([string isEqualToString:@""])) ? YES : NO)
-#define NotEmptyString(string) !IsEmptyString(string)
+#define IsValidString(string) !IsEmptyString(string)
 #define _f(string, ...) ([NSString stringWithFormat:string, __VA_ARGS__])
 
 #endif
