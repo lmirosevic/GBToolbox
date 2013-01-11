@@ -161,11 +161,20 @@ typedef void(^HandlerBlock)(void);
 
 @interface NSObject (GBToolbox)
 
-//identifier
+//user identifier for tracking objects
 @property (nonatomic, copy) NSString *gbDescription;
 
 @end
 
+
+#pragma mark - UIViewController Category
+
+@interface UIViewController (GBToolbox)
+
+//returns YES when the view controller is visible
+@property (assign, nonatomic) BOOL isVisible;
+
+@end
 
 #pragma mark - UITableView Category
 
