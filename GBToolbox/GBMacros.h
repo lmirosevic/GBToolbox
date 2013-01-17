@@ -87,4 +87,16 @@ typedef enum {
 #define IsValidString(string) !IsEmptyString(string)
 #define _f(string, ...) ([NSString stringWithFormat:string, __VA_ARGS__])
 
+//Flurry
+#ifdef FLURRY
+    #define FLog(event) if (FLURRY) {[FlurryAnalytics logEvent:event];};
+    #define FLogP(event, dict) if (FLURRY) {[FlurryAnalytics logEvent:event withParameters:dict];};
+#else
+    //WARNING: You should define FLURRY before importing GBToolbox.h
+
+    //these are just noops that reference the macro params to prevent compiler warnings about unused variables
+    #define FLog(event) if (0) {NSLog(event);};NSLog(@"Flurry event not sent: %@", event);
+    #define FLogP(event, dict) if (0) {NSLog(@"%@ %@", event, dict);};NSLog(@"Flurry event not sent: %@", event);
+#endif
+
 #endif
