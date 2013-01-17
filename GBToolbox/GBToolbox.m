@@ -268,6 +268,23 @@ BOOL OddUInteger(NSUInteger number) {
     return [self rangeOfString:substring options:(isCaseSensitive ? 0 : NSCaseInsensitiveSearch)].location != NSNotFound;
 }
 
+//best attempt to get int out of string
+-(int)attemptConversionToInt {
+    NSString *numberString;
+    
+    NSScanner *scanner = [NSScanner scannerWithString:self];
+    NSCharacterSet *numbers = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    
+    // Throw away characters before the first number.
+    [scanner scanUpToCharactersFromSet:numbers intoString:NULL];
+    
+    // Collect numbers.
+    [scanner scanCharactersFromSet:numbers intoString:&numberString];
+    
+    // Result.
+    return [numberString intValue];
+}
+
 @end
 
 

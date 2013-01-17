@@ -89,8 +89,8 @@ typedef enum {
 
 //Flurry
 #ifdef FLURRY
-    #define FLog(event) if (FLURRY) {[FlurryAnalytics logEvent:event];};
-    #define FLogP(event, dict) if (FLURRY) {[FlurryAnalytics logEvent:event withParameters:dict];};
+    #define FLog(event) if (FLURRY) {[Flurry logEvent:event];};
+    #define FLogP(event, dict) if (FLURRY) {[Flurry logEvent:event withParameters:dict];};
 #else
     //WARNING: You should define FLURRY before importing GBToolbox.h
 

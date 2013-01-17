@@ -122,6 +122,9 @@ BOOL OddUInteger(NSUInteger number);
 -(BOOL)containsSubstring:(NSString *)substring; //this is case sensitive
 -(BOOL)containsSubstring:(NSString *)substring caseSensitive:(BOOL)isCaseSensitive;
 
+//best attempt to get int out of string
+-(int)attemptConversionToInt;
+
 @end
 
 
