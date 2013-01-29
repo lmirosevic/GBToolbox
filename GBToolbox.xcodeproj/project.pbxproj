@@ -13,14 +13,14 @@
 		8A0C4E3E165FA60C00A990FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A0C4E3C165FA60C00A990FB /* InfoPlist.strings */; };
 		8A0C4E41165FA60C00A990FB /* GBToolboxUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0C4E40165FA60C00A990FB /* GBToolboxUnitTests.m */; };
 		8A0C4E49165FA83400A990FB /* libGBToolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B1162D9E2200C9D287 /* libGBToolbox.a */; };
-		8A0C4E4B165FA9C000A990FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0C4E4A165FA9C000A990FB /* QuartzCore.framework */; };
-		8A0C4E4C165FA9C600A990FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0C4E4A165FA9C000A990FB /* QuartzCore.framework */; };
-		8A0C4E4E165FA9F300A990FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0C4E4D165FA9F300A990FB /* CoreGraphics.framework */; };
-		8A0C4E4F165FA9F800A990FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0C4E4D165FA9F300A990FB /* CoreGraphics.framework */; };
 		8AD911B5162D9E2200C9D287 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B4162D9E2200C9D287 /* Foundation.framework */; };
 		8AD911BA162D9E2200C9D287 /* GBToolbox.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AD911B9162D9E2200C9D287 /* GBToolbox.h */; };
 		8AD911BC162D9E2200C9D287 /* GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD911BB162D9E2200C9D287 /* GBToolbox.m */; };
 		8AD911C3162D9EBC00C9D287 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911C2162D9EBC00C9D287 /* UIKit.framework */; };
+		8AF6878416B8057000FEF6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */; };
+		8AF6878616B8057400FEF6A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
+		8AF6878716B8057C00FEF6A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
+		8AF6878816B8057C00FEF6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +54,6 @@
 		8A0C4E3F165FA60C00A990FB /* GBToolboxUnitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBToolboxUnitTests.h; sourceTree = "<group>"; };
 		8A0C4E40165FA60C00A990FB /* GBToolboxUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GBToolboxUnitTests.m; sourceTree = "<group>"; };
 		8A0C4E42165FA60C00A990FB /* GBToolboxUnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBToolboxUnitTests-Prefix.pch"; sourceTree = "<group>"; };
-		8A0C4E4A165FA9C000A990FB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		8A0C4E4D165FA9F300A990FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8AD911B1162D9E2200C9D287 /* libGBToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGBToolbox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD911B4162D9E2200C9D287 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8AD911B8162D9E2200C9D287 /* GBToolbox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBToolbox-Prefix.pch"; sourceTree = "<group>"; };
@@ -63,6 +61,8 @@
 		8AD911BB162D9E2200C9D287 /* GBToolbox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GBToolbox.m; sourceTree = "<group>"; };
 		8AD911C2162D9EBC00C9D287 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8AD911C4162D9EE000C9D287 /* GBMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBMacros.h; sourceTree = "<group>"; };
+		8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8AF6878516B8057400FEF6A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,12 +70,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A0C4E4E165FA9F300A990FB /* CoreGraphics.framework in Frameworks */,
-				8A0C4E4B165FA9C000A990FB /* QuartzCore.framework in Frameworks */,
 				8A0C4E49165FA83400A990FB /* libGBToolbox.a in Frameworks */,
 				8A0C4E36165FA60C00A990FB /* SenTestingKit.framework in Frameworks */,
 				8A0C4E37165FA60C00A990FB /* UIKit.framework in Frameworks */,
 				8A0C4E38165FA60C00A990FB /* Foundation.framework in Frameworks */,
+				8AF6878716B8057C00FEF6A7 /* QuartzCore.framework in Frameworks */,
+				8AF6878816B8057C00FEF6A7 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,10 +83,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF6878616B8057400FEF6A7 /* QuartzCore.framework in Frameworks */,
+				8AF6878416B8057000FEF6A7 /* CoreGraphics.framework in Frameworks */,
 				8AD911C3162D9EBC00C9D287 /* UIKit.framework in Frameworks */,
 				8AD911B5162D9E2200C9D287 /* Foundation.framework in Frameworks */,
-				8A0C4E4C165FA9C600A990FB /* QuartzCore.framework in Frameworks */,
-				8A0C4E4F165FA9F800A990FB /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +135,8 @@
 		8AD911B3162D9E2200C9D287 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8A0C4E4D165FA9F300A990FB /* CoreGraphics.framework */,
-				8A0C4E4A165FA9C000A990FB /* QuartzCore.framework */,
+				8AF6878516B8057400FEF6A7 /* QuartzCore.framework */,
+				8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */,
 				8AD911C2162D9EBC00C9D287 /* UIKit.framework */,
 				8AD911B4162D9E2200C9D287 /* Foundation.framework */,
 				8A0C4E35165FA60C00A990FB /* SenTestingKit.framework */,
