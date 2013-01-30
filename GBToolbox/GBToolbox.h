@@ -172,7 +172,7 @@ typedef void(^HandlerBlock)(void);
 @interface NSObject (GBToolbox)
 
 //user identifier for tracking objects
-@property (nonatomic, copy) NSString *gbDescription;
+@property (copy, nonatomic) NSString *gbDescription;
 
 @end
 
