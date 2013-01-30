@@ -1,5 +1,3 @@
-add dependency list: QuartzCore, CoreGraphics
-
 GBToolbox
 ============
 
@@ -44,6 +42,14 @@ Feature list
 ------------
 
 Look inside GBMacros.h and GBToolbox.h
+
+Dependencies
+------------
+
+System Frameworks (link them in superproject):
+
+* CoreGraphics
+* QuartzCore
 
 Copyright & License
 ------------
