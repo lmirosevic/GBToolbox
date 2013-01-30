@@ -1,3 +1,5 @@
+add dependency list: QuartzCore, CoreGraphics
+
 GBToolbox
 ============
 
