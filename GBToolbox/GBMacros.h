@@ -17,8 +17,8 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-#ifndef Remote_Mouse_Macros_h
-#define Remote_Mouse_Macros_h
+#ifndef Macros_h
+#define Macros_h
 
 //Variadic macros
 #define __NARGS(unused, _1, _2, _3, _4, _5, VAL, ...) VAL
