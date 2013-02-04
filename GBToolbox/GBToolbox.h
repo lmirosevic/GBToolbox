@@ -24,7 +24,6 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
 #import "GBMacros.h"
@@ -77,11 +76,15 @@ GBMatrixGrid GBMatrixGridMake(NSUInteger rows, NSUInteger columns);
 +(GBMatrixGrid)prettyMatrixGridPortraitForCount:(NSUInteger)count maxColumns:(NSUInteger)maxColumns;
 
 // UIView convenience
+#if IPHONE
 NSUInteger tagFromUIViewSubclass(id sender);
+#endif
 
 // screen locking
+#if IPHONE
 +(BOOL)isAutoScreenLockingEnabled;
 +(void)enableAutoScreenLocking:(BOOL)enable;
+#endif
 
 #pragma mark - Timing
 
@@ -137,12 +140,14 @@ BOOL OddUInteger(NSUInteger number);
 
 #pragma mark - UIImage Category
 
+#if IPHONE
 @interface UIImage (GBToolbox)
 
 //crop to rect
 -(UIImage *)cropToRect:(CGRect)rect;
 
 @end
+#endif
 
 
 #pragma mark - NSData Category
@@ -179,15 +184,18 @@ typedef void(^HandlerBlock)(void);
 
 #pragma mark - UIViewController Category
 
+#if IPHONE
 @interface UIViewController (GBToolbox)
 
 //returns YES when the view controller is visible
 @property (assign, nonatomic) BOOL isVisible;
 
 @end
+#endif
 
 #pragma mark - UITableView Category
 
+#if IPHONE
 @interface UITableView (GBToolbox)
 
 //detecting when the tableview is scrolled fully down
@@ -195,3 +203,4 @@ typedef void(^HandlerBlock)(void);
 -(BOOL)isScrolledToBottomWithTolerance:(CGFloat)tolerance;
 
 @end
+#endif

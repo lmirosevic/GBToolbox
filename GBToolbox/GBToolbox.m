@@ -169,14 +169,17 @@ GBMatrixGrid GBMatrixGridMake(NSUInteger rows, NSUInteger columns) {
 }
 
 // UIView convenience
+#if IPHONE
 NSUInteger tagFromUIViewSubclass(id sender) {
     if ([sender isKindOfClass:[UIView class]]) {
         return ((UIView *)sender).tag;
     }
     else return 0;
 }
+#endif
 
 // Screen locking
+#if IPHONE
 +(BOOL)isAutoScreenLockingEnabled {
 	UIApplication *me = [UIApplication sharedApplication];
 	return me.idleTimerDisabled;
@@ -186,6 +189,7 @@ NSUInteger tagFromUIViewSubclass(id sender) {
 	UIApplication *me = [UIApplication sharedApplication];
 	me.idleTimerDisabled = !enable;
 }
+#endif
 
 #pragma mark - timing
 
@@ -314,6 +318,7 @@ BOOL OddUInteger(NSUInteger number) {
 
 #pragma mark - UIImage category
 
+#if IPHONE
 @implementation UIImage (UIImage_GBUtil)
 
 //crop to rect
@@ -328,6 +333,7 @@ BOOL OddUInteger(NSUInteger number) {
 }
 
 @end
+#endif
 
 
 #pragma mark - NSData category
@@ -339,7 +345,7 @@ BOOL OddUInteger(NSUInteger number) {
 //md5 hash
 -(NSString *)md5 {
     unsigned char result[16];
-    CC_MD5(self.bytes, self.length, result);
+    CC_MD5(self.bytes, (CC_LONG)self.length, result);
     
     return [NSString stringWithFormat: @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
             result[0], result[1], result[2], result[3],
@@ -430,6 +436,7 @@ static char gbDescriptionKey;
 
 #pragma mark - UIViewController Category
 
+#if IPHONE
 #import <objc/runtime.h>
 
 @implementation UIViewController (GBToolbox)
@@ -463,10 +470,12 @@ static char gbIsVisibleKey;
 }
 
 @end
+#endif
 
 
 #pragma mark - UITableView Category
 
+#if IPHONE
 @implementation UITableView (GBToolbox)
 
 -(BOOL)isScrolledToBottomWithTolerance:(CGFloat)tolerance {
@@ -483,3 +492,4 @@ static char gbIsVisibleKey;
 }
 
 @end
+#endif

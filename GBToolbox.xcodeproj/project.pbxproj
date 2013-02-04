@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A0377FD16BFCD2F0096C448 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0377FC16BFCD2F0096C448 /* Cocoa.framework */; };
+		8A03780716BFCD2F0096C448 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A03780516BFCD2F0096C448 /* InfoPlist.strings */; };
+		8A03780B16BFCD2F0096C448 /* GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A03780A16BFCD2F0096C448 /* GBToolbox.m */; };
+		8A03780F16BFCE110096C448 /* GBMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AD911C4162D9EE000C9D287 /* GBMacros.h */; };
+		8A03781116BFCE190096C448 /* GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A03780916BFCD2F0096C448 /* GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A03781216BFCE210096C448 /* GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A03780A16BFCD2F0096C448 /* GBToolbox.m */; };
+		8A03781316BFCE210096C448 /* GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A03780A16BFCD2F0096C448 /* GBToolbox.m */; };
 		8A0C4E36165FA60C00A990FB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0C4E35165FA60C00A990FB /* SenTestingKit.framework */; };
 		8A0C4E37165FA60C00A990FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911C2162D9EBC00C9D287 /* UIKit.framework */; };
 		8A0C4E38165FA60C00A990FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B4162D9E2200C9D287 /* Foundation.framework */; };
@@ -14,8 +21,6 @@
 		8A0C4E41165FA60C00A990FB /* GBToolboxUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0C4E40165FA60C00A990FB /* GBToolboxUnitTests.m */; };
 		8A0C4E49165FA83400A990FB /* libGBToolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B1162D9E2200C9D287 /* libGBToolbox.a */; };
 		8AD911B5162D9E2200C9D287 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B4162D9E2200C9D287 /* Foundation.framework */; };
-		8AD911BA162D9E2200C9D287 /* GBToolbox.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8AD911B9162D9E2200C9D287 /* GBToolbox.h */; };
-		8AD911BC162D9E2200C9D287 /* GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD911BB162D9E2200C9D287 /* GBToolbox.m */; };
 		8AD911C3162D9EBC00C9D287 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911C2162D9EBC00C9D287 /* UIKit.framework */; };
 		8AF6878416B8057000FEF6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */; };
 		8AF6878616B8057400FEF6A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
@@ -40,13 +45,22 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				8AD911BA162D9E2200C9D287 /* GBToolbox.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8A0377FB16BFCD2F0096C448 /* GBToolbox.framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GBToolbox.framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A0377FC16BFCD2F0096C448 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		8A0377FF16BFCD2F0096C448 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		8A03780016BFCD2F0096C448 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8A03780116BFCD2F0096C448 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8A03780416BFCD2F0096C448 /* GBToolbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GBToolbox-Info.plist"; sourceTree = "<group>"; };
+		8A03780616BFCD2F0096C448 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8A03780816BFCD2F0096C448 /* GBToolbox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBToolbox-Prefix.pch"; sourceTree = "<group>"; };
+		8A03780916BFCD2F0096C448 /* GBToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBToolbox.h; sourceTree = "<group>"; };
+		8A03780A16BFCD2F0096C448 /* GBToolbox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GBToolbox.m; sourceTree = "<group>"; };
 		8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBToolboxUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0C4E35165FA60C00A990FB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		8A0C4E3B165FA60C00A990FB /* GBToolboxUnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GBToolboxUnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -56,9 +70,6 @@
 		8A0C4E42165FA60C00A990FB /* GBToolboxUnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBToolboxUnitTests-Prefix.pch"; sourceTree = "<group>"; };
 		8AD911B1162D9E2200C9D287 /* libGBToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGBToolbox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD911B4162D9E2200C9D287 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8AD911B8162D9E2200C9D287 /* GBToolbox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBToolbox-Prefix.pch"; sourceTree = "<group>"; };
-		8AD911B9162D9E2200C9D287 /* GBToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBToolbox.h; sourceTree = "<group>"; };
-		8AD911BB162D9E2200C9D287 /* GBToolbox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GBToolbox.m; sourceTree = "<group>"; };
 		8AD911C2162D9EBC00C9D287 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8AD911C4162D9EE000C9D287 /* GBMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBMacros.h; sourceTree = "<group>"; };
 		8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -66,6 +77,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8A0377F716BFCD2F0096C448 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A0377FD16BFCD2F0096C448 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8A0C4E30165FA60C00A990FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -93,6 +112,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A0377FE16BFCD2F0096C448 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A0377FF16BFCD2F0096C448 /* AppKit.framework */,
+				8A03780016BFCD2F0096C448 /* CoreData.framework */,
+				8A03780116BFCD2F0096C448 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		8A03780216BFCD2F0096C448 /* GBToolbox */ = {
+			isa = PBXGroup;
+			children = (
+				8AD911C4162D9EE000C9D287 /* GBMacros.h */,
+				8A03780916BFCD2F0096C448 /* GBToolbox.h */,
+				8A03780A16BFCD2F0096C448 /* GBToolbox.m */,
+				8A03780316BFCD2F0096C448 /* Supporting Files */,
+			);
+			path = GBToolbox;
+			sourceTree = "<group>";
+		};
+		8A03780316BFCD2F0096C448 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8A03780416BFCD2F0096C448 /* GBToolbox-Info.plist */,
+				8A03780516BFCD2F0096C448 /* InfoPlist.strings */,
+				8A03780816BFCD2F0096C448 /* GBToolbox-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		8A0C4E39165FA60C00A990FB /* GBToolboxUnitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,8 +166,8 @@
 		8AD911A6162D9E2200C9D287 = {
 			isa = PBXGroup;
 			children = (
-				8AD911B6162D9E2200C9D287 /* GBToolbox */,
 				8A0C4E39165FA60C00A990FB /* GBToolboxUnitTests */,
+				8A03780216BFCD2F0096C448 /* GBToolbox */,
 				8AD911B3162D9E2200C9D287 /* Frameworks */,
 				8AD911B2162D9E2200C9D287 /* Products */,
 			);
@@ -128,6 +178,7 @@
 			children = (
 				8AD911B1162D9E2200C9D287 /* libGBToolbox.a */,
 				8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests.octest */,
+				8A0377FB16BFCD2F0096C448 /* GBToolbox.framework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,32 +191,45 @@
 				8AD911C2162D9EBC00C9D287 /* UIKit.framework */,
 				8AD911B4162D9E2200C9D287 /* Foundation.framework */,
 				8A0C4E35165FA60C00A990FB /* SenTestingKit.framework */,
+				8A0377FC16BFCD2F0096C448 /* Cocoa.framework */,
+				8A0377FE16BFCD2F0096C448 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8AD911B6162D9E2200C9D287 /* GBToolbox */ = {
-			isa = PBXGroup;
-			children = (
-				8AD911C4162D9EE000C9D287 /* GBMacros.h */,
-				8AD911B9162D9E2200C9D287 /* GBToolbox.h */,
-				8AD911BB162D9E2200C9D287 /* GBToolbox.m */,
-				8AD911B7162D9E2200C9D287 /* Supporting Files */,
-			);
-			path = GBToolbox;
-			sourceTree = "<group>";
-		};
-		8AD911B7162D9E2200C9D287 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8AD911B8162D9E2200C9D287 /* GBToolbox-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		8A0377F816BFCD2F0096C448 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A03780F16BFCE110096C448 /* GBMacros.h in Headers */,
+				8A03781116BFCE190096C448 /* GBToolbox.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		8A0377FA16BFCD2F0096C448 /* GBToolbox.framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A03780C16BFCD2F0096C448 /* Build configuration list for PBXNativeTarget "GBToolbox.framework" */;
+			buildPhases = (
+				8A0377F616BFCD2F0096C448 /* Sources */,
+				8A0377F716BFCD2F0096C448 /* Frameworks */,
+				8A0377F816BFCD2F0096C448 /* Headers */,
+				8A0377F916BFCD2F0096C448 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GBToolbox.framework;
+			productName = GBToolbox;
+			productReference = 8A0377FB16BFCD2F0096C448 /* GBToolbox.framework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		8A0C4E33165FA60C00A990FB /* GBToolboxUnitTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A0C4E45165FA60C00A990FB /* Build configuration list for PBXNativeTarget "GBToolboxUnitTests" */;
@@ -185,9 +249,9 @@
 			productReference = 8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		8AD911B0162D9E2200C9D287 /* GBToolbox */ = {
+		8AD911B0162D9E2200C9D287 /* libGBToolbox.a */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8AD911BF162D9E2200C9D287 /* Build configuration list for PBXNativeTarget "GBToolbox" */;
+			buildConfigurationList = 8AD911BF162D9E2200C9D287 /* Build configuration list for PBXNativeTarget "libGBToolbox.a" */;
 			buildPhases = (
 				8AD911AD162D9E2200C9D287 /* Sources */,
 				8AD911AE162D9E2200C9D287 /* Frameworks */,
@@ -197,7 +261,7 @@
 			);
 			dependencies = (
 			);
-			name = GBToolbox;
+			name = libGBToolbox.a;
 			productName = GBToolbox;
 			productReference = 8AD911B1162D9E2200C9D287 /* libGBToolbox.a */;
 			productType = "com.apple.product-type.library.static";
@@ -223,13 +287,22 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8AD911B0162D9E2200C9D287 /* GBToolbox */,
+				8AD911B0162D9E2200C9D287 /* libGBToolbox.a */,
 				8A0C4E33165FA60C00A990FB /* GBToolboxUnitTests */,
+				8A0377FA16BFCD2F0096C448 /* GBToolbox.framework */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8A0377F916BFCD2F0096C448 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A03780716BFCD2F0096C448 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8A0C4E31165FA60C00A990FB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -257,11 +330,20 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8A0377F616BFCD2F0096C448 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A03780B16BFCD2F0096C448 /* GBToolbox.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8A0C4E2F165FA60C00A990FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8A0C4E41165FA60C00A990FB /* GBToolboxUnitTests.m in Sources */,
+				8A03781316BFCE210096C448 /* GBToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AD911BC162D9E2200C9D287 /* GBToolbox.m in Sources */,
+				8A03781216BFCE210096C448 /* GBToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,12 +360,20 @@
 /* Begin PBXTargetDependency section */
 		8A0C4E48165FA62900A990FB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8AD911B0162D9E2200C9D287 /* GBToolbox */;
+			target = 8AD911B0162D9E2200C9D287 /* libGBToolbox.a */;
 			targetProxy = 8A0C4E47165FA62900A990FB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8A03780516BFCD2F0096C448 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A03780616BFCD2F0096C448 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		8A0C4E3C165FA60C00A990FB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -295,6 +385,67 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8A03780D16BFCD2F0096C448 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GBToolbox/GBToolbox-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"IPHONE=0",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "GBToolbox/GBToolbox-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		8A03780E16BFCD2F0096C448 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GBToolbox/GBToolbox-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "IPHONE=0";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "GBToolbox/GBToolbox-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
 		8A0C4E43165FA60C00A990FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -380,6 +531,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -393,9 +545,13 @@
 				DSTROOT = /tmp/GBToolbox.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GBToolbox/GBToolbox-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"IPHONE=1",
+				);
 				HEADER_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GBToolbox;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -407,9 +563,10 @@
 				DSTROOT = /tmp/GBToolbox.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GBToolbox/GBToolbox-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "IPHONE=1";
 				HEADER_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GBToolbox;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -417,6 +574,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8A03780C16BFCD2F0096C448 /* Build configuration list for PBXNativeTarget "GBToolbox.framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A03780D16BFCD2F0096C448 /* Debug */,
+				8A03780E16BFCD2F0096C448 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		8A0C4E45165FA60C00A990FB /* Build configuration list for PBXNativeTarget "GBToolboxUnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -435,7 +600,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8AD911BF162D9E2200C9D287 /* Build configuration list for PBXNativeTarget "GBToolbox" */ = {
+		8AD911BF162D9E2200C9D287 /* Build configuration list for PBXNativeTarget "libGBToolbox.a" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8AD911C0162D9E2200C9D287 /* Debug */,
