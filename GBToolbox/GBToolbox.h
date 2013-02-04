@@ -124,6 +124,17 @@ BOOL OddUInteger(NSUInteger number);
 @end
 
 
+#pragma mark - NSImage Category
+
+#if !IPHONE
+@interface NSImage(GBToolbox)
+
+-(void)saveAsJpegWithName:(NSString *)fileName;
+
+@end
+#endif
+
+
 #pragma mark - String Category
 
 @interface NSString (GBToolbox)

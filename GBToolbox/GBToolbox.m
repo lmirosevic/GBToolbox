@@ -256,6 +256,22 @@ BOOL OddUInteger(NSUInteger number) {
 @end
 
 
+#pragma mark - NSImage category
+
+#if !IPHONE
+@implementation NSImage(GBToolbox)
+
+-(void)saveAsJpegWithName:(NSString*)fileName {
+    NSData *imageData = [self TIFFRepresentation];
+    NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData:imageData];
+    NSDictionary *imageProps = [NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:1.0] forKey:NSImageCompressionFactor];
+    imageData = [imageRep representationUsingType:NSJPEGFileType properties:imageProps];
+    [imageData writeToFile:fileName atomically:NO];
+}
+
+@end
+#endif
+
 #pragma mark - String category
 
 @implementation NSString (NSString_GBUtil)

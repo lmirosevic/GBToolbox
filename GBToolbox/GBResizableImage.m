@@ -43,14 +43,17 @@ GBCapInsets GBCapInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat r
 }
 
 -(void)setImage:(NSImage *)image {
-    l(@"set image");
-    [self _generateFragmentImages];
+    l(@"set iamge");
     
+    _image = image;
+    
+    [self _generateFragmentImages];
     [self setNeedsDisplay:YES];
 }
 
 -(void)setCapInsets:(GBCapInsets)capInsets {
     l(@"set capinsets");
+    
     _capInsets = capInsets;
 
     [self _generateFragmentImages];
@@ -63,14 +66,23 @@ GBCapInsets GBCapInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat r
     l(@"drawrect");
     
     NSDrawNinePartImage([self bounds], self.topLeftCornerImage, self.topEdgeFillImage, self.topRightCornerImage, self.leftEdgeFillImage, self.centerFillImage, self.rightEdgeFillImage, self.bottomLeftCornerImage, self.bottomEdgeFillImage, self.bottomRightCornerImage, NSCompositeSourceOver, 1.0, NO);
-    
-//    [self.centerFillImage drawInRect:dirtyRect fromRect:(CGRectMake(0, 0, self.centerFillImage.size.width, self.centerFillImage.size.height)) operation:NSCompositeCopy fraction:1.0];
-    
-//    [[NSColor blueColor] setFill];
-//    NSRectFill( dirtyRect );
 }
 
 #pragma mark - private
+
+//static NSImage *croppedImageWithRect(NSImage *image, NSRect rect) {//foo test
+//    NSImage *subImage = [[NSImage alloc] initWithSize:rect.size];
+//    NSRect drawRect = NSZeroRect;
+//    drawRect.size = rect.size;
+//    [subImage lockFocus];
+//    [image drawInRect:drawRect
+//             fromRect:rect
+//            operation:NSCompositeSourceOver
+//             fraction:1.0f];
+//    [subImage unlockFocus];
+//    return subImage;
+//}
+
 
 -(void)_generateFragmentImages {
     {
@@ -83,6 +95,9 @@ GBCapInsets GBCapInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat r
             [self.image drawInRect:targetRect fromRect:sourceRect operation:NSCompositeCopy fraction:1.0];
             [targetFragment unlockFocus];
             self.topLeftCornerImage = targetFragment;
+            
+            l(@"target rect: %f %f %f %f", targetRect.origin.x, targetRect.origin.y, targetRect.size.width, targetRect.size.height);
+            [self.topLeftCornerImage saveAsJpegWithName:@"/Users/lm/Desktop/image.jpg"];
         }
     }
     
@@ -138,8 +153,8 @@ GBCapInsets GBCapInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat r
 	        NSImage *targetFragment = [[NSImage alloc] initWithSize:targetRect.size];
 	        [targetFragment lockFocus];
 	        [self.image drawInRect:targetRect fromRect:sourceRect operation:NSCompositeCopy fraction:1.0];
-	        self.centerFillImage = targetFragment;
 	        [targetFragment unlockFocus];
+            self.centerFillImage = targetFragment;
         }
     }
     
