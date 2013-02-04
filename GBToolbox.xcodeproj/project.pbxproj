@@ -26,6 +26,8 @@
 		8AF6878616B8057400FEF6A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
 		8AF6878716B8057C00FEF6A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
 		8AF6878816B8057C00FEF6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */; };
+		8AF8C6B216C00083005A5511 /* GBResizableImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF8C6B016C00083005A5511 /* GBResizableImage.h */; };
+		8AF8C6B416C00083005A5511 /* GBResizableImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C6B116C00083005A5511 /* GBResizableImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8A0377FB16BFCD2F0096C448 /* GBToolbox.framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GBToolbox.framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A0377FB16BFCD2F0096C448 /* GBToolbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GBToolbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0377FC16BFCD2F0096C448 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		8A0377FF16BFCD2F0096C448 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		8A03780016BFCD2F0096C448 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -74,6 +76,8 @@
 		8AD911C4162D9EE000C9D287 /* GBMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBMacros.h; sourceTree = "<group>"; };
 		8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8AF6878516B8057400FEF6A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8AF8C6B016C00083005A5511 /* GBResizableImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBResizableImage.h; sourceTree = "<group>"; };
+		8AF8C6B116C00083005A5511 /* GBResizableImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBResizableImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 				8AD911C4162D9EE000C9D287 /* GBMacros.h */,
 				8A03780916BFCD2F0096C448 /* GBToolbox.h */,
 				8A03780A16BFCD2F0096C448 /* GBToolbox.m */,
+				8AF8C6B016C00083005A5511 /* GBResizableImage.h */,
+				8AF8C6B116C00083005A5511 /* GBResizableImage.m */,
 				8A03780316BFCD2F0096C448 /* Supporting Files */,
 			);
 			path = GBToolbox;
@@ -178,7 +184,7 @@
 			children = (
 				8AD911B1162D9E2200C9D287 /* libGBToolbox.a */,
 				8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests.octest */,
-				8A0377FB16BFCD2F0096C448 /* GBToolbox.framework.framework */,
+				8A0377FB16BFCD2F0096C448 /* GBToolbox.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,6 +212,7 @@
 			files = (
 				8A03780F16BFCE110096C448 /* GBMacros.h in Headers */,
 				8A03781116BFCE190096C448 /* GBToolbox.h in Headers */,
+				8AF8C6B216C00083005A5511 /* GBResizableImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +234,7 @@
 			);
 			name = GBToolbox.framework;
 			productName = GBToolbox;
-			productReference = 8A0377FB16BFCD2F0096C448 /* GBToolbox.framework.framework */;
+			productReference = 8A0377FB16BFCD2F0096C448 /* GBToolbox.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8A0C4E33165FA60C00A990FB /* GBToolboxUnitTests */ = {
@@ -335,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A03780B16BFCD2F0096C448 /* GBToolbox.m in Sources */,
+				8AF8C6B416C00083005A5511 /* GBResizableImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +418,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				INFOPLIST_FILE = "GBToolbox/GBToolbox-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GBToolbox;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -440,7 +448,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				INFOPLIST_FILE = "GBToolbox/GBToolbox-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GBToolbox;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -581,6 +589,7 @@
 				8A03780E16BFCD2F0096C448 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8A0C4E45165FA60C00A990FB /* Build configuration list for PBXNativeTarget "GBToolboxUnitTests" */ = {
 			isa = XCConfigurationList;

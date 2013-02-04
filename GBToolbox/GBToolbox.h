@@ -29,9 +29,18 @@
 
 #import "GBMacros.h"
 
+#if IPHONE
+//iphone specific imports
+#else
+#import "GBResizableImage.h"
+#endif
+
 @interface GBToolbox : NSObject
 
 #pragma mark - Math
+
+// Graphics
+BOOL IsNonZeroSize(CGSize size);
 
 // threshold
 CGFloat ThresholdFloat(CGFloat value, CGFloat min, CGFloat max);

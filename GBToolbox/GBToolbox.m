@@ -22,6 +22,11 @@
 @implementation GBToolbox
 
 #pragma mark - Math
+// Graphics
+BOOL IsNonZeroSize(CGSize size) {
+    return ((size.width != 0) && (size.height != 0));
+}
+
 // threshold
 CGFloat ThresholdFloat(CGFloat value, CGFloat min, CGFloat max) {
     if (value < min) {
