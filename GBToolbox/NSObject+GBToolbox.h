@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Luka Mirosevic. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>//foo not sure abt this
+#import <Foundation/Foundation.h>
 
 @interface NSObject (GBToolbox)
 
