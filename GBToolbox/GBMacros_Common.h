@@ -36,6 +36,7 @@
 
 //Debugging
 #define _b(expression) expression ? @"YES" : @"NO"
+#define _lr(rect) l(@"rect: %f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
 
 //Strings
 #define IsEmptyString(string) ((![string isKindOfClass:[NSString class]] || (string == nil) || ([string isEqualToString:@""])) ? YES : NO)
