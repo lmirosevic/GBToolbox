@@ -52,6 +52,7 @@
 #import "GBUtility_OSX.h"
 #import "GBResizableImageView.h"
 #import "NSImage+GBToolbox.h"
+#import "NSView+GBToolbox.h"
 
 #endif
 
