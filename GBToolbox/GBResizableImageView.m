@@ -62,20 +62,6 @@ GBCapInsets GBCapInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat r
 
 #pragma mark - private
 
-//static NSImage *croppedImageWithRect(NSImage *image, NSRect rect) {//foo test
-//    NSImage *subImage = [[NSImage alloc] initWithSize:rect.size];
-//    NSRect drawRect = NSZeroRect;
-//    drawRect.size = rect.size;
-//    [subImage lockFocus];
-//    [image drawInRect:drawRect
-//             fromRect:rect
-//            operation:NSCompositeSourceOver
-//             fraction:1.0f];
-//    [subImage unlockFocus];
-//    return subImage;
-//}
-
-
 -(void)_generateFragmentImages {
     {
         CGRect targetRect = CGRectMake(0, 0, self.capInsets.left, self.capInsets.top);
