@@ -8,8 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "GBMacros.h"
-
 typedef struct {
     CGFloat top;
     CGFloat left;
