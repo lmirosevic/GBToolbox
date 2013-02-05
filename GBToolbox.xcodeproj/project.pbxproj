@@ -26,8 +26,8 @@
 		8AF6878616B8057400FEF6A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
 		8AF6878716B8057C00FEF6A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
 		8AF6878816B8057C00FEF6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */; };
-		8AF8C6B216C00083005A5511 /* GBResizableImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF8C6B016C00083005A5511 /* GBResizableImage.h */; };
-		8AF8C6B416C00083005A5511 /* GBResizableImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C6B116C00083005A5511 /* GBResizableImage.m */; };
+		8AF8C6B216C00083005A5511 /* GBResizableImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF8C6B016C00083005A5511 /* GBResizableImageView.h */; };
+		8AF8C6B416C00083005A5511 /* GBResizableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C6B116C00083005A5511 /* GBResizableImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +76,8 @@
 		8AD911C4162D9EE000C9D287 /* GBMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBMacros.h; sourceTree = "<group>"; };
 		8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8AF6878516B8057400FEF6A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		8AF8C6B016C00083005A5511 /* GBResizableImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBResizableImage.h; sourceTree = "<group>"; };
-		8AF8C6B116C00083005A5511 /* GBResizableImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBResizableImage.m; sourceTree = "<group>"; };
+		8AF8C6B016C00083005A5511 /* GBResizableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBResizableImageView.h; sourceTree = "<group>"; };
+		8AF8C6B116C00083005A5511 /* GBResizableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBResizableImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +132,8 @@
 				8AD911C4162D9EE000C9D287 /* GBMacros.h */,
 				8A03780916BFCD2F0096C448 /* GBToolbox.h */,
 				8A03780A16BFCD2F0096C448 /* GBToolbox.m */,
-				8AF8C6B016C00083005A5511 /* GBResizableImage.h */,
-				8AF8C6B116C00083005A5511 /* GBResizableImage.m */,
+				8AF8C6B016C00083005A5511 /* GBResizableImageView.h */,
+				8AF8C6B116C00083005A5511 /* GBResizableImageView.m */,
 				8A03780316BFCD2F0096C448 /* Supporting Files */,
 			);
 			path = GBToolbox;
@@ -212,7 +212,7 @@
 			files = (
 				8A03780F16BFCE110096C448 /* GBMacros.h in Headers */,
 				8A03781116BFCE190096C448 /* GBToolbox.h in Headers */,
-				8AF8C6B216C00083005A5511 /* GBResizableImage.h in Headers */,
+				8AF8C6B216C00083005A5511 /* GBResizableImageView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A03780B16BFCD2F0096C448 /* GBToolbox.m in Sources */,
-				8AF8C6B416C00083005A5511 /* GBResizableImage.m in Sources */,
+				8AF8C6B416C00083005A5511 /* GBResizableImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,7 @@ typedef struct {
 } GBCapInsets;
 
 
-@interface GBResizableImageView : NSView
+@interface GBResizableImageView : NSImageView
 
 @property (strong, nonatomic) NSImage           *image;
 @property (assign, nonatomic) GBCapInsets       capInsets;

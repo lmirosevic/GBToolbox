@@ -32,7 +32,7 @@
 #if IPHONE
 //iphone specific imports
 #else
-#import "GBResizableImage.h"
+#import "GBResizableImageView.h"
 #endif
 
 @interface GBToolbox : NSObject
