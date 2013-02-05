@@ -40,6 +40,8 @@
 		8ACE944416C11C6E00527E0D /* GBUtility_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ACE944216C11C6E00527E0D /* GBUtility_Common.h */; };
 		8ACE944516C11C6E00527E0D /* GBUtility_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE944316C11C6E00527E0D /* GBUtility_Common.m */; };
 		8ACE944616C11C6E00527E0D /* GBUtility_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE944316C11C6E00527E0D /* GBUtility_Common.m */; };
+		8ACE94F116C12CC500527E0D /* NSView+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ACE94EF16C12CC400527E0D /* NSView+GBToolbox.h */; };
+		8ACE94F216C12CC500527E0D /* NSView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE94F016C12CC400527E0D /* NSView+GBToolbox.m */; };
 		8AD911B5162D9E2200C9D287 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B4162D9E2200C9D287 /* Foundation.framework */; };
 		8AD911C3162D9EBC00C9D287 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911C2162D9EBC00C9D287 /* UIKit.framework */; };
 		8AF6878416B8057000FEF6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */; };
@@ -113,6 +115,8 @@
 		8ACE944316C11C6E00527E0D /* GBUtility_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBUtility_Common.m; sourceTree = "<group>"; };
 		8ACE944916C11FE900527E0D /* GBMacros_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBMacros_iOS.h; sourceTree = "<group>"; };
 		8ACE944A16C11FF700527E0D /* GBMacros_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBMacros_OSX.h; sourceTree = "<group>"; };
+		8ACE94EF16C12CC400527E0D /* NSView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+GBToolbox.h"; sourceTree = "<group>"; };
+		8ACE94F016C12CC400527E0D /* NSView+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+GBToolbox.m"; sourceTree = "<group>"; };
 		8AD911B1162D9E2200C9D287 /* libGBToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGBToolbox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD911B4162D9E2200C9D287 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8AD911C2162D9EBC00C9D287 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -250,6 +254,8 @@
 				8ACE943316C11B4C00527E0D /* NSString+GBToolbox.m */,
 				8ACE943716C11B7700527E0D /* NSImage+GBToolbox.h */,
 				8ACE943816C11B7700527E0D /* NSImage+GBToolbox.m */,
+				8ACE94EF16C12CC400527E0D /* NSView+GBToolbox.h */,
+				8ACE94F016C12CC400527E0D /* NSView+GBToolbox.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -326,6 +332,7 @@
 				8ACE943916C11B7700527E0D /* NSImage+GBToolbox.h in Headers */,
 				8ACE944016C11C5B00527E0D /* GBUtility_OSX.h in Headers */,
 				8ACE944416C11C6E00527E0D /* GBUtility_Common.h in Headers */,
+				8ACE94F116C12CC500527E0D /* NSView+GBToolbox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +469,7 @@
 				8ACE943A16C11B7700527E0D /* NSImage+GBToolbox.m in Sources */,
 				8ACE944116C11C5B00527E0D /* GBUtility_OSX.m in Sources */,
 				8ACE944616C11C6E00527E0D /* GBUtility_Common.m in Sources */,
+				8ACE94F216C12CC500527E0D /* NSView+GBToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
