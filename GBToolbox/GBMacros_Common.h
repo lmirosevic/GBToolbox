@@ -36,7 +36,10 @@
 
 //Debugging
 #define _b(expression) expression ? @"YES" : @"NO"
-#define _lr(rect) l(@"rect: %f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+#define _lr(rect) l(@"Rect: %f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+#define _lf(floating) l(@"Floating: %f", floating);
+#define _ld(integral) l(@"Integral: %f", integral);
+#define _ls(string) l(@"String: %@", string);
 
 //Strings
 #define IsEmptyString(string) ((![string isKindOfClass:[NSString class]] || (string == nil) || ([string isEqualToString:@""])) ? YES : NO)
