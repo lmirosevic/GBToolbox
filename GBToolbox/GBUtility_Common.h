@@ -17,7 +17,8 @@ BOOL IsNonZeroSize(CGSize size);
 
 #pragma mark - Thresholding
 
-CGFloat ThresholdFloat(CGFloat value, CGFloat min, CGFloat max);
+CGFloat ThresholdCGFloat(CGFloat value, CGFloat min, CGFloat max);
+float ThresholdFloat(float value, float min, float max);
 double ThresholdDouble(double value, double min, double max);
 int ThresholdInt(int value, int min, int max);
 

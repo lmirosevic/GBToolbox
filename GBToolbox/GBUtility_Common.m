@@ -18,7 +18,19 @@ BOOL IsNonZeroSize(CGSize size) {
 
 #pragma mark - Thresholding
 
-CGFloat ThresholdFloat(CGFloat value, CGFloat min, CGFloat max) {
+CGFloat ThresholdCGFloat(CGFloat value, CGFloat min, CGFloat max) {
+    if (value < min) {
+        return min;
+    }
+    else if (value > max) {
+        return max;
+    }
+    else {
+        return value;
+    }
+}
+
+float ThresholdFloat(float value, float min, float max) {
     if (value < min) {
         return min;
     }
