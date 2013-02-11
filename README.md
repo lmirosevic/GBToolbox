@@ -1,7 +1,7 @@
 GBToolbox
 ============
 
-Goonbee's iOS development toolbox
+Goonbee's iOS & Mac development toolbox
 
 Categories
 ------------
@@ -41,12 +41,17 @@ Macros
 Feature list
 ------------
 
-Look inside GBMacros.h and GBToolbox.h
+Look inside header files.
 
 Dependencies
 ------------
 
-System Frameworks (link them in superproject):
+iOS System Frameworks (link them in superproject):
+
+* CoreGraphics
+* QuartzCore
+
+OS X System Frameworks (link them in superproject):
 
 * CoreGraphics
 * QuartzCore
