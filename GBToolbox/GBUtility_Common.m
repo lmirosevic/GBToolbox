@@ -8,6 +8,8 @@
 
 #import "GBUtility_Common.h"
 
+#import <objc/runtime.h>
+
 @implementation GBToolbox
 
 #pragma mark - Graphics
@@ -229,6 +231,12 @@ BOOL OddInteger(NSInteger number) {
 
 BOOL OddUInteger(NSUInteger number) {
     return !EvenUInteger(number);
+}
+
+#pragma mark - Method Swizzling
+
+void SwizzleInstanceMethods(Class aClass, SEL originalSelector, SEL newSelector) {
+    method_exchangeImplementations(class_getInstanceMethod(aClass, originalSelector), class_getInstanceMethod(aClass, newSelector));
 }
 
 @end

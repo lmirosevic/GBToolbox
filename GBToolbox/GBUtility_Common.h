@@ -85,4 +85,8 @@ BOOL OddUInt(uint number);
 BOOL OddInteger(NSInteger number);
 BOOL OddUInteger(NSUInteger number);
 
+#pragma mark - Method Swizzling
+
+void SwizzleInstanceMethods(Class aClass, SEL originalSelector, SEL newSelector);
+
 @end
