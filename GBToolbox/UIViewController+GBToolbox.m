@@ -10,6 +10,8 @@
 
 #import <objc/runtime.h>
 
+#import "GBUtility_Common.h"
+
 @implementation UIViewController (GBToolbox)
 
 //returns YES when the view controller is visible
@@ -36,8 +38,8 @@ static char gbIsVisibleKey;
 }
 
 +(void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(viewWillAppear:)), class_getInstanceMethod(self, @selector(_SwizzViewWillAppear:)));
-    method_exchangeImplementations(class_getInstanceMethod(self, @selector(viewDidDisappear:)), class_getInstanceMethod(self, @selector(_SwizzViewDidDisappear:)));
+    SwizzleInstanceMethods(self, @selector(viewWillAppear:), @selector(_SwizzViewWillAppear:));
+    SwizzleInstanceMethods(self, @selector(viewDidDisappear:), @selector(_SwizzViewDidDisappear:));
 }
 
 @end
