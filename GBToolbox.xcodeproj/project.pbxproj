@@ -48,6 +48,8 @@
 		8ACE94F216C12CC500527E0D /* NSView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE94F016C12CC400527E0D /* NSView+GBToolbox.m */; };
 		8AD911B5162D9E2200C9D287 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B4162D9E2200C9D287 /* Foundation.framework */; };
 		8AD911C3162D9EBC00C9D287 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911C2162D9EBC00C9D287 /* UIKit.framework */; };
+		8AE8348016C941BC00546249 /* GBRadialGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AE8347E16C941BC00546249 /* GBRadialGradientView.h */; };
+		8AE8348116C941BC00546249 /* GBRadialGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8347F16C941BC00546249 /* GBRadialGradientView.m */; };
 		8AF6878416B8057000FEF6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */; };
 		8AF6878616B8057400FEF6A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
 		8AF6878716B8057C00FEF6A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
@@ -127,6 +129,11 @@
 		8AD911B4162D9E2200C9D287 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8AD911C2162D9EBC00C9D287 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8AD911C4162D9EE000C9D287 /* GBMacros_Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBMacros_Common.h; sourceTree = "<group>"; };
+		8AE8347E16C941BC00546249 /* GBRadialGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBRadialGradientView.h; sourceTree = "<group>"; };
+		8AE8347F16C941BC00546249 /* GBRadialGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBRadialGradientView.m; sourceTree = "<group>"; };
+		8AE8348716C9494A00546249 /* GBTypes_Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBTypes_Common.h; sourceTree = "<group>"; };
+		8AE8348816C9495100546249 /* GBTypes_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBTypes_iOS.h; sourceTree = "<group>"; };
+		8AE8348916C9495800546249 /* GBTypes_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBTypes_OSX.h; sourceTree = "<group>"; };
 		8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8AF6878516B8057400FEF6A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8AF8C6B016C00083005A5511 /* GBResizableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBResizableImageView.h; sourceTree = "<group>"; };
@@ -184,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				8ACE944716C11E1F00527E0D /* Header */,
+				8AE8348216C948F600546249 /* Types */,
 				8ACE941316C1193A00527E0D /* Macros */,
 				8ACE944816C11E3E00527E0D /* Utility */,
 				8ACE941216C1192E00527E0D /* Classes */,
@@ -228,6 +236,8 @@
 			children = (
 				8AF8C6B016C00083005A5511 /* GBResizableImageView.h */,
 				8AF8C6B116C00083005A5511 /* GBResizableImageView.m */,
+				8AE8347E16C941BC00546249 /* GBRadialGradientView.h */,
+				8AE8347F16C941BC00546249 /* GBRadialGradientView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -324,6 +334,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8AE8348216C948F600546249 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				8AE8348716C9494A00546249 /* GBTypes_Common.h */,
+				8AE8348816C9495100546249 /* GBTypes_iOS.h */,
+				8AE8348916C9495800546249 /* GBTypes_OSX.h */,
+			);
+			name = Types;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -343,6 +363,7 @@
 				8ACE944416C11C6E00527E0D /* GBUtility_Common.h in Headers */,
 				8ACE94F116C12CC500527E0D /* NSView+GBToolbox.h in Headers */,
 				8A27D5FD16C8F3AA0071AE31 /* CALayer+GBToolbox.h in Headers */,
+				8AE8348016C941BC00546249 /* GBRadialGradientView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +502,7 @@
 				8ACE944616C11C6E00527E0D /* GBUtility_Common.m in Sources */,
 				8ACE94F216C12CC500527E0D /* NSView+GBToolbox.m in Sources */,
 				8A27D5FE16C8F3AA0071AE31 /* CALayer+GBToolbox.m in Sources */,
+				8AE8348116C941BC00546249 /* GBRadialGradientView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

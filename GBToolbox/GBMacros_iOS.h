@@ -10,10 +10,6 @@
 #define GBToolbox_GBMacros_iOS_h
 
 //Universal app device detection
-typedef enum {
-    Phone,
-    Pad
-} GBDevice;
 #define _d ((UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone) ? Phone : Pad)
 
 //View controller instantiation
@@ -27,10 +23,6 @@ typedef enum {
 #define vcsb(storyboardID, storyboardName) [[UIStoryboard storyboardWithName:sb(storyboardName) bundle:nil] instantiateViewControllerWithIdentifier:storyboardID]
 
 //Rotation
-typedef enum {
-    Portrait,
-    Landscape
-} GBOrientation;
 #define o (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]) ? Portrait : Landscape)
 
 #endif

@@ -6,7 +6,8 @@
 //  Copyright (c) 2013 Luka Mirosevic. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "GBTypes_Common.h"
+#import "GBTypes_iOS.h"
 
 #import "GBUtility_Common.h"
 

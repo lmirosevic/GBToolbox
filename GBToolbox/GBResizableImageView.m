@@ -8,8 +8,6 @@
 
 #import "GBResizableImageView.h"
 
-#import "GBToolbox.h"
-
 @interface GBResizableImageView ()
 
 @property (strong, nonatomic) NSImage *topLeftCornerImage;
@@ -29,17 +27,6 @@
 
 #pragma mark - public api
 
-GBCapInsets GBCapInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right) {
-    GBCapInsets capInsets;
-    
-    capInsets.top = top;
-    capInsets.left = left;
-    capInsets.bottom = bottom;
-    capInsets.right = right;
-    
-    return capInsets;
-}
-
 -(void)setImage:(NSImage *)image {
     _image = image;
     
@@ -47,7 +34,7 @@ GBCapInsets GBCapInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat r
     [self setNeedsDisplay:YES];
 }
 
--(void)setCapInsets:(GBCapInsets)capInsets {
+-(void)setCapInsets:(GBEdgeInsets)capInsets {
     _capInsets = capInsets;
 
     [self _generateFragmentImages];

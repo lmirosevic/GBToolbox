@@ -8,19 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-typedef struct {
-    CGFloat top;
-    CGFloat left;
-    CGFloat bottom;
-    CGFloat right;
-} GBCapInsets;
-
+#import "GBToolbox.h"
 
 @interface GBResizableImageView : NSImageView
 
 @property (strong, nonatomic) NSImage           *image;
-@property (assign, nonatomic) GBCapInsets       capInsets;
-
-GBCapInsets GBCapInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right);
+@property (assign, nonatomic) GBEdgeInsets      capInsets;
 
 @end

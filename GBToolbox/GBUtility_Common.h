@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 Luka Mirosevic. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreGraphics/CoreGraphics.h>
+#import "GBTypes_Common.h"
 
 @interface GBToolbox : NSObject
 
@@ -29,11 +28,6 @@ CGFloat RadiansToDegrees(CGFloat radians);
 
 #pragma mark - Range
 
-typedef struct {
-    CGFloat min;
-    CGFloat max;
-} GBRange;
-
 GBRange GBRangeMake(CGFloat min, CGFloat max);
 
 #pragma mark - Easing
@@ -43,20 +37,10 @@ double EaseOutQuadratic(double frame, double start, double delta, double totalFr
 
 #pragma mark - Linear algebra
 
-typedef struct {
-    CGFloat x;
-    CGFloat y;
-} GBVector2D;
-
 CGFloat ScalarAbsolute(CGFloat value);
 CGFloat Vector2DMagnitude(GBVector2D vector);
 
 #pragma mark - Matrix grid
-
-typedef struct {
-    NSUInteger rows;
-    NSUInteger columns;
-} GBMatrixGrid;
 
 GBMatrixGrid GBMatrixGridMake(NSUInteger rows, NSUInteger columns);
 +(GBMatrixGrid)prettyMatrixGridLandscapeForCount:(NSUInteger)count;

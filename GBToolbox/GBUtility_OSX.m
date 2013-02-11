@@ -10,4 +10,15 @@
 
 @implementation GBToolbox (OSX)
 
+GBEdgeInsets GBEdgeInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right) {
+    GBEdgeInsets edgeInsets;
+    
+    edgeInsets.top = top;
+    edgeInsets.left = left;
+    edgeInsets.bottom = bottom;
+    edgeInsets.right = right;
+    
+    return edgeInsets;
+}
+
 @end
