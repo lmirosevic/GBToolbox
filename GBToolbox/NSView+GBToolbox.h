@@ -10,6 +10,10 @@
 
 @interface NSView (GBToolbox)
 
+//returns the view's frame in global coordinates
 @property (assign, nonatomic, readonly) NSRect globalFrame;
+
+//enumarate all subviews depth first
+-(void)enumerateSubviewsWithBlock:(void(^)(NSView *view))block;
 
 @end
