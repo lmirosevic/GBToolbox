@@ -38,7 +38,7 @@
 #define _b(expression) expression ? @"YES" : @"NO"
 #define _lr(rect) l(@"Rect: %f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
 #define _lf(floating) l(@"Floating: %f", floating);
-#define _ld(integral) l(@"Integral: %f", integral);
+#define _ld(integral) l(@"Integral: %d", integral);
 #define _ls(string) l(@"String: %@", string);
 #define _lo(object) l(@"Object: %@", object);
 #define _lb(boolean) l(@"Boolean: %@", _b(boolean));
