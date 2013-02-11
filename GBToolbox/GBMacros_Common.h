@@ -37,6 +37,7 @@
 //Debugging
 #define _b(expression) expression ? @"YES" : @"NO"
 #define _lr(rect) l(@"Rect: %f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+#define _lp(point) l(@"Point: %f %f", point.x, point.y);
 #define _lf(floating) l(@"Floating: %f", floating);
 #define _ld(integral) l(@"Integral: %d", integral);
 #define _ls(string) l(@"String: %@", string);
