@@ -21,8 +21,6 @@ typedef struct {
 @property (strong, nonatomic) NSImage           *image;
 @property (assign, nonatomic) GBCapInsets       capInsets;
 
-//- (void)setImage:(NSImage *)newImage;
-
 GBCapInsets GBCapInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right);
 
 @end
