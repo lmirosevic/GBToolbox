@@ -10,4 +10,7 @@
 
 @interface CALayer (GBToolbox)
 
+//enumarate all sublayers depth first
+-(void)enumerateSublayersWithBlock:(void(^)(CALayer *layer))block;
+
 @end

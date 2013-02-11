@@ -10,4 +10,14 @@
 
 @implementation CALayer (GBToolbox)
 
+-(void)enumerateSublayersWithBlock:(void(^)(CALayer *layer))block {
+    //itself
+    block(self);
+
+    //then all its subviews
+    for (CALayer *sublayer in self.sublayers) {
+        [sublayer enumerateSublayersWithBlock:block];
+    }
+}
+
 @end

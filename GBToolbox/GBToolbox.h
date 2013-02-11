@@ -29,6 +29,7 @@
 #import "NSTimer+GBToolbox.h"
 #import "NSData+GBToolbox.h"
 #import "NSString+GBToolbox.h"
+#import "CALayer+GBToolbox.h"
 
 
 /* iOS imports */
