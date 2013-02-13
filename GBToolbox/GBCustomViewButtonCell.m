@@ -10,6 +10,7 @@
 
 #import "GBToolbox.h"
 
+
 @interface GBCustomViewButtonCell ()
 
 @end
@@ -18,6 +19,20 @@
 @implementation GBCustomViewButtonCell
 
 #pragma mark - custom accessors
+
+-(void)setIsDarkened:(BOOL)isDarkened {
+    if (isDarkened) {
+        //apply filter
+        CIFilter *filter = [CIFilter filterWithName:@"CIGammaAdjust"];
+        [filter setDefaults];
+        [filter setValue:@(1.2) forKey:@"inputPower"];
+        self.backgroundView.contentFilters = @[filter];
+    }
+    else {
+        //hide darkness
+        self.backgroundView.contentFilters = nil;
+    }
+}
 
 //adds the background view as a subview to the controlView
 -(void)setBackgroundView:(NSView *)backgroundView {
@@ -34,10 +49,36 @@
     _backgroundView = backgroundView;
 }
 
--(void)setImage:(NSImage *)image {
-    [super setImage:image];
+#pragma mark - clicking
+
+-(BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)untilMouseUp {
+    if ([theEvent type] == NSLeftMouseDown) {
+        [self _mouseDown];
+        
+        NSEvent *myEvent;
+        while ((myEvent = [controlView.window nextEventMatchingMask:(NSLeftMouseDragged | NSLeftMouseUp)])) {
+            if ([myEvent type] == NSLeftMouseUp) {
+                [self _mouseUp];
+                
+                //perform click if mouse is inside
+                if ([self hitTestForEvent:myEvent inRect:cellFrame ofView:controlView]) {
+                    [self performClick:controlView];
+                }
+                
+                return YES;
+            }
+        }
+    }
     
-    l(@"set image");
+    return [super trackMouse:theEvent inRect:cellFrame ofView:controlView untilMouseUp:untilMouseUp];
+}
+
+-(void)_mouseDown {
+    self.isDarkened = YES;
+}
+
+-(void)_mouseUp {
+    self.isDarkened = NO;
 }
 
 #pragma mark - drawing

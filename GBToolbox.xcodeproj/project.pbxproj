@@ -25,6 +25,10 @@
 		8A8402B916CBBC070017157C /* GBCustomViewButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8402B716CBBC070017157C /* GBCustomViewButtonCell.m */; };
 		8A8402D216CBC4DB0017157C /* GBCustomImageButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A8402D016CBC4DB0017157C /* GBCustomImageButtonCell.h */; };
 		8A8402D316CBC4DB0017157C /* GBCustomImageButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8402D116CBC4DB0017157C /* GBCustomImageButtonCell.m */; };
+		8A8402DA16CBE1FA0017157C /* GBGlowingImageButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A8402D816CBE1FA0017157C /* GBGlowingImageButtonCell.h */; };
+		8A8402DB16CBE1FA0017157C /* GBGlowingImageButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8402D916CBE1FA0017157C /* GBGlowingImageButtonCell.m */; };
+		8A8402DE16CBE6490017157C /* GBSolidColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A8402DC16CBE6490017157C /* GBSolidColorView.h */; };
+		8A8402DF16CBE6490017157C /* GBSolidColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8402DD16CBE6490017157C /* GBSolidColorView.m */; };
 		8ACE941716C1198900527E0D /* NSObject+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ACE941516C1198900527E0D /* NSObject+GBToolbox.h */; };
 		8ACE941816C1198900527E0D /* NSObject+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */; };
 		8ACE941916C1198900527E0D /* NSObject+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */; };
@@ -107,6 +111,10 @@
 		8A8402B716CBBC070017157C /* GBCustomViewButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBCustomViewButtonCell.m; sourceTree = "<group>"; };
 		8A8402D016CBC4DB0017157C /* GBCustomImageButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBCustomImageButtonCell.h; sourceTree = "<group>"; };
 		8A8402D116CBC4DB0017157C /* GBCustomImageButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBCustomImageButtonCell.m; sourceTree = "<group>"; };
+		8A8402D816CBE1FA0017157C /* GBGlowingImageButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBGlowingImageButtonCell.h; sourceTree = "<group>"; };
+		8A8402D916CBE1FA0017157C /* GBGlowingImageButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBGlowingImageButtonCell.m; sourceTree = "<group>"; };
+		8A8402DC16CBE6490017157C /* GBSolidColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBSolidColorView.h; sourceTree = "<group>"; };
+		8A8402DD16CBE6490017157C /* GBSolidColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBSolidColorView.m; sourceTree = "<group>"; };
 		8ACE941516C1198900527E0D /* NSObject+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GBToolbox.h"; sourceTree = "<group>"; };
 		8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GBToolbox.m"; sourceTree = "<group>"; };
 		8ACE941A16C119D100527E0D /* UITableView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+GBToolbox.h"; sourceTree = "<group>"; };
@@ -250,6 +258,10 @@
 				8A8402B716CBBC070017157C /* GBCustomViewButtonCell.m */,
 				8A8402D016CBC4DB0017157C /* GBCustomImageButtonCell.h */,
 				8A8402D116CBC4DB0017157C /* GBCustomImageButtonCell.m */,
+				8A8402D816CBE1FA0017157C /* GBGlowingImageButtonCell.h */,
+				8A8402D916CBE1FA0017157C /* GBGlowingImageButtonCell.m */,
+				8A8402DC16CBE6490017157C /* GBSolidColorView.h */,
+				8A8402DD16CBE6490017157C /* GBSolidColorView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -378,6 +390,8 @@
 				8AE8348016C941BC00546249 /* GBRadialGradientView.h in Headers */,
 				8A8402B816CBBC070017157C /* GBCustomViewButtonCell.h in Headers */,
 				8A8402D216CBC4DB0017157C /* GBCustomImageButtonCell.h in Headers */,
+				8A8402DA16CBE1FA0017157C /* GBGlowingImageButtonCell.h in Headers */,
+				8A8402DE16CBE6490017157C /* GBSolidColorView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +533,8 @@
 				8AE8348116C941BC00546249 /* GBRadialGradientView.m in Sources */,
 				8A8402B916CBBC070017157C /* GBCustomViewButtonCell.m in Sources */,
 				8A8402D316CBC4DB0017157C /* GBCustomImageButtonCell.m in Sources */,
+				8A8402DB16CBE1FA0017157C /* GBGlowingImageButtonCell.m in Sources */,
+				8A8402DF16CBE6490017157C /* GBSolidColorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

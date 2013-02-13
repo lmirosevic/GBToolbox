@@ -8,11 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "GBToolbox.h"
+#import "GBCustomViewButtonCell.h"
+
+#import "GBTypes_OSX.h"
 
 @interface GBCustomImageButtonCell : GBCustomViewButtonCell
 
 @property (strong, nonatomic) NSImage           *backgroundImage;
 @property (assign, nonatomic) GBEdgeInsets      backgroundImageCapInsets;
+@property (strong, nonatomic) NSImage           *foregroundImage;
 
 @end

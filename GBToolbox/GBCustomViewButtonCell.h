@@ -14,5 +14,6 @@
 @interface GBCustomViewButtonCell : NSButtonCell
 
 @property (strong, nonatomic) NSView            *backgroundView;
+@property (assign, nonatomic) BOOL              isDarkened;
 
 @end
