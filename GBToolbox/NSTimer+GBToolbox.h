@@ -10,8 +10,8 @@
 
 @interface NSTimer (GBToolbox)
 
-//blocks //foo make sure the blocks that are passed in get released properly, and that they release the pointers they themselves are closing over
-+(NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats withBlock:(void(^)(void))handler;
-+(NSTimer *)timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats withBlock:(void(^)(void))handler;
+//blocks
++(NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats withBlock:(void(^)(void))block;
++(NSTimer *)timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats withBlock:(void(^)(void))block;
 
 @end

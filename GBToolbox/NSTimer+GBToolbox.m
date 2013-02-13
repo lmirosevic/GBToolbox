@@ -11,15 +11,15 @@
 @implementation NSTimer (GBToolbox)
 
 //blocks
-+(NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats withBlock:(void(^)(void))handler {
-    return [self _timerFactory:interval repeats:repeats withBlock:handler shouldSchedule:YES];
++(NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats withBlock:(void(^)(void))block {
+    return [self _timerFactory:interval repeats:repeats withBlock:block shouldSchedule:YES];
 }
 
-+(NSTimer *)timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats withBlock:(void(^)(void))handler {
-    return [self _timerFactory:interval repeats:repeats withBlock:handler shouldSchedule:NO];
++(NSTimer *)timerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats withBlock:(void(^)(void))block {
+    return [self _timerFactory:interval repeats:repeats withBlock:block shouldSchedule:NO];
 }
 
-+(NSTimer *)_timerFactory:(NSTimeInterval)interval repeats:(BOOL)repeats withBlock:(void(^)(void))handler shouldSchedule:(BOOL)shouldSchedule {
++(NSTimer *)_timerFactory:(NSTimeInterval)interval repeats:(BOOL)repeats withBlock:(void(^)(void))block shouldSchedule:(BOOL)shouldSchedule {
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self instanceMethodSignatureForSelector:@selector(callBlock:)]];
     NSTimer *timer = shouldSchedule ?
     [NSTimer scheduledTimerWithTimeInterval:interval invocation:invocation repeats:repeats] :
@@ -28,7 +28,7 @@
     [invocation setTarget:timer];
     [invocation setSelector:@selector(callBlock:)];
     
-    void(^copy)(void) = [handler copy];
+    void(^copy)(void) = [block copy];
     //    Block_copy(handler);//foo make sure i'm not leaking blocks here, or causing a crash by not copying it
     [invocation setArgument:&copy atIndex:2];
     //    Block_release(handler);
