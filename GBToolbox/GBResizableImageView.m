@@ -44,9 +44,6 @@
 #pragma mark - drawing
 
 -(void)drawRect:(NSRect)dirtyRect {
-    if ([self.gbDescription isEqualToString:@"yo"]) {
-        _lr(self.frame);
-    }
     NSDrawNinePartImage([self bounds], self.topLeftCornerImage, self.topEdgeFillImage, self.topRightCornerImage, self.leftEdgeFillImage, self.centerFillImage, self.rightEdgeFillImage, self.bottomLeftCornerImage, self.bottomEdgeFillImage, self.bottomRightCornerImage, NSCompositeSourceOver, 1.0, NO);
 }
 
