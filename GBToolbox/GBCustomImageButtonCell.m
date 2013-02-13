@@ -10,6 +10,7 @@
 
 #import "GBToolbox.h"
 
+
 @interface GBCustomImageButtonCell ()
 
 @property (strong, nonatomic) GBResizableImageView      *resizableImageView;
@@ -70,9 +71,10 @@
 #pragma mark - init
 
 -(void)awakeFromNib {
-    self.backgroundView = self.resizableImageView;
-    [self.backgroundView addSubview:self.foregroundImageView];
-//    [self.controlView addSubview:self.foregroundImageView positioned:NSWindowAbove relativeTo:self.backgroundView];
+    [super awakeFromNib];
+    
+    self.customView = self.resizableImageView;
+    [self.customView addSubview:self.foregroundImageView];
 }
 
 @end

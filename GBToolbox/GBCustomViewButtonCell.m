@@ -13,6 +13,8 @@
 
 @interface GBCustomViewButtonCell ()
 
+@property (assign, nonatomic) BOOL              isDarkened;
+
 @end
 
 
@@ -20,33 +22,52 @@
 
 #pragma mark - custom accessors
 
--(void)setIsDarkened:(BOOL)isDarkened {
-    if (isDarkened) {
-        //apply filter
-        CIFilter *filter = [CIFilter filterWithName:@"CIGammaAdjust"];
-        [filter setDefaults];
-        [filter setValue:@(1.2) forKey:@"inputPower"];
-        self.backgroundView.contentFilters = @[filter];
-    }
-    else {
-        //hide darkness
-        self.backgroundView.contentFilters = nil;
-    }
+-(void)setShouldDarkenOnTouch:(BOOL)shouldDarkenOnTouch {
+    _shouldDarkenOnTouch = shouldDarkenOnTouch;
+    
+    //set darkened again to retrigger the side effects
+    self.isDarkened = self.isDarkened;
 }
 
-//adds the background view as a subview to the controlView
--(void)setBackgroundView:(NSView *)backgroundView {
+-(void)setIsDarkened:(BOOL)isDarkened {
+    if (self.shouldDarkenOnTouch) {
+        if (isDarkened) {
+            //apply filter
+            CIFilter *filter = [CIFilter filterWithName:@"CIGammaAdjust"];
+            [filter setDefaults];
+            [filter setValue:@(1.2) forKey:@"inputPower"];
+            self.customView.contentFilters = @[filter];
+        }
+        else {
+            //hide darkness
+            self.customView.contentFilters = nil;
+        }
+    }
+    
+    _isDarkened = isDarkened;
+}
+
+//adds the custom view as a subview to the controlView
+-(void)setCustomView:(NSView *)customView {
     //remove old view
-    [_backgroundView removeFromSuperview];
+    [_customView removeFromSuperview];
     
     //add new view
-    [self.controlView addSubview:backgroundView];
+    [self.controlView addSubview:customView];
     
     //set frames to match
-    backgroundView.frame = self.controlView.bounds;
+    _customView.frame = self.controlView.bounds;
     
     //set ivar
-    _backgroundView = backgroundView;
+    _customView = customView;
+}
+
+#pragma mark - init
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.shouldDarkenOnTouch = YES;
 }
 
 #pragma mark - clicking
@@ -61,8 +82,15 @@
                 [self _mouseUp];
                 
                 //perform click if mouse is inside
-                if ([self hitTestForEvent:myEvent inRect:cellFrame ofView:controlView]) {
+//                _lRect(cellFrame);
+//                _lRect(controlView.frame);
+                
+                if ([self hitTestForEvent:myEvent inRect:cellFrame ofView:controlView]) {//foo doesnt work when the view is resized
                     [self performClick:controlView];
+                    l(@"inside");
+                }
+                else {
+                    l(@"outside");//this gets called when i click inside the button after its been sized up
                 }
                 
                 return YES;

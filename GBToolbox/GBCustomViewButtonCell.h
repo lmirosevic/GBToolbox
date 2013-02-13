@@ -13,7 +13,7 @@
 //cell which u can add a custom view to
 @interface GBCustomViewButtonCell : NSButtonCell
 
-@property (strong, nonatomic) NSView            *backgroundView;
-@property (assign, nonatomic) BOOL              isDarkened;
+@property (strong, nonatomic) NSView            *customView;
+@property (assign, nonatomic) BOOL              shouldDarkenOnTouch;
 
 @end

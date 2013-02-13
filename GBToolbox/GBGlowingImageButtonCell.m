@@ -10,11 +10,13 @@
 
 #import "GBToolbox.h"
 
+
 @interface GBGlowingImageButtonCell ()
 
 @property (strong, nonatomic) GBRadialGradientView      *glowView;
 
 @end
+
 
 @implementation GBGlowingImageButtonCell
 
@@ -39,8 +41,8 @@
     //if theres a change
     if (isGlowing != _isGlowing) {
         if (isGlowing) {
-            //add glow
-            [self.controlView addSubview:self.glowView];
+            //add glow on top
+            [self.controlView addSubview:self.glowView positioned:NSWindowAbove relativeTo:self.controlView.subviews.lastObject];
         }
         else {
             //remove the glow
@@ -50,6 +52,14 @@
     
     //save ivar
     _isGlowing = isGlowing;
+}
+
+#pragma mark - init
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.isGlowing = YES;
 }
 
 @end
