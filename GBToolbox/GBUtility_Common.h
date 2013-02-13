@@ -73,4 +73,8 @@ BOOL OddUInteger(NSUInteger number);
 
 void SwizzleInstanceMethods(Class aClass, SEL originalSelector, SEL newSelector);
 
+#pragma mark - delayed execution
+
+void ExecuteAfter(CGFloat delay, void(^block)(void));
+
 @end

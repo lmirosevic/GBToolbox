@@ -8,6 +8,10 @@
 
 #import "GBUtility_Common.h"
 
+//delayed execution
+#import "NSTimer+GBToolbox.h"
+
+//Swizzling
 #import <objc/runtime.h>
 
 @implementation GBToolbox
@@ -237,6 +241,12 @@ BOOL OddUInteger(NSUInteger number) {
 
 void SwizzleInstanceMethods(Class aClass, SEL originalSelector, SEL newSelector) {
     method_exchangeImplementations(class_getInstanceMethod(aClass, originalSelector), class_getInstanceMethod(aClass, newSelector));
+}
+
+#pragma mark - delayed execution
+
+void ExecuteAfter(CGFloat delay, void(^block)(void)) {
+    [NSTimer scheduledTimerWithTimeInterval:delay repeats:NO withBlock:block];
 }
 
 @end
