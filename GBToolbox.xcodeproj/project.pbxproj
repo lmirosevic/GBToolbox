@@ -21,6 +21,10 @@
 		8A27D5FE16C8F3AA0071AE31 /* CALayer+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */; };
 		8A27D5FF16C8F3B50071AE31 /* CALayer+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */; };
 		8A27D60216C8F5FC0071AE31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
+		8A8402B816CBBC070017157C /* GBCustomViewButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A8402B616CBBC070017157C /* GBCustomViewButtonCell.h */; };
+		8A8402B916CBBC070017157C /* GBCustomViewButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8402B716CBBC070017157C /* GBCustomViewButtonCell.m */; };
+		8A8402D216CBC4DB0017157C /* GBCustomImageButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A8402D016CBC4DB0017157C /* GBCustomImageButtonCell.h */; };
+		8A8402D316CBC4DB0017157C /* GBCustomImageButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8402D116CBC4DB0017157C /* GBCustomImageButtonCell.m */; };
 		8ACE941716C1198900527E0D /* NSObject+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ACE941516C1198900527E0D /* NSObject+GBToolbox.h */; };
 		8ACE941816C1198900527E0D /* NSObject+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */; };
 		8ACE941916C1198900527E0D /* NSObject+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */; };
@@ -99,6 +103,10 @@
 		8A0C4E42165FA60C00A990FB /* GBToolboxUnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBToolboxUnitTests-Prefix.pch"; sourceTree = "<group>"; };
 		8A27D5FB16C8F3AA0071AE31 /* CALayer+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+GBToolbox.h"; sourceTree = "<group>"; };
 		8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+GBToolbox.m"; sourceTree = "<group>"; };
+		8A8402B616CBBC070017157C /* GBCustomViewButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBCustomViewButtonCell.h; sourceTree = "<group>"; };
+		8A8402B716CBBC070017157C /* GBCustomViewButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBCustomViewButtonCell.m; sourceTree = "<group>"; };
+		8A8402D016CBC4DB0017157C /* GBCustomImageButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBCustomImageButtonCell.h; sourceTree = "<group>"; };
+		8A8402D116CBC4DB0017157C /* GBCustomImageButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBCustomImageButtonCell.m; sourceTree = "<group>"; };
 		8ACE941516C1198900527E0D /* NSObject+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GBToolbox.h"; sourceTree = "<group>"; };
 		8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GBToolbox.m"; sourceTree = "<group>"; };
 		8ACE941A16C119D100527E0D /* UITableView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+GBToolbox.h"; sourceTree = "<group>"; };
@@ -238,6 +246,10 @@
 				8AF8C6B116C00083005A5511 /* GBResizableImageView.m */,
 				8AE8347E16C941BC00546249 /* GBRadialGradientView.h */,
 				8AE8347F16C941BC00546249 /* GBRadialGradientView.m */,
+				8A8402B616CBBC070017157C /* GBCustomViewButtonCell.h */,
+				8A8402B716CBBC070017157C /* GBCustomViewButtonCell.m */,
+				8A8402D016CBC4DB0017157C /* GBCustomImageButtonCell.h */,
+				8A8402D116CBC4DB0017157C /* GBCustomImageButtonCell.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -364,6 +376,8 @@
 				8ACE94F116C12CC500527E0D /* NSView+GBToolbox.h in Headers */,
 				8A27D5FD16C8F3AA0071AE31 /* CALayer+GBToolbox.h in Headers */,
 				8AE8348016C941BC00546249 /* GBRadialGradientView.h in Headers */,
+				8A8402B816CBBC070017157C /* GBCustomViewButtonCell.h in Headers */,
+				8A8402D216CBC4DB0017157C /* GBCustomImageButtonCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +517,8 @@
 				8ACE94F216C12CC500527E0D /* NSView+GBToolbox.m in Sources */,
 				8A27D5FE16C8F3AA0071AE31 /* CALayer+GBToolbox.m in Sources */,
 				8AE8348116C941BC00546249 /* GBRadialGradientView.m in Sources */,
+				8A8402B916CBBC070017157C /* GBCustomViewButtonCell.m in Sources */,
+				8A8402D316CBC4DB0017157C /* GBCustomImageButtonCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

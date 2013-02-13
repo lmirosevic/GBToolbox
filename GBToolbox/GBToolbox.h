@@ -59,6 +59,8 @@
 
 #import "GBResizableImageView.h"
 #import "GBRadialGradientView.h"
+#import "GBCustomViewButtonCell.h"
+#import "GBCustomImageButtonCell.h"
 
 #import "NSImage+GBToolbox.h"
 #import "NSView+GBToolbox.h"
