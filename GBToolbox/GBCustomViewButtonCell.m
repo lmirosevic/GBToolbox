@@ -112,8 +112,7 @@
 #pragma mark - drawing
 
 -(void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
-    [[NSColor redColor] setFill];
-    NSRectFill(cellFrame);
+    //nothing
 }
 
 -(void)drawBezelWithFrame:(NSRect)frame inView:(NSView *)controlView {
