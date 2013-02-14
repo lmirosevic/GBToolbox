@@ -22,6 +22,18 @@
 
 #pragma mark - custom accessors
 
+-(void)setEnabled:(BOOL)isEnabled {
+    [super setEnabled:isEnabled];
+    
+    if (isEnabled) {
+        self.customView.alphaValue = 1.;
+    }
+    else {
+        self.customView.alphaValue = 0.5;
+    }
+
+}
+
 -(void)setShouldDarkenOnTouch:(BOOL)shouldDarkenOnTouch {
     _shouldDarkenOnTouch = shouldDarkenOnTouch;
     
