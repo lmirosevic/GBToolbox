@@ -72,15 +72,6 @@
 
 #pragma mark - clicking
 
-//+ (BOOL)prefersTrackingUntilMouseUp {
-////    l(@"hey");
-//    // NSCell returns NO for this by default.
-//    // If you want to have trackMouse:inRect:ofView:untilMouseUp:
-//    // always track until the mouse is up, then you MUST return YES.
-//    // Otherwise, strange things will happen.
-//    return YES;
-//}
-
 -(NSUInteger)hitTestForEvent:(NSEvent *)event inRect:(NSRect)cellFrame ofView:(NSView *)controlView {
     //see if the hit is inside or outside of the cell
     NSPoint pointInWindow = event.locationInWindow;
