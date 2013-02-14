@@ -72,6 +72,23 @@
 
 #pragma mark - clicking
 
+//+ (BOOL)prefersTrackingUntilMouseUp {
+////    l(@"hey");
+//    // NSCell returns NO for this by default.
+//    // If you want to have trackMouse:inRect:ofView:untilMouseUp:
+//    // always track until the mouse is up, then you MUST return YES.
+//    // Otherwise, strange things will happen.
+//    return YES;
+//}
+
+-(NSUInteger)hitTestForEvent:(NSEvent *)event inRect:(NSRect)cellFrame ofView:(NSView *)controlView {
+    //see if the hit is inside or outside of the cell
+    NSPoint pointInWindow = event.locationInWindow;
+    NSRect rectInWindow = [controlView convertRect:controlView.bounds toView:nil];
+    
+    return NSPointInRect(pointInWindow, rectInWindow) ? NSCellHitContentArea : NSCellHitNone;
+}
+
 -(BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)untilMouseUp {
     if ([theEvent type] == NSLeftMouseDown) {
         [self _mouseDown];
@@ -81,16 +98,8 @@
             if ([myEvent type] == NSLeftMouseUp) {
                 [self _mouseUp];
                 
-                //perform click if mouse is inside
-//                _lRect(cellFrame);
-//                _lRect(controlView.frame);
-                
-                if ([self hitTestForEvent:myEvent inRect:cellFrame ofView:controlView]) {//foo doesnt work when the view is resized
+                if ([self hitTestForEvent:myEvent inRect:cellFrame ofView:controlView]) {
                     [self performClick:controlView];
-                    l(@"inside");
-                }
-                else {
-                    l(@"outside");//this gets called when i click inside the button after its been sized up
                 }
                 
                 return YES;
@@ -110,6 +119,11 @@
 }
 
 #pragma mark - drawing
+
+-(void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
+    [[NSColor redColor] setFill];
+    NSRectFill(cellFrame);
+}
 
 -(void)drawBezelWithFrame:(NSRect)frame inView:(NSView *)controlView {
     //nothing
