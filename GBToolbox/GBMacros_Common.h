@@ -9,9 +9,15 @@
 #ifndef Macros_Common_h
 #define Macros_Common_h
 
+#import <objc/runtime.h>
+
 //Variadic macros
 #define __NARGS(unused, _1, _2, _3, _4, _5, VAL, ...) VAL
 #define NARGS(...) __NARGS(unused, ## __VA_ARGS__, 5, 4, 3, 2, 1, 0)
+
+//Macro indirections
+#define STRINGIFY2(string) [NSString stringWithFormat:@"%s", #string]
+#define STRINGIFY(string) STRINGIFY2(string)
 
 //Logging
 #define l(...) NSLog(__VA_ARGS__)
@@ -24,6 +30,49 @@
 
 //Lazy instantiation
 #define _lazy(Class, propertyName, ivar) -(Class *)propertyName {if (!ivar) {ivar = [[Class alloc] init];}return ivar;}
+
+//Associated objects
+static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NSString *atomicity) {
+    //_Pragma("clang diagnostic pop")
+    if ([atomicity isEqualToString:@"atomic"]) {
+        if ([storage isEqualToString:@"assign"]) {
+            return OBJC_ASSOCIATION_ASSIGN;
+        }
+        else if ([storage isEqualToString:@"retain"]) {
+            return OBJC_ASSOCIATION_RETAIN;
+        }
+        else if ([storage isEqualToString:@"copy"]) {
+            return OBJC_ASSOCIATION_COPY;
+        }
+        else {
+            NSLog(@"No such storage policy: %@", storage);
+            assert(false);
+        }
+    }
+    else if ([atomicity isEqualToString:@"nonatomic"]) {
+        if ([storage isEqualToString:@"assign"]) {
+            return OBJC_ASSOCIATION_ASSIGN;
+        }
+        else if ([storage isEqualToString:@"retain"]) {
+            return OBJC_ASSOCIATION_RETAIN_NONATOMIC;
+        }
+        else if ([storage isEqualToString:@"copy"]) {
+            return OBJC_ASSOCIATION_COPY_NONATOMIC;
+        }
+        else {
+            NSLog(@"No such storage policy: %@", storage);
+            assert(false);
+        }
+    }
+    else {
+        NSLog(@"No such atomicity policy: %@", atomicity);
+        assert(false);
+    }
+    
+    return 0;
+}
+#define associatedObject(storage, atomicity, type, getter, setter) static char gb_##getter##_key; -(void)setter:(type)getter { objc_setAssociatedObject(self, &gb_##getter##_key, getter, AssociationPolicyFromStorageAndAtomicity(STRINGIFY(storage), STRINGIFY(atomicity))); } -(type)getter { return objc_getAssociatedObject(self, &gb_##getter##_key); }
+
 
 //Set
 #define _set(...) ([NSSet setWithArray:@[__VA_ARGS__]])
