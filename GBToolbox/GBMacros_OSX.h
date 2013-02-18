@@ -10,7 +10,7 @@
 #define GBToolbox_GBMacros_OSX_h
 
 //View controller instantiation
-inline id InstantiateViewControllerWithXib(NSString *xibName) {
+static inline id InstantiateViewControllerWithXib(NSString *xibName) {
     NSString *className = [xibName stringByAppendingString:@"ViewController"];
     return [[NSClassFromString(className) alloc] initWithNibName:className bundle:nil];
 }
