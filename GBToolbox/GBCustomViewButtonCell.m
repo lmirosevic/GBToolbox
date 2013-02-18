@@ -10,10 +10,21 @@
 
 #import "GBToolbox.h"
 
+@interface NSDisabledTextView : NSTextView
+@end
+
+@implementation NSDisabledTextView
+
+-(NSView *)hitTest:(NSPoint)aPoint {
+    return nil;
+}
+
+@end
 
 @interface GBCustomViewButtonCell ()
 
-@property (assign, nonatomic) BOOL              isDarkened;
+@property (assign, nonatomic) BOOL                      isDarkened;
+@property (strong, nonatomic) NSDisabledTextView        *label;
 
 @end
 
@@ -21,6 +32,33 @@
 @implementation GBCustomViewButtonCell
 
 #pragma mark - custom accessors
+
+-(void)setFont:(NSFont *)font {
+    self.label.font = font;
+    
+    CGFloat lineHeight = [[NSLayoutManager new] defaultLineHeightForFont:font];
+    self.label.frame = NSMakeRect(0, (self.controlView.bounds.size.height - lineHeight)/2., self.controlView.bounds.size.width, lineHeight);
+}
+
+-(NSFont *)font {
+    return self.label.font;
+}
+
+-(void)setTextColor:(NSColor *)textColor {
+    self.label.textColor = textColor;
+}
+
+-(NSColor *)textColor {
+    return self.label.textColor;
+}
+
+-(void)setText:(NSString *)text {
+    self.label.string = [text copy];
+}
+
+-(NSString *)text {
+    return self.label.string;
+}
 
 -(void)setEnabled:(BOOL)isEnabled {
     [super setEnabled:isEnabled];
@@ -65,7 +103,7 @@
     [_customView removeFromSuperview];
     
     //add new view
-    [self.controlView addSubview:customView];
+    [self.controlView addSubview:customView positioned:NSWindowBelow relativeTo:self.label];
     
     //set frames to match
     _customView.frame = self.controlView.bounds;
@@ -80,6 +118,20 @@
     [super awakeFromNib];
     
     self.shouldDarkenOnTouch = YES;
+    
+    //label
+    NSDisabledTextView *newTextView = [[NSDisabledTextView alloc] initWithFrame:self.controlView.bounds];
+    newTextView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    newTextView.font = [NSFont fontWithName:@"HelveticaNeue-Bold" size:11];
+    newTextView.textColor = [NSColor grayColor];
+    newTextView.alignment = NSCenterTextAlignment;
+    newTextView.editable = NO;
+    newTextView.drawsBackground = YES;
+    newTextView.backgroundColor = [NSColor clearColor];
+    newTextView.selectable = NO;
+    
+    self.label = newTextView;
+    [self.controlView addSubview:newTextView];
 }
 
 #pragma mark - clicking
