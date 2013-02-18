@@ -71,7 +71,7 @@ BOOL OddUInteger(NSUInteger number);
 
 #pragma mark - Method Swizzling
 
-void SwizzleInstanceMethods(Class aClass, SEL originalSelector, SEL newSelector);
+void SwizzleInstanceMethodsInClass(Class aClass, SEL originalSelector, SEL newSelector);
 
 #pragma mark - delayed execution
 

@@ -239,7 +239,7 @@ BOOL OddUInteger(NSUInteger number) {
 
 #pragma mark - Method Swizzling
 
-void SwizzleInstanceMethods(Class aClass, SEL originalSelector, SEL newSelector) {
+void SwizzleInstanceMethodsInClass(Class aClass, SEL originalSelector, SEL newSelector) {
     method_exchangeImplementations(class_getInstanceMethod(aClass, originalSelector), class_getInstanceMethod(aClass, newSelector));
 }
 
