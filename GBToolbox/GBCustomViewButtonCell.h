@@ -8,9 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-//#import "GBToolbox.h"
-
-//cell which u can add a custom view to
 @interface GBCustomViewButtonCell : NSButtonCell
 
 @property (strong, nonatomic) NSView            *customView;

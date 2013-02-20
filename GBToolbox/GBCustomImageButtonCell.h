@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Luka Mirosevic. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-
 #import "GBCustomViewButtonCell.h"
 
 #import "GBTypes_OSX.h"

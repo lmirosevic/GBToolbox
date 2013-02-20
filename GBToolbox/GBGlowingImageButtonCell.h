@@ -10,6 +10,7 @@
 
 @interface GBGlowingImageButtonCell : GBCustomImageButtonCell
 
-@property (assign, nonatomic) BOOL  isGlowing;
+@property (assign, nonatomic) BOOL              isGlowing;
+@property (assign, nonatomic) GBEdgeInsets      glowEdgeInsets;
 
 @end

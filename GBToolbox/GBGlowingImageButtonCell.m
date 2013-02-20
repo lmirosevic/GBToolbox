@@ -30,12 +30,21 @@
         _glowView.innerColor = [[NSColor whiteColor] colorWithAlphaComponent:.07];
         _glowView.outerColor = [NSColor clearColor];
         _glowView.cornerRadius = 4;
+        _glowView.edgeInsets = GBEdgeInsetsMake(0, 0, 0, 0);
     }
     
     return _glowView;
 }
 
 #pragma mark - custom accessor
+
+-(void)setGlowEdgeInsets:(GBEdgeInsets)glowEdgeInsets {
+    self.glowView.edgeInsets = glowEdgeInsets;
+}
+
+-(GBEdgeInsets)glowEdgeInsets {
+    return self.glowView.edgeInsets;
+}
 
 -(void)setIsGlowing:(BOOL)isGlowing {
     //if theres a change
