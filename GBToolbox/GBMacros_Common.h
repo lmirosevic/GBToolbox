@@ -89,9 +89,9 @@ static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NS
 #define _lPoint(point) l(@"Point: %f %f", point.x, point.y);
 #define _lSize(size) l(@"Size: %f %f", size.width, size.height);
 #define _lObject(object) l(@"Object: %@", object);
+#define _lString(string) l(@"String: %@", string);
 #define _lf(floating) l(@"Floating: %f", floating);
 #define _ld(integral) l(@"Integral: %d", integral);
-#define _ls(string) l(@"String: %@", string);
 #define _lb(boolean) l(@"Boolean: %@", _b(boolean));
 
 //Strings
