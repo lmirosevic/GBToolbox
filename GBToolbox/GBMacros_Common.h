@@ -99,4 +99,7 @@ static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NS
 #define IsValidString(string) !IsEmptyString(string)
 #define _f(string, ...) ([NSString stringWithFormat:string, __VA_ARGS__])
 
+//Class availability
+#define IsClassAvailable(classType) ([NSClassFromString(STRINGIFY(classType)) class] ? YES : NO)
+
 #endif

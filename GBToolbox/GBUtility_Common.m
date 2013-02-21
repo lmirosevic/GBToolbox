@@ -243,10 +243,16 @@ void SwizzleInstanceMethodsInClass(Class aClass, SEL originalSelector, SEL newSe
     method_exchangeImplementations(class_getInstanceMethod(aClass, originalSelector), class_getInstanceMethod(aClass, newSelector));
 }
 
-#pragma mark - delayed execution
+#pragma mark - Delayed execution
 
 void ExecuteAfter(CGFloat delay, void(^block)(void)) {
     [NSTimer scheduledTimerWithTimeInterval:delay repeats:NO withBlock:block];
+}
+
+#pragma mark - Class availability
+
+BOOL IsClassAvailableWithName(NSString *className) {
+    return [NSClassFromString(className) class] ? YES : NO;
 }
 
 @end

@@ -73,8 +73,12 @@ BOOL OddUInteger(NSUInteger number);
 
 void SwizzleInstanceMethodsInClass(Class aClass, SEL originalSelector, SEL newSelector);
 
-#pragma mark - delayed execution
+#pragma mark - Delayed execution
 
 void ExecuteAfter(CGFloat delay, void(^block)(void));
+
+#pragma mark - Class availability
+
+BOOL IsClassAvailableWithName(NSString *className);
 
 @end
