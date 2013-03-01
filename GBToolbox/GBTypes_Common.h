@@ -26,4 +26,6 @@ typedef struct {
     NSUInteger columns;
 } GBMatrixGrid;
 
+typedef void(^VoidBlock)(void);
+
 #endif
