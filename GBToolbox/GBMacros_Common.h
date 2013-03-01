@@ -90,9 +90,9 @@ static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NS
 #define _lSize(size) l(@"Size: %f %f", size.width, size.height);
 #define _lObject(object) l(@"Object: %@", object);
 #define _lString(string) l(@"String: %@", string);
-#define _lf(floating) l(@"Floating: %f", floating);
-#define _ld(integral) l(@"Integral: %d", integral);
-#define _lb(boolean) l(@"Boolean: %@", _b(boolean));
+#define _lFloating(floating) l(@"Floating: %f", floating);
+#define _lIntegral(integral) l(@"Integral: %d", integral);
+#define _lBoolean(boolean) l(@"Boolean: %@", _b(boolean));
 
 //Strings
 #define IsEmptyString(string) ((![string isKindOfClass:[NSString class]] || (string == nil) || ([string isEqualToString:@""])) ? YES : NO)
