@@ -197,44 +197,44 @@ static NSTimeInterval __time;
 
 #pragma mark - Truthy/Falsy
 
-BOOL Truthy(id object) {
+BOOL IsTruthy(id object) {
     return (object && (object != [NSNull null]));
 }
 
-BOOL Falsy(id object) {
-    return !Truthy(object);
+BOOL IsFalsy(id object) {
+    return !IsTruthy(object);
 }
 
 #pragma mark - Even/Odd
 
-BOOL EvenInt(int number) {
+BOOL IsEvenInt(int number) {
     return (number%2 == 0);
 }
 
-BOOL EvenUInt(uint number) {
+BOOL IsEvenUInt(uint number) {
     return (number%2 == 0);
 }
 
-BOOL EvenInteger(NSInteger number) {
+BOOL IsEvenInteger(NSInteger number) {
     return (number%2 == 0);
 }
 
-BOOL EvenUInteger(NSUInteger number) {
+BOOL IsEvenUInteger(NSUInteger number) {
     return (number%2 == 0);
 }
 
-BOOL OddInt(int number) {
-    return !EvenInt(number);
+BOOL IsOddInt(int number) {
+    return !IsEvenInt(number);
 }
-BOOL OddUInt(uint number) {
-    return !EvenUInt(number);
+BOOL IsOddUInt(uint number) {
+    return !IsEvenUInt(number);
 }
-BOOL OddInteger(NSInteger number) {
-    return !EvenInteger(number);
+BOOL IsOddInteger(NSInteger number) {
+    return !IsEvenInteger(number);
 }
 
-BOOL OddUInteger(NSUInteger number) {
-    return !EvenUInteger(number);
+BOOL IsOddUInteger(NSUInteger number) {
+    return !IsEvenUInteger(number);
 }
 
 #pragma mark - Method Swizzling

@@ -55,19 +55,19 @@ GBMatrixGrid GBMatrixGridMake(NSUInteger rows, NSUInteger columns);
 
 #pragma mark - Truthy/Falsy
 
-BOOL Truthy(id object);
-BOOL Falsy(id object);
+BOOL IsTruthy(id object);
+BOOL IsFalsy(id object);
 
 #pragma mark - Even/Odd
 
-BOOL EvenInt(int number);
-BOOL EvenUInt(uint number);
-BOOL EvenInteger(NSInteger number);
-BOOL EvenUInteger(NSUInteger number);
-BOOL OddInt(int number);
-BOOL OddUInt(uint number);
-BOOL OddInteger(NSInteger number);
-BOOL OddUInteger(NSUInteger number);
+BOOL IsEvenInt(int number);
+BOOL IsEvenUInt(uint number);
+BOOL IsEvenInteger(NSInteger number);
+BOOL IsEvenUInteger(NSUInteger number);
+BOOL IsOddInt(int number);
+BOOL IsOddUInt(uint number);
+BOOL IsOddInteger(NSInteger number);
+BOOL IsOddUInteger(NSUInteger number);
 
 #pragma mark - Method Swizzling
 
