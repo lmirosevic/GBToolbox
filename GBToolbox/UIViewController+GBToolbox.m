@@ -38,8 +38,8 @@ static char gbIsVisibleKey;
 }
 
 +(void)load {
-    SwizzleInstanceMethods(self, @selector(viewWillAppear:), @selector(_SwizzViewWillAppear:));
-    SwizzleInstanceMethods(self, @selector(viewDidDisappear:), @selector(_SwizzViewDidDisappear:));
+    SwizzleInstanceMethodsInClass(self, @selector(viewWillAppear:), @selector(_SwizzViewWillAppear:));
+    SwizzleInstanceMethodsInClass(self, @selector(viewDidDisappear:), @selector(_SwizzViewDidDisappear:));
 }
 
 @end
