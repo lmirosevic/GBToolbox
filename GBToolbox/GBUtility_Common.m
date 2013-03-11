@@ -249,6 +249,10 @@ void ExecuteAfter(CGFloat delay, void(^block)(void)) {
     [NSTimer scheduledTimerWithTimeInterval:delay repeats:NO withBlock:block];
 }
 
+void ExecuteSoon(void(^block)(void)) {
+    ExecuteAfter(0, block);
+}
+
 #pragma mark - Class availability
 
 BOOL IsClassAvailableWithName(NSString *className) {

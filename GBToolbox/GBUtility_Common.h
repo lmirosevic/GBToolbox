@@ -76,6 +76,7 @@ void SwizzleInstanceMethodsInClass(Class aClass, SEL originalSelector, SEL newSe
 #pragma mark - Delayed execution
 
 void ExecuteAfter(CGFloat delay, void(^block)(void));
+void ExecuteSoon(void(^block)(void));
 
 #pragma mark - Class availability
 
