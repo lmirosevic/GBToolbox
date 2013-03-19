@@ -259,4 +259,18 @@ BOOL IsClassAvailableWithName(NSString *className) {
     return [NSClassFromString(className) class] ? YES : NO;
 }
 
+#pragma mark - App introspection
+
+NSString * AppBundleName() {
+    return [[NSBundle mainBundle] localizedInfoDictionary][@"CFBundleName"] ?: [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
+}
+
+NSString * AppBundleDisplayName() {
+    return [[NSBundle mainBundle] localizedInfoDictionary][@"CFBundleDisplayName"] ?: [[NSBundle mainBundle] infoDictionary][@"CFBundleDisplayName"];
+}
+
+NSString * AppBundleIdentifier() {
+    return [[NSBundle mainBundle] infoDictionary][@"CFBundleIdentifier"];
+}
+
 @end

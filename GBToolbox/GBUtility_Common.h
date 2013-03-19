@@ -82,4 +82,10 @@ void ExecuteSoon(void(^block)(void));
 
 BOOL IsClassAvailableWithName(NSString *className);
 
+#pragma mark - App introspection
+
+NSString * AppBundleName();
+NSString * AppBundleDisplayName();
+NSString * AppBundleIdentifier();
+
 @end
