@@ -10,10 +10,11 @@
 
 @interface GBCustomViewButtonCell : NSButtonCell
 
-@property (strong, nonatomic) NSView            *customView;
-@property (assign, nonatomic) BOOL              shouldDarkenOnTouch;
-@property (copy, nonatomic) NSString            *text;
-@property (strong, nonatomic) NSColor           *textColor;
-@property (strong, nonatomic) NSFont            *font;
+@property (strong, nonatomic) NSView                *customView;
+@property (assign, nonatomic) BOOL                  shouldDarkenOnTouch;
+@property (copy, nonatomic) NSString                *text;
+@property (copy, nonatomic) NSAttributedString      *attributedText;
+@property (strong, nonatomic) NSColor               *textColor;
+@property (strong, nonatomic) NSFont                *font;
 
 @end

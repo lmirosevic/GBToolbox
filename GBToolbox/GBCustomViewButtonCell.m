@@ -60,6 +60,10 @@
     return self.label.string;
 }
 
+-(void)setAttributedText:(NSAttributedString *)attributedText {
+    [self.label.textStorage setAttributedString:[attributedText copy]];
+}
+
 -(void)setEnabled:(BOOL)isEnabled {
     [super setEnabled:isEnabled];
     
