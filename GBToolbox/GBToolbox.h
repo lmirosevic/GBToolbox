@@ -30,6 +30,7 @@
 #import "NSData+GBToolbox.h"
 #import "NSString+GBToolbox.h"
 #import "CALayer+GBToolbox.h"
+#import "NSArray+GBToolbox.h"
 
 
 /* iOS imports */
