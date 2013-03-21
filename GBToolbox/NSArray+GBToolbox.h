@@ -13,4 +13,7 @@
 //returns a random object from the array
 -(id)randomObject;
 
+//map function from functional programming
+-(NSArray *)map:(id(^)(id object))function;
+
 @end

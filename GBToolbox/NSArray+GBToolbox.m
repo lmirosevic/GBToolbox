@@ -22,4 +22,20 @@
     }
 }
 
+//map function from functional programming
+-(NSArray *)map:(id(^)(id object))function {
+    NSUInteger count = self.count;
+    
+    // creates a results array in which to store results, sets the capacity for faster writes
+    NSMutableArray *resultsArray = [[NSMutableArray alloc] initWithCapacity:count];
+    
+    // applies the function to each item and stores the result in the new array
+    for (NSUInteger i=0; i<count; i++) {
+        resultsArray[i] = function(self[i]);
+    }
+    
+    // returns an immutable copy
+    return [resultsArray copy];
+}
+
 @end
