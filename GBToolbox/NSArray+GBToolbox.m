@@ -22,7 +22,7 @@
     }
 }
 
-//map function from functional programming
+//functional map
 -(NSArray *)map:(id(^)(id object))function {
     NSUInteger count = self.count;
     
@@ -37,5 +37,29 @@
     // returns an immutable copy
     return [resultsArray copy];
 }
+
+//functional fold left
+-(id)foldLeft:(id(^)(id objectA, id objectB))function lastObject:(id)accumulator {
+    for (id object in self) {
+        accumulator = function(accumulator, object);
+    }
+    
+    return accumulator;
+}
+
+//functional fold right
+-(id)foldRight:(id(^)(id objectA, id objectB))function initialObject:(id)accumulator {
+    for (id object in [self reverseObjectEnumerator]) {
+        accumulator = function(accumulator, object);
+    }
+    
+    return accumulator;
+}
+
+//synonym for foldLeft
+-(id)reduce:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject {
+    return [self foldLeft:function lastObject:lastObject];
+}
+
 
 @end
