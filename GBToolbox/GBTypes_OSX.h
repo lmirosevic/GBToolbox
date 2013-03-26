@@ -16,6 +16,4 @@ typedef struct {
     CGFloat right;
 } GBEdgeInsets;
 
-
-
 #endif
