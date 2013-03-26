@@ -10,6 +10,8 @@
 
 @implementation NSArray (GBToolbox)
 
+#pragma mark - helper methods
+
 //returns a random object from the array
 -(id)randomObject {
     NSUInteger count = self.count;
@@ -22,7 +24,9 @@
     }
 }
 
-//functional map
+#pragma mark - functional programming
+
+//map
 -(NSArray *)map:(id(^)(id object))function {
     NSUInteger count = self.count;
     
@@ -38,7 +42,7 @@
     return [resultsArray copy];
 }
 
-//functional fold left
+//fold left
 -(id)foldLeft:(id(^)(id objectA, id objectB))function lastObject:(id)accumulator {
     for (id object in self) {
         accumulator = function(accumulator, object);
@@ -47,7 +51,7 @@
     return accumulator;
 }
 
-//functional fold right
+//fold right
 -(id)foldRight:(id(^)(id objectA, id objectB))function initialObject:(id)accumulator {
     for (id object in [self reverseObjectEnumerator]) {
         accumulator = function(accumulator, object);

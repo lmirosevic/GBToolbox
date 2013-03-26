@@ -10,16 +10,20 @@
 
 @interface NSArray (GBToolbox)
 
+#pragma mark - Helper methods
+
 //returns a random object from the array
 -(id)randomObject;
 
-//functional map
+#pragma mark - Functional Programming
+
+//map
 -(NSArray *)map:(id(^)(id object))function;
 
-//functional fold left
+//fold left
 -(id)foldLeft:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject;
 
-//functional fold right
+//fold right
 -(id)foldRight:(id(^)(id objectA, id objectB))function initialObject:(id)initialObject;
 
 //synonym for foldLeft
