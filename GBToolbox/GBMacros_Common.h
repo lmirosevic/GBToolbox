@@ -99,4 +99,7 @@ static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NS
 //Code introspection
 #define IsClassAvailable(classType) ([NSClassFromString(STRINGIFY(classType)) class] ? YES : NO)
 
+//Info.plist
+#define InfoPlist [[NSBundle mainBundle] infoDictionary]
+
 #endif
