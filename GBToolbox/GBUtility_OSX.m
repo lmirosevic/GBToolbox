@@ -21,4 +21,11 @@ GBEdgeInsets GBEdgeInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat
     return edgeInsets;
 }
 
+#pragma mark - App Store redirect
+
+void RedirectToAppStore(NSString *appID) {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"macappstore://itunes.apple.com/app/id%@?mt=12", appID]]];
+}
+
+
 @end
