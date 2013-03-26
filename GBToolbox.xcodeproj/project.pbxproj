@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8A0377FD16BFCD2F0096C448 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0377FC16BFCD2F0096C448 /* Cocoa.framework */; };
-		8A03780716BFCD2F0096C448 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A03780516BFCD2F0096C448 /* InfoPlist.strings */; };
 		8A03780F16BFCE110096C448 /* GBMacros_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AD911C4162D9EE000C9D287 /* GBMacros_Common.h */; };
 		8A03781116BFCE190096C448 /* GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A03780916BFCD2F0096C448 /* GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A0C4E36165FA60C00A990FB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0C4E35165FA60C00A990FB /* SenTestingKit.framework */; };
@@ -98,7 +97,6 @@
 		8A03780016BFCD2F0096C448 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8A03780116BFCD2F0096C448 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A03780416BFCD2F0096C448 /* GBToolbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GBToolbox-Info.plist"; sourceTree = "<group>"; };
-		8A03780616BFCD2F0096C448 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8A03780816BFCD2F0096C448 /* GBToolbox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBToolbox-Prefix.pch"; sourceTree = "<group>"; };
 		8A03780916BFCD2F0096C448 /* GBToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBToolbox.h; sourceTree = "<group>"; };
 		8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBToolboxUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				8A03780416BFCD2F0096C448 /* GBToolbox-Info.plist */,
-				8A03780516BFCD2F0096C448 /* InfoPlist.strings */,
 				8A03780816BFCD2F0096C448 /* GBToolbox-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -493,7 +490,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A03780716BFCD2F0096C448 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,14 +580,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8A03780516BFCD2F0096C448 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A03780616BFCD2F0096C448 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		8A0C4E3C165FA60C00A990FB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
