@@ -31,4 +31,10 @@ NSUInteger tagFromUIViewSubclass(id sender) {
 	me.idleTimerDisabled = !enable;
 }
 
+#pragma mark - App Store redirect
+
+void RedirectToAppStore(NSString *appID) {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@?mt=8", appID]]];
+}
+
 @end

@@ -22,4 +22,8 @@ NSUInteger tagFromUIViewSubclass(id sender);
 +(BOOL)isAutoScreenLockingEnabled;
 +(void)enableAutoScreenLocking:(BOOL)enable;
 
+#pragma mark - App Store redirect
+
+void RedirectToAppStore(NSString *appID);
+
 @end
