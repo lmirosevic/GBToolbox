@@ -3,45 +3,71 @@ GBToolbox
 
 Goonbee's iOS & Mac development toolbox
 
-Categories
+Documentation
 ------------
 
-* NSString
-* UIImage
-* NSData
-* NSTimer
-* NSObject
-* UIViewController
-* UITableView
+### Common Macros ###
 
-Functions
-------------
+## Logging ##
 
-* Math
-* UI
-* Timing
-* Convenience
+- **l(...)**: Shorthand for NSLog(...)
 
-Macros
-------------
+## Localisation ##
 
-* Logging
-* Localisation
-* Universal app device detection
-* View controller instantiation (Storyboards)
-* Object instantiation
-* Rotation
-* Lazy instantiation
-* Set
-* Resource Bundles
-* Singleton
-* Debugging
-* Strings
+- **_s(string, description)**: Shorthand for NSLocalizedString(...)
 
-Feature list
-------------
+## Lazy instantiation ##
 
-Look inside header files.
+- **_lazy(Class, propertyName, ivar)**: Shorthand for creating a getter which lazily instantiates the ivar if it is `nil` at access using `[[Class alloc] init]`
+
+## Associated object ##
+
+- **_associatedObject(storage, atomicity, type, getter, setter)**: Shorthand for creating an associated object (for properties in categories) including storage, getter and setter.
+
+## Sets ##
+
+- **_set(...)**: Shorthand for creating an NSSet: `[NSSet setWithArray:@[...]]`
+
+## Resource Bundles ##
+
+- **_res(bundle, resource)**: Shorthand for creating path for bundle resource.
+
+## Singleton ##
+
+- **_singleton(Class, accessor)**: Shorthand for creating a singleton getter.
+
+## Debugging ##
+
+- **_b(expression)**: Returns `@"YES"` or `@"NO"` if the expression is evaluates to true or false respectively.
+
+- **_lRect(rect)**: Logs an NSRect or CGRect
+
+- **_lPoint(point)**: Logs a CGPoint
+
+- **_lSize(size)**: Logs an NSSize or CGSize
+
+- **_lObject(object)**: Logs an object by sending it the `description` message
+
+- **_lString(string)**: Logs a string
+
+- **_lFloating(floating)**: Logs a floating point number
+
+- **_lIntegral(integral)**: Logs an integral number
+
+- **_lBoolean(boolean)**: Logs a boolean
+
+## Strings ##
+
+- **IsEmptyString(string)**: Evaluates to true if the string is not nil, is kind of class `NSString` and isnt the empty string `@""`
+
+- **IsValidString(string)**: Opposite of `IsEmptyString`
+
+- **_f(string, ...)**: Shorthand for `[NSString stringWithFormat:string, ...]`
+
+## Code introspection ##
+
+- **IsClassAvailable(classType)**: Returns true if class is available at runtime. Useful for checking if certain features are available.
+
 
 Dependencies
 ------------
