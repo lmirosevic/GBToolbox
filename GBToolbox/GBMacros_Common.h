@@ -25,9 +25,6 @@
 //Localisation
 #define _s(string, description) NSLocalizedString(string, description)
 
-//Object instantiation
-#define ai(Class) [[Class alloc] init] //might be easier to just use new instead
-
 //Lazy instantiation
 #define _lazy(Class, propertyName, ivar) -(Class *)propertyName {if (!ivar) {ivar = [[Class alloc] init];}return ivar;}
 
@@ -71,7 +68,7 @@ static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NS
     
     return 0;
 }
-#define associatedObject(storage, atomicity, type, getter, setter) static char gb_##getter##_key; -(void)setter:(type)getter { objc_setAssociatedObject(self, &gb_##getter##_key, getter, AssociationPolicyFromStorageAndAtomicity(STRINGIFY(storage), STRINGIFY(atomicity))); } -(type)getter { return objc_getAssociatedObject(self, &gb_##getter##_key); }
+#define _associatedObject(storage, atomicity, type, getter, setter) static char gb_##getter##_key; -(void)setter:(type)getter { objc_setAssociatedObject(self, &gb_##getter##_key, getter, AssociationPolicyFromStorageAndAtomicity(STRINGIFY(storage), STRINGIFY(atomicity))); } -(type)getter { return objc_getAssociatedObject(self, &gb_##getter##_key); }
 
 
 //Set
@@ -99,7 +96,7 @@ static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NS
 #define IsValidString(string) !IsEmptyString(string)
 #define _f(string, ...) ([NSString stringWithFormat:string, __VA_ARGS__])
 
-//Class availability
+//Code introspection
 #define IsClassAvailable(classType) ([NSClassFromString(STRINGIFY(classType)) class] ? YES : NO)
 
 #endif
