@@ -13,4 +13,7 @@
 //user identifier for tracking objects
 @property (copy, nonatomic) NSString *gbDescription;
 
+//pointer address
+@property (copy, nonatomic, readonly) NSString *pointerAddress;
+
 @end

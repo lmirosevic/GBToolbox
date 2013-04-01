@@ -23,4 +23,9 @@ static char gbDescriptionKey;
     return objc_getAssociatedObject(self, &gbDescriptionKey);
 }
 
+//pointer address
+-(NSString *)pointerAddress {
+    return [NSString stringWithFormat:@"%p", self];
+}
+
 @end
