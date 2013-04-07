@@ -8,7 +8,7 @@
 
 #import "NSView+GBToolbox.h"
 
-#import "GBToolbox.h"//foo
+#import "GBToolbox.h"
 
 @implementation NSView (GBToolbox)
 

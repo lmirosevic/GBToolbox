@@ -29,9 +29,7 @@
     [invocation setSelector:@selector(callBlock:)];
     
     void(^copy)(void) = [block copy];
-    //    Block_copy(handler);//foo make sure i'm not leaking blocks here, or causing a crash by not copying it
     [invocation setArgument:&copy atIndex:2];
-    //    Block_release(handler);
     
     return timer;
 }
