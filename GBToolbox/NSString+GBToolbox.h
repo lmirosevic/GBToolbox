@@ -19,8 +19,10 @@
 -(BOOL)containsSubstring:(NSString *)substring; //this is case sensitive
 -(BOOL)containsSubstring:(NSString *)substring caseSensitive:(BOOL)isCaseSensitive;
 
+//deletes DNS suffix in a string. requires 10.7+
 -(NSString *)stringByDeletingDNSSuffix;
 
+//checks to see if a string is an IP. requires 10.7+
 -(BOOL)isIp;
 
 //best attempt to get int out of string
