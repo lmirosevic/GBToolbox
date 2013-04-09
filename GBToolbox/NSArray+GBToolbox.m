@@ -17,7 +17,7 @@
     NSUInteger count = self.count;
     
     if (count > 0) {
-        return self[arc4random_uniform(count)];
+        return self[arc4random() % count];
     }
     else {
         return nil;
