@@ -28,9 +28,8 @@
 
 //map
 -(NSArray *)map:(id(^)(id object))function {
-    NSUInteger count = self.count;
-    
     // creates a results array in which to store results, sets the capacity for faster writes
+    NSUInteger count = self.count;
     NSMutableArray *resultsArray = [[NSMutableArray alloc] initWithCapacity:count];
     
     // applies the function to each item and stores the result in the new array
@@ -65,5 +64,21 @@
     return [self foldLeft:function lastObject:lastObject];
 }
 
+//filter
+-(NSArray *)filter:(BOOL(^)(id object))function {
+    // creates a results array in which to store results, sets the capacity for faster writes
+    NSUInteger count = self.count;
+    NSMutableArray *resultsArray = [[NSMutableArray alloc] initWithCapacity:count];
+    
+    // applies the function to each item and stores the result in the new array
+    for (NSUInteger i=0; i<count; i++) {
+        if (function(self[i])) {
+            resultsArray[i] = self[i];
+        }
+    }
+    
+    // returns an immutable copy
+    return [resultsArray copy];
+}
 
 @end

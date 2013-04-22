@@ -29,4 +29,7 @@
 //synonym for foldLeft
 -(id)reduce:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject;
 
+//filter
+-(NSArray *)filter:(BOOL(^)(id object))function;
+
 @end
