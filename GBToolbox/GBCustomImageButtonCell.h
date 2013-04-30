@@ -8,7 +8,7 @@
 
 #import "GBCustomViewButtonCell.h"
 
-#import "GBTypes_OSX.h"
+#import "GBTypes_Common.h"
 
 @interface GBCustomImageButtonCell : GBCustomViewButtonCell
 

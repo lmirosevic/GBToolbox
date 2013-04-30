@@ -28,4 +28,11 @@ typedef struct {
 
 typedef void(^VoidBlock)(void);
 
+typedef struct {
+    CGFloat top;
+    CGFloat left;
+    CGFloat bottom;
+    CGFloat right;
+} GBEdgeInsets;
+
 #endif

@@ -13,10 +13,6 @@
 
 @interface GBToolbox (OSX)
 
-#pragma mark - Type contructors
-
-GBEdgeInsets GBEdgeInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right);
-
 #pragma mark - App Store redirect
 
 void RedirectToAppStore(NSString *appID);

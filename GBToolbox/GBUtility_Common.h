@@ -48,6 +48,10 @@ GBMatrixGrid GBMatrixGridMake(NSUInteger rows, NSUInteger columns);
 +(GBMatrixGrid)prettyMatrixGridLandscapeForCount:(NSUInteger)count maxColumns:(NSUInteger)maxColumns;
 +(GBMatrixGrid)prettyMatrixGridPortraitForCount:(NSUInteger)count maxColumns:(NSUInteger)maxColumns;
 
+#pragma mark - Type contructors
+
+GBEdgeInsets GBEdgeInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat right);
+
 #pragma mark - Tic Toc
 
 +(void)tic;

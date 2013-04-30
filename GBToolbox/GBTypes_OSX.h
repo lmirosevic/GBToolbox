@@ -9,11 +9,4 @@
 #ifndef GBToolbox_GBTypes_OSX_h
 #define GBToolbox_GBTypes_OSX_h
 
-typedef struct {
-    CGFloat top;
-    CGFloat left;
-    CGFloat bottom;
-    CGFloat right;
-} GBEdgeInsets;
-
 #endif
