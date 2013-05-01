@@ -25,6 +25,8 @@
 #import "GBMacros_Common.h"
 #import "GBUtility_Common.h"
 
+#import "GBFastArray.h"
+
 #import "NSObject+GBToolbox.h"
 #import "NSTimer+GBToolbox.h"
 #import "NSData+GBToolbox.h"

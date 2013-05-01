@@ -67,6 +67,9 @@
 		8AF6878616B8057400FEF6A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
 		8AF6878716B8057C00FEF6A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
 		8AF6878816B8057C00FEF6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */; };
+		8AF78D8E173141BF00F61ECC /* GBFastArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF78D8C173141BF00F61ECC /* GBFastArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8AF78D8F173141BF00F61ECC /* GBFastArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF78D8D173141BF00F61ECC /* GBFastArray.m */; };
+		8AF78D90173141BF00F61ECC /* GBFastArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF78D8D173141BF00F61ECC /* GBFastArray.m */; };
 		8AF8C6B216C00083005A5511 /* GBResizableImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF8C6B016C00083005A5511 /* GBResizableImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8AF8C6B416C00083005A5511 /* GBResizableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C6B116C00083005A5511 /* GBResizableImageView.m */; };
 /* End PBXBuildFile section */
@@ -158,6 +161,8 @@
 		8AE8348916C9495800546249 /* GBTypes_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBTypes_OSX.h; sourceTree = "<group>"; };
 		8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8AF6878516B8057400FEF6A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8AF78D8C173141BF00F61ECC /* GBFastArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBFastArray.h; sourceTree = "<group>"; };
+		8AF78D8D173141BF00F61ECC /* GBFastArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBFastArray.m; sourceTree = "<group>"; };
 		8AF8C6B016C00083005A5511 /* GBResizableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBResizableImageView.h; sourceTree = "<group>"; };
 		8AF8C6B116C00083005A5511 /* GBResizableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBResizableImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -255,18 +260,8 @@
 		8ACE941216C1192E00527E0D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				8AF8C6B016C00083005A5511 /* GBResizableImageView.h */,
-				8AF8C6B116C00083005A5511 /* GBResizableImageView.m */,
-				8AE8347E16C941BC00546249 /* GBRadialGradientView.h */,
-				8AE8347F16C941BC00546249 /* GBRadialGradientView.m */,
-				8A8402B616CBBC070017157C /* GBCustomViewButtonCell.h */,
-				8A8402B716CBBC070017157C /* GBCustomViewButtonCell.m */,
-				8A8402D016CBC4DB0017157C /* GBCustomImageButtonCell.h */,
-				8A8402D116CBC4DB0017157C /* GBCustomImageButtonCell.m */,
-				8A8402D816CBE1FA0017157C /* GBGlowingImageButtonCell.h */,
-				8A8402D916CBE1FA0017157C /* GBGlowingImageButtonCell.m */,
-				8A8402DC16CBE6490017157C /* GBSolidColorView.h */,
-				8A8402DD16CBE6490017157C /* GBSolidColorView.m */,
+				8AF78D8B1731419C00F61ECC /* General */,
+				8AF78D8A1731419600F61ECC /* UI */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -375,6 +370,34 @@
 			name = Types;
 			sourceTree = "<group>";
 		};
+		8AF78D8A1731419600F61ECC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8AF8C6B016C00083005A5511 /* GBResizableImageView.h */,
+				8AF8C6B116C00083005A5511 /* GBResizableImageView.m */,
+				8AE8347E16C941BC00546249 /* GBRadialGradientView.h */,
+				8AE8347F16C941BC00546249 /* GBRadialGradientView.m */,
+				8A8402B616CBBC070017157C /* GBCustomViewButtonCell.h */,
+				8A8402B716CBBC070017157C /* GBCustomViewButtonCell.m */,
+				8A8402D016CBC4DB0017157C /* GBCustomImageButtonCell.h */,
+				8A8402D116CBC4DB0017157C /* GBCustomImageButtonCell.m */,
+				8A8402D816CBE1FA0017157C /* GBGlowingImageButtonCell.h */,
+				8A8402D916CBE1FA0017157C /* GBGlowingImageButtonCell.m */,
+				8A8402DC16CBE6490017157C /* GBSolidColorView.h */,
+				8A8402DD16CBE6490017157C /* GBSolidColorView.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		8AF78D8B1731419C00F61ECC /* General */ = {
+			isa = PBXGroup;
+			children = (
+				8AF78D8C173141BF00F61ECC /* GBFastArray.h */,
+				8AF78D8D173141BF00F61ECC /* GBFastArray.m */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -403,6 +426,7 @@
 				8A66400C16F9CBB800FDD892 /* NSArray+GBToolbox.h in Headers */,
 				8A521B0C1701CD1500A89BE4 /* GBTypes_OSX.h in Headers */,
 				8A521B0D1701CD1F00A89BE4 /* GBMacros_OSX.h in Headers */,
+				8AF78D8E173141BF00F61ECC /* GBFastArray.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +570,7 @@
 				8A8402DB16CBE1FA0017157C /* GBGlowingImageButtonCell.m in Sources */,
 				8A8402DF16CBE6490017157C /* GBSolidColorView.m in Sources */,
 				8A66400E16F9CBB800FDD892 /* NSArray+GBToolbox.m in Sources */,
+				8AF78D90173141BF00F61ECC /* GBFastArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +597,7 @@
 				8ACE944516C11C6E00527E0D /* GBUtility_Common.m in Sources */,
 				8A27D5FF16C8F3B50071AE31 /* CALayer+GBToolbox.m in Sources */,
 				8A66400D16F9CBB800FDD892 /* NSArray+GBToolbox.m in Sources */,
+				8AF78D8F173141BF00F61ECC /* GBFastArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

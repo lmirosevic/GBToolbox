@@ -11,19 +11,19 @@
 
 @implementation GBToolboxUnitTests
 
-- (void)setUp
-{
+-(void)setUp {
     [super setUp];
     
     // Set-up code here.
 }
 
-- (void)tearDown
-{
+-(void)tearDown {
     // Tear-down code here.
     
     [super tearDown];
 }
+
+#pragma mark - NSString category
 
 -(void)testContainsSubstringCaseSensitive {
     STAssertTrue([@"heythereman" containsSubstring:@"THERE" caseSensitive:NO], @"containsSubstring:caseSensitive: test failed");
@@ -46,6 +46,46 @@
             STAssertTrue([bigString containsSubstring:substring caseSensitive:YES], @"containsSubstring:caseSensitive: test failed");
             STAssertTrue([bigString containsSubstring:substring caseSensitive:NO], @"containsSubstring:caseSensitive: test failed");
         }
+    }
+}
+
+#pragma mark - GBFastArray
+
+-(void)testFastArray {
+    GBFastArray *a = [[GBFastArray alloc] initWithTypeSize:sizeof(int) initialCapacity:4 resizingFactor:1.5];
+    
+    STAssertTrue([a currentArraySize] == 4, @"Array size must still be what it was initially allocated as");
+    
+    //put some values in
+    for (int i = 0; i<20; i++) {
+        int value = i-10;
+        [a insertItem:&value atIndex:i];
+    }
+    
+    //check that the array has grown properly
+    STAssertTrue([a currentArraySize] == 28, @"Array size must now have grown according to the resizing factor");
+    
+    //check that the values made it in safely
+    for (int i = 0; i<20; i++) {
+        STAssertTrue(*((int *)[a itemAtIndex:i]) == i-10, @"What went in must come out");
+    }
+    
+    //resize the array up
+    [a reallocToSize:100];
+    STAssertTrue([a currentArraySize] == 100, @"Array size must now be the new size");
+    
+    //check again
+    for (int i = 0; i<20; i++) {
+        STAssertTrue(*((int *)[a itemAtIndex:i]) == i-10, @"What went in must still be in");
+    }
+    
+    //shrink
+    [a reallocToSize:5];
+    STAssertTrue([a currentArraySize] == 5, @"Array size must now be the new size");
+    
+    //check again that first few items are still in
+    for (int i = 0; i<5; i++) {
+        STAssertTrue(*((int *)[a itemAtIndex:i]) == i-10, @"What went in must still be in, again");
     }
 }
 
