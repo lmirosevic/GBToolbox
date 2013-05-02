@@ -67,7 +67,7 @@
     
     //check that the values made it in safely
     for (int i = 0; i<20; i++) {
-        STAssertTrue(*((int *)[a itemAtIndex:i]) == i-10, @"What went in must come out");
+        STAssertTrue(*(int *)[a itemAtIndex:i] == i-10, @"What went in must come out");
     }
     
     //resize the array up
@@ -76,7 +76,7 @@
     
     //check again
     for (int i = 0; i<20; i++) {
-        STAssertTrue(*((int *)[a itemAtIndex:i]) == i-10, @"What went in must still be in");
+        STAssertTrue(*(int *)[a itemAtIndex:i] == i-10, @"What went in must still be in");
     }
     
     //shrink
@@ -85,7 +85,7 @@
     
     //check again that first few items are still in
     for (int i = 0; i<5; i++) {
-        STAssertTrue(*((int *)[a itemAtIndex:i]) == i-10, @"What went in must still be in, again");
+        STAssertTrue(*(int *)[a itemAtIndex:i] == i-10, @"What went in must still be in, again");
     }
 }
 
