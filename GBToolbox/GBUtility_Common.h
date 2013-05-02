@@ -39,7 +39,7 @@ double EaseOutQuadratic(double frame, double start, double delta, double totalFr
 
 CGFloat ScalarAbsolute(CGFloat value);
 CGFloat Vector2DMagnitude(GBVector2D vector);
-BOOL LinesOverlap(CGFloat Line1Origin, CGFloat Line1Length, CGFloat Line2Origin, CGFloat Line2Length);
+BOOL Lines1DOverlap(CGFloat Line1Origin, CGFloat Line1Length, CGFloat Line2Origin, CGFloat Line2Length);
 
 #pragma mark - Matrix grid
 

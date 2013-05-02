@@ -108,7 +108,7 @@ CGFloat Vector2DMagnitude(GBVector2D vector) {
     return pow(vector.x * vector.x + vector.y * vector.y, 0.5);
 }
 
-BOOL LinesOverlap(CGFloat Line1Origin, CGFloat Line1Length, CGFloat Line2Origin, CGFloat Line2Length) {
+BOOL Lines1DOverlap(CGFloat Line1Origin, CGFloat Line1Length, CGFloat Line2Origin, CGFloat Line2Length) {
     if (Line1Origin+Line1Length < Line2Origin) return NO;
     if (Line1Origin > Line2Origin+Line2Length) return NO;
     return YES;
