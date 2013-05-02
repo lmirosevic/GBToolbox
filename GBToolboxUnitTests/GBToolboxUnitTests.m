@@ -89,4 +89,42 @@
     }
 }
 
+#pragma mark - Linear algebra
+
+-(void)testLinearAlgebra {
+    typedef struct {
+        CGFloat origin;
+        CGFloat length;
+    } Line;
+    
+    Line outer = {20,60};
+    
+    Line innerTrue[] = {{21,29}, {15,25}, {60,40}, {4,116}};
+    
+    STAssertTrue(LinesOverlap(outer.origin, outer.length, innerTrue[0].origin, innerTrue[0].length), @"true: one way");
+    STAssertTrue(LinesOverlap(innerTrue[0].origin, innerTrue[0].length, outer.origin, outer.length), @"true: the other");
+    
+    STAssertTrue(LinesOverlap(outer.origin, outer.length, innerTrue[1].origin, innerTrue[1].length), @"true: one way");
+    STAssertTrue(LinesOverlap(innerTrue[1].origin, innerTrue[1].length, outer.origin, outer.length), @"true: the other");
+    
+    STAssertTrue(LinesOverlap(outer.origin, outer.length, innerTrue[2].origin, innerTrue[2].length), @"true: one way");
+    STAssertTrue(LinesOverlap(innerTrue[2].origin, innerTrue[2].length, outer.origin, outer.length), @"true: the other");
+    
+    STAssertTrue(LinesOverlap(outer.origin, outer.length, innerTrue[3].origin, innerTrue[3].length), @"true: one way");
+    STAssertTrue(LinesOverlap(innerTrue[3].origin, innerTrue[3].length, outer.origin, outer.length), @"true: the other");
+    
+    Line innerFalse[] = {{10,7}, {18,1.9}, {80.1,20}};
+    
+    STAssertFalse(LinesOverlap(10, 7, 20, 60), @"should not overlap");
+    
+    STAssertFalse(LinesOverlap(outer.origin, outer.length, innerFalse[0].origin, innerFalse[0].length), @"false: one way");
+    STAssertFalse(LinesOverlap(innerFalse[0].origin, innerFalse[0].length, outer.origin, outer.length), @"false: the other");
+    
+    STAssertFalse(LinesOverlap(outer.origin, outer.length, innerFalse[1].origin, innerFalse[1].length), @"false: one way");
+    STAssertFalse(LinesOverlap(innerFalse[1].origin, innerFalse[1].length, outer.origin, outer.length), @"false: the other");
+    
+    STAssertFalse(LinesOverlap(outer.origin, outer.length, innerFalse[2].origin, innerFalse[2].length), @"false: one way");
+    STAssertFalse(LinesOverlap(innerFalse[2].origin, innerFalse[2].length, outer.origin, outer.length), @"false: the other");
+}
+
 @end
