@@ -81,15 +81,15 @@ static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NS
 #define _singleton(Class, accessor) +(Class *)accessor {static Class *accessor;@synchronized(self) {if (!accessor) {accessor = [[Class alloc] init];}return accessor;}}
 
 //Debugging
-#define _b(expression) expression ? @"YES" : @"NO"
-#define _lRect(rect) l(@"Rect: %f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
-#define _lPoint(point) l(@"Point: %f %f", point.x, point.y);
-#define _lSize(size) l(@"Size: %f %f", size.width, size.height);
-#define _lObject(object) l(@"Object: %@", object);
-#define _lString(string) l(@"String: %@", string);
-#define _lFloating(floating) l(@"Floating: %f", floating);
-#define _lIntegral(integral) l(@"Integral: %d", integral);
-#define _lBoolean(boolean) l(@"Boolean: %@", _b(boolean));
+static inline NSString * _b(BOOL expression) {if (expression) {return @"YES";} else {return @"NO";}}
+static inline void _lRect(CGRect rect) {l(@"Rect: %f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);}
+static inline void _lPoint(CGPoint point) {l(@"Point: %f %f", point.x, point.y);}
+static inline void _lSize(CGSize size) {l(@"Size: %f %f", size.width, size.height);}
+static inline void _lObject(id object) {l(@"Object: %@", object);}
+static inline void _lString(NSString *string) {l(@"String: %@", string);}
+static inline void _lFloating(CGFloat floating) {l(@"Floating: %f", floating);}
+static inline void _lIntegral(NSInteger integer) {l(@"Integer: %ld", (long)integer);}
+static inline void _lBoolean(BOOL boolean) {l(@"Boolean: %@", _b(boolean));}
 
 //Strings
 #define IsEmptyString(string) ((![string isKindOfClass:[NSString class]] || (string == nil) || ([string isEqualToString:@""])) ? YES : NO)
