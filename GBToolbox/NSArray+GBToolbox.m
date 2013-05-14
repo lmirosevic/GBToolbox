@@ -73,7 +73,7 @@
     // applies the function to each item and stores the result in the new array
     for (NSUInteger i=0; i<count; i++) {
         if (function(self[i])) {
-            resultsArray[i] = self[i];
+            [resultsArray addObject:self[i]];
         }
     }
     
