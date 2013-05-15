@@ -54,7 +54,14 @@
 -(void)testFastArray {
     GBFastArray *a = [[GBFastArray alloc] initWithTypeSize:sizeof(int) initialCapacity:4 resizingFactor:1.5];
     
-    STAssertTrue([a currentArraySize] == 4, @"Array size must still be what it was initially allocated as");
+    //check that the allocation was proper
+    STAssertTrue([a currentAllocationSize] == 4, @"Array size must still be what it was initially allocated as");
+    
+    //count should be 0
+    STAssertTrue(a.count == 0, @"Count should be 0");
+    
+    //check to see if its empty
+    STAssertTrue(a.isEmpty, @"Should be empty");
     
     //put some values in
     for (int i = 0; i<20; i++) {
@@ -62,8 +69,68 @@
         [a insertItem:&value atIndex:i];
     }
     
+    //try searching for some items
+    STAssertTrue(13 == [a binarySearchForIndexWithSearchLambda:^GBSearchResult(void *candidateItem) {
+        int targetItem = 3;
+        int nativeCandidateItem = *(int *)candidateItem;
+        if (nativeCandidateItem == targetItem) {
+            return GBSearchResultMatch;
+        }
+        else if (nativeCandidateItem > targetItem) {
+            return GBSearchResultHigh;
+        }
+        else {
+            return GBSearchResultLow;
+        }
+    }], @"Look for 13");
+    STAssertTrue(13 == [a binarySearchForIndexWithLow:10 high:13 searchLambda:^GBSearchResult(void *candidateItem) {
+        int targetItem = 3;
+        int nativeCandidateItem = *(int *)candidateItem;
+        if (nativeCandidateItem == targetItem) {
+            return GBSearchResultMatch;
+        }
+        else if (nativeCandidateItem > targetItem) {
+            return GBSearchResultHigh;
+        }
+        else {
+            return GBSearchResultLow;
+        }
+    }], @"Look for 13");
+    STAssertTrue(13 == [a binarySearchForIndexWithLow:13 high:20 searchLambda:^GBSearchResult(void *candidateItem) {
+        int targetItem = 3;
+        int nativeCandidateItem = *(int *)candidateItem;
+        if (nativeCandidateItem == targetItem) {
+            return GBSearchResultMatch;
+        }
+        else if (nativeCandidateItem > targetItem) {
+            return GBSearchResultHigh;
+        }
+        else {
+            return GBSearchResultLow;
+        }
+    }], @"Look for 13");
+    STAssertTrue(kGBSearchResultNotFound == [a binarySearchForIndexWithLow:14 high:20 searchLambda:^GBSearchResult(void *candidateItem) {
+        int targetItem = 3;
+        int nativeCandidateItem = *(int *)candidateItem;
+        if (nativeCandidateItem == targetItem) {
+            return GBSearchResultMatch;
+        }
+        else if (nativeCandidateItem > targetItem) {
+            return GBSearchResultHigh;
+        }
+        else {
+            return GBSearchResultLow;
+        }
+    }], @"Look for 13, but don't find it");
+
+    //check to see if its empty
+    STAssertTrue(!a.isEmpty, @"Should NOT be empty");
+    
+    //check that the count is proper
+    STAssertTrue(a.count == 20, @"Array count should match what's been put in");
+    
     //check that the array has grown properly
-    STAssertTrue([a currentArraySize] == 28, @"Array size must now have grown according to the resizing factor");
+    STAssertTrue([a currentAllocationSize] == 28, @"Array size must now have grown according to the resizing factor");
     
     //check that the values made it in safely
     for (int i = 0; i<20; i++) {
@@ -72,7 +139,7 @@
     
     //resize the array up
     [a reallocToSize:100];
-    STAssertTrue([a currentArraySize] == 100, @"Array size must now be the new size");
+    STAssertTrue([a currentAllocationSize] == 100, @"Array size must now be the new size");
     
     //check again
     for (int i = 0; i<20; i++) {
@@ -81,7 +148,10 @@
     
     //shrink
     [a reallocToSize:5];
-    STAssertTrue([a currentArraySize] == 5, @"Array size must now be the new size");
+    STAssertTrue([a currentAllocationSize] == 5, @"Array size must now be the new size");
+    
+    //check that the count is proper
+    STAssertTrue(a.count == 5, @"Array count should match what's been put in");
     
     //check again that first few items are still in
     for (int i = 0; i<5; i++) {

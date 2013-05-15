@@ -451,9 +451,9 @@
 			productReference = 8A0377FB16BFCD2F0096C448 /* GBToolbox.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		8A0C4E33165FA60C00A990FB /* GBToolboxUnitTests */ = {
+		8A0C4E33165FA60C00A990FB /* GBToolboxUnitTests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A0C4E45165FA60C00A990FB /* Build configuration list for PBXNativeTarget "GBToolboxUnitTests" */;
+			buildConfigurationList = 8A0C4E45165FA60C00A990FB /* Build configuration list for PBXNativeTarget "GBToolboxUnitTests-iOS" */;
 			buildPhases = (
 				8A0C4E2F165FA60C00A990FB /* Sources */,
 				8A0C4E30165FA60C00A990FB /* Frameworks */,
@@ -465,7 +465,7 @@
 			dependencies = (
 				8A0C4E48165FA62900A990FB /* PBXTargetDependency */,
 			);
-			name = GBToolboxUnitTests;
+			name = "GBToolboxUnitTests-iOS";
 			productName = GBToolboxUnitTests;
 			productReference = 8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests.octest */;
 			productType = "com.apple.product-type.bundle";
@@ -509,7 +509,7 @@
 			projectRoot = "";
 			targets = (
 				8AD911B0162D9E2200C9D287 /* GBToolbox-iOS */,
-				8A0C4E33165FA60C00A990FB /* GBToolboxUnitTests */,
+				8A0C4E33165FA60C00A990FB /* GBToolboxUnitTests-iOS */,
 				8A0377FA16BFCD2F0096C448 /* GBToolbox-OSX */,
 			);
 		};
@@ -821,7 +821,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A0C4E45165FA60C00A990FB /* Build configuration list for PBXNativeTarget "GBToolboxUnitTests" */ = {
+		8A0C4E45165FA60C00A990FB /* Build configuration list for PBXNativeTarget "GBToolboxUnitTests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A0C4E43165FA60C00A990FB /* Debug */,
