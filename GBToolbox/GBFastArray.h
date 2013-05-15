@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const GBBadParameterException;
-
-extern NSUInteger const kGBSearchResultNotFound;
+#import "GBConstants_Common.h"
 
 typedef enum {
     GBSearchResultMatch,

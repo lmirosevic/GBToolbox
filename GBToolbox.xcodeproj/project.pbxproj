@@ -16,6 +16,10 @@
 		8A0C4E3E165FA60C00A990FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A0C4E3C165FA60C00A990FB /* InfoPlist.strings */; };
 		8A0C4E41165FA60C00A990FB /* GBToolboxUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0C4E40165FA60C00A990FB /* GBToolboxUnitTests.m */; };
 		8A0C4E49165FA83400A990FB /* libGBToolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B1162D9E2200C9D287 /* libGBToolbox.a */; };
+		8A215D071743DDDA007C7DE2 /* GBConstants_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A215D051743DDDA007C7DE2 /* GBConstants_Common.h */; };
+		8A215D081743DDDA007C7DE2 /* GBConstants_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */; };
+		8A215D091743DDDA007C7DE2 /* GBConstants_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */; };
+		8A215D0A1743DDDA007C7DE2 /* GBConstants_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */; };
 		8A27D5FD16C8F3AA0071AE31 /* CALayer+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A27D5FB16C8F3AA0071AE31 /* CALayer+GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A27D5FE16C8F3AA0071AE31 /* CALayer+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */; };
 		8A27D5FF16C8F3B50071AE31 /* CALayer+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */; };
@@ -105,13 +109,15 @@
 		8A03780416BFCD2F0096C448 /* GBToolbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GBToolbox-Info.plist"; sourceTree = "<group>"; };
 		8A03780816BFCD2F0096C448 /* GBToolbox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBToolbox-Prefix.pch"; sourceTree = "<group>"; };
 		8A03780916BFCD2F0096C448 /* GBToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBToolbox.h; sourceTree = "<group>"; };
-		8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBToolboxUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GBToolboxUnitTests.octest; path = "GBToolboxUnitTests-iOS.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0C4E35165FA60C00A990FB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		8A0C4E3B165FA60C00A990FB /* GBToolboxUnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GBToolboxUnitTests-Info.plist"; sourceTree = "<group>"; };
 		8A0C4E3D165FA60C00A990FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8A0C4E3F165FA60C00A990FB /* GBToolboxUnitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBToolboxUnitTests.h; sourceTree = "<group>"; };
 		8A0C4E40165FA60C00A990FB /* GBToolboxUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GBToolboxUnitTests.m; sourceTree = "<group>"; };
 		8A0C4E42165FA60C00A990FB /* GBToolboxUnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBToolboxUnitTests-Prefix.pch"; sourceTree = "<group>"; };
+		8A215D051743DDDA007C7DE2 /* GBConstants_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBConstants_Common.h; sourceTree = "<group>"; };
+		8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBConstants_Common.m; sourceTree = "<group>"; };
 		8A27D5FB16C8F3AA0071AE31 /* CALayer+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+GBToolbox.h"; sourceTree = "<group>"; };
 		8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+GBToolbox.m"; sourceTree = "<group>"; };
 		8A66400A16F9CBB800FDD892 /* NSArray+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GBToolbox.h"; sourceTree = "<group>"; };
@@ -218,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				8ACE944716C11E1F00527E0D /* Header */,
+				8A215D041743DDC9007C7DE2 /* Constants */,
 				8AE8348216C948F600546249 /* Types */,
 				8ACE941316C1193A00527E0D /* Macros */,
 				8ACE944816C11E3E00527E0D /* Utility */,
@@ -255,6 +262,15 @@
 				8A0C4E42165FA60C00A990FB /* GBToolboxUnitTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8A215D041743DDC9007C7DE2 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				8A215D051743DDDA007C7DE2 /* GBConstants_Common.h */,
+				8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 		8ACE941216C1192E00527E0D /* Classes */ = {
@@ -427,6 +443,7 @@
 				8A521B0C1701CD1500A89BE4 /* GBTypes_OSX.h in Headers */,
 				8A521B0D1701CD1F00A89BE4 /* GBMacros_OSX.h in Headers */,
 				8AF78D8E173141BF00F61ECC /* GBFastArray.h in Headers */,
+				8A215D071743DDDA007C7DE2 /* GBConstants_Common.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +588,7 @@
 				8A8402DF16CBE6490017157C /* GBSolidColorView.m in Sources */,
 				8A66400E16F9CBB800FDD892 /* NSArray+GBToolbox.m in Sources */,
 				8AF78D90173141BF00F61ECC /* GBFastArray.m in Sources */,
+				8A215D0A1743DDDA007C7DE2 /* GBConstants_Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A0C4E41165FA60C00A990FB /* GBToolboxUnitTests.m in Sources */,
+				8A215D091743DDDA007C7DE2 /* GBConstants_Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +617,7 @@
 				8A27D5FF16C8F3B50071AE31 /* CALayer+GBToolbox.m in Sources */,
 				8A66400D16F9CBB800FDD892 /* NSArray+GBToolbox.m in Sources */,
 				8AF78D8F173141BF00F61ECC /* GBFastArray.m in Sources */,
+				8A215D081743DDDA007C7DE2 /* GBConstants_Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

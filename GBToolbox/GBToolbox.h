@@ -22,6 +22,8 @@
 
 #import "GBTypes_Common.h"
 
+#import "GBConstants_Common.h"
+
 #import "GBMacros_Common.h"
 #import "GBUtility_Common.h"
 

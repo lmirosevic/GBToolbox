@@ -8,10 +8,6 @@
 
 #import "GBFastArray.h"
 
-NSString * const GBBadParameterException = @"GBBadParameterException";
-
-NSUInteger const kGBSearchResultNotFound = NSUIntegerMax;
-
 static CGFloat const kDefaultResizingFactor = 1.5;
 static CGFloat const kDefaultInitialCapacity = 100;
 
