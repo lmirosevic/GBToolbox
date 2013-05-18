@@ -35,6 +35,7 @@
 #import "NSString+GBToolbox.h"
 #import "CALayer+GBToolbox.h"
 #import "NSArray+GBToolbox.h"
+#import "NSMutableArray+GBToolbox.h"
 
 
 /* iOS imports */

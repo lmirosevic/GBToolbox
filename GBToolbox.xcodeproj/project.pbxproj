@@ -76,6 +76,9 @@
 		8AF78D90173141BF00F61ECC /* GBFastArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF78D8D173141BF00F61ECC /* GBFastArray.m */; };
 		8AF8C6B216C00083005A5511 /* GBResizableImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF8C6B016C00083005A5511 /* GBResizableImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8AF8C6B416C00083005A5511 /* GBResizableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF8C6B116C00083005A5511 /* GBResizableImageView.m */; };
+		8AF92333174657BB00C8C9F4 /* NSMutableArray+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF92331174657BB00C8C9F4 /* NSMutableArray+GBToolbox.h */; };
+		8AF92334174657BB00C8C9F4 /* NSMutableArray+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF92332174657BB00C8C9F4 /* NSMutableArray+GBToolbox.m */; };
+		8AF92335174657BB00C8C9F4 /* NSMutableArray+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF92332174657BB00C8C9F4 /* NSMutableArray+GBToolbox.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +174,8 @@
 		8AF78D8D173141BF00F61ECC /* GBFastArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBFastArray.m; sourceTree = "<group>"; };
 		8AF8C6B016C00083005A5511 /* GBResizableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBResizableImageView.h; sourceTree = "<group>"; };
 		8AF8C6B116C00083005A5511 /* GBResizableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBResizableImageView.m; sourceTree = "<group>"; };
+		8AF92331174657BB00C8C9F4 /* NSMutableArray+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+GBToolbox.h"; sourceTree = "<group>"; };
+		8AF92332174657BB00C8C9F4 /* NSMutableArray+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+GBToolbox.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +322,8 @@
 				8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */,
 				8A66400A16F9CBB800FDD892 /* NSArray+GBToolbox.h */,
 				8A66400B16F9CBB800FDD892 /* NSArray+GBToolbox.m */,
+				8AF92331174657BB00C8C9F4 /* NSMutableArray+GBToolbox.h */,
+				8AF92332174657BB00C8C9F4 /* NSMutableArray+GBToolbox.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -444,6 +451,7 @@
 				8A521B0D1701CD1F00A89BE4 /* GBMacros_OSX.h in Headers */,
 				8AF78D8E173141BF00F61ECC /* GBFastArray.h in Headers */,
 				8A215D071743DDDA007C7DE2 /* GBConstants_Common.h in Headers */,
+				8AF92333174657BB00C8C9F4 /* NSMutableArray+GBToolbox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +597,7 @@
 				8A66400E16F9CBB800FDD892 /* NSArray+GBToolbox.m in Sources */,
 				8AF78D90173141BF00F61ECC /* GBFastArray.m in Sources */,
 				8A215D0A1743DDDA007C7DE2 /* GBConstants_Common.m in Sources */,
+				8AF92335174657BB00C8C9F4 /* NSMutableArray+GBToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +627,7 @@
 				8A66400D16F9CBB800FDD892 /* NSArray+GBToolbox.m in Sources */,
 				8AF78D8F173141BF00F61ECC /* GBFastArray.m in Sources */,
 				8A215D081743DDDA007C7DE2 /* GBConstants_Common.m in Sources */,
+				8AF92334174657BB00C8C9F4 /* NSMutableArray+GBToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
