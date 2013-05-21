@@ -13,6 +13,7 @@
 #pragma mark - Helper methods
 
 //returns a random object from the array
+@property (strong, nonatomic, readonly) id randomObject;
 -(id)randomObject;
 
 #pragma mark - Functional Programming
@@ -31,5 +32,11 @@
 
 //filter
 -(NSArray *)filter:(BOOL(^)(id object))function;
+
+#pragma mark - Description
+
+//returns the array concatenated by ", "
+@property (copy, nonatomic, readonly) NSString *shortStringRepresentation;
+-(NSString *)shortStringRepresentation;
 
 @end

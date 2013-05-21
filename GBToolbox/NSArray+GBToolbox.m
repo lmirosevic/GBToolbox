@@ -81,4 +81,11 @@
     return [resultsArray copy];
 }
 
+#pragma mark - Description
+
+//returns the array concatenated by ", "
+-(NSString *)shortStringRepresentation {
+    return [self componentsJoinedByString:@", "];
+}
+
 @end
