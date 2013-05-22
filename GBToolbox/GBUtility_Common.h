@@ -93,4 +93,14 @@ NSString * AppBundleName();
 NSString * AppBundleDisplayName();
 NSString * AppBundleIdentifier();
 
+#pragma mark - Error prevention
+//When you don't want nil strings
+
+//If string is nil, returns @""
+NSString * Denilify(NSString *string);
+//Just passes the string through the format printer guy
+NSString * Stringify(NSString *string);
+
+
+
 @end

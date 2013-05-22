@@ -292,4 +292,15 @@ NSString * AppBundleIdentifier() {
     return [[NSBundle mainBundle] infoDictionary][@"CFBundleIdentifier"];
 }
 
+#pragma mark - Error prevention
+
+
+NSString * Denilify(NSString *string) {
+    return (string ? string : @"");
+}
+
+NSString * Stringify(NSString *string) {
+    return [NSString stringWithFormat:@"%@", string];
+}
+
 @end
