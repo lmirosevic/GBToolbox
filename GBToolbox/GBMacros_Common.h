@@ -32,10 +32,10 @@
 static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NSString *atomicity) {
     //_Pragma("clang diagnostic pop")
     if ([atomicity isEqualToString:@"atomic"]) {
-        if ([storage isEqualToString:@"assign"]) {
+        if ([storage isEqualToString:@"assign"] || [storage isEqualToString:@"weak"]) {
             return OBJC_ASSOCIATION_ASSIGN;
         }
-        else if ([storage isEqualToString:@"retain"]) {
+        else if ([storage isEqualToString:@"retain"] || [storage isEqualToString:@"strong"]) {
             return OBJC_ASSOCIATION_RETAIN;
         }
         else if ([storage isEqualToString:@"copy"]) {
@@ -47,10 +47,10 @@ static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NS
         }
     }
     else if ([atomicity isEqualToString:@"nonatomic"]) {
-        if ([storage isEqualToString:@"assign"]) {
+        if ([storage isEqualToString:@"assign"] || [storage isEqualToString:@"weak"]) {
             return OBJC_ASSOCIATION_ASSIGN;
         }
-        else if ([storage isEqualToString:@"retain"]) {
+        else if ([storage isEqualToString:@"retain"] || [storage isEqualToString:@"strong"]) {
             return OBJC_ASSOCIATION_RETAIN_NONATOMIC;
         }
         else if ([storage isEqualToString:@"copy"]) {
