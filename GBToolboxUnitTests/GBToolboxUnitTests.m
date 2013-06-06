@@ -7,6 +7,7 @@
 //
 
 #import "GBToolboxUnitTests.h"
+
 #import "GBToolbox.h"
 
 @implementation GBToolboxUnitTests
@@ -195,6 +196,48 @@
     
     STAssertFalse(Lines1DOverlap(outer.origin, outer.length, innerFalse[2].origin, innerFalse[2].length), @"false: one way");
     STAssertFalse(Lines1DOverlap(innerFalse[2].origin, innerFalse[2].length, outer.origin, outer.length), @"false: the other");
+}
+
+#pragma mark - Dictionary pruning
+
+-(void)testDictionaryPruning {
+    NSDictionary *dict1 = @{@"a": @"1",
+                            @"b": [NSNull null],
+                            @"c": @"3"};
+    
+    STAssertTrue(2 == [NSDictionary dictionaryByPruningNullsInDictionary:dict1].count, @"shud match");
+    
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:@{
+        @"dog": @"wilsa",
+        @"otherDog": @"jackson",
+        @"cat": [NSNull null]
+    }];
+    
+    [dict pruneNulls];
+    
+    STAssertTrue(dict.count == 2, @"should be equal");
+    
+    
+    NSMutableDictionary *dict2 = [NSMutableDictionary dictionaryWithDictionary: @{
+        @"a": @"1",
+        @"b": [NSNull null],
+        @"c": @{
+            @"car": [NSNull null],
+            @"limo": @"hummer"
+        }
+    }];
+    
+    NSDictionary *prunedResultTarget = @{
+        @"a": @"1",
+        @"c": @{
+            @"limo": @"hummer"
+        }
+    };
+    
+    [dict2 pruneNulls];
+    
+    STAssertTrue([dict2 isEqual:prunedResultTarget], @"dicts shud equal");
 }
 
 @end

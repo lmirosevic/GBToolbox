@@ -25,6 +25,12 @@
 		8A27D5FF16C8F3B50071AE31 /* CALayer+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */; };
 		8A27D60216C8F5FC0071AE31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
 		8A4043D8174CBF3400DF3166 /* UIView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4043D7174CBF3400DF3166 /* UIView+GBToolbox.m */; };
+		8A4469901760A5F900F33E75 /* NSMutableDictionary+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A44698E1760A5F900F33E75 /* NSMutableDictionary+GBToolbox.h */; };
+		8A4469911760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A44698F1760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m */; };
+		8A4469921760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A44698F1760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m */; };
+		8A4469951760A6D400F33E75 /* NSDictionary+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A4469931760A6D400F33E75 /* NSDictionary+GBToolbox.h */; };
+		8A4469961760A6D400F33E75 /* NSDictionary+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4469941760A6D400F33E75 /* NSDictionary+GBToolbox.m */; };
+		8A4469971760A6D400F33E75 /* NSDictionary+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4469941760A6D400F33E75 /* NSDictionary+GBToolbox.m */; };
 		8A521B0B1701CCD600A89BE4 /* GBTypes_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AE8348716C9494A00546249 /* GBTypes_Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A521B0C1701CD1500A89BE4 /* GBTypes_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AE8348916C9495800546249 /* GBTypes_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A521B0D1701CD1F00A89BE4 /* GBMacros_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ACE944A16C11FF700527E0D /* GBMacros_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -126,6 +132,10 @@
 		8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+GBToolbox.m"; sourceTree = "<group>"; };
 		8A4043D6174CBF3400DF3166 /* UIView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GBToolbox.h"; sourceTree = "<group>"; };
 		8A4043D7174CBF3400DF3166 /* UIView+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GBToolbox.m"; sourceTree = "<group>"; };
+		8A44698E1760A5F900F33E75 /* NSMutableDictionary+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+GBToolbox.h"; sourceTree = "<group>"; };
+		8A44698F1760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+GBToolbox.m"; sourceTree = "<group>"; };
+		8A4469931760A6D400F33E75 /* NSDictionary+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+GBToolbox.h"; sourceTree = "<group>"; };
+		8A4469941760A6D400F33E75 /* NSDictionary+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GBToolbox.m"; sourceTree = "<group>"; };
 		8A66400A16F9CBB800FDD892 /* NSArray+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GBToolbox.h"; sourceTree = "<group>"; };
 		8A66400B16F9CBB800FDD892 /* NSArray+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GBToolbox.m"; sourceTree = "<group>"; };
 		8A8402B616CBBC070017157C /* GBCustomViewButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBCustomViewButtonCell.h; sourceTree = "<group>"; };
@@ -329,6 +339,10 @@
 				8A66400B16F9CBB800FDD892 /* NSArray+GBToolbox.m */,
 				8AF92331174657BB00C8C9F4 /* NSMutableArray+GBToolbox.h */,
 				8AF92332174657BB00C8C9F4 /* NSMutableArray+GBToolbox.m */,
+				8A4469931760A6D400F33E75 /* NSDictionary+GBToolbox.h */,
+				8A4469941760A6D400F33E75 /* NSDictionary+GBToolbox.m */,
+				8A44698E1760A5F900F33E75 /* NSMutableDictionary+GBToolbox.h */,
+				8A44698F1760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -457,6 +471,8 @@
 				8AF78D8E173141BF00F61ECC /* GBFastArray.h in Headers */,
 				8A215D071743DDDA007C7DE2 /* GBConstants_Common.h in Headers */,
 				8AF92333174657BB00C8C9F4 /* NSMutableArray+GBToolbox.h in Headers */,
+				8A4469901760A5F900F33E75 /* NSMutableDictionary+GBToolbox.h in Headers */,
+				8A4469951760A6D400F33E75 /* NSDictionary+GBToolbox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +619,8 @@
 				8AF78D90173141BF00F61ECC /* GBFastArray.m in Sources */,
 				8A215D0A1743DDDA007C7DE2 /* GBConstants_Common.m in Sources */,
 				8AF92335174657BB00C8C9F4 /* NSMutableArray+GBToolbox.m in Sources */,
+				8A4469921760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m in Sources */,
+				8A4469971760A6D400F33E75 /* NSDictionary+GBToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,6 +652,8 @@
 				8A215D081743DDDA007C7DE2 /* GBConstants_Common.m in Sources */,
 				8AF92334174657BB00C8C9F4 /* NSMutableArray+GBToolbox.m in Sources */,
 				8A4043D8174CBF3400DF3166 /* UIView+GBToolbox.m in Sources */,
+				8A4469911760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m in Sources */,
+				8A4469961760A6D400F33E75 /* NSDictionary+GBToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
