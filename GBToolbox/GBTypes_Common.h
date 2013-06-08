@@ -11,22 +11,30 @@
 
 #import <CoreGraphics/CoreGraphics.h>
 
+#pragma mark - General
+
+typedef void(^VoidBlock)(void);
+
+#pragma mark - Range
+
 typedef struct {
     CGFloat min;
     CGFloat max;
 } GBRange;
+
+#pragma mark - Linear algebra
 
 typedef struct {
     CGFloat x;
     CGFloat y;
 } GBVector2D;
 
+#pragma mark - UI
+
 typedef struct {
     NSUInteger rows;
     NSUInteger columns;
 } GBMatrixGrid;
-
-typedef void(^VoidBlock)(void);
 
 typedef struct {
     CGFloat top;
@@ -34,5 +42,43 @@ typedef struct {
     CGFloat bottom;
     CGFloat right;
 } GBEdgeInsets;
+
+#pragma mark - GBBoolean
+
+typedef enum {
+    BUndefined,
+    BYES,
+    BNO,
+} GBBoolean;
+
+static inline BOOL IsTruthyBool(GBBoolean boolean) {
+    return boolean == BYES;
+}
+
+static inline GBBoolean Number2Bool(NSNumber *number) {
+    if (number == nil) {
+        return BUndefined;
+    }
+    else if ([number boolValue] == YES) {
+        return BYES;
+    }
+    else {
+        return BNO;
+    }
+}
+
+static inline NSNumber * Bool2Number(GBBoolean boolean) {
+    switch (boolean) {
+        case BYES:
+            return @(YES);
+            
+        case BNO:
+            return @(NO);
+            
+        case BUndefined:
+        default:
+            return nil;
+    }
+}
 
 #endif

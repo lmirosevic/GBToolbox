@@ -9,6 +9,8 @@
 #ifndef GBToolbox_GBTypes_iOS_h
 #define GBToolbox_GBTypes_iOS_h
 
+#pragma mark - Device stuff
+
 typedef enum {
     Phone,
     Pad
