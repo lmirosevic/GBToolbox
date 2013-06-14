@@ -56,15 +56,16 @@ static inline BOOL IsTruthyBool(GBBoolean boolean) {
 }
 
 static inline GBBoolean Number2Bool(NSNumber *number) {
-    if (number == nil) {
-        return BUndefined;
+    if ([number isKindOfClass:[NSNumber class]]) {
+        if ([number boolValue] == YES) {
+            return BYES;
+        }
+        else if ([number boolValue] == NO) {
+            return BNO;
+        }
     }
-    else if ([number boolValue] == YES) {
-        return BYES;
-    }
-    else {
-        return BNO;
-    }
+    
+    return BUndefined;
 }
 
 static inline NSNumber * Bool2Number(GBBoolean boolean) {
