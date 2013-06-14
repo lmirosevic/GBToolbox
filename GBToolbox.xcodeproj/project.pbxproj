@@ -37,6 +37,9 @@
 		8A66400C16F9CBB800FDD892 /* NSArray+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A66400A16F9CBB800FDD892 /* NSArray+GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A66400D16F9CBB800FDD892 /* NSArray+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A66400B16F9CBB800FDD892 /* NSArray+GBToolbox.m */; };
 		8A66400E16F9CBB800FDD892 /* NSArray+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A66400B16F9CBB800FDD892 /* NSArray+GBToolbox.m */; };
+		8A823D6C1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A823D6A1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.h */; };
+		8A823D6D1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A823D6B1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m */; };
+		8A823D6E1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A823D6B1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m */; };
 		8A8402B816CBBC070017157C /* GBCustomViewButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A8402B616CBBC070017157C /* GBCustomViewButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A8402B916CBBC070017157C /* GBCustomViewButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8402B716CBBC070017157C /* GBCustomViewButtonCell.m */; };
 		8A8402D216CBC4DB0017157C /* GBCustomImageButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A8402D016CBC4DB0017157C /* GBCustomImageButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -138,6 +141,8 @@
 		8A4469941760A6D400F33E75 /* NSDictionary+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GBToolbox.m"; sourceTree = "<group>"; };
 		8A66400A16F9CBB800FDD892 /* NSArray+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GBToolbox.h"; sourceTree = "<group>"; };
 		8A66400B16F9CBB800FDD892 /* NSArray+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GBToolbox.m"; sourceTree = "<group>"; };
+		8A823D6A1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+GBToolbox.h"; sourceTree = "<group>"; };
+		8A823D6B1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+GBToolbox.m"; sourceTree = "<group>"; };
 		8A8402B616CBBC070017157C /* GBCustomViewButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBCustomViewButtonCell.h; sourceTree = "<group>"; };
 		8A8402B716CBBC070017157C /* GBCustomViewButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBCustomViewButtonCell.m; sourceTree = "<group>"; };
 		8A8402D016CBC4DB0017157C /* GBCustomImageButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBCustomImageButtonCell.h; sourceTree = "<group>"; };
@@ -343,6 +348,8 @@
 				8A4469941760A6D400F33E75 /* NSDictionary+GBToolbox.m */,
 				8A44698E1760A5F900F33E75 /* NSMutableDictionary+GBToolbox.h */,
 				8A44698F1760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m */,
+				8A823D6A1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.h */,
+				8A823D6B1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -473,6 +480,7 @@
 				8AF92333174657BB00C8C9F4 /* NSMutableArray+GBToolbox.h in Headers */,
 				8A4469901760A5F900F33E75 /* NSMutableDictionary+GBToolbox.h in Headers */,
 				8A4469951760A6D400F33E75 /* NSDictionary+GBToolbox.h in Headers */,
+				8A823D6C1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +629,7 @@
 				8AF92335174657BB00C8C9F4 /* NSMutableArray+GBToolbox.m in Sources */,
 				8A4469921760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m in Sources */,
 				8A4469971760A6D400F33E75 /* NSDictionary+GBToolbox.m in Sources */,
+				8A823D6E1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +663,7 @@
 				8A4043D8174CBF3400DF3166 /* UIView+GBToolbox.m in Sources */,
 				8A4469911760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m in Sources */,
 				8A4469961760A6D400F33E75 /* NSDictionary+GBToolbox.m in Sources */,
+				8A823D6D1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

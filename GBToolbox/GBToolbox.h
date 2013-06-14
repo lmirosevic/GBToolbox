@@ -38,6 +38,7 @@
 #import "NSMutableArray+GBToolbox.h"
 #import "NSDictionary+GBToolbox.h"
 #import "NSMutableDictionary+GBToolbox.h"
+#import "NSMutableURLRequest+GBToolbox.h"
 
 
 /* iOS imports */
