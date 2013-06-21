@@ -52,6 +52,7 @@
 #import "GBUtility_iOS.h"
 
 #import "GBCustomNavigationBar.h"
+#import "GBTextField.h"
 
 #import "UITableView+GBToolbox.h"
 #import "UIViewController+GBToolbox.h"

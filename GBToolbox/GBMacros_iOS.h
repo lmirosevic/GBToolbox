@@ -24,6 +24,9 @@
 #define vc(storyboardID) [[UIStoryboard storyboardWithName:sb() bundle:nil] instantiateViewControllerWithIdentifier:storyboardID]
 #define vcsb(storyboardID, storyboardName) [[UIStoryboard storyboardWithName:sb(storyboardName) bundle:nil] instantiateViewControllerWithIdentifier:storyboardID]
 
+//View instantiation and controller hookup
+#define v(nibName) [[NSBundle.mainBundle loadNibNamed:nibName owner:self options:nil] lastObject];
+
 //Rotation
 #define o (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]) ? Portrait : Landscape)
 
