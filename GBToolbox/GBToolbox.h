@@ -50,6 +50,8 @@
 #import "GBMacros_iOS.h"
 #import "GBUtility_iOS.h"
 
+#import "GBCustomNavigationBar.h"
+
 #import "UITableView+GBToolbox.h"
 #import "UIViewController+GBToolbox.h"
 #import "UIView+GBToolbox.h"

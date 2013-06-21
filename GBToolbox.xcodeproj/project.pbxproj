@@ -16,6 +16,7 @@
 		8A0C4E3E165FA60C00A990FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A0C4E3C165FA60C00A990FB /* InfoPlist.strings */; };
 		8A0C4E41165FA60C00A990FB /* GBToolboxUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0C4E40165FA60C00A990FB /* GBToolboxUnitTests.m */; };
 		8A0C4E49165FA83400A990FB /* libGBToolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B1162D9E2200C9D287 /* libGBToolbox.a */; };
+		8A1CF4A917747CAA003D6DB5 /* GBCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF49217747BC5003D6DB5 /* GBCustomNavigationBar.m */; };
 		8A215D071743DDDA007C7DE2 /* GBConstants_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A215D051743DDDA007C7DE2 /* GBConstants_Common.h */; };
 		8A215D081743DDDA007C7DE2 /* GBConstants_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */; };
 		8A215D091743DDDA007C7DE2 /* GBConstants_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */; };
@@ -129,6 +130,8 @@
 		8A0C4E3F165FA60C00A990FB /* GBToolboxUnitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBToolboxUnitTests.h; sourceTree = "<group>"; };
 		8A0C4E40165FA60C00A990FB /* GBToolboxUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GBToolboxUnitTests.m; sourceTree = "<group>"; };
 		8A0C4E42165FA60C00A990FB /* GBToolboxUnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBToolboxUnitTests-Prefix.pch"; sourceTree = "<group>"; };
+		8A1CF49117747BC5003D6DB5 /* GBCustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBCustomNavigationBar.h; sourceTree = "<group>"; };
+		8A1CF49217747BC5003D6DB5 /* GBCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBCustomNavigationBar.m; sourceTree = "<group>"; };
 		8A215D051743DDDA007C7DE2 /* GBConstants_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBConstants_Common.h; sourceTree = "<group>"; };
 		8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBConstants_Common.m; sourceTree = "<group>"; };
 		8A27D5FB16C8F3AA0071AE31 /* CALayer+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+GBToolbox.h"; sourceTree = "<group>"; };
@@ -434,6 +437,8 @@
 				8A8402D916CBE1FA0017157C /* GBGlowingImageButtonCell.m */,
 				8A8402DC16CBE6490017157C /* GBSolidColorView.h */,
 				8A8402DD16CBE6490017157C /* GBSolidColorView.m */,
+				8A1CF49117747BC5003D6DB5 /* GBCustomNavigationBar.h */,
+				8A1CF49217747BC5003D6DB5 /* GBCustomNavigationBar.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -664,6 +669,7 @@
 				8A4469911760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m in Sources */,
 				8A4469961760A6D400F33E75 /* NSDictionary+GBToolbox.m in Sources */,
 				8A823D6D1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m in Sources */,
+				8A1CF4A917747CAA003D6DB5 /* GBCustomNavigationBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
