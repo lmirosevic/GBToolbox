@@ -10,7 +10,7 @@
 
 @interface NSDate (GBToolbox)
 
-+(NSDate *)dateFromISO8601String:(NSString *)dateString;
++(NSDate *)dateWithISO8601String:(NSString *)dateString;
 -(NSString *)iso8601String;
 
 @end

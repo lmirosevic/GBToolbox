@@ -10,7 +10,7 @@
 
 @implementation NSDate (GBToolbox)
 
-+(NSDate *)dateFromISO8601String:(NSString *)dateString {
++(NSDate *)dateWithISO8601String:(NSString *)dateString {
     if (!dateString) return nil;
     if ([dateString hasSuffix:@"Z"]) dateString = [[dateString substringToIndex:(dateString.length-1)] stringByAppendingString:@"+0000"];
     
