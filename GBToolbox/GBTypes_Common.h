@@ -82,4 +82,38 @@ static inline NSNumber * Bool2Number(GBBoolean boolean) {
     }
 }
 
+#pragma mark - Special keys
+
+typedef enum {
+    GBSpecialKeyReturn      = 1,
+    GBSpecialKeyBackspace   = 2,
+    GBSpecialKeyF1          = 3,
+    GBSpecialKeyF2          = 4,
+    GBSpecialKeyF3          = 5,
+    GBSpecialKeyF4          = 6,
+    GBSpecialKeyF5          = 7,
+    GBSpecialKeyF6          = 8,
+    GBSpecialKeyF7          = 9,
+    GBSpecialKeyF8          = 10,
+    GBSpecialKeyF9          = 11,
+    GBSpecialKeyF10         = 12,
+    GBSpecialKeyF11         = 13,
+    GBSpecialKeyF12         = 14,
+    GBSpecialKeyEsc         = 15,
+    GBSpecialKeyCmdDown     = 16,
+    GBSpecialKeyCtrlDown    = 17,
+    GBSpecialKeyAltDown     = 18,
+    GBSpecialKeyHome        = 19,
+    GBSpecialKeyPageUp      = 20,
+    GBSpecialKeyEnd         = 21,
+    GBSpecialKeyPageDown    = 22,
+    GBSpecialKeyUp          = 23,
+    GBSpecialKeyLeft        = 24,
+    GBSpecialKeyDown        = 25,
+    GBSpecialKeyRight       = 26,
+    GBSpecialKeyCtrlUp      = 27,
+    GBSpecialKeyAltUp       = 28,
+    GBSpecialKeyCmdUp       = 29,
+} GBSpecialKey;
+
 #endif
