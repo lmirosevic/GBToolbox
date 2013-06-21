@@ -9,6 +9,8 @@
 #ifndef GBToolbox_GBMacros_iOS_h
 #define GBToolbox_GBMacros_iOS_h
 
+#import <UIKit/UIKit.h>
+
 //Universal app device detection
 #define _d ((UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone) ? Phone : Pad)
 
@@ -24,5 +26,8 @@
 
 //Rotation
 #define o (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]) ? Portrait : Landscape)
+
+//Debugging
+static inline void _lEdgeInsets(UIEdgeInsets edgeInsets) {l(@"EdgeInsets: %f %f %f %f", edgeInsets.top, edgeInsets.left, edgeInsets.bottom, edgeInsets.right);}
 
 #endif
