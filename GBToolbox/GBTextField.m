@@ -19,16 +19,105 @@
 
 #import "GBTextField.h"
 
+#import "GBMessageInterceptor.h"
+
+@interface GBTextField () <UITextFieldDelegate> {
+    GBMessageInterceptor    *_delegateInterceptor;
+}
+
+@end
+
 @implementation GBTextField
 
-@synthesize paddingTop, paddingRight, paddingBottom, paddingLeft;
+-(void)_initRoutine {
+    _delegateInterceptor = [GBMessageInterceptor new];
+    _delegateInterceptor.middleMan = self;
+    super.delegate = (id)_delegateInterceptor;
+}
+
+-(id)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self _initRoutine];
+    }
+    return self;
+}
+
+-(id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self _initRoutine];
+    }
+    return self;
+}
+
+#pragma mark - padding
 
 - (CGRect)textRectForBounds:(CGRect)bounds {
-    return CGRectMake(bounds.origin.x + paddingLeft, bounds.origin.y + paddingTop, bounds.size.width - paddingRight - paddingLeft, bounds.size.height - paddingBottom - paddingTop);
+    return CGRectMake(bounds.origin.x + self.padding.left,
+                      bounds.origin.y + self.padding.top,
+                      bounds.size.width - (self.padding.right + self.padding.left),
+                      bounds.size.height - (self.padding.bottom + self.padding.top));
 }
 
 - (CGRect)editingRectForBounds:(CGRect)bounds {
     return [self textRectForBounds:bounds];
+}
+
+#pragma mark - util
+
+-(BOOL)isDirty {
+    if (self.text && self.text.length > 0) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
+#pragma mark - delegate overrides
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    //return
+    if ([string isEqualToString:@"\n"]) {
+        if ([[self delegate] respondsToSelector:@selector(specialKeyPressed:)]) {
+            [[self delegate] specialKeyPressed:GBSpecialKeyReturn];
+        }
+    }
+    //normal letter
+    else if (string.length > 0) {
+        if ([[self delegate] respondsToSelector:@selector(keyPressed:)]) {
+            [[self delegate] keyPressed:string];
+        }
+    }
+    //backspace
+    else if (string.length == 0 && range.length == 1) {
+        if ([[self delegate] respondsToSelector:@selector(specialKeyPressed:)]) {
+            [[self delegate] specialKeyPressed:GBSpecialKeyBackspace];
+        }
+    }
+    
+    //forward original call
+    if ([[self delegate] respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString::)]) {
+        return [[self delegate] textField:textField shouldChangeCharactersInRange:range replacementString:string];
+    }
+    else {
+        return YES;//foo find out what the default is
+    }
+}
+
+#pragma mark - delegate hijacking
+//these 2 hijack the original delegate, but that's ok because we forward all the original messages
+
+-(void)setDelegate:(id<GBTextFieldDelegate>)delegate {
+    [super setDelegate:nil];
+    _delegateInterceptor.receiver = delegate;
+    super.delegate = (id)_delegateInterceptor;
+}
+
+-(id<GBTextFieldDelegate>)delegate {
+    return (id)[super delegate];
+//    return _delegateInterceptor.receiver;
 }
 
 @end

@@ -19,11 +19,25 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GBTypes_Common.h"
+
+@protocol GBTextFieldDelegate;
+
 @interface GBTextField : UITextField
 
-@property (nonatomic) float paddingTop;
-@property (nonatomic) float paddingRight;
-@property (nonatomic) float paddingBottom;
-@property (nonatomic) float paddingLeft;
+@property (assign, nonatomic) UIEdgeInsets              padding;
+@property (assign, nonatomic, readonly) BOOL            isDirty;
+
+//This is an augmented protocol. Adds 2 new methods, see below.
+-(id<GBTextFieldDelegate>)delegate;
+-(void)setDelegate:(id<GBTextFieldDelegate>)delegate;
+
+@end
+
+@protocol GBTextFieldDelegate <UITextFieldDelegate>
+@optional
+
+-(void)keyPressed:(NSString *)key;
+-(void)specialKeyPressed:(GBSpecialKey)specialKey;
 
 @end
