@@ -28,6 +28,7 @@
 #import "GBUtility_Common.h"
 
 #import "GBFastArray.h"
+#import "GBMessageInterceptor.h"
 
 #import "NSObject+GBToolbox.h"
 #import "NSTimer+GBToolbox.h"
