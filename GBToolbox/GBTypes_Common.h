@@ -14,6 +14,7 @@
 #pragma mark - General
 
 typedef void(^VoidBlock)(void);
+typedef BOOL(^BoolBlock)(void);
 
 #pragma mark - Range
 
