@@ -28,6 +28,9 @@
 //Lazy instantiation
 #define _lazy(Class, propertyName, ivar) -(Class *)propertyName {if (!ivar) {ivar = [[Class alloc] init];}return ivar;}
 
+//Message forwarding
+#define _forwardMessages(target) -(id)forwardingTargetForSelector:(SEL)selector { if ([target respondsToSelector:selector]) return target; return nil; }
+
 //Associated objects
 static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NSString *atomicity) {
     //_Pragma("clang diagnostic pop")
