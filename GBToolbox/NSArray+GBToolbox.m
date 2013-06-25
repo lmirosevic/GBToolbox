@@ -84,6 +84,24 @@
     return [resultsArray copy];
 }
 
+//all
+-(BOOL)all:(BOOL(^)(id object))function {
+    return [[[self map:^id(id object) {
+        return @(function(object));
+    }] reduce:^id(id objectA, id objectB) {
+        return @([objectA boolValue] && [objectB boolValue]);
+    } lastObject:@(YES)] boolValue];
+}
+
+//any
+-(BOOL)any:(BOOL(^)(id object))function {
+    return [[[self map:^id(id object) {
+        return @(function(object));
+    }] reduce:^id(id objectA, id objectB) {
+        return @([objectA boolValue] || [objectB boolValue]);
+    } lastObject:@(NO)] boolValue];
+}
+
 #pragma mark - Description
 
 //returns the array concatenated by ", "

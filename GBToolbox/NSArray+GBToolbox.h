@@ -33,6 +33,12 @@
 //filter
 -(NSArray *)filter:(BOOL(^)(id object))function;
 
+//all
+-(BOOL)all:(BOOL(^)(id object))function;
+
+//any
+-(BOOL)any:(BOOL(^)(id object))function;
+
 #pragma mark - Description
 
 //returns the array concatenated by ", "
