@@ -28,16 +28,19 @@
 
 //map
 -(NSArray *)map:(id(^)(id object))function {
-    // creates a results array in which to store results, sets the capacity for faster writes
+    //creates a results array in which to store results, sets the capacity for faster writes
     NSUInteger count = self.count;
     NSMutableArray *resultsArray = [[NSMutableArray alloc] initWithCapacity:count];
     
-    // applies the function to each item and stores the result in the new array
+    //applies the function to each item and stores the result in the new array, except if it's nil
     for (NSUInteger i=0; i<count; i++) {
-        resultsArray[i] = function(self[i]);
+        id mappedObject = function(self[i]);
+        if (mappedObject) {
+            resultsArray[i] = mappedObject;
+        }
     }
     
-    // returns an immutable copy
+    //returns an immutable copy
     return [resultsArray copy];
 }
 
