@@ -27,6 +27,10 @@
 
 @property (assign, nonatomic) UIEdgeInsets              padding;
 @property (assign, nonatomic, readonly) BOOL            isDirty;
+@property (assign, nonatomic) CGFloat                   leftViewLeftOffset;
+@property (assign, nonatomic) CGFloat                   rightViewRightOffset;
+@property (assign, nonatomic) CGRect                    leftViewFrame;
+@property (assign, nonatomic) CGRect                    rightViewFrame;
 
 //This is an augmented protocol. Adds 2 new methods, see below.
 -(id<GBTextFieldDelegate>)delegate;

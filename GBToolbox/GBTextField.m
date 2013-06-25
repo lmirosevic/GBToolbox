@@ -20,19 +20,67 @@
 #import "GBTextField.h"
 
 #import "GBMessageInterceptor.h"
+#import "GBUtility_Common.h"
 
 @interface GBTextField () <UITextFieldDelegate> {
     GBMessageInterceptor    *_delegateInterceptor;
+    CGRect                  _leftViewFrame;
+    CGRect                  _rightViewFrame;
 }
 
 @end
 
 @implementation GBTextField
 
+#pragma mark - custom accessors
+
+-(CGRect)leftViewFrame {
+    if (CGRectIsNull(_leftViewFrame)) {
+        return [super leftViewRectForBounds:self.bounds];
+    }
+    else {
+        return _leftViewFrame;
+    }
+}
+
+-(CGRect)rightViewFrame {
+    if (CGRectIsNull(_rightViewFrame)) {
+        return [super rightViewRectForBounds:self.bounds];
+    }
+    else {
+        return _rightViewFrame;
+    }
+}
+
+-(void)setLeftViewFrame:(CGRect)leftViewFrame {
+    _leftViewFrame = leftViewFrame;
+    
+    [self setNeedsDisplay];
+}
+
+-(void)setRightViewFrame:(CGRect)rightViewFrame {
+    _rightViewFrame = rightViewFrame;
+    
+    [self setNeedsDisplay];
+}
+
+-(void)setLeftViewLeftOffset:(CGFloat)leftViewLeftOffset {
+    _leftViewLeftOffset = leftViewLeftOffset;
+}
+
+-(void)setRightViewRightOffset:(CGFloat)rightViewRightOffset {
+    _rightViewRightOffset = rightViewRightOffset;
+}
+
+#pragma mark - memory
+
 -(void)_initRoutine {
     _delegateInterceptor = [GBMessageInterceptor new];
     _delegateInterceptor.middleMan = self;
     super.delegate = (id)_delegateInterceptor;
+    
+    _leftViewFrame = CGRectNull;
+    _rightViewFrame = CGRectNull;
 }
 
 -(id)initWithCoder:(NSCoder *)coder {
@@ -49,6 +97,22 @@
         [self _initRoutine];
     }
     return self;
+}
+
+#pragma mark - left and right view positioning
+
+-(CGRect)leftViewRectForBounds:(CGRect)bounds {
+    return CGRectMake(self.leftViewFrame.origin.x + self.leftViewLeftOffset,
+                      self.leftViewFrame.origin.y,
+                      self.leftViewFrame.size.width,
+                      self.leftViewFrame.size.height);
+}
+
+-(CGRect)rightViewRectForBounds:(CGRect)bounds {
+    return CGRectMake(self.rightViewFrame.origin.x - self.rightViewRightOffset,
+                      self.leftViewFrame.origin.y,
+                      self.leftViewFrame.size.width,
+                      self.leftViewFrame.size.height);
 }
 
 #pragma mark - padding
@@ -78,24 +142,27 @@
 #pragma mark - delegate overrides
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    //return
-    if ([string isEqualToString:@"\n"]) {
-        if ([[self delegate] respondsToSelector:@selector(specialKeyPressed:)]) {
-            [[self delegate] specialKeyPressed:GBSpecialKeyReturn];
+    //defer this because if the delegate decides to query to the textfield before this method returns, then the text won't reflect the new change. We are going for didPress semantics rather than willPress.
+    ExecuteSoon(^{
+        //return
+        if ([string isEqualToString:@"\n"]) {
+            if ([[self delegate] respondsToSelector:@selector(specialKeyPressed:)]) {
+                [[self delegate] specialKeyPressed:GBSpecialKeyReturn];
+            }
         }
-    }
-    //normal letter
-    else if (string.length > 0) {
-        if ([[self delegate] respondsToSelector:@selector(keyPressed:)]) {
-            [[self delegate] keyPressed:string];
+        //normal letter
+        else if (string.length > 0) {
+            if ([[self delegate] respondsToSelector:@selector(keyPressed:)]) {
+                [[self delegate] keyPressed:string];
+            }
         }
-    }
-    //backspace
-    else if (string.length == 0 && range.length == 1) {
-        if ([[self delegate] respondsToSelector:@selector(specialKeyPressed:)]) {
-            [[self delegate] specialKeyPressed:GBSpecialKeyBackspace];
+        //backspace
+        else if (string.length == 0 && range.length == 1) {
+            if ([[self delegate] respondsToSelector:@selector(specialKeyPressed:)]) {
+                [[self delegate] specialKeyPressed:GBSpecialKeyBackspace];
+            }
         }
-    }
+    });
     
     //forward original call
     if ([[self delegate] respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString::)]) {
