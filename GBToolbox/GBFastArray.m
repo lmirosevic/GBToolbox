@@ -108,10 +108,14 @@ static CGFloat const kDefaultInitialCapacity = 100;
                 } break;
                     
                 case GBSearchResultHigh: {
+                    if (midIndex == 0) return kGBSearchResultNotFound;
+                    
                     highIndex = midIndex - 1;
                 } break;
                     
                 case GBSearchResultLow: {
+                    if (midIndex == _lastElementIndex) return kGBSearchResultNotFound;
+                    
                     lowIndex = midIndex + 1;
                 } break;
             }
@@ -120,51 +124,7 @@ static CGFloat const kDefaultInitialCapacity = 100;
     
     //if we got here it means we didnt find anything, or the params were bad
     return kGBSearchResultNotFound;
-    
-    //    // continue searching while [imin,imax] is not empty
-    //    while (imax >= imin)
-    //    {
-    //        /* calculate the midpoint for roughly equal partition */
-    //        int imid = midpoint(imin, imax);
-    //
-    //        // determine which subarray to search
-    //        if (A[imid] < key)
-    //            // change min index to search upper subarray
-    //            imin = imid + 1;
-    //        else if (A[imid] > key)
-    //            // change max index to search lower subarray
-    //            imax = imid - 1;
-    //        else
-    //            // key found at index imid
-    //            return imid;
-    //    }
-    //    // key not found
-    //    return KEY_NOT_FOUND;
 }
-
-//int binary_search(int A[], int key, int imin, int imax)
-//{
-//    // continue searching while [imin,imax] is not empty
-//    while (imax >= imin)
-//    {
-//        /* calculate the midpoint for roughly equal partition */
-//        int imid = midpoint(imin, imax);
-//
-//        // determine which subarray to search
-//        if (A[imid] < key)
-//            // change min index to search upper subarray
-//            imin = imid + 1;
-//        else if (A[imid] > key)
-//            // change max index to search lower subarray
-//            imax = imid - 1;
-//        else
-//            // key found at index imid
-//            return imid;
-//    }
-//    // key not found
-//    return KEY_NOT_FOUND;
-
-//}
 
 #pragma mark - Public API: Size management
 
