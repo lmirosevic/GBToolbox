@@ -42,6 +42,7 @@
 		8A66400C16F9CBB800FDD892 /* NSArray+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A66400A16F9CBB800FDD892 /* NSArray+GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A66400D16F9CBB800FDD892 /* NSArray+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A66400B16F9CBB800FDD892 /* NSArray+GBToolbox.m */; };
 		8A66400E16F9CBB800FDD892 /* NSArray+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A66400B16F9CBB800FDD892 /* NSArray+GBToolbox.m */; };
+		8A6D3697177C635F0096AE66 /* UIScrollView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6D3696177C635F0096AE66 /* UIScrollView+GBToolbox.m */; };
 		8A6E833B1774A10E00BA485C /* GBMessageInterceptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A6E83391774A10E00BA485C /* GBMessageInterceptor.h */; };
 		8A6E833C1774A10E00BA485C /* GBMessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E833A1774A10E00BA485C /* GBMessageInterceptor.m */; };
 		8A6E833D1774A10E00BA485C /* GBMessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E833A1774A10E00BA485C /* GBMessageInterceptor.m */; };
@@ -155,6 +156,8 @@
 		8A4469941760A6D400F33E75 /* NSDictionary+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GBToolbox.m"; sourceTree = "<group>"; };
 		8A66400A16F9CBB800FDD892 /* NSArray+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GBToolbox.h"; sourceTree = "<group>"; };
 		8A66400B16F9CBB800FDD892 /* NSArray+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GBToolbox.m"; sourceTree = "<group>"; };
+		8A6D3695177C635F0096AE66 /* UIScrollView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+GBToolbox.h"; sourceTree = "<group>"; };
+		8A6D3696177C635F0096AE66 /* UIScrollView+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+GBToolbox.m"; sourceTree = "<group>"; };
 		8A6E83391774A10E00BA485C /* GBMessageInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBMessageInterceptor.h; sourceTree = "<group>"; };
 		8A6E833A1774A10E00BA485C /* GBMessageInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBMessageInterceptor.m; sourceTree = "<group>"; };
 		8A823D6A1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+GBToolbox.h"; sourceTree = "<group>"; };
@@ -368,6 +371,8 @@
 				8A823D6B1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m */,
 				8A1CF4AA17748CFF003D6DB5 /* NSDate+GBToolbox.h */,
 				8A1CF4AB17748CFF003D6DB5 /* NSDate+GBToolbox.m */,
+				8A6D3695177C635F0096AE66 /* UIScrollView+GBToolbox.h */,
+				8A6D3696177C635F0096AE66 /* UIScrollView+GBToolbox.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -696,6 +701,7 @@
 				8A1CF4AD17748CFF003D6DB5 /* NSDate+GBToolbox.m in Sources */,
 				8A1CF4CF17749905003D6DB5 /* GBTextField.m in Sources */,
 				8A6E833C1774A10E00BA485C /* GBMessageInterceptor.m in Sources */,
+				8A6D3697177C635F0096AE66 /* UIScrollView+GBToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

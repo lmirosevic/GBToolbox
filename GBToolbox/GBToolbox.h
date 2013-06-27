@@ -59,6 +59,7 @@
 #import "UIViewController+GBToolbox.h"
 #import "UIView+GBToolbox.h"
 #import "UIImage+GBToolbox.h"
+#import "UIScrollView+GBToolbox.h"
 
 #endif
 
