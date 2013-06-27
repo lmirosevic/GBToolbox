@@ -13,4 +13,7 @@
 //Removes all subviews
 -(void)removeAllSubviews;
 
+//Sets the view's frame to the receiver's bounds and adds it as a subview
+-(void)embedView:(UIView *)view;
+
 @end

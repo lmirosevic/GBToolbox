@@ -15,4 +15,12 @@
     [subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
 
+-(void)embedView:(UIView *)view {
+    view.frame = self.bounds;
+    [self addSubview:view];
+}
+
 @end
+
+
+//foo add some utils to UIView to set its autoresizing mask to Top, TopRight, Center, CenterRight, etc. so I don't have to mess with the autoresizing mask bs
