@@ -8,22 +8,13 @@
 
 #import "NSObject+GBToolbox.h"
 
-#import <objc/runtime.h>
+#import "GBMacros_Common.h"
 
 @implementation NSObject (GBToolbox)
 
-//user identifier for tracking objects
-static char gbDescriptionKey;
+_associatedObject(copy, nonatomic, NSString *, GBDescription, setGBDescription)
+_associatedObject(copy, nonatomic, NSString *, GBIdentifier, setGBIdentifier)
 
--(void)setGbDescription:(NSString *)gbDescription {
-    objc_setAssociatedObject(self, &gbDescriptionKey, gbDescription, OBJC_ASSOCIATION_COPY);
-}
-
--(NSString *)gbDescription {
-    return objc_getAssociatedObject(self, &gbDescriptionKey);
-}
-
-//pointer address
 -(NSString *)pointerAddress {
     return [NSString stringWithFormat:@"%p", self];
 }

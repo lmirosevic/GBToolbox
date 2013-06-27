@@ -10,10 +10,14 @@
 
 @interface NSObject (GBToolbox)
 
+//user identifier for annotating objects
+@property (copy, nonatomic) NSString *GBDescription;
+
 //user identifier for tracking objects
-@property (copy, nonatomic) NSString *gbDescription;
+@property (copy, nonatomic) NSString *GBIdentifier;
 
 //pointer address
 @property (copy, nonatomic, readonly) NSString *pointerAddress;
+
 
 @end
