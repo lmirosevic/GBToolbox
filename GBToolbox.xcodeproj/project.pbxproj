@@ -58,6 +58,9 @@
 		8A8402DB16CBE1FA0017157C /* GBGlowingImageButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8402D916CBE1FA0017157C /* GBGlowingImageButtonCell.m */; };
 		8A8402DE16CBE6490017157C /* GBSolidColorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A8402DC16CBE6490017157C /* GBSolidColorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A8402DF16CBE6490017157C /* GBSolidColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8402DD16CBE6490017157C /* GBSolidColorView.m */; };
+		8A8CAC3A177DB3DD00B661E0 /* GBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CAC39177DB3DD00B661E0 /* GBButton.m */; };
+		8A8CAC3D177DB9D500B661E0 /* UIImageView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CAC3C177DB9D500B661E0 /* UIImageView+GBToolbox.m */; };
+		8A8CAC44177DC18400B661E0 /* GBToggleControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CAC43177DC18400B661E0 /* GBToggleControl.m */; };
 		8ACE941716C1198900527E0D /* NSObject+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ACE941516C1198900527E0D /* NSObject+GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8ACE941816C1198900527E0D /* NSObject+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */; };
 		8ACE941916C1198900527E0D /* NSObject+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */; };
@@ -173,6 +176,12 @@
 		8A8402D916CBE1FA0017157C /* GBGlowingImageButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBGlowingImageButtonCell.m; sourceTree = "<group>"; };
 		8A8402DC16CBE6490017157C /* GBSolidColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBSolidColorView.h; sourceTree = "<group>"; };
 		8A8402DD16CBE6490017157C /* GBSolidColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBSolidColorView.m; sourceTree = "<group>"; };
+		8A8CAC38177DB3DD00B661E0 /* GBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBButton.h; sourceTree = "<group>"; };
+		8A8CAC39177DB3DD00B661E0 /* GBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBButton.m; sourceTree = "<group>"; };
+		8A8CAC3B177DB9D500B661E0 /* UIImageView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+GBToolbox.h"; sourceTree = "<group>"; };
+		8A8CAC3C177DB9D500B661E0 /* UIImageView+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GBToolbox.m"; sourceTree = "<group>"; };
+		8A8CAC42177DC18400B661E0 /* GBToggleControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBToggleControl.h; sourceTree = "<group>"; };
+		8A8CAC43177DC18400B661E0 /* GBToggleControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBToggleControl.m; sourceTree = "<group>"; };
 		8ACE941516C1198900527E0D /* NSObject+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GBToolbox.h"; sourceTree = "<group>"; };
 		8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GBToolbox.m"; sourceTree = "<group>"; };
 		8ACE941A16C119D100527E0D /* UITableView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+GBToolbox.h"; sourceTree = "<group>"; };
@@ -376,6 +385,8 @@
 				8A1CF4AB17748CFF003D6DB5 /* NSDate+GBToolbox.m */,
 				8A6D3695177C635F0096AE66 /* UIScrollView+GBToolbox.h */,
 				8A6D3696177C635F0096AE66 /* UIScrollView+GBToolbox.m */,
+				8A8CAC3B177DB9D500B661E0 /* UIImageView+GBToolbox.h */,
+				8A8CAC3C177DB9D500B661E0 /* UIImageView+GBToolbox.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -466,6 +477,10 @@
 				8A8402DD16CBE6490017157C /* GBSolidColorView.m */,
 				8A1CF49117747BC5003D6DB5 /* GBCustomNavigationBar.h */,
 				8A1CF49217747BC5003D6DB5 /* GBCustomNavigationBar.m */,
+				8A8CAC38177DB3DD00B661E0 /* GBButton.h */,
+				8A8CAC39177DB3DD00B661E0 /* GBButton.m */,
+				8A8CAC42177DC18400B661E0 /* GBToggleControl.h */,
+				8A8CAC43177DC18400B661E0 /* GBToggleControl.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -708,6 +723,9 @@
 				8A6E833C1774A10E00BA485C /* GBMessageInterceptor.m in Sources */,
 				8A6D3697177C635F0096AE66 /* UIScrollView+GBToolbox.m in Sources */,
 				8A2CE6D7177D909900F1E3D6 /* GBTextView.m in Sources */,
+				8A8CAC3A177DB3DD00B661E0 /* GBButton.m in Sources */,
+				8A8CAC3D177DB9D500B661E0 /* UIImageView+GBToolbox.m in Sources */,
+				8A8CAC44177DC18400B661E0 /* GBToggleControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
