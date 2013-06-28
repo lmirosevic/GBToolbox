@@ -55,12 +55,15 @@
 #import "GBCustomNavigationBar.h"
 #import "GBTextField.h"
 #import "GBTextView.h"
+#import "GBButton.h"
+#import "GBToggleControl.h"
 
 #import "UITableView+GBToolbox.h"
 #import "UIViewController+GBToolbox.h"
 #import "UIView+GBToolbox.h"
 #import "UIImage+GBToolbox.h"
 #import "UIScrollView+GBToolbox.h"
+#import "UIImageView+GBToolbox.h"
 
 #endif
 
