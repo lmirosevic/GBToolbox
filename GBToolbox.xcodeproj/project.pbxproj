@@ -29,6 +29,7 @@
 		8A27D5FE16C8F3AA0071AE31 /* CALayer+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */; };
 		8A27D5FF16C8F3B50071AE31 /* CALayer+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */; };
 		8A27D60216C8F5FC0071AE31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
+		8A2CE6D7177D909900F1E3D6 /* GBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CE6D6177D909900F1E3D6 /* GBTextView.m */; };
 		8A4043D8174CBF3400DF3166 /* UIView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4043D7174CBF3400DF3166 /* UIView+GBToolbox.m */; };
 		8A4469901760A5F900F33E75 /* NSMutableDictionary+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A44698E1760A5F900F33E75 /* NSMutableDictionary+GBToolbox.h */; };
 		8A4469911760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A44698F1760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m */; };
@@ -148,6 +149,8 @@
 		8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBConstants_Common.m; sourceTree = "<group>"; };
 		8A27D5FB16C8F3AA0071AE31 /* CALayer+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+GBToolbox.h"; sourceTree = "<group>"; };
 		8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+GBToolbox.m"; sourceTree = "<group>"; };
+		8A2CE6D5177D909900F1E3D6 /* GBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTextView.h; sourceTree = "<group>"; };
+		8A2CE6D6177D909900F1E3D6 /* GBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTextView.m; sourceTree = "<group>"; };
 		8A4043D6174CBF3400DF3166 /* UIView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GBToolbox.h"; sourceTree = "<group>"; };
 		8A4043D7174CBF3400DF3166 /* UIView+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GBToolbox.m"; sourceTree = "<group>"; };
 		8A44698E1760A5F900F33E75 /* NSMutableDictionary+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+GBToolbox.h"; sourceTree = "<group>"; };
@@ -445,6 +448,8 @@
 		8AF78D8A1731419600F61ECC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8A2CE6D5177D909900F1E3D6 /* GBTextView.h */,
+				8A2CE6D6177D909900F1E3D6 /* GBTextView.m */,
 				8A1CF4CD17749905003D6DB5 /* GBTextField.h */,
 				8A1CF4CE17749905003D6DB5 /* GBTextField.m */,
 				8AF8C6B016C00083005A5511 /* GBResizableImageView.h */,
@@ -702,6 +707,7 @@
 				8A1CF4CF17749905003D6DB5 /* GBTextField.m in Sources */,
 				8A6E833C1774A10E00BA485C /* GBMessageInterceptor.m in Sources */,
 				8A6D3697177C635F0096AE66 /* UIScrollView+GBToolbox.m in Sources */,
+				8A2CE6D7177D909900F1E3D6 /* GBTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
