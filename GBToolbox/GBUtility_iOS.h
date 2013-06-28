@@ -26,4 +26,8 @@ NSUInteger tagFromUIViewSubclass(id sender);
 
 void RedirectToAppStore(NSString *appID);
 
+#pragma mark - Images
+
+UIImage * Image(NSString *name, CGFloat topCap, CGFloat leftCap, CGFloat bottomCap, CGFloat rightCap);
+
 @end
