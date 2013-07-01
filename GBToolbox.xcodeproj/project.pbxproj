@@ -61,6 +61,7 @@
 		8A8CAC3A177DB3DD00B661E0 /* GBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CAC39177DB3DD00B661E0 /* GBButton.m */; };
 		8A8CAC3D177DB9D500B661E0 /* UIImageView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CAC3C177DB9D500B661E0 /* UIImageView+GBToolbox.m */; };
 		8A8CAC44177DC18400B661E0 /* GBToggleControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CAC43177DC18400B661E0 /* GBToggleControl.m */; };
+		8AB5C25417818F8F005A7A22 /* UIImage+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB5C25317818F8F005A7A22 /* UIImage+GBToolbox.m */; };
 		8ACE941716C1198900527E0D /* NSObject+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ACE941516C1198900527E0D /* NSObject+GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8ACE941816C1198900527E0D /* NSObject+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */; };
 		8ACE941916C1198900527E0D /* NSObject+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */; };
@@ -72,7 +73,6 @@
 		8ACE942C16C11AE900527E0D /* NSData+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ACE942A16C11AE900527E0D /* NSData+GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8ACE942D16C11AE900527E0D /* NSData+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE942B16C11AE900527E0D /* NSData+GBToolbox.m */; };
 		8ACE942E16C11AE900527E0D /* NSData+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE942B16C11AE900527E0D /* NSData+GBToolbox.m */; };
-		8ACE943116C11B1700527E0D /* UIImage+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE943016C11B1700527E0D /* UIImage+GBToolbox.m */; };
 		8ACE943416C11B4C00527E0D /* NSString+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ACE943216C11B4C00527E0D /* NSString+GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8ACE943516C11B4C00527E0D /* NSString+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE943316C11B4C00527E0D /* NSString+GBToolbox.m */; };
 		8ACE943616C11B4C00527E0D /* NSString+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE943316C11B4C00527E0D /* NSString+GBToolbox.m */; };
@@ -182,6 +182,8 @@
 		8A8CAC3C177DB9D500B661E0 /* UIImageView+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GBToolbox.m"; sourceTree = "<group>"; };
 		8A8CAC42177DC18400B661E0 /* GBToggleControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBToggleControl.h; sourceTree = "<group>"; };
 		8A8CAC43177DC18400B661E0 /* GBToggleControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBToggleControl.m; sourceTree = "<group>"; };
+		8AB5C25217818F8F005A7A22 /* UIImage+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GBToolbox.h"; sourceTree = "<group>"; };
+		8AB5C25317818F8F005A7A22 /* UIImage+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GBToolbox.m"; sourceTree = "<group>"; };
 		8ACE941516C1198900527E0D /* NSObject+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GBToolbox.h"; sourceTree = "<group>"; };
 		8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GBToolbox.m"; sourceTree = "<group>"; };
 		8ACE941A16C119D100527E0D /* UITableView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+GBToolbox.h"; sourceTree = "<group>"; };
@@ -192,8 +194,6 @@
 		8ACE942616C11A9800527E0D /* NSTimer+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+GBToolbox.m"; sourceTree = "<group>"; };
 		8ACE942A16C11AE900527E0D /* NSData+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+GBToolbox.h"; sourceTree = "<group>"; };
 		8ACE942B16C11AE900527E0D /* NSData+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+GBToolbox.m"; sourceTree = "<group>"; };
-		8ACE942F16C11B1700527E0D /* UIImage+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GBToolbox.h"; sourceTree = "<group>"; };
-		8ACE943016C11B1700527E0D /* UIImage+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GBToolbox.m"; sourceTree = "<group>"; };
 		8ACE943216C11B4C00527E0D /* NSString+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GBToolbox.h"; sourceTree = "<group>"; };
 		8ACE943316C11B4C00527E0D /* NSString+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GBToolbox.m"; sourceTree = "<group>"; };
 		8ACE943716C11B7700527E0D /* NSImage+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+GBToolbox.h"; sourceTree = "<group>"; };
@@ -361,8 +361,8 @@
 				8ACE942616C11A9800527E0D /* NSTimer+GBToolbox.m */,
 				8ACE942A16C11AE900527E0D /* NSData+GBToolbox.h */,
 				8ACE942B16C11AE900527E0D /* NSData+GBToolbox.m */,
-				8ACE942F16C11B1700527E0D /* UIImage+GBToolbox.h */,
-				8ACE943016C11B1700527E0D /* UIImage+GBToolbox.m */,
+				8AB5C25217818F8F005A7A22 /* UIImage+GBToolbox.h */,
+				8AB5C25317818F8F005A7A22 /* UIImage+GBToolbox.m */,
 				8ACE943216C11B4C00527E0D /* NSString+GBToolbox.h */,
 				8ACE943316C11B4C00527E0D /* NSString+GBToolbox.m */,
 				8ACE943716C11B7700527E0D /* NSImage+GBToolbox.h */,
@@ -704,7 +704,6 @@
 				8ACE942316C11A6200527E0D /* UIViewController+GBToolbox.m in Sources */,
 				8ACE942816C11A9800527E0D /* NSTimer+GBToolbox.m in Sources */,
 				8ACE942D16C11AE900527E0D /* NSData+GBToolbox.m in Sources */,
-				8ACE943116C11B1700527E0D /* UIImage+GBToolbox.m in Sources */,
 				8ACE943516C11B4C00527E0D /* NSString+GBToolbox.m in Sources */,
 				8ACE943D16C11C2C00527E0D /* GBUtility_iOS.m in Sources */,
 				8ACE944516C11C6E00527E0D /* GBUtility_Common.m in Sources */,
@@ -726,6 +725,7 @@
 				8A8CAC3A177DB3DD00B661E0 /* GBButton.m in Sources */,
 				8A8CAC3D177DB9D500B661E0 /* UIImageView+GBToolbox.m in Sources */,
 				8A8CAC44177DC18400B661E0 /* GBToggleControl.m in Sources */,
+				8AB5C25417818F8F005A7A22 /* UIImage+GBToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
