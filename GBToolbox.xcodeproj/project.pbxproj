@@ -62,6 +62,7 @@
 		8A8CAC3D177DB9D500B661E0 /* UIImageView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CAC3C177DB9D500B661E0 /* UIImageView+GBToolbox.m */; };
 		8A8CAC44177DC18400B661E0 /* GBToggleControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CAC43177DC18400B661E0 /* GBToggleControl.m */; };
 		8AB5C25417818F8F005A7A22 /* UIImage+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB5C25317818F8F005A7A22 /* UIImage+GBToolbox.m */; };
+		8AB5C2931781BD63005A7A22 /* GBAlertBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB5C2921781BD63005A7A22 /* GBAlertBadgeView.m */; };
 		8ACE941716C1198900527E0D /* NSObject+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ACE941516C1198900527E0D /* NSObject+GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8ACE941816C1198900527E0D /* NSObject+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */; };
 		8ACE941916C1198900527E0D /* NSObject+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */; };
@@ -184,6 +185,8 @@
 		8A8CAC43177DC18400B661E0 /* GBToggleControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBToggleControl.m; sourceTree = "<group>"; };
 		8AB5C25217818F8F005A7A22 /* UIImage+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GBToolbox.h"; sourceTree = "<group>"; };
 		8AB5C25317818F8F005A7A22 /* UIImage+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GBToolbox.m"; sourceTree = "<group>"; };
+		8AB5C2911781BD63005A7A22 /* GBAlertBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBAlertBadgeView.h; sourceTree = "<group>"; };
+		8AB5C2921781BD63005A7A22 /* GBAlertBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBAlertBadgeView.m; sourceTree = "<group>"; };
 		8ACE941516C1198900527E0D /* NSObject+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GBToolbox.h"; sourceTree = "<group>"; };
 		8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GBToolbox.m"; sourceTree = "<group>"; };
 		8ACE941A16C119D100527E0D /* UITableView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+GBToolbox.h"; sourceTree = "<group>"; };
@@ -459,6 +462,8 @@
 		8AF78D8A1731419600F61ECC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8AB5C2911781BD63005A7A22 /* GBAlertBadgeView.h */,
+				8AB5C2921781BD63005A7A22 /* GBAlertBadgeView.m */,
 				8A2CE6D5177D909900F1E3D6 /* GBTextView.h */,
 				8A2CE6D6177D909900F1E3D6 /* GBTextView.m */,
 				8A1CF4CD17749905003D6DB5 /* GBTextField.h */,
@@ -726,6 +731,7 @@
 				8A8CAC3D177DB9D500B661E0 /* UIImageView+GBToolbox.m in Sources */,
 				8A8CAC44177DC18400B661E0 /* GBToggleControl.m in Sources */,
 				8AB5C25417818F8F005A7A22 /* UIImage+GBToolbox.m in Sources */,
+				8AB5C2931781BD63005A7A22 /* GBAlertBadgeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
