@@ -58,6 +58,8 @@
 #import "GBButton.h"
 #import "GBToggleControl.h"
 #import "GBAlertBadgeView.h"
+#import "GBRoundBadgeView.h"
+#import "GBColoredBarView.h"
 
 #import "UITableView+GBToolbox.h"
 #import "UIViewController+GBToolbox.h"
