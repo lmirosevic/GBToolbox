@@ -30,6 +30,7 @@
 		8A27D5FF16C8F3B50071AE31 /* CALayer+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */; };
 		8A27D60216C8F5FC0071AE31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
 		8A2CE6D7177D909900F1E3D6 /* GBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CE6D6177D909900F1E3D6 /* GBTextView.m */; };
+		8A3DA68D17832AB500072539 /* GBFrameChangedProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3DA68C17832AB500072539 /* GBFrameChangedProtocol.h */; };
 		8A3F03661782C05300B67BCE /* GBColoredBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F03631782C05300B67BCE /* GBColoredBarView.m */; };
 		8A3F03671782C05300B67BCE /* GBRoundBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F03651782C05300B67BCE /* GBRoundBadgeView.m */; };
 		8A4043D8174CBF3400DF3166 /* UIView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4043D7174CBF3400DF3166 /* UIView+GBToolbox.m */; };
@@ -157,6 +158,7 @@
 		8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+GBToolbox.m"; sourceTree = "<group>"; };
 		8A2CE6D5177D909900F1E3D6 /* GBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTextView.h; sourceTree = "<group>"; };
 		8A2CE6D6177D909900F1E3D6 /* GBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTextView.m; sourceTree = "<group>"; };
+		8A3DA68C17832AB500072539 /* GBFrameChangedProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBFrameChangedProtocol.h; sourceTree = "<group>"; };
 		8A3F03621782C05300B67BCE /* GBColoredBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBColoredBarView.h; sourceTree = "<group>"; };
 		8A3F03631782C05300B67BCE /* GBColoredBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBColoredBarView.m; sourceTree = "<group>"; };
 		8A3F03641782C05300B67BCE /* GBRoundBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBRoundBadgeView.h; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				8ACE944816C11E3E00527E0D /* Utility */,
 				8ACE941216C1192E00527E0D /* Classes */,
 				8ACE941416C1197600527E0D /* Categories */,
+				8A3DA68B17832AA000072539 /* Protocols */,
 				8A03780316BFCD2F0096C448 /* Supporting Files */,
 			);
 			path = GBToolbox;
@@ -334,6 +337,14 @@
 				8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		8A3DA68B17832AA000072539 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8A3DA68C17832AB500072539 /* GBFrameChangedProtocol.h */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		8ACE941216C1192E00527E0D /* Classes */ = {
@@ -547,6 +558,7 @@
 				8A823D6C1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.h in Headers */,
 				8A1CF4AC17748CFF003D6DB5 /* NSDate+GBToolbox.h in Headers */,
 				8A6E833B1774A10E00BA485C /* GBMessageInterceptor.h in Headers */,
+				8A3DA68D17832AB500072539 /* GBFrameChangedProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

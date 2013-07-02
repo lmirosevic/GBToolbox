@@ -42,6 +42,8 @@
 #import "NSMutableURLRequest+GBToolbox.h"
 #import "NSDate+GBToolbox.h"
 
+#import "GBFrameChangedProtocol.h"
+
 
 /* iOS imports */
 
