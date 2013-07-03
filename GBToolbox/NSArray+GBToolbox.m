@@ -28,7 +28,7 @@
 
 //map
 -(NSArray *)map:(id(^)(id object))function {
-    //creates a results array in which to store results, sets the capacity for faster writes
+    //creates a results array in which to store results, presets the capacity for faster writes
     NSUInteger count = self.count;
     NSMutableArray *resultsArray = [[NSMutableArray alloc] initWithCapacity:count];
     
