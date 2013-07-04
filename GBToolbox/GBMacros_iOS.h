@@ -25,7 +25,34 @@
 #define vcsb(storyboardID, storyboardName) [[UIStoryboard storyboardWithName:sb(storyboardName) bundle:nil] instantiateViewControllerWithIdentifier:storyboardID]
 
 //View instantiation and controller hookup
-#define v(nibName) [[NSBundle.mainBundle loadNibNamed:nibName owner:self options:nil] lastObject];
+#define vSelfLink(nibName) [[NSBundle.mainBundle loadNibNamed:nibName owner:self options:nil] objectAtIndex:0];
+#define v(nibName) [[NSBundle.mainBundle loadNibNamed:nibName owner:nil options:nil]  objectAtIndex:0];
+
+//View loading from nib
+#define _loadFromNib(nibName) -(id)awakeAfterUsingCoder:(NSCoder *)aDecoder { \
+    BOOL needsLoading = (self.subviews.count == 0); \
+    if (needsLoading) { \
+        UIView *nibView = [[NSBundle.mainBundle loadNibNamed:nibName owner:nil options:nil]  objectAtIndex:0]; \
+        \
+        nibView.frame = self.frame; \
+        nibView.autoresizingMask = self.autoresizingMask; \
+        nibView.alpha = self.alpha; \
+        nibView.opaque = self.opaque; \
+        nibView.hidden = self.hidden; \
+        nibView.backgroundColor = self.backgroundColor; \
+        nibView.userInteractionEnabled = self.userInteractionEnabled; \
+        nibView.contentMode = self.contentMode; \
+        nibView.clearsContextBeforeDrawing = self.clearsContextBeforeDrawing; \
+        nibView.clipsToBounds = self.clipsToBounds; \
+        nibView.autoresizesSubviews = self.autoresizesSubviews; \
+        nibView.multipleTouchEnabled = self.multipleTouchEnabled; \
+        nibView.tag = self.tag; \
+        \
+        return nibView; \
+    } \
+    \
+    return self; \
+}
 
 //Rotation
 #define o (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]) ? Portrait : Landscape)
