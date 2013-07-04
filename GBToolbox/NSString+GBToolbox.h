@@ -19,6 +19,9 @@
 -(BOOL)containsSubstring:(NSString *)substring; //this is case sensitive
 -(BOOL)containsSubstring:(NSString *)substring caseSensitive:(BOOL)isCaseSensitive;
 
+//returns yes if the receiver equals any of the strings in the strings array
+-(BOOL)isEqualToOneOf:(NSArray *)strings;
+
 //deletes DNS suffix in a string. requires 10.7+
 -(NSString *)stringByDeletingDNSSuffix;
 

@@ -27,6 +27,23 @@
     return [self rangeOfString:substring options:(isCaseSensitive ? 0 : NSCaseInsensitiveSearch)].location != NSNotFound;
 }
 
+//returns yes if the receiver equals any of the strings in the strings array
+-(BOOL)isEqualToOneOf:(NSArray *)strings {
+    for (NSString *string in strings) {
+        if ([string isKindOfClass:NSString.class]) {
+            if ([self isEqualToString:string]) {
+                return YES;
+            }
+        }
+        else {
+            break;
+        }
+    }
+    
+    //if we got here we failed
+    return NO;
+}
+
 //best attempt to get int out of string
 -(int)attemptConversionToInt {
     NSString *numberString;
