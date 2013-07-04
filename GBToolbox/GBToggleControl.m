@@ -19,27 +19,35 @@
 #pragma mark - custom accessors
 
 -(void)setImageWhenOff:(UIImage *)imageWhenOff {
-    _imageWhenOff = imageWhenOff;
-    
-    [self _handleButton];
+    if (_imageWhenOff != imageWhenOff) {
+        _imageWhenOff = imageWhenOff;
+        
+        [self _handleButton];
+    }
 }
 
 -(void)setImageWhenOn:(UIImage *)imageWhenOn {
-    _imageWhenOn = imageWhenOn;
-    
-    [self _handleButton];
+    if (_imageWhenOn != imageWhenOn) {
+        _imageWhenOn = imageWhenOn;
+        
+        [self _handleButton];
+    }
 }
 
 -(void)setBackgroundImageWhenOff:(UIImage *)backgroundImageWhenOff {
-    _backgroundImageWhenOff = backgroundImageWhenOff;
-    
-    [self _handleButton];
+    if (_backgroundImageWhenOff != backgroundImageWhenOff) {
+        _backgroundImageWhenOff = backgroundImageWhenOff;
+        
+        [self _handleButton];
+    }
 }
 
 -(void)setBackgroundImageWhenOn:(UIImage *)backgroundImageWhenOn {
-    _backgroundImageWhenOn = backgroundImageWhenOn;
-    
-    [self _handleButton];
+    if (_backgroundImageWhenOn != backgroundImageWhenOn) {
+        _backgroundImageWhenOn = backgroundImageWhenOn;
+        
+        [self _handleButton];
+    }
 }
 
 -(void)setIsOn:(BOOL)isOn {
