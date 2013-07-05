@@ -23,4 +23,24 @@
     return [self isScrolledToBottomWithTolerance:0];
 }
 
+-(void)recalculateHeaderHeightAnimated:(BOOL)animated {
+    if (animated) [self beginUpdates];
+    self.tableHeaderView = self.tableHeaderView;//causes it to refresh the height
+    if (animated) [self endUpdates];
+}
+
+-(void)updateHeaderHeightTo:(CGFloat)newHeight animated:(BOOL)animated {
+    if (animated) {
+        [UIView animateWithDuration:0.25 animations:^{
+            self.tableHeaderView.frame = CGRectMake(self.tableHeaderView.frame.origin.x,
+                                                    self.tableHeaderView.frame.origin.y,
+                                                    self.tableHeaderView.frame.size.width,
+                                                    newHeight);
+            
+            self.tableHeaderView = self.tableHeaderView;//causes it to reconsider the height
+            
+        } completion:nil];
+    }
+}
+
 @end

@@ -14,4 +14,10 @@
 @property (nonatomic, readonly) BOOL isScrolledToBottom;
 -(BOOL)isScrolledToBottomWithTolerance:(CGFloat)tolerance;
 
+//updates the tableview header height
+-(void)recalculateHeaderHeightAnimated:(BOOL)animated;
+
+//lets you change the height of the header view
+-(void)updateHeaderHeightTo:(CGFloat)newHeight animated:(BOOL)animated;
+
 @end
