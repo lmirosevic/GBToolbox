@@ -210,8 +210,8 @@ static CGSize const kDefaultTextShadowOffset =          (CGSize){0, 0};
     
     //let the delegate know if we changed our height
     if (self.previousHeight != newHeight) {
-        if ([self.delegate respondsToSelector:@selector(textBox:didChangeRequiredHeightTo:)]) {
-            [self.delegate textBox:self didChangeRequiredHeightTo:newHeight];
+        if ([self.delegate respondsToSelector:@selector(textBox:didChangeHeightFrom:to:)]) {
+            [self.delegate textBox:self didChangeHeightFrom:self.previousHeight to:newHeight];
         }
         
         //remember it so we can check if its changed in the future

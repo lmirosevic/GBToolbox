@@ -34,6 +34,6 @@
 @protocol GBTextBoxDelegate <NSObject>
 @optional
 
--(void)textBox:(GBTextBox *)notificationView didChangeRequiredHeightTo:(CGFloat)newHeight;
+-(void)textBox:(GBTextBox *)notificationView didChangeHeightFrom:(CGFloat)oldHeight to:(CGFloat)newHeight;
 
 @end
