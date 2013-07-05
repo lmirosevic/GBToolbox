@@ -10,10 +10,15 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+static UIViewContentMode const kDefaultForegroundImageContentMode =     UIViewContentModeScaleToFill;
+static UIEdgeInsets const kDefaultClippingMargin =                      (UIEdgeInsets){0, 0, 0, 0};
+static UIEdgeInsets const kDefaultBackgroundImageMargin =               (UIEdgeInsets){0, 0, 0, 0};
+static UIEdgeInsets const kDefaultForegroundImageMargin =               (UIEdgeInsets){0, 0, 0, 0};
+
 @interface GBRoundBadgeView ()
 
-@property (strong, nonatomic) UIImageView       *backgroundImageView;
-@property (strong, nonatomic) UIImageView       *foregroundImageView;
+@property (strong, nonatomic) UIImageView                           *backgroundImageView;
+@property (strong, nonatomic) UIImageView                           *foregroundImageView;
 
 @end
 
@@ -49,6 +54,14 @@
     [self _updateImageViewFrames];
 }
 
+-(void)setForegroundImageContentMode:(UIViewContentMode)foregroundImageContentMode {
+    self.foregroundImageView.contentMode = foregroundImageContentMode;
+}
+
+-(UIViewContentMode)foregroundImageContentMode {
+    return self.foregroundImageContentMode;
+}
+
 #pragma mark - life
 
 -(id)initWithFrame:(CGRect)frame {
@@ -59,29 +72,37 @@
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)coder {
-    self = [super initWithCoder:coder];
-    if (self) {
-        [self _init];
-    }
-    return self;
+//- (id)initWithCoder:(NSCoder *)coder {
+//    self = [super initWithCoder:coder];
+//    if (self) {
+//        [self _init];
+//    }
+//    return self;
+//}
+
+-(void)awakeFromNib {
+    [self _init];
 }
 
 -(void)_init {
-    self.foregroundImageView = [UIImageView new];
-    self.backgroundImageView = [UIImageView new];
-    
     self.backgroundColor = [UIColor clearColor];
-}
-
--(void)awakeFromNib {
-    self.foregroundImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
-    [self _updateImageViewFrames];
+    self.foregroundImageView = [UIImageView new];
+    self.foregroundImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    
+    self.backgroundImageView = [UIImageView new];
+    self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     [self addSubview:self.backgroundImageView];
     [self addSubview:self.foregroundImageView];
+    
+    //defaults
+    self.foregroundImageContentMode = kDefaultForegroundImageContentMode;
+    self.clippingMargin = kDefaultClippingMargin;
+    self.backgroundImageMargin = kDefaultBackgroundImageMargin;
+    self.foregroundImageMargin = kDefaultForegroundImageMargin;
+    
+    [self _updateImageViewFrames];
 }
 
 #pragma mark - overrides
