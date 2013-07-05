@@ -205,6 +205,9 @@ static CGSize const kDefaultTextShadowOffset =          (CGSize){0, 0};
                                       [self _requiredLabelWidth],
                                       newLabelHeight);
     
+    //update the icon too, sometimes the autoresizing mask fails if we started from a zero or negative height
+    [self _handleIconGeometry];
+    
     //let the delegate know if we changed our height
     if (self.previousHeight != newHeight) {
         if ([self.delegate respondsToSelector:@selector(textBox:didChangeRequiredHeightTo:)]) {
