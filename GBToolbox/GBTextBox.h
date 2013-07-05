@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol NotificationViewDelegate;
+@protocol GBTextBoxDelegate;
 
 @interface GBTextBox : UIView
 
-@property (weak, nonatomic) id<NotificationViewDelegate>    delegate;
+@property (weak, nonatomic) id<GBTextBoxDelegate>           delegate;
 
 @property (strong, nonatomic) UIImage                       *icon;
 @property (assign, nonatomic) CGFloat                       iconLeftMargin;
@@ -31,7 +31,7 @@
 
 @end
 
-@protocol NotificationViewDelegate <NSObject>
+@protocol GBTextBoxDelegate <NSObject>
 @optional
 
 -(void)notificationView:(GBTextBox *)notificationView didChangeRequiredHeightTo:(CGFloat)newHeight;
