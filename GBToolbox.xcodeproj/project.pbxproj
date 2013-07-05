@@ -50,6 +50,7 @@
 		8A6E833B1774A10E00BA485C /* GBMessageInterceptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A6E83391774A10E00BA485C /* GBMessageInterceptor.h */; };
 		8A6E833C1774A10E00BA485C /* GBMessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E833A1774A10E00BA485C /* GBMessageInterceptor.m */; };
 		8A6E833D1774A10E00BA485C /* GBMessageInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E833A1774A10E00BA485C /* GBMessageInterceptor.m */; };
+		8A7C7A201786E4DC001FEE31 /* GBTextBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C7A1F1786E4DC001FEE31 /* GBTextBox.m */; };
 		8A823D6C1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A823D6A1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.h */; };
 		8A823D6D1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A823D6B1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m */; };
 		8A823D6E1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A823D6B1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m */; };
@@ -175,6 +176,8 @@
 		8A6D3696177C635F0096AE66 /* UIScrollView+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+GBToolbox.m"; sourceTree = "<group>"; };
 		8A6E83391774A10E00BA485C /* GBMessageInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBMessageInterceptor.h; sourceTree = "<group>"; };
 		8A6E833A1774A10E00BA485C /* GBMessageInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBMessageInterceptor.m; sourceTree = "<group>"; };
+		8A7C7A1E1786E4DC001FEE31 /* GBTextBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTextBox.h; sourceTree = "<group>"; };
+		8A7C7A1F1786E4DC001FEE31 /* GBTextBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTextBox.m; sourceTree = "<group>"; };
 		8A823D6A1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+GBToolbox.h"; sourceTree = "<group>"; };
 		8A823D6B1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+GBToolbox.m"; sourceTree = "<group>"; };
 		8A8402B616CBBC070017157C /* GBCustomViewButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBCustomViewButtonCell.h; sourceTree = "<group>"; };
@@ -479,6 +482,8 @@
 		8AF78D8A1731419600F61ECC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8A7C7A1E1786E4DC001FEE31 /* GBTextBox.h */,
+				8A7C7A1F1786E4DC001FEE31 /* GBTextBox.m */,
 				8A3F03621782C05300B67BCE /* GBColoredBarView.h */,
 				8A3F03631782C05300B67BCE /* GBColoredBarView.m */,
 				8A3F03641782C05300B67BCE /* GBRoundBadgeView.h */,
@@ -756,6 +761,7 @@
 				8AB5C2931781BD63005A7A22 /* GBAlertBadgeView.m in Sources */,
 				8A3F03661782C05300B67BCE /* GBColoredBarView.m in Sources */,
 				8A3F03671782C05300B67BCE /* GBRoundBadgeView.m in Sources */,
+				8A7C7A201786E4DC001FEE31 /* GBTextBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
