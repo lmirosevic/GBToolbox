@@ -10,11 +10,11 @@
 
 @interface GBRoundBadgeView : UIView
 
-@property (strong, nonatomic) UIImage           *backgroundImage;
-@property (strong, nonatomic) UIImage           *foregroundImage;
-
-@property (assign, nonatomic) UIEdgeInsets      clippingMargin;
-@property (assign, nonatomic) UIEdgeInsets      backgroundImageMargin;
-@property (assign, nonatomic) UIEdgeInsets      foregroundImageMargin;
+@property (strong, nonatomic) UIImage                   *backgroundImage;
+@property (strong, nonatomic) UIImage                   *foregroundImage;
+@property (assign, nonatomic) UIViewContentMode         foregroundImageContentMode;
+@property (assign, nonatomic) UIEdgeInsets              clippingMargin;
+@property (assign, nonatomic) UIEdgeInsets              backgroundImageMargin;
+@property (assign, nonatomic) UIEdgeInsets              foregroundImageMargin;
 
 @end
