@@ -72,16 +72,12 @@ static UIEdgeInsets const kDefaultForegroundImageMargin =               (UIEdgeI
     return self;
 }
 
-//- (id)initWithCoder:(NSCoder *)coder {
-//    self = [super initWithCoder:coder];
-//    if (self) {
-//        [self _init];
-//    }
-//    return self;
-//}
-
--(void)awakeFromNib {
-    [self _init];
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self _init];
+    }
+    return self;
 }
 
 -(void)_init {
