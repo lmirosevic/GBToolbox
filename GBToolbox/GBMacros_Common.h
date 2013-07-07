@@ -31,6 +31,9 @@
 //Message forwarding
 #define _forwardMessages(target) -(id)forwardingTargetForSelector:(SEL)selector { if ([target respondsToSelector:selector]) return target; return nil; }
 
+//Abstract methods
+#define _abstract { @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:_f(@"Abstract method called on %@, override in subclass and don't call super!", NSStringFromClass(self.class)) userInfo:nil]; }
+
 //Associated objects
 static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NSString *atomicity) {
     //_Pragma("clang diagnostic pop")
