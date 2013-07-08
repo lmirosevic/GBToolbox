@@ -72,6 +72,7 @@
 #import "UIScrollView+GBToolbox.h"
 #import "UIImageView+GBToolbox.h"
 
+#import "UITableViewCell+AdditionalViews.h"
 #import "UIView+GBPopUp.h"
 
 #endif

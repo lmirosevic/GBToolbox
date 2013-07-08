@@ -31,6 +31,7 @@
 		8A27D60216C8F5FC0071AE31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
 		8A2CE6D7177D909900F1E3D6 /* GBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CE6D6177D909900F1E3D6 /* GBTextView.m */; };
 		8A3BF9A1178AD295003A3305 /* UIView+GBPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BF9A0178AD295003A3305 /* UIView+GBPopUp.m */; };
+		8A3BF9AE178B22BD003A3305 /* UITableViewCell+AdditionalViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BF9AD178B22BD003A3305 /* UITableViewCell+AdditionalViews.m */; };
 		8A3DA68D17832AB500072539 /* GBFrameChangedProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3DA68C17832AB500072539 /* GBFrameChangedProtocol.h */; };
 		8A3F03661782C05300B67BCE /* GBColoredBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F03631782C05300B67BCE /* GBColoredBarView.m */; };
 		8A3F03671782C05300B67BCE /* GBRoundBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F03651782C05300B67BCE /* GBRoundBadgeView.m */; };
@@ -163,6 +164,8 @@
 		8A2CE6D6177D909900F1E3D6 /* GBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTextView.m; sourceTree = "<group>"; };
 		8A3BF99F178AD295003A3305 /* UIView+GBPopUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GBPopUp.h"; sourceTree = "<group>"; };
 		8A3BF9A0178AD295003A3305 /* UIView+GBPopUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GBPopUp.m"; sourceTree = "<group>"; };
+		8A3BF9AC178B22BD003A3305 /* UITableViewCell+AdditionalViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+AdditionalViews.h"; sourceTree = "<group>"; };
+		8A3BF9AD178B22BD003A3305 /* UITableViewCell+AdditionalViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+AdditionalViews.m"; sourceTree = "<group>"; };
 		8A3DA68C17832AB500072539 /* GBFrameChangedProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBFrameChangedProtocol.h; sourceTree = "<group>"; };
 		8A3F03621782C05300B67BCE /* GBColoredBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBColoredBarView.h; sourceTree = "<group>"; };
 		8A3F03631782C05300B67BCE /* GBColoredBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBColoredBarView.m; sourceTree = "<group>"; };
@@ -352,6 +355,8 @@
 		8A3BF99B178AD238003A3305 /* Categories (Big Features) */ = {
 			isa = PBXGroup;
 			children = (
+				8A3BF9AC178B22BD003A3305 /* UITableViewCell+AdditionalViews.h */,
+				8A3BF9AD178B22BD003A3305 /* UITableViewCell+AdditionalViews.m */,
 				8A3BF99F178AD295003A3305 /* UIView+GBPopUp.h */,
 				8A3BF9A0178AD295003A3305 /* UIView+GBPopUp.m */,
 			);
@@ -782,6 +787,7 @@
 				8A7C7A201786E4DC001FEE31 /* GBTextBox.m in Sources */,
 				8A485306178AA05C0053FAD3 /* GBToggleControlRadioGroupManager.m in Sources */,
 				8A3BF9A1178AD295003A3305 /* UIView+GBPopUp.m in Sources */,
+				8A3BF9AE178B22BD003A3305 /* UITableViewCell+AdditionalViews.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
