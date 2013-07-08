@@ -30,6 +30,7 @@
 		8A27D5FF16C8F3B50071AE31 /* CALayer+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */; };
 		8A27D60216C8F5FC0071AE31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
 		8A2CE6D7177D909900F1E3D6 /* GBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CE6D6177D909900F1E3D6 /* GBTextView.m */; };
+		8A3BF9A1178AD295003A3305 /* UIView+GBPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BF9A0178AD295003A3305 /* UIView+GBPopUp.m */; };
 		8A3DA68D17832AB500072539 /* GBFrameChangedProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A3DA68C17832AB500072539 /* GBFrameChangedProtocol.h */; };
 		8A3F03661782C05300B67BCE /* GBColoredBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F03631782C05300B67BCE /* GBColoredBarView.m */; };
 		8A3F03671782C05300B67BCE /* GBRoundBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F03651782C05300B67BCE /* GBRoundBadgeView.m */; };
@@ -160,6 +161,8 @@
 		8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+GBToolbox.m"; sourceTree = "<group>"; };
 		8A2CE6D5177D909900F1E3D6 /* GBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTextView.h; sourceTree = "<group>"; };
 		8A2CE6D6177D909900F1E3D6 /* GBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTextView.m; sourceTree = "<group>"; };
+		8A3BF99F178AD295003A3305 /* UIView+GBPopUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GBPopUp.h"; sourceTree = "<group>"; };
+		8A3BF9A0178AD295003A3305 /* UIView+GBPopUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GBPopUp.m"; sourceTree = "<group>"; };
 		8A3DA68C17832AB500072539 /* GBFrameChangedProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBFrameChangedProtocol.h; sourceTree = "<group>"; };
 		8A3F03621782C05300B67BCE /* GBColoredBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBColoredBarView.h; sourceTree = "<group>"; };
 		8A3F03631782C05300B67BCE /* GBColoredBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBColoredBarView.m; sourceTree = "<group>"; };
@@ -300,7 +303,8 @@
 				8ACE941316C1193A00527E0D /* Macros */,
 				8ACE944816C11E3E00527E0D /* Utility */,
 				8ACE941216C1192E00527E0D /* Classes */,
-				8ACE941416C1197600527E0D /* Categories */,
+				8ACE941416C1197600527E0D /* Categories (Utils & Extras) */,
+				8A3BF99B178AD238003A3305 /* Categories (Big Features) */,
 				8A3DA68B17832AA000072539 /* Protocols */,
 				8A03780316BFCD2F0096C448 /* Supporting Files */,
 			);
@@ -345,6 +349,15 @@
 			name = Constants;
 			sourceTree = "<group>";
 		};
+		8A3BF99B178AD238003A3305 /* Categories (Big Features) */ = {
+			isa = PBXGroup;
+			children = (
+				8A3BF99F178AD295003A3305 /* UIView+GBPopUp.h */,
+				8A3BF9A0178AD295003A3305 /* UIView+GBPopUp.m */,
+			);
+			name = "Categories (Big Features)";
+			sourceTree = "<group>";
+		};
 		8A3DA68B17832AA000072539 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,7 +385,7 @@
 			name = Macros;
 			sourceTree = "<group>";
 		};
-		8ACE941416C1197600527E0D /* Categories */ = {
+		8ACE941416C1197600527E0D /* Categories (Utils & Extras) */ = {
 			isa = PBXGroup;
 			children = (
 				8ACE941516C1198900527E0D /* NSObject+GBToolbox.h */,
@@ -414,7 +427,7 @@
 				8A8CAC3B177DB9D500B661E0 /* UIImageView+GBToolbox.h */,
 				8A8CAC3C177DB9D500B661E0 /* UIImageView+GBToolbox.m */,
 			);
-			name = Categories;
+			name = "Categories (Utils & Extras)";
 			sourceTree = "<group>";
 		};
 		8ACE944716C11E1F00527E0D /* Header */ = {
@@ -485,14 +498,14 @@
 		8AF78D8A1731419600F61ECC /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				8A7C7A1E1786E4DC001FEE31 /* GBTextBox.h */,
-				8A7C7A1F1786E4DC001FEE31 /* GBTextBox.m */,
 				8A3F03621782C05300B67BCE /* GBColoredBarView.h */,
 				8A3F03631782C05300B67BCE /* GBColoredBarView.m */,
 				8A3F03641782C05300B67BCE /* GBRoundBadgeView.h */,
 				8A3F03651782C05300B67BCE /* GBRoundBadgeView.m */,
 				8AB5C2911781BD63005A7A22 /* GBAlertBadgeView.h */,
 				8AB5C2921781BD63005A7A22 /* GBAlertBadgeView.m */,
+				8A7C7A1E1786E4DC001FEE31 /* GBTextBox.h */,
+				8A7C7A1F1786E4DC001FEE31 /* GBTextBox.m */,
 				8A2CE6D5177D909900F1E3D6 /* GBTextView.h */,
 				8A2CE6D6177D909900F1E3D6 /* GBTextView.m */,
 				8A1CF4CD17749905003D6DB5 /* GBTextField.h */,
@@ -768,6 +781,7 @@
 				8A3F03671782C05300B67BCE /* GBRoundBadgeView.m in Sources */,
 				8A7C7A201786E4DC001FEE31 /* GBTextBox.m in Sources */,
 				8A485306178AA05C0053FAD3 /* GBToggleControlRadioGroupManager.m in Sources */,
+				8A3BF9A1178AD295003A3305 /* UIView+GBPopUp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
