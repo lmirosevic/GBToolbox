@@ -1,5 +1,5 @@
 //
-//  NotificationView.h
+//  GBTextBox.h
 //  Russia
 //
 //  Created by Luka Mirosevic on 05/07/2013.

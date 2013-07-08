@@ -1,5 +1,5 @@
 //
-//  NotificationView.m
+//  GBTextBox.m
 //  Russia
 //
 //  Created by Luka Mirosevic on 05/07/2013.
