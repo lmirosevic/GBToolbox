@@ -40,6 +40,7 @@
 		8A4469951760A6D400F33E75 /* NSDictionary+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A4469931760A6D400F33E75 /* NSDictionary+GBToolbox.h */; };
 		8A4469961760A6D400F33E75 /* NSDictionary+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4469941760A6D400F33E75 /* NSDictionary+GBToolbox.m */; };
 		8A4469971760A6D400F33E75 /* NSDictionary+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4469941760A6D400F33E75 /* NSDictionary+GBToolbox.m */; };
+		8A485306178AA05C0053FAD3 /* GBToggleControlRadioGroupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A485305178AA05C0053FAD3 /* GBToggleControlRadioGroupManager.m */; };
 		8A521B0B1701CCD600A89BE4 /* GBTypes_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AE8348716C9494A00546249 /* GBTypes_Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A521B0C1701CD1500A89BE4 /* GBTypes_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AE8348916C9495800546249 /* GBTypes_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A521B0D1701CD1F00A89BE4 /* GBMacros_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ACE944A16C11FF700527E0D /* GBMacros_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -170,6 +171,8 @@
 		8A44698F1760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+GBToolbox.m"; sourceTree = "<group>"; };
 		8A4469931760A6D400F33E75 /* NSDictionary+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+GBToolbox.h"; sourceTree = "<group>"; };
 		8A4469941760A6D400F33E75 /* NSDictionary+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GBToolbox.m"; sourceTree = "<group>"; };
+		8A485304178AA05C0053FAD3 /* GBToggleControlRadioGroupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBToggleControlRadioGroupManager.h; sourceTree = "<group>"; };
+		8A485305178AA05C0053FAD3 /* GBToggleControlRadioGroupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBToggleControlRadioGroupManager.m; sourceTree = "<group>"; };
 		8A66400A16F9CBB800FDD892 /* NSArray+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GBToolbox.h"; sourceTree = "<group>"; };
 		8A66400B16F9CBB800FDD892 /* NSArray+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GBToolbox.m"; sourceTree = "<group>"; };
 		8A6D3695177C635F0096AE66 /* UIScrollView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+GBToolbox.h"; sourceTree = "<group>"; };
@@ -512,6 +515,8 @@
 				8A8CAC39177DB3DD00B661E0 /* GBButton.m */,
 				8A8CAC42177DC18400B661E0 /* GBToggleControl.h */,
 				8A8CAC43177DC18400B661E0 /* GBToggleControl.m */,
+				8A485304178AA05C0053FAD3 /* GBToggleControlRadioGroupManager.h */,
+				8A485305178AA05C0053FAD3 /* GBToggleControlRadioGroupManager.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -762,6 +767,7 @@
 				8A3F03661782C05300B67BCE /* GBColoredBarView.m in Sources */,
 				8A3F03671782C05300B67BCE /* GBRoundBadgeView.m in Sources */,
 				8A7C7A201786E4DC001FEE31 /* GBTextBox.m in Sources */,
+				8A485306178AA05C0053FAD3 /* GBToggleControlRadioGroupManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
