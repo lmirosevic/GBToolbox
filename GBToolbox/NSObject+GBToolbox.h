@@ -16,6 +16,9 @@
 //user identifier for tracking objects
 @property (copy, nonatomic) NSString                *GBIdentifier;
 
+//an easy way to associate some payload with an object. e.g. when you create a button which pertains to changing some model, you can attach the model to the button and then get to it in the button action method
+@property (strong, nonatomic) id                    GBPayload;
+
 //pointer address
 @property (copy, nonatomic, readonly) NSString      *pointerAddress;
 

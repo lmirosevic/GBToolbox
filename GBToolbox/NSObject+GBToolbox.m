@@ -14,6 +14,7 @@
 
 _associatedObject(copy, nonatomic, NSString *, GBDescription, setGBDescription)
 _associatedObject(copy, nonatomic, NSString *, GBIdentifier, setGBIdentifier)
+_associatedObject(strong, nonatomic, id, GBPayload, setGBPayload)
 
 -(NSString *)pointerAddress {
     return [NSString stringWithFormat:@"%p", self];
