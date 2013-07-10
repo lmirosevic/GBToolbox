@@ -96,6 +96,7 @@
 		8ACE94F216C12CC500527E0D /* NSView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE94F016C12CC400527E0D /* NSView+GBToolbox.m */; };
 		8AD911B5162D9E2200C9D287 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B4162D9E2200C9D287 /* Foundation.framework */; };
 		8AD911C3162D9EBC00C9D287 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911C2162D9EBC00C9D287 /* UIKit.framework */; };
+		8ADBDEB5178DC33D0090EF04 /* MKMapView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADBDEB4178DC33D0090EF04 /* MKMapView+GBToolbox.m */; };
 		8AE8348016C941BC00546249 /* GBRadialGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AE8347E16C941BC00546249 /* GBRadialGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8AE8348116C941BC00546249 /* GBRadialGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8347F16C941BC00546249 /* GBRadialGradientView.m */; };
 		8AF6878416B8057000FEF6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */; };
@@ -235,6 +236,8 @@
 		8AD911B4162D9E2200C9D287 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8AD911C2162D9EBC00C9D287 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8AD911C4162D9EE000C9D287 /* GBMacros_Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBMacros_Common.h; sourceTree = "<group>"; };
+		8ADBDEB3178DC33D0090EF04 /* MKMapView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+GBToolbox.h"; sourceTree = "<group>"; };
+		8ADBDEB4178DC33D0090EF04 /* MKMapView+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+GBToolbox.m"; sourceTree = "<group>"; };
 		8AE8347E16C941BC00546249 /* GBRadialGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBRadialGradientView.h; sourceTree = "<group>"; };
 		8AE8347F16C941BC00546249 /* GBRadialGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBRadialGradientView.m; sourceTree = "<group>"; };
 		8AE8348716C9494A00546249 /* GBTypes_Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBTypes_Common.h; sourceTree = "<group>"; };
@@ -431,6 +434,8 @@
 				8A6D3696177C635F0096AE66 /* UIScrollView+GBToolbox.m */,
 				8A8CAC3B177DB9D500B661E0 /* UIImageView+GBToolbox.h */,
 				8A8CAC3C177DB9D500B661E0 /* UIImageView+GBToolbox.m */,
+				8ADBDEB3178DC33D0090EF04 /* MKMapView+GBToolbox.h */,
+				8ADBDEB4178DC33D0090EF04 /* MKMapView+GBToolbox.m */,
 			);
 			name = "Categories (Utils & Extras)";
 			sourceTree = "<group>";
@@ -788,6 +793,7 @@
 				8A485306178AA05C0053FAD3 /* GBToggleControlRadioGroupManager.m in Sources */,
 				8A3BF9A1178AD295003A3305 /* UIView+GBPopUp.m in Sources */,
 				8A3BF9AE178B22BD003A3305 /* UITableViewCell+AdditionalViews.m in Sources */,
+				8ADBDEB5178DC33D0090EF04 /* MKMapView+GBToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
