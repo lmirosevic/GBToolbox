@@ -71,6 +71,7 @@
 #import "UIImage+GBToolbox.h"
 #import "UIScrollView+GBToolbox.h"
 #import "UIImageView+GBToolbox.h"
+#import "MKMapView+GBToolbox.h"
 
 #import "UITableViewCell+AdditionalViews.h"
 #import "UIView+GBPopUp.h"
