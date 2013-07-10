@@ -25,5 +25,9 @@
 //Pads the array out to the desired size with any object you supply
 -(void)padToSize:(NSUInteger)count withObject:(id)object;
 
+#pragma mark - Deleting
+
+//Removes an object from the array by searching using pointer equality, rather than sending the isEqual: message
+-(void)removeObjectByIdentity:(id)object;
 
 @end

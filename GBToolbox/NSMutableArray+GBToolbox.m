@@ -52,4 +52,24 @@
     }
 }
 
+#pragma mark - Deleting
+
+//Removes an object from the array by searching using pointer equality, rather than sending the isEqual: message
+-(void)removeObjectByIdentity:(id)object {
+    NSUInteger count = self.count;
+    NSUInteger index = NSNotFound;
+    id existingObject;
+    for (NSUInteger i=0; i<count; i++) {
+        existingObject = [self objectAtIndex:i];
+        if (existingObject == object) {
+            index = i;
+            break;
+        }
+    }
+    
+    if (index != NSNotFound) {
+        [self removeObjectAtIndex:index];
+    }
+}
+
 @end
