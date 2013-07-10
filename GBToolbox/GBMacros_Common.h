@@ -102,6 +102,9 @@ static inline void _lBoolean(BOOL boolean) {l(@"Boolean: %@", _b(boolean));}
 #define IsValidString(string) !IsEmptyString(string)
 #define _f(string, ...) ([NSString stringWithFormat:string, __VA_ARGS__])
 
+//Arrays
+#define IsPopulatedArray(array) ([array isKindOfClass:[NSArray class]] && array.count > 0)
+
 //Code introspection
 #define IsClassAvailable(classType) ([NSClassFromString(STRINGIFY(classType)) class] ? YES : NO)
 
