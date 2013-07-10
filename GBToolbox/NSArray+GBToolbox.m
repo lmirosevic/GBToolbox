@@ -102,6 +102,30 @@
     } lastObject:@(NO)] boolValue];
 }
 
+//first
+-(id)first:(BOOL(^)(id object))function {
+    NSInteger index = [self indexOfFirst:function];
+    
+    if (index != NSNotFound) {
+        return [self objectAtIndex:index];
+    }
+    else {
+        return nil;
+    }
+}
+
+//indexOfFirst
+-(NSUInteger)indexOfFirst:(BOOL(^)(id object))function {
+    NSUInteger count = self.count;
+    for (NSUInteger i=0; i<count; i++) {
+        id myObject = [self objectAtIndex:i];
+        if (function(myObject)) return i;
+    }
+    
+    //if we got here it means we didn't find any
+    return NSNotFound;
+}
+
 #pragma mark - Description
 
 //returns the array concatenated by ", "

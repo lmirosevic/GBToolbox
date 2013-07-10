@@ -39,6 +39,12 @@
 //any
 -(BOOL)any:(BOOL(^)(id object))function;
 
+//first
+-(id)first:(BOOL(^)(id object))function;
+
+//indexOfFirst
+-(NSUInteger)indexOfFirst:(BOOL(^)(id object))function;
+
 #pragma mark - Description
 
 //returns the array concatenated by ", "
