@@ -97,6 +97,9 @@ static inline void _lFloating(CGFloat floating) {l(@"Floating: %f", floating);}
 static inline void _lIntegral(NSInteger integer) {l(@"Integer: %ld", (long)integer);}
 static inline void _lBoolean(BOOL boolean) {l(@"Boolean: %@", _b(boolean));}
 
+//Equality checking (where nil == nil evals to YES)
+#define IsEqual(a, b) ((a == b) || [a isEqual:b])
+
 //Strings
 #define IsEmptyString(string) ((![string isKindOfClass:[NSString class]] || (string == nil) || ([string isEqualToString:@""])) ? YES : NO)
 #define IsValidString(string) !IsEmptyString(string)
