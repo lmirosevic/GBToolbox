@@ -9,6 +9,7 @@
 #import "GBRoundBadgeView.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import "GBUtility_iOS.h"
 
 static UIViewContentMode const kDefaultForegroundImageContentMode =     UIViewContentModeScaleToFill;
 static UIEdgeInsets const kDefaultClippingMargin =                      (UIEdgeInsets){0, 0, 0, 0};
@@ -46,6 +47,12 @@ static UIEdgeInsets const kDefaultForegroundImageMargin =               (UIEdgeI
     _clippingMargin = clippingMargin;
     
     [self _updateClippingMask];
+}
+
+-(void)setForegroundImageMargin:(UIEdgeInsets)foregroundImageMargin {
+    _foregroundImageMargin = foregroundImageMargin;
+    
+    [self _updateImageViewFrames];
 }
 
 -(void)setBackgroundImageMargin:(UIEdgeInsets)backgroundImageMargin {
@@ -121,17 +128,13 @@ static UIEdgeInsets const kDefaultForegroundImageMargin =               (UIEdgeI
                                                 self.bounds.origin.y + self.foregroundImageMargin.top,
                                                 self.bounds.size.width - (self.foregroundImageMargin.left + self.foregroundImageMargin.right),
                                                 self.bounds.size.height - (self.foregroundImageMargin.top + self.foregroundImageMargin.bottom));
+    
+    self.foregroundImageView.layer.mask = RoundClippingMaskInRectWithMargin(self.foregroundImageView.bounds, UIEdgeInsetsZero);
+    self.backgroundImageView.layer.mask = RoundClippingMaskInRectWithMargin(self.backgroundImageView.bounds, UIEdgeInsetsZero);
 }
 
 -(void)_updateClippingMask {
-    UIBezierPath *bezierPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.bounds.origin.x + self.clippingMargin.left,
-                                                                                 self.bounds.origin.y + self.clippingMargin.top,
-                                                                                 self.bounds.size.width - (self.clippingMargin.left + self.clippingMargin.right),
-                                                                                 self.bounds.size.height - (self.clippingMargin.top + self.clippingMargin.bottom))];
-    CAShapeLayer *shapeMask = [CAShapeLayer new];
-    shapeMask.frame = self.bounds;
-    shapeMask.path = bezierPath.CGPath;
-    self.layer.mask = shapeMask;
+    self.layer.mask = RoundClippingMaskInRectWithMargin(self.bounds, self.clippingMargin);
 }
 
 @end
