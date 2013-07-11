@@ -43,6 +43,23 @@ UIImage * ImageResizableWithCapInsets(NSString *name, CGFloat topCap, CGFloat le
     return [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(topCap, leftCap, bottomCap, rightCap)];
 }
 
+#pragma mark - Clipping
 
+CAShapeLayer * RoundClippingMaskInRectWithMargin(CGRect rect, UIEdgeInsets margin) {
+    UIBezierPath *bezierPath = RoundBezierPathForRectWithMargin(rect, margin);
+    
+    CAShapeLayer *shapeMask = [CAShapeLayer new];
+    shapeMask.frame = rect;
+    shapeMask.path = bezierPath.CGPath;
+    
+    return shapeMask;
+}
+
+UIBezierPath * RoundBezierPathForRectWithMargin(CGRect rect, UIEdgeInsets margin) {
+    return [UIBezierPath bezierPathWithOvalInRect:CGRectMake(rect.origin.x + margin.left,
+                                                             rect.origin.y + margin.top,
+                                                             rect.size.width - (margin.left + margin.right),
+                                                             rect.size.height - (margin.top + margin.bottom))];
+}
 
 @end

@@ -11,6 +11,8 @@
 
 #import "GBUtility_Common.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @interface GBToolbox (iOS)
 
 #pragma mark - UIView
@@ -29,5 +31,10 @@ void RedirectToAppStore(NSString *appID);
 #pragma mark - Images
 
 UIImage * ImageResizableWithCapInsets(NSString *name, CGFloat topCap, CGFloat leftCap, CGFloat bottomCap, CGFloat rightCap);
+
+#pragma mark - Clipping
+
+CAShapeLayer * RoundClippingMaskInRectWithMargin(CGRect rect, UIEdgeInsets margin);
+UIBezierPath * RoundBezierPathForRectWithMargin(CGRect rect, UIEdgeInsets margin);
 
 @end
