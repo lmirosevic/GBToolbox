@@ -9,7 +9,6 @@
 //Exceptions
 extern NSString * const GBTypeMismatchException;
 extern NSString * const GBUnexpectedMessageException;
-extern NSString * const GBBadParameterException;
 
 //Constants
 extern NSUInteger const kGBSearchResultNotFound;

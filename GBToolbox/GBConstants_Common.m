@@ -10,6 +10,5 @@
 
 NSString * const GBTypeMismatchException =          @"GBTypeMismatchException";
 NSString * const GBUnexpectedMessageException =     @"GBUnexpectedMessageException";
-NSString * const GBBadParameterException =          @"GBBadParameterException";
 
 NSUInteger const kGBSearchResultNotFound =          NSNotFound;

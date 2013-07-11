@@ -48,7 +48,7 @@
     //it is nil
     else {
         //...well that's no good
-        @throw [NSException exceptionWithName:GBBadParameterException reason:@"GBToolbox: tried to pad an array with nil, and arrays can't take nil" userInfo:nil];
+        @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"GBToolbox: tried to pad an array with nil, and arrays can't take nil" userInfo:nil];
     }
 }
 

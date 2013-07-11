@@ -150,7 +150,7 @@ static CGFloat const kDefaultInitialCapacity = 100;
         _resizingFactor = resizingFactor;
     }
     else {
-        @throw [NSException exceptionWithName:GBBadParameterException reason:@"Resizing factor must be bigger than 1.0" userInfo:@{@"resizingFactor": @(resizingFactor)}];
+        @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Resizing factor must be bigger than 1.0" userInfo:@{@"resizingFactor": @(resizingFactor)}];
     }
 }
 
