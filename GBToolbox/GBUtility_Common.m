@@ -265,7 +265,8 @@ void SwizzleInstanceMethodsInClass(Class aClass, SEL originalSelector, SEL newSe
 #pragma mark - Delayed execution
 
 void ExecuteAfter(CGFloat delay, void(^block)(void)) {
-    [NSTimer scheduledTimerWithTimeInterval:delay repeats:NO withBlock:block];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:delay repeats:NO withBlock:block];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
 void ExecuteSoon(void(^block)(void)) {
