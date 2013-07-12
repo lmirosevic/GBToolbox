@@ -10,6 +10,8 @@
 
 @interface GBCustomNavigationBar : UINavigationBar
 
+@property (assign, nonatomic, readonly) CGFloat     navBarHeight;
+
 +(Class)navigationBarClassWithHeight:(CGFloat)height;
 -(id)initWithNavBarHeight:(CGFloat)height;
 

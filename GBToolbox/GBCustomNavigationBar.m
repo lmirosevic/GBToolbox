@@ -10,7 +10,7 @@
 
 @interface GBCustomNavigationBar ()
 
-@property (assign, nonatomic) CGFloat   navBarHeight;
+@property (assign, nonatomic, readwrite) CGFloat    navBarHeight;
 
 @end
 
