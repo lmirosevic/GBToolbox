@@ -273,6 +273,11 @@ void ExecuteSoon(void(^block)(void)) {
     ExecuteAfter(0, block);
 }
 
+void ExecuteAfterScrolling(void(^block)(void)) {
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0 repeats:NO withBlock:block];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
 #pragma mark - Class availability
 
 BOOL IsClassAvailableWithName(NSString *className) {

@@ -82,6 +82,7 @@ void SwizzleInstanceMethodsInClass(Class aClass, SEL originalSelector, SEL newSe
 
 void ExecuteAfter(CGFloat delay, void(^block)(void));
 void ExecuteSoon(void(^block)(void));
+void ExecuteAfterScrolling(void(^block)(void));
 
 #pragma mark - Class availability
 
