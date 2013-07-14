@@ -8,9 +8,8 @@
 
 #import "UIViewController+GBToolbox.h"
 
-#import <objc/runtime.h>
-
 #import "GBUtility_Common.h"
+#import <objc/runtime.h>
 
 @implementation UIViewController (GBToolbox)
 
@@ -40,6 +39,12 @@ static char gbIsVisibleKey;
 +(void)load {
     SwizzleInstanceMethodsInClass(self, @selector(viewWillAppear:), @selector(_SwizzViewWillAppear:));
     SwizzleInstanceMethodsInClass(self, @selector(viewDidDisappear:), @selector(_SwizzViewDidDisappear:));
+}
+
+//makes sure the view is loaded
+
+-(void)ensureViewIsLoaded {
+    [self view];//this causes the view to get loaded
 }
 
 @end

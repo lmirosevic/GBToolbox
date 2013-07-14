@@ -13,4 +13,7 @@
 //returns YES when the view controller is visible
 @property (assign, nonatomic) BOOL isVisible;
 
+//makes sure the view is loaded
+-(void)ensureViewIsLoaded;
+
 @end
