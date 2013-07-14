@@ -65,6 +65,7 @@
 #import "GBColoredBarView.h"
 #import "GBTextBox.h"
 #import "GBTestView.h"
+#import "GBTableViewController.h"
 
 #import "UITableView+GBToolbox.h"
 #import "UIViewController+GBToolbox.h"
