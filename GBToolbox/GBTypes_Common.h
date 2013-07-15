@@ -53,11 +53,28 @@ typedef enum {
     BNO,
 } GBBoolean;
 
-static inline BOOL IsTruthyBool(GBBoolean boolean) {
+static inline GBBoolean GBBooleanToggle(GBBoolean boolean) {
+    switch (boolean) {
+        case BYES:          return BNO;
+        case BNO:           return BYES;
+        case BUndefined:    return BUndefined;
+    }
+}
+
+static inline GBBoolean Bool2GBBoolean(BOOL boolean) {
+    if (boolean) {
+        return BYES;
+    }
+    else {
+        return BNO;
+    }
+}
+
+static inline BOOL IsTruthyGBBoolean(GBBoolean boolean) {
     return boolean == BYES;
 }
 
-static inline GBBoolean Number2Bool(NSNumber *number) {
+static inline GBBoolean Number2GBBoolean(NSNumber *number) {
     if ([number isKindOfClass:[NSNumber class]]) {
         if ([number boolValue] == YES) {
             return BYES;
@@ -70,7 +87,7 @@ static inline GBBoolean Number2Bool(NSNumber *number) {
     return BUndefined;
 }
 
-static inline NSNumber * Bool2Number(GBBoolean boolean) {
+static inline NSNumber * GBBoolean2Number(GBBoolean boolean) {
     switch (boolean) {
         case BYES:
             return @(YES);

@@ -96,6 +96,9 @@
 		8ACE944616C11C6E00527E0D /* GBUtility_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE944316C11C6E00527E0D /* GBUtility_Common.m */; };
 		8ACE94F116C12CC500527E0D /* NSView+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ACE94EF16C12CC400527E0D /* NSView+GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8ACE94F216C12CC500527E0D /* NSView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE94F016C12CC400527E0D /* NSView+GBToolbox.m */; };
+		8AD431C4179450D000EE9F66 /* GBCompletable.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AD431C2179450D000EE9F66 /* GBCompletable.h */; };
+		8AD431C5179450D000EE9F66 /* GBCompletable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD431C3179450D000EE9F66 /* GBCompletable.m */; };
+		8AD431C6179450D000EE9F66 /* GBCompletable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD431C3179450D000EE9F66 /* GBCompletable.m */; };
 		8AD911B5162D9E2200C9D287 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B4162D9E2200C9D287 /* Foundation.framework */; };
 		8AD911C3162D9EBC00C9D287 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911C2162D9EBC00C9D287 /* UIKit.framework */; };
 		8ADBDEB5178DC33D0090EF04 /* MKMapView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADBDEB4178DC33D0090EF04 /* MKMapView+GBToolbox.m */; };
@@ -238,6 +241,8 @@
 		8ACE944A16C11FF700527E0D /* GBMacros_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBMacros_OSX.h; sourceTree = "<group>"; };
 		8ACE94EF16C12CC400527E0D /* NSView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+GBToolbox.h"; sourceTree = "<group>"; };
 		8ACE94F016C12CC400527E0D /* NSView+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+GBToolbox.m"; sourceTree = "<group>"; };
+		8AD431C2179450D000EE9F66 /* GBCompletable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBCompletable.h; sourceTree = "<group>"; };
+		8AD431C3179450D000EE9F66 /* GBCompletable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBCompletable.m; sourceTree = "<group>"; };
 		8AD911B1162D9E2200C9D287 /* libGBToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGBToolbox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD911B4162D9E2200C9D287 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8AD911C2162D9EBC00C9D287 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -561,6 +566,8 @@
 				8AF78D8D173141BF00F61ECC /* GBFastArray.m */,
 				8A6E83391774A10E00BA485C /* GBMessageInterceptor.h */,
 				8A6E833A1774A10E00BA485C /* GBMessageInterceptor.m */,
+				8AD431C2179450D000EE9F66 /* GBCompletable.h */,
+				8AD431C3179450D000EE9F66 /* GBCompletable.m */,
 			);
 			name = General;
 			sourceTree = "<group>";
@@ -602,6 +609,7 @@
 				8A1CF4AC17748CFF003D6DB5 /* NSDate+GBToolbox.h in Headers */,
 				8A6E833B1774A10E00BA485C /* GBMessageInterceptor.h in Headers */,
 				8A3DA68D17832AB500072539 /* GBFrameChangedProtocol.h in Headers */,
+				8AD431C4179450D000EE9F66 /* GBCompletable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,6 +761,7 @@
 				8A823D6E1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m in Sources */,
 				8A1CF4AE17748CFF003D6DB5 /* NSDate+GBToolbox.m in Sources */,
 				8A6E833D1774A10E00BA485C /* GBMessageInterceptor.m in Sources */,
+				8AD431C6179450D000EE9F66 /* GBCompletable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,6 +815,7 @@
 				8ADBDEB5178DC33D0090EF04 /* MKMapView+GBToolbox.m in Sources */,
 				8A335DF51790362600B46E8F /* GBTestView.m in Sources */,
 				8A9DA4B81792CF290074054E /* GBTableViewController.m in Sources */,
+				8AD431C5179450D000EE9F66 /* GBCompletable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

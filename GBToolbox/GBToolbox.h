@@ -29,6 +29,7 @@
 
 #import "GBFastArray.h"
 #import "GBMessageInterceptor.h"
+#import "GBCompletable.h"
 
 #import "NSObject+GBToolbox.h"
 #import "NSTimer+GBToolbox.h"
