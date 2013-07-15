@@ -97,10 +97,9 @@ static BOOL const kDefaultClearsSelectionOnViewWillAppear =     YES;
 #pragma mark - util
 
 -(BOOL)_isTableEmpty {
-    NSUInteger sections = [self numberOfSectionsInTableView:self.tableView];
-    
+    NSUInteger sections = [self.tableView numberOfSections];
     for (NSUInteger i=0; i<sections; i++) {
-        if ([self tableView:self.tableView numberOfRowsInSection:i] > 0) {
+        if ([self.tableView numberOfRowsInSection:i] > 0) {
             return NO;
         }
     }
