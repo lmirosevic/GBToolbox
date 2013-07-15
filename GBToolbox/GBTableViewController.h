@@ -12,7 +12,10 @@
 
 @property (strong, nonatomic) UITableView       *tableView;
 @property (assign, nonatomic) BOOL              clearsSelectionOnViewWillAppear;// defaults to YES. If YES, any selection is cleared in viewWillAppear:
+@property (strong, nonatomic) UIView            *emptyView;
 
 -(id)initWithStyle:(UITableViewStyle)style;
+
+-(void)handleEmpty;
 
 @end
