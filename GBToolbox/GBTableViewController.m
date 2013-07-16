@@ -90,6 +90,10 @@ static BOOL const kDefaultClearsSelectionOnViewWillAppear =     YES;
 
 #pragma mark - API
 
+-(void)clearEmpty {
+    self.isShowingEmpty = NO;
+}
+
 -(void)handleEmpty {
     self.isShowingEmpty = [self _isTableEmpty];
 }
