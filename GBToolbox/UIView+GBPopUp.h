@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    GBPopUpAnimationFlyUp,
+    GBPopUpAnimationFadeAway,
+} GBPopUpAnimation;
+
 @interface UIView (GBPopUp)
 
 @property (strong, nonatomic) UIColor               *popUpBackgroundColor;
@@ -16,5 +21,6 @@
 -(void)presentAsPopUpOnWindowAnimated:(BOOL)animated;
 -(void)presentAsPopUpOnView:(UIView *)targetView animated:(BOOL)animated;
 -(void)dismissAsPopUpAnimated:(BOOL)animated;
+-(void)dismissWithAnimation:(GBPopUpAnimation)animationType;
 
 @end

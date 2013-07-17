@@ -140,14 +140,35 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
     }
 }
 
--(void)dismissAsPopUpAnimated:(BOOL)animated {
+-(void)dismissWithAnimation:(GBPopUpAnimation)animationType {
+    [self dismissWithAnimation:animationType animated:YES];
+}
+
+-(void)dismissWithAnimation:(GBPopUpAnimation)animationType animated:(BOOL)animated {
     if (self.isPresentedAsPopUp) {
         //start keyboard listening
         [self _stopListeningForKeyboardChanges];
         
-        VoidBlock actionsBlock = ^{
-            self.containerView.alpha = 0;
-        };
+        VoidBlock actionsBlock;
+        
+        switch (animationType) {
+            case GBPopUpAnimationFlyUp: {
+                actionsBlock = ^{
+                    self.frame = CGRectMake(self.frame.origin.x,
+                                            0 - self.frame.size.height,
+                                            self.frame.size.width,
+                                            self.frame.size.height);
+                    self.containerView.alpha = 0;
+                };
+            } break;
+                
+            case GBPopUpAnimationFadeAway: {
+                actionsBlock = ^{
+                    self.containerView.alpha = 0;
+                };
+            } break;
+        }
+
         
         VoidBlock completionBlock = ^{
             //remove ourselves from the container
@@ -169,6 +190,10 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
         //no longer presented
         self.isPresentedAsPopUp = NO;
     }
+}
+
+-(void)dismissAsPopUpAnimated:(BOOL)animated {
+    [self dismissWithAnimation:GBPopUpAnimationFadeAway animated:animated];
 }
 
 #pragma mark - keyboard util
