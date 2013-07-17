@@ -61,7 +61,7 @@ static BOOL const kDefaultClearsSelectionOnViewWillAppear =     YES;
 -(id)initWithStyle:(UITableViewStyle)style {
     if (self = [super init]) {
         self.tableViewStyle = style;
-        self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:self.tableViewStyle];
+        self.tableView = [[[self classForTableView] alloc] initWithFrame:CGRectZero style:self.tableViewStyle];
         self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
@@ -96,6 +96,10 @@ static BOOL const kDefaultClearsSelectionOnViewWillAppear =     YES;
 
 -(void)handleEmpty {
     self.isShowingEmpty = [self _isTableEmpty];
+}
+
+-(Class)classForTableView {
+    return UITableView.class;
 }
 
 #pragma mark - util
