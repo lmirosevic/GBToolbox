@@ -10,7 +10,8 @@
 
 @interface MKMapView (GBToolbox)
 
-//pans and zooms the map to include the points in the locationsArray, which should be CLLocation objects
+//pans and zooms the map to include the points in the locationsArray, which should be CLLocation objects. second method lets you zoom out a little so the contained points arent right on the edges
 -(void)moveToRegionIncludingLocations:(NSArray *)locationsArray animated:(BOOL)animated;
+-(void)moveToRegionIncludingLocations:(NSArray *)locationsArray withPaddingPercent:(CGFloat)paddingPercent animated:(BOOL)animated;
 
 @end
