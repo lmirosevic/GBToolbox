@@ -62,4 +62,10 @@ UIBezierPath * RoundBezierPathForRectWithMargin(CGRect rect, UIEdgeInsets margin
                                                              rect.size.height - (margin.top + margin.bottom))];
 }
 
+#pragma mark - Push Notifications
+
+BOOL IsPushDisabled() {
+    return [[UIApplication sharedApplication] enabledRemoteNotificationTypes] == UIRemoteNotificationTypeNone;
+}
+
 @end

@@ -37,4 +37,8 @@ UIImage * ImageResizableWithCapInsets(NSString *name, CGFloat topCap, CGFloat le
 CAShapeLayer * RoundClippingMaskInRectWithMargin(CGRect rect, UIEdgeInsets margin);
 UIBezierPath * RoundBezierPathForRectWithMargin(CGRect rect, UIEdgeInsets margin);
 
+#pragma mark - Push Notifications
+
+BOOL IsPushDisabled();
+
 @end
