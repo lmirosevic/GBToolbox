@@ -102,6 +102,9 @@ NSString * Denilify(NSString *string);
 //Just passes the string through the format printer guy
 NSString * Stringify(NSString *string);
 
+#pragma mark - Push notifications
 
+NSString * DeviceToken2String(NSData *deviceToken);
 
+    
 @end
