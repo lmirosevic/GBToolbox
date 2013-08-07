@@ -17,6 +17,9 @@
 @property (strong, nonatomic) UIImage                       *icon;
 @property (assign, nonatomic) CGFloat                       iconLeftMargin;
 @property (assign, nonatomic) CGFloat                       iconVerticalOffset;
+@property (strong, nonatomic) UIImage                       *rightIcon;
+@property (assign, nonatomic) CGFloat                       rightIconRightMargin;
+@property (assign, nonatomic) CGFloat                       rightIconVerticalOffset;
 @property (strong, nonatomic) UIImage                       *backgroundImage;
 @property (strong, nonatomic) NSString                      *text;
 @property (strong, nonatomic) UIColor                       *textColor;

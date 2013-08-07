@@ -10,6 +10,8 @@
 
 static CGFloat const kDefaultIconVerticalOffset =       0;
 static CGFloat const kDefaultIconLeftMargin =           0;
+static CGFloat const kDefaultRightIconVerticalOffset =  0;
+static CGFloat const kDefaultRightIconRightMargin =     0;
 static NSTextAlignment const kDefaultTextAlignment =    NSTextAlignmentCenter;
 static UIEdgeInsets const kDefaultTextPadding =         (UIEdgeInsets){0, 0, 0, 0};
 static CGSize const kDefaultTextShadowOffset =          (CGSize){0, 0};
@@ -21,6 +23,7 @@ static CGSize const kDefaultTextShadowOffset =          (CGSize){0, 0};
 @interface GBTextBox ()
 
 @property (strong, nonatomic) UIImageView               *iconImageView;
+@property (strong, nonatomic) UIImageView               *rightIconImageView;
 @property (strong, nonatomic) UIImageView               *backgroundImageView;
 @property (strong, nonatomic) UILabel                   *textLabel;
 
@@ -42,6 +45,16 @@ static CGSize const kDefaultTextShadowOffset =          (CGSize){0, 0};
     return self.iconImageView.image;
 }
 
+-(void)setRightIcon:(UIImage *)rightIcon {
+    self.rightIconImageView.image = rightIcon;
+    
+    [self _handleRightIconGeometry];
+}
+
+-(UIImage *)rightIcon {
+    return self.rightIconImageView.image;
+}
+
 -(void)setBackgroundImage:(UIImage *)backgroundImage {
     self.backgroundImageView.image = backgroundImage;
 }
@@ -60,6 +73,18 @@ static CGSize const kDefaultTextShadowOffset =          (CGSize){0, 0};
     _iconVerticalOffset = iconVerticalOffset;
     
     [self _handleIconGeometry];
+}
+
+-(void)setRightIconRightMargin:(CGFloat)rightIconRightMargin {
+    _rightIconRightMargin = rightIconRightMargin;
+    
+    [self _handleRightIconGeometry];
+}
+
+-(void)setRightIconVerticalOffset:(CGFloat)rightIconVerticalOffset {
+    _rightIconVerticalOffset = rightIconVerticalOffset;
+    
+    [self _handleRightIconGeometry];
 }
 
 -(void)setTextColor:(UIColor *)textColor {
@@ -155,6 +180,12 @@ static CGSize const kDefaultTextShadowOffset =          (CGSize){0, 0};
     self.iconImageView.backgroundColor = [UIColor clearColor];
     [self addSubview:self.iconImageView];
     
+    self.rightIconImageView = [UIImageView new];
+    self.rightIconImageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin;
+    self.rightIconImageView.contentMode = UIViewContentModeCenter;
+    self.rightIconImageView.backgroundColor = [UIColor clearColor];
+    [self addSubview:self.rightIconImageView];
+    
     self.textLabel = [UILabel new];
     self.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.textLabel.numberOfLines = 0;
@@ -186,6 +217,13 @@ static CGSize const kDefaultTextShadowOffset =          (CGSize){0, 0};
                                           (self.bounds.size.height - self.icon.size.height) * 0.5 + self.iconVerticalOffset,
                                           self.icon.size.width,
                                           self.icon.size.height);
+}
+
+-(void)_handleRightIconGeometry {
+    self.rightIconImageView.frame = CGRectMake(self.bounds.size.width - self.rightIcon.size.width - self.rightIconRightMargin,
+                                               (self.bounds.size.height - self.rightIcon.size.height) * 0.5 + self.rightIconVerticalOffset,
+                                               self.rightIcon.size.width,
+                                               self.rightIcon.size.height);
 }
 
 -(void)_handleFrameGeometry {
