@@ -10,7 +10,7 @@
 
 @implementation NSArray (GBToolbox)
 
-#pragma mark - helper methods
+#pragma mark - Helper methods
 
 //returns a random object from the array
 -(id)randomObject {
@@ -24,7 +24,7 @@
     }
 }
 
-#pragma mark - functional programming
+#pragma mark - Functional Programming
 
 //map
 -(NSArray *)map:(id(^)(id object))function {
