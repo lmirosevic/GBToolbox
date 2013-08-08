@@ -68,4 +68,12 @@ BOOL IsPushDisabled() {
     return [[UIApplication sharedApplication] enabledRemoteNotificationTypes] == UIRemoteNotificationTypeNone;
 }
 
+#pragma mark - UITableView
+
+BOOL IsCellAtIndexPathFullyVisible(NSIndexPath *indexPath, UITableView *tableView) {
+    CGRect cellRect = [tableView rectForRowAtIndexPath:indexPath];
+    cellRect = [tableView convertRect:cellRect toView:tableView.superview];
+    return CGRectContainsRect(tableView.frame, cellRect);
+}
+
 @end

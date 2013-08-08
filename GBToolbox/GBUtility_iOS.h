@@ -41,4 +41,8 @@ UIBezierPath * RoundBezierPathForRectWithMargin(CGRect rect, UIEdgeInsets margin
 
 BOOL IsPushDisabled();
 
+#pragma mark - UITableView
+
+BOOL IsCellAtIndexPathFullyVisible(NSIndexPath *indexPath, UITableView *tableView);
+
 @end
