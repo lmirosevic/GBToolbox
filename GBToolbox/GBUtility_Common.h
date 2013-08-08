@@ -82,6 +82,8 @@ void SwizzleInstanceMethodsInClass(Class aClass, SEL originalSelector, SEL newSe
 #pragma mark - Delayed execution
 
 void ExecuteAfter(CGFloat delay, void(^block)(void));
+void ExecuteAfterCancellable(NSString *cancelIdentifier, CGFloat delay, void(^block)(void));
+void CancelExecuteAfter(NSString *cancelIdentifier);
 void ExecuteSoon(void(^block)(void));
 void ExecuteAfterScrolling(void(^block)(void));
 

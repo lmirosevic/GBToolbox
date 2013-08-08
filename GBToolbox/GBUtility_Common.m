@@ -268,9 +268,56 @@ void SwizzleInstanceMethodsInClass(Class aClass, SEL originalSelector, SEL newSe
 
 #pragma mark - Delayed execution
 
+static NSMutableDictionary *_cancellableBlocks;
+NSMutableDictionary * cancellableBlocks() {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _cancellableBlocks = [NSMutableDictionary new];
+    });
+    
+    return _cancellableBlocks;
+}
+
 void ExecuteAfter(CGFloat delay, void(^block)(void)) {
-    NSTimer *timer = [NSTimer timerWithTimeInterval:delay repeats:NO withBlock:block];
+    ExecuteAfterCancellable(nil, delay, block);
+}
+
+void ExecuteAfterCancellable(NSString *cancelIdentifier, CGFloat delay, void(^block)(void)) {
+    NSTimer *timer;
+    
+    if (cancelIdentifier) {
+        //first create the timer
+        timer = [NSTimer timerWithTimeInterval:delay repeats:NO withBlock:^{
+            //first call original block
+            block();
+            
+            NSLog(@"remove from list");
+            //then remove from list
+            [cancellableBlocks() removeObjectForKey:cancelIdentifier];
+        }];
+        
+        //then remember it so we can cancel it later
+        cancellableBlocks()[cancelIdentifier] = timer;
+    }
+    else {
+        timer = [NSTimer timerWithTimeInterval:delay repeats:NO withBlock:block];
+    }
+    
+    //schedule it
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+
+void CancelExecuteAfter(NSString *cancelIdentifier) {
+    if (cancelIdentifier) {
+        //find timer
+        NSTimer *timer = cancellableBlocks()[cancelIdentifier];
+        
+        //invalidate it
+        [timer invalidate];
+        
+        //remove the timer from the list
+        [cancellableBlocks() removeObjectForKey:cancelIdentifier];
+    }
 }
 
 void ExecuteSoon(void(^block)(void)) {
