@@ -290,8 +290,7 @@ void ExecuteAfterCancellable(NSString *cancelIdentifier, CGFloat delay, void(^bl
         timer = [NSTimer timerWithTimeInterval:delay repeats:NO withBlock:^{
             //first call original block
             block();
-            
-            NSLog(@"remove from list");
+
             //then remove from list
             [cancellableBlocks() removeObjectForKey:cancelIdentifier];
         }];
