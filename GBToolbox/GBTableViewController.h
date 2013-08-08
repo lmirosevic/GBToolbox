@@ -19,6 +19,9 @@
 -(void)clearEmpty;//don't show the empty (e.g. if you have an error condition and you want to show an error message instead)
 -(void)handleEmpty;
 
+//for subclasses to override
 -(Class)classForTableView;
+-(void)tableView:(UITableView *)tableView didBeginFullyDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
+-(void)tableView:(UITableView *)tableView didEndFullyDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

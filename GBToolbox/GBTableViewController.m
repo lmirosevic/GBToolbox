@@ -9,13 +9,19 @@
 #import "GBTableViewController.h"
 
 #import "GBMacros_Common.h"
+#import "NSArray+GBToolbox.h"
 
 static BOOL const kDefaultClearsSelectionOnViewWillAppear =     YES;
+static NSTimeInterval kScrollCheckPeriod =                      1./10.;
+static CGFloat kDefaultLastScrollPosition =                     -10e5;//some crazy number so that the check always fires the first time
 
 @interface GBTableViewController ()
 
 @property (assign, nonatomic) UITableViewStyle                  tableViewStyle;
 @property (assign, nonatomic) BOOL                              isShowingEmpty;
+@property (strong, nonatomic) NSTimer                           *scrollCheckTimer;
+@property (assign, nonatomic) CGFloat                           lastScrollPostion;
+@property (strong, nonatomic) NSArray                           *lastVisibleIndexPaths;
 
 @end
 
@@ -60,6 +66,8 @@ static BOOL const kDefaultClearsSelectionOnViewWillAppear =     YES;
 
 -(id)initWithStyle:(UITableViewStyle)style {
     if (self = [super init]) {
+        self.lastScrollPostion = kDefaultLastScrollPosition;
+        
         self.tableViewStyle = style;
         self.tableView = [[[self classForTableView] alloc] initWithFrame:CGRectZero style:self.tableViewStyle];
         self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -88,6 +96,87 @@ static BOOL const kDefaultClearsSelectionOnViewWillAppear =     YES;
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    //turn on checking for cells that are appearing
+    self.scrollCheckTimer = [NSTimer timerWithTimeInterval:kScrollCheckPeriod target:self selector:@selector(_scrollCheck) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.scrollCheckTimer forMode:NSRunLoopCommonModes];
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.scrollCheckTimer invalidate];
+    [self _allDidEndShowing];
+}
+#pragma mark - scroll checking
+
+-(void)_scrollCheck {
+    //get the list of fully visible cells, first just put all of them in...
+    NSMutableArray *currentlyFullyVisibleIndexPaths = [NSMutableArray arrayWithArray:self.tableView.indexPathsForVisibleRows];
+    
+    //if we haven't scrolled && list hasnt changed -> return
+    if (self.lastScrollPostion == self.tableView.contentOffset.y &&
+        [self.lastVisibleIndexPaths isEqualToArray:currentlyFullyVisibleIndexPaths]) {
+        return;
+    }
+    
+    //remember scroll position
+    self.lastScrollPostion = self.tableView.contentOffset.y;
+    
+    //then remove first cell if partially visible
+    if (currentlyFullyVisibleIndexPaths.count > 0 &&
+        !IsCellAtIndexPathFullyVisible(currentlyFullyVisibleIndexPaths[0], self.tableView)) {
+        [currentlyFullyVisibleIndexPaths removeObjectAtIndex:0];
+    }
+    
+    //and then remove last cell if partially visible
+    if (currentlyFullyVisibleIndexPaths.count > 0 &&
+        !IsCellAtIndexPathFullyVisible([currentlyFullyVisibleIndexPaths lastObject], self.tableView)) {
+        [currentlyFullyVisibleIndexPaths removeLastObject];
+    }
+    
+    //now we have the list of currently fully visible cells, time to find out which are new and which are gone...
+    
+    //last - current = end
+    NSArray *didEndShowing = [self.lastVisibleIndexPaths arrayBySubtractingArray:currentlyFullyVisibleIndexPaths];
+    
+    //current - last = begin
+    NSArray *didBeginShowing = [currentlyFullyVisibleIndexPaths arrayBySubtractingArray:self.lastVisibleIndexPaths];
+    
+    //remember for next time
+    self.lastVisibleIndexPaths = currentlyFullyVisibleIndexPaths;
+    
+    //notify subclass of guys who left
+    for (NSIndexPath *indexPath in didEndShowing) {
+        [self tableView:self.tableView didEndFullyDisplayingCell:[self.tableView cellForRowAtIndexPath:indexPath] forRowAtIndexPath:indexPath];
+    }
+    
+    //notify subclass of guys who entered
+    for (NSIndexPath *indexPath in didBeginShowing) {
+        [self tableView:self.tableView didBeginFullyDisplayingCell:[self.tableView cellForRowAtIndexPath:indexPath] forRowAtIndexPath:indexPath];
+    }
+}
+
+-(void)_allDidEndShowing {
+    //do a scrollcheck first in case we got moved programatically or something
+    [self _scrollCheck];
+    
+    for (NSIndexPath *indexPath in self.lastVisibleIndexPaths) {
+        [self tableView:self.tableView didEndFullyDisplayingCell:[self.tableView cellForRowAtIndexPath:indexPath] forRowAtIndexPath:indexPath];
+    }
+    
+    self.lastVisibleIndexPaths = nil;
+    self.lastScrollPostion = kDefaultLastScrollPosition;
+}
+
+BOOL IsCellAtIndexPathFullyVisible(NSIndexPath *indexPath, UITableView *tableView) {
+    CGRect cellRect = [tableView rectForRowAtIndexPath:indexPath];
+    cellRect = [tableView convertRect:cellRect toView:tableView.superview];
+    return CGRectContainsRect(tableView.frame, cellRect);
+}
+
 #pragma mark - API
 
 -(void)clearEmpty {
@@ -98,9 +187,20 @@ static BOOL const kDefaultClearsSelectionOnViewWillAppear =     YES;
     self.isShowingEmpty = [self _isTableEmpty];
 }
 
+#pragma mark - Subclassing
+
 -(Class)classForTableView {
     return UITableView.class;
 }
+
+-(void)tableView:(UITableView *)tableView didBeginFullyDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    //noop
+}
+
+-(void)tableView:(UITableView *)tableView didEndFullyDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    //noop
+}
+
 
 #pragma mark - util
 
