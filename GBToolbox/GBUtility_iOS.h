@@ -45,4 +45,8 @@ BOOL IsPushDisabled();
 
 BOOL IsCellAtIndexPathFullyVisible(NSIndexPath *indexPath, UITableView *tableView);
 
+#pragma mark - Keyboard hiding
+
+void DismissKeyboard();
+
 @end

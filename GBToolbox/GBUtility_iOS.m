@@ -76,4 +76,10 @@ BOOL IsCellAtIndexPathFullyVisible(NSIndexPath *indexPath, UITableView *tableVie
     return CGRectContainsRect(tableView.frame, cellRect);
 }
 
+#pragma mark - Keyboard hiding
+
+void DismissKeyboard() {
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
+}
+
 @end
