@@ -44,6 +44,10 @@
 //indexOfFirst
 -(NSUInteger)indexOfFirst:(BOOL(^)(id object))function;
 
+#pragma mark - Set like operations
+
+-(NSArray *)arrayBySubtractingArray:(NSArray *)array;
+
 #pragma mark - Description
 
 //returns the array concatenated by ", "

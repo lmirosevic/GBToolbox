@@ -126,6 +126,13 @@
     return NSNotFound;
 }
 
+#pragma mark - Set like operations
+
+-(NSArray *)arrayBySubtractingArray:(NSArray *)array {
+    NSPredicate *relativeComplementPredicate = [NSPredicate predicateWithFormat:@"NOT SELF IN %@", array];
+    return [self filteredArrayUsingPredicate:relativeComplementPredicate];
+}
+
 #pragma mark - Description
 
 //returns the array concatenated by ", "
