@@ -14,7 +14,6 @@
 
 //returns a random object from the array
 @property (strong, nonatomic, readonly) id randomObject;
--(id)randomObject;
 
 #pragma mark - Functional Programming
 
