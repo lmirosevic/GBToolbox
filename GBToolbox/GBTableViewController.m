@@ -9,6 +9,7 @@
 #import "GBTableViewController.h"
 
 #import "GBMacros_Common.h"
+#import "GBUtility_iOS.h"
 #import "NSArray+GBToolbox.h"
 
 static BOOL const kDefaultClearsSelectionOnViewWillAppear =     YES;
@@ -150,12 +151,12 @@ static CGFloat kDefaultLastScrollPosition =                     -10e5;//some cra
     
     //notify subclass of guys who left
     for (NSIndexPath *indexPath in didEndShowing) {
-        [self tableView:self.tableView didEndFullyDisplayingCell:[self.tableView cellForRowAtIndexPath:indexPath] forRowAtIndexPath:indexPath];
+        [self tableView:self.tableView didEndFullyDisplayingCellForRowAtIndexPath:indexPath];
     }
     
     //notify subclass of guys who entered
     for (NSIndexPath *indexPath in didBeginShowing) {
-        [self tableView:self.tableView didBeginFullyDisplayingCell:[self.tableView cellForRowAtIndexPath:indexPath] forRowAtIndexPath:indexPath];
+        [self tableView:self.tableView didBeginFullyDisplayingCellForRowAtIndexPath:indexPath];
     }
 }
 
@@ -164,17 +165,11 @@ static CGFloat kDefaultLastScrollPosition =                     -10e5;//some cra
     [self _scrollCheck];
     
     for (NSIndexPath *indexPath in self.lastVisibleIndexPaths) {
-        [self tableView:self.tableView didEndFullyDisplayingCell:[self.tableView cellForRowAtIndexPath:indexPath] forRowAtIndexPath:indexPath];
+        [self tableView:self.tableView didEndFullyDisplayingCellForRowAtIndexPath:indexPath];
     }
     
     self.lastVisibleIndexPaths = nil;
     self.lastScrollPostion = kDefaultLastScrollPosition;
-}
-
-BOOL IsCellAtIndexPathFullyVisible(NSIndexPath *indexPath, UITableView *tableView) {
-    CGRect cellRect = [tableView rectForRowAtIndexPath:indexPath];
-    cellRect = [tableView convertRect:cellRect toView:tableView.superview];
-    return CGRectContainsRect(tableView.frame, cellRect);
 }
 
 #pragma mark - API
@@ -193,11 +188,11 @@ BOOL IsCellAtIndexPathFullyVisible(NSIndexPath *indexPath, UITableView *tableVie
     return UITableView.class;
 }
 
--(void)tableView:(UITableView *)tableView didBeginFullyDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void)tableView:(UITableView *)tableView didBeginFullyDisplayingCellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //noop
 }
 
--(void)tableView:(UITableView *)tableView didEndFullyDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void)tableView:(UITableView *)tableView didEndFullyDisplayingCellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //noop
 }
 

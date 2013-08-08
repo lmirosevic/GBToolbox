@@ -21,7 +21,7 @@
 
 //for subclasses to override
 -(Class)classForTableView;
--(void)tableView:(UITableView *)tableView didBeginFullyDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
--(void)tableView:(UITableView *)tableView didEndFullyDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
+-(void)tableView:(UITableView *)tableView didBeginFullyDisplayingCellForRowAtIndexPath:(NSIndexPath *)indexPath;
+-(void)tableView:(UITableView *)tableView didEndFullyDisplayingCellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
