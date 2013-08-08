@@ -206,12 +206,16 @@ GBEdgeInsets GBEdgeInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat
 
 static NSTimeInterval __time;
 
-+(void)tic {
+void Tic() {
     __time = [NSDate timeIntervalSinceReferenceDate];
 }
 
-+(NSTimeInterval)toc {
+NSTimeInterval TocInterval() {
     return [NSDate timeIntervalSinceReferenceDate] - __time;
+}
+
+void Toc() {
+    NSLog(@"TicToc: %f", TocInterval());
 }
 
 #pragma mark - Truthy/Falsy

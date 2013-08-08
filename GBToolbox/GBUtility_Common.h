@@ -55,8 +55,9 @@ GBEdgeInsets GBEdgeInsetsMake(CGFloat top, CGFloat left, CGFloat bottom, CGFloat
 
 #pragma mark - Tic Toc
 
-+(void)tic;
-+(NSTimeInterval)toc;
+void Tic();
+NSTimeInterval TocInterval();
+void Toc();
 
 #pragma mark - Truthy/Falsy
 
