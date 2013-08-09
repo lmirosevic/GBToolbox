@@ -362,7 +362,7 @@ NSString * Stringify(NSString *string) {
 #pragma mark - Push notifications
 
 //original from SO: http://stackoverflow.com/a/9372848/399772
-NSString * DeviceToken2String(NSData *deviceToken) {
+NSString * PushDeviceToken2String(NSData *deviceToken) {
     const unsigned *tokenBytes = [deviceToken bytes];
     NSString *hexToken = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
                           ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),

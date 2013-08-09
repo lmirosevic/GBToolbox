@@ -107,7 +107,7 @@ NSString * Stringify(NSString *string);
 
 #pragma mark - Push notifications
 
-NSString * DeviceToken2String(NSData *deviceToken);
+NSString * PushDeviceToken2String(NSData *deviceToken);
 
     
 @end
