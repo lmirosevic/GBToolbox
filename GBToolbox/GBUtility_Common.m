@@ -371,4 +371,11 @@ NSString * PushDeviceToken2String(NSData *deviceToken) {
     return hexToken;
 }
 
+#pragma mark - Locale
+
+//Returns YES if the current locale uses metric units for distance, temperature, etc..
+BOOL isMetric() {
+    return [[[NSLocale currentLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
+}
+
 @end
