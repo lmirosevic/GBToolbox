@@ -49,4 +49,8 @@ BOOL IsCellAtIndexPathFullyVisible(NSIndexPath *indexPath, UITableView *tableVie
 
 void DismissKeyboard();
 
+#pragma mark - Twitter
+
+BOOL IsTwitterAccountAvailable();
+
 @end

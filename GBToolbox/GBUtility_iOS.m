@@ -8,6 +8,9 @@
 
 #import "GBUtility_iOS.h"
 
+#import <Twitter/Twitter.h>
+#import <Social/Social.h>
+
 @implementation GBToolbox (iOS)
 
 #pragma mark - UIView
@@ -80,6 +83,17 @@ BOOL IsCellAtIndexPathFullyVisible(NSIndexPath *indexPath, UITableView *tableVie
 
 void DismissKeyboard() {
     [[UIApplication sharedApplication].keyWindow endEditing:YES];
+}
+
+#pragma mark - Twitter
+
+BOOL IsTwitterAccountAvailable() {
+    if (IsClassAvailableWithName(@"SLComposeViewController")) {
+        return [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter];
+    }
+    else {
+        return [TWTweetComposeViewController canSendTweet];
+    }
 }
 
 @end
