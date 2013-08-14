@@ -88,12 +88,16 @@ void DismissKeyboard() {
 #pragma mark - Twitter
 
 BOOL IsTwitterAccountAvailable() {
+#if TARGET_IPHONE_SIMULATOR
+    return [TWTweetComposeViewController canSendTweet];
+#else
     if (IsClassAvailableWithName(@"SLComposeViewController")) {
         return [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter];
     }
     else {
         return [TWTweetComposeViewController canSendTweet];
     }
+#endif
 }
 
 @end
