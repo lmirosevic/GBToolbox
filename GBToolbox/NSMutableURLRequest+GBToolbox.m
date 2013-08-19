@@ -8,7 +8,7 @@
 
 #import "NSMutableURLRequest+GBToolbox.h"
 
-static CGFloat const kRequestTimeoutInterval =      20;
+static CGFloat const kRequestTimeoutInterval =      30;
 static NSString * const kDefaultFormBoundary =      @"GBFormBoundary_B6bjp9UyZcXHTf_f)m(YsWW1S.aUbx/ls+zQbnF)dTCHX+e1lkJD";
 
 @implementation GBFormPayload
