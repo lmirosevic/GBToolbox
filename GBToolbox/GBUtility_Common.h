@@ -114,5 +114,8 @@ NSString * PushDeviceToken2String(NSData *deviceToken);
 
 //Returns YES if the current locale uses metric units for distance, temperature, etc..
 BOOL IsMetric();
+
+//Returns the currency symbol in ISO 4271 for the user's current locale
+NSString * PreferredCurrency();
     
 @end

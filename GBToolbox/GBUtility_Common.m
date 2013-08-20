@@ -378,4 +378,11 @@ BOOL IsMetric() {
     return [[[NSLocale currentLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
 }
 
+//Returns the currency symbol in ISO 4271 for the user's current locale
+NSString * PreferredCurrency() {
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *currencyCode = [locale objectForKey:NSLocaleCurrencyCode];
+    return currencyCode;
+}
+
 @end
