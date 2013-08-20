@@ -107,6 +107,7 @@ NSString * Stringify(NSString *string);
 
 #pragma mark - Push notifications
 
+//Converts an opaque push device token data blob to a string
 NSString * PushDeviceToken2String(NSData *deviceToken);
 
 #pragma mark - Locale
