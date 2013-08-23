@@ -100,4 +100,13 @@ BOOL IsTwitterAccountAvailable() {
 #endif
 }
 
+#pragma mark - Localisation
+
+NSString * UIKitLocalizedString(NSString *string) {
+	NSBundle *UIKitBundle = [NSBundle bundleForClass:[UIApplication class]];
+    NSString *localizedString = [UIKitBundle localizedStringForKey:string value:string table:nil];
+    
+    return localizedString ?: string;
+}
+
 @end

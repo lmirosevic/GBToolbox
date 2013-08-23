@@ -53,4 +53,8 @@ void DismissKeyboard();
 
 BOOL IsTwitterAccountAvailable();
 
+#pragma mark - Localisation
+
+NSString * UIKitLocalizedString(NSString *string);
+
 @end
