@@ -8,26 +8,27 @@
 
 #import "GBTextBox.h"
 
-static CGFloat const kDefaultIconVerticalOffset =       0;
-static CGFloat const kDefaultIconLeftMargin =           0;
-static CGFloat const kDefaultRightIconVerticalOffset =  0;
-static CGFloat const kDefaultRightIconRightMargin =     0;
-static NSTextAlignment const kDefaultTextAlignment =    NSTextAlignmentCenter;
-static UIEdgeInsets const kDefaultTextPadding =         (UIEdgeInsets){0, 0, 0, 0};
-static CGSize const kDefaultTextShadowOffset =          (CGSize){0, 0};
-#define kDefaultFont                                    [UIFont fontWithName:@"HelveticaNeue-Medium" size:12]
-#define kDefaultColor                                   [UIColor colorWithWhite:0.8 alpha:1]
-#define kDefaultShadowColor                             [UIColor clearColor];
+static GBTextBoxFlexibleDimension const kDefaultFlexibleDimension =         GBTextBoxFlexibleDimensionHeight;
+static CGFloat const kDefaultIconVerticalOffset =                           0;
+static CGFloat const kDefaultIconLeftMargin =                               0;
+static CGFloat const kDefaultRightIconVerticalOffset =                      0;
+static CGFloat const kDefaultRightIconRightMargin =                         0;
+static NSTextAlignment const kDefaultTextAlignment =                        NSTextAlignmentCenter;
+static UIEdgeInsets const kDefaultTextPadding =                             (UIEdgeInsets){0, 0, 0, 0};
+static CGSize const kDefaultTextShadowOffset =                              (CGSize){0, 0};
+#define kDefaultFont                                                        [UIFont fontWithName:@"HelveticaNeue-Medium" size:12]
+#define kDefaultColor                                                       [UIColor colorWithWhite:0.8 alpha:1]
+#define kDefaultShadowColor                                                 [UIColor clearColor];
 
 
 @interface GBTextBox ()
 
-@property (strong, nonatomic) UIImageView               *iconImageView;
-@property (strong, nonatomic) UIImageView               *rightIconImageView;
-@property (strong, nonatomic) UIImageView               *backgroundImageView;
-@property (strong, nonatomic) UILabel                   *textLabel;
+@property (strong, nonatomic) UIImageView                                   *iconImageView;
+@property (strong, nonatomic) UIImageView                                   *rightIconImageView;
+@property (strong, nonatomic) UIImageView                                   *backgroundImageView;
+@property (strong, nonatomic) UILabel                                       *textLabel;
 
-@property (assign, nonatomic) CGFloat                   previousHeight;
+@property (assign, nonatomic) CGSize                                        previousSize;
 
 @end
 
@@ -147,6 +148,10 @@ static CGSize const kDefaultTextShadowOffset =          (CGSize){0, 0};
     [self _handleFrameGeometry];
 }
 
+-(void)setFlexibleDimension:(GBTextBoxFlexibleDimension)flexibleDimension {
+    _flexibleDimension = flexibleDimension;
+}
+
 #pragma mark - life
 
 - (id)initWithFrame:(CGRect)frame {
@@ -194,14 +199,14 @@ static CGSize const kDefaultTextShadowOffset =          (CGSize){0, 0};
     [self addSubview:self.textLabel];
     
     //defaults
-    self.iconVerticalOffset = kDefaultIconVerticalOffset;
-    self.iconLeftMargin = kDefaultIconLeftMargin;
-    self.font = kDefaultFont;
-    self.textColor = kDefaultColor;
-    self.textShadowColor = kDefaultShadowColor;
-    self.textShadowOffset = kDefaultTextShadowOffset;
-    self.textAlignment = kDefaultTextAlignment;
-    self.textPadding = kDefaultTextPadding;
+    _iconVerticalOffset = kDefaultIconVerticalOffset;
+    _iconLeftMargin = kDefaultIconLeftMargin;
+    self.textLabel.font = kDefaultFont;
+    self.textLabel.textColor = kDefaultColor;
+    self.textLabel.shadowColor = kDefaultShadowColor;
+    self.textLabel.shadowOffset = kDefaultTextShadowOffset;
+    self.textLabel.textAlignment = kDefaultTextAlignment;
+    _textPadding = kDefaultTextPadding;
 }
 
 #pragma mark - API
@@ -227,45 +232,86 @@ static CGSize const kDefaultTextShadowOffset =          (CGSize){0, 0};
 }
 
 -(void)_handleFrameGeometry {
-    //calculate the new height
-    CGFloat newLabelHeight = [self _requiredLabelHeight];
-    CGFloat newHeight = newLabelHeight + (self.textPadding.top + self.textPadding.bottom);
+    //commit the new frame
+    self.frame = [self _dynamicSelfFrame];
+
+    //resize and reposition the label
+    self.textLabel.frame = [self _dynamicLabelFrame];
     
-    //commit the new height
-    self.frame = CGRectMake(self.frame.origin.x,
-                            self.frame.origin.y,
-                            self.frame.size.width,
-                            newHeight);
+    //tell the delegate what happened
+    CGSize newSize = self.frame.size;
     
-    //resize and reposition the label (which is based on our width)
-    self.textLabel.frame = CGRectMake(self.textPadding.left,
-                                      self.textPadding.top,
-                                      [self _requiredLabelWidth],
-                                      newLabelHeight);
-    
-    //update the icon too, sometimes the autoresizing mask fails if we started from a zero or negative height
-    [self _handleIconGeometry];
-    
-    //let the delegate know if we changed our height
-    if (self.previousHeight != newHeight) {
-        if ([self.delegate respondsToSelector:@selector(textBox:didChangeHeightFrom:to:)]) {
-            [self.delegate textBox:self didChangeHeightFrom:self.previousHeight to:newHeight];
+    //let the delegate know if we changed our width
+    if (!CGSizeEqualToSize(self.previousSize, newSize)) {
+        if ([self.delegate respondsToSelector:@selector(textBox:didChangeSizeFrom:to:)]) {
+            [self.delegate textBox:self didChangeSizeFrom:self.previousSize to:newSize];
         }
         
         //remember it so we can check if its changed in the future
-        self.previousHeight = newHeight;
+        self.previousSize = newSize;
     }
+    
+    //update the icon too, sometimes the autoresizing mask fails if we started from a zero or negative height
+    [self _handleIconGeometry];
 }
 
--(CGFloat)_requiredLabelHeight {
-    CGSize labelSize = [self.textLabel sizeThatFits:CGSizeMake([self _requiredLabelWidth],
-                                                               CGFLOAT_MAX)];
+-(CGRect)_dynamicSelfFrame {
+    CGSize selfSize;
+    switch (self.flexibleDimension) {
+        case GBTextBoxFlexibleDimensionHeight: {
+            selfSize = CGSizeMake(self.frame.size.width,
+                                  [self.textLabel sizeThatFits:CGSizeMake([self _seedLabelWidth], CGFLOAT_MAX)].height + (self.textPadding.top + self.textPadding.bottom));
+        } break;
+            
+        case GBTextBoxFlexibleDimensionWidth: {
+            CGSize size = [self.textLabel sizeThatFits:CGSizeMake(CGFLOAT_MAX, [self _seedLabelHeight])];
+            selfSize = CGSizeMake(size.width + (self.textPadding.left + self.textPadding.right),
+                                  self.frame.size.height);
+        } break;
+    }
+    
+    return CGRectMake(self.frame.origin.x, self.frame.origin.y, selfSize.width, selfSize.height);
+}
+
+
+-(CGRect)_dynamicLabelFrame {
+    CGSize labelSize;
+    switch (self.flexibleDimension) {
+        case GBTextBoxFlexibleDimensionHeight: {
+            labelSize = CGSizeMake([self _seedLabelWidth],
+                                   [self.textLabel sizeThatFits:CGSizeMake([self _seedLabelWidth], CGFLOAT_MAX)].height);
+        } break;
+            
+        case GBTextBoxFlexibleDimensionWidth: {
+            labelSize = CGSizeMake([self.textLabel sizeThatFits:CGSizeMake(CGFLOAT_MAX, [self _seedLabelHeight])].width,
+                                   [self _seedLabelHeight]);
+        } break;
+    }
+    
+    return CGRectMake(self.textPadding.left, self.textPadding.top, labelSize.width, labelSize.height);
+}
+
+-(CGFloat)_dynamicLabelDimensionLength {
+    CGSize labelSize;
+    switch (self.flexibleDimension) {
+        case GBTextBoxFlexibleDimensionHeight: {
+            labelSize = [self.textLabel sizeThatFits:CGSizeMake([self _seedLabelWidth], CGFLOAT_MAX)];
+        } break;
+            
+        case GBTextBoxFlexibleDimensionWidth: {
+            labelSize = [self.textLabel sizeThatFits:CGSizeMake(CGFLOAT_MAX, [self _seedLabelHeight])];
+        } break;
+    }
     
     return labelSize.height;
 }
 
--(CGFloat)_requiredLabelWidth {
+-(CGFloat)_seedLabelWidth {
     return self.bounds.size.width - (self.textPadding.left + self.textPadding.right);
+}
+
+-(CGFloat)_seedLabelHeight {
+    return self.bounds.size.height - (self.textPadding.top + self.textPadding.bottom);
 }
 
 @end
