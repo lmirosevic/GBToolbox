@@ -10,6 +10,7 @@
 
 #import <Twitter/Twitter.h>
 #import <Social/Social.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @implementation GBToolbox (iOS)
 
@@ -107,6 +108,12 @@ NSString * UIKitLocalizedString(NSString *string) {
     NSString *localizedString = [UIKitBundle localizedStringForKey:string value:string table:nil];
     
     return localizedString ?: string;
+}
+
+#pragma mark - Vibration
+
+void VibrateDevice() {
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
 
 @end

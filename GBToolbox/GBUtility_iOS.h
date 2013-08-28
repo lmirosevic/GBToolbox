@@ -57,4 +57,8 @@ BOOL IsTwitterAccountAvailable();
 
 NSString * UIKitLocalizedString(NSString *string);
 
+#pragma mark - Vibration
+
+void VibrateDevice();
+
 @end

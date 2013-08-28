@@ -50,6 +50,7 @@ iOS System Frameworks (link them in superproject):
 
 * CoreGraphics
 * QuartzCore
+* AudioToolbox
 
 OS X System Frameworks (link them in superproject):
 
