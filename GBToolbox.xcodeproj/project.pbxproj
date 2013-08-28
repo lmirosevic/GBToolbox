@@ -25,6 +25,7 @@
 		8A215D081743DDDA007C7DE2 /* GBConstants_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */; };
 		8A215D091743DDDA007C7DE2 /* GBConstants_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */; };
 		8A215D0A1743DDDA007C7DE2 /* GBConstants_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */; };
+		8A269E6917CE4FC1000C5B75 /* UIColor+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A269E6817CE4FC1000C5B75 /* UIColor+GBToolbox.m */; };
 		8A27D5FD16C8F3AA0071AE31 /* CALayer+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A27D5FB16C8F3AA0071AE31 /* CALayer+GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A27D5FE16C8F3AA0071AE31 /* CALayer+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */; };
 		8A27D5FF16C8F3B50071AE31 /* CALayer+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */; };
@@ -164,6 +165,8 @@
 		8A1CF4CE17749905003D6DB5 /* GBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTextField.m; sourceTree = "<group>"; };
 		8A215D051743DDDA007C7DE2 /* GBConstants_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBConstants_Common.h; sourceTree = "<group>"; };
 		8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBConstants_Common.m; sourceTree = "<group>"; };
+		8A269E6717CE4FC1000C5B75 /* UIColor+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GBToolbox.h"; sourceTree = "<group>"; };
+		8A269E6817CE4FC1000C5B75 /* UIColor+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+GBToolbox.m"; sourceTree = "<group>"; };
 		8A27D5FB16C8F3AA0071AE31 /* CALayer+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+GBToolbox.h"; sourceTree = "<group>"; };
 		8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+GBToolbox.m"; sourceTree = "<group>"; };
 		8A2CE6D5177D909900F1E3D6 /* GBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTextView.h; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 				8A8CAC3C177DB9D500B661E0 /* UIImageView+GBToolbox.m */,
 				8ADBDEB3178DC33D0090EF04 /* MKMapView+GBToolbox.h */,
 				8ADBDEB4178DC33D0090EF04 /* MKMapView+GBToolbox.m */,
+				8A269E6717CE4FC1000C5B75 /* UIColor+GBToolbox.h */,
+				8A269E6817CE4FC1000C5B75 /* UIColor+GBToolbox.m */,
 			);
 			name = "Categories (Utils & Extras)";
 			sourceTree = "<group>";
@@ -816,6 +821,7 @@
 				8A335DF51790362600B46E8F /* GBTestView.m in Sources */,
 				8A9DA4B81792CF290074054E /* GBTableViewController.m in Sources */,
 				8AD431C5179450D000EE9F66 /* GBCompletable.m in Sources */,
+				8A269E6917CE4FC1000C5B75 /* UIColor+GBToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
