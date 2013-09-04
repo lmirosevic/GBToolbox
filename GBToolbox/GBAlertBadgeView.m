@@ -11,6 +11,7 @@
 static CGPoint const kDefaultOffset =               (CGPoint){0, 0};
 static CGFloat const kDefaultHeight =               20;
 static CGFloat const kDefaultHorizontalPadding =    4;
+static BOOL const kDefaultHidesWhenCountZero =      NO;
 #define kDefaultFont                                [UIFont fontWithName:@"Helvetica" size:12]
 #define kDefaultTextColor                           [UIColor whiteColor];
 
@@ -29,9 +30,18 @@ static CGFloat const kDefaultHorizontalPadding =    4;
 
 #pragma mark - custom accessors
 
+-(void)setBadgeCount:(NSInteger)badgeCount {
+    self.badgeText = [NSString stringWithFormat:@"%d", badgeCount];
+}
+
+-(NSInteger)badgeCount {
+    return [self.badgeText integerValue];
+}
+
 -(void)setBadgeText:(NSString *)badgeText {
     self.label.text = badgeText;
     
+    [self _handleAutoHiding];
     [self _resizeBadge];
     [self _repositionBadge];
 }
@@ -137,6 +147,9 @@ static CGFloat const kDefaultHorizontalPadding =    4;
 }
 
 -(void)_init {
+    //common config
+    self.userInteractionEnabled = NO;
+    
     //bg image view
     self.backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
     self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -159,6 +172,7 @@ static CGFloat const kDefaultHorizontalPadding =    4;
     self.horizontalPadding = kDefaultHorizontalPadding;
     self.font = kDefaultFont;
     self.textColor = kDefaultTextColor;
+    self.hidesWhenCountZero = kDefaultHidesWhenCountZero;
 }
 
 -(void)dealloc {
@@ -179,6 +193,22 @@ void *kFrameObserver = &kFrameObserver;
 }
 
 #pragma mark - util
+
+-(void)_handleAutoHiding {
+    if (self.hidesWhenCountZero) {
+        if (!self.badgeText ||
+            [self.badgeText isEqualToString:@""] ||
+            self.badgeCount == 0) {
+            self.hidden = YES;
+        }
+        else {
+            self.hidden = NO;
+        }
+    }
+    else {
+        self.hidden = NO;
+    }
+}
 
 -(void)_resizeBadge {
     self.frame = CGRectMake(self.frame.origin.x,

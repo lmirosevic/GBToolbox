@@ -11,11 +11,13 @@
 @interface GBAlertBadgeView : UIView
 
 @property (copy, nonatomic) NSString        *badgeText;
+@property (assign, nonatomic) NSInteger     badgeCount;
 @property (copy, nonatomic) UIFont          *font;
 @property (copy, nonatomic) UIColor         *textColor;
 @property (strong, nonatomic) UIImage       *backgroundImage;
 @property (assign, nonatomic) CGFloat       height;
 @property (assign, nonatomic) CGFloat       horizontalPadding;
+@property (assign, nonatomic) BOOL          hidesWhenCountZero;//default: NO
 
 +(GBAlertBadgeView *)badgeWithHeight:(CGFloat)height font:(UIFont *)font textColor:(UIColor *)textColor backgroundImage:(UIImage *)backgroundImage  horizontalPadding:(CGFloat)horizontalPadding;
 -(id)initWithHeight:(CGFloat)height font:(UIFont *)font textColor:(UIColor *)textColor backgroundImage:(UIImage *)backgroundImage horizontalPadding:(CGFloat)horizontalPadding;
