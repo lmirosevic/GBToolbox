@@ -74,6 +74,26 @@ static inline BOOL IsTruthyGBBoolean(GBBoolean boolean) {
     return boolean == BYES;
 }
 
+
+static inline GBBoolean GBBooleanNot(GBBoolean boolean) {
+    switch (boolean) {
+        case BYES:
+            return BNO;
+            
+        case BNO:
+        case BUndefined:
+            return BYES;
+    }
+}
+
+static inline GBBoolean GBBooleanAnd(GBBoolean booleanA, GBBoolean booleanB) {
+    return Bool2GBBoolean(IsTruthyGBBoolean(booleanA) && IsTruthyGBBoolean(booleanB));
+}
+
+static inline GBBoolean GBBooleanOr(GBBoolean booleanA, GBBoolean booleanB) {
+    return Bool2GBBoolean(IsTruthyGBBoolean(booleanA) || IsTruthyGBBoolean(booleanB));
+}
+
 static inline GBBoolean Number2GBBoolean(NSNumber *number) {
     if ([number isKindOfClass:[NSNumber class]]) {
         if ([number boolValue] == YES) {
@@ -96,7 +116,6 @@ static inline NSNumber * GBBoolean2Number(GBBoolean boolean) {
             return @(NO);
             
         case BUndefined:
-        default:
             return nil;
     }
 }
