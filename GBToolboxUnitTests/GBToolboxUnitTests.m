@@ -240,4 +240,53 @@
     STAssertTrue([dict2 isEqual:prunedResultTarget], @"dicts shud equal");
 }
 
+#pragma mark GBBoolean
+
+-(void)testGBBoolean {
+    //or
+    STAssertEquals(BNO, GBBooleanOr(BUndefined, BUndefined), @"boolean or test");
+    STAssertEquals(BNO, GBBooleanOr(BUndefined, BNO), @"boolean or test");
+    STAssertEquals(BYES, GBBooleanOr(BUndefined, BYES), @"boolean or test");
+    
+    STAssertEquals(BNO, GBBooleanOr(BNO, BUndefined), @"boolean or test");
+    STAssertEquals(BNO, GBBooleanOr(BNO, BNO), @"boolean or test");
+    STAssertEquals(BYES, GBBooleanOr(BNO, BYES), @"boolean or test");
+    
+    STAssertEquals(BYES, GBBooleanOr(BYES, BUndefined), @"boolean or test");
+    STAssertEquals(BYES, GBBooleanOr(BYES, BNO), @"boolean or test");
+    STAssertEquals(BYES, GBBooleanOr(BYES, BYES), @"boolean or test");
+    
+    //and
+    STAssertEquals(BNO, GBBooleanAnd(BUndefined, BUndefined), @"boolean and test");
+    STAssertEquals(BNO, GBBooleanAnd(BUndefined, BNO), @"boolean and test");
+    STAssertEquals(BNO, GBBooleanAnd(BUndefined, BYES), @"boolean and test");
+    
+    STAssertEquals(BNO, GBBooleanAnd(BNO, BUndefined), @"boolean and test");
+    STAssertEquals(BNO, GBBooleanAnd(BNO, BNO), @"boolean and test");
+    STAssertEquals(BNO, GBBooleanAnd(BNO, BYES), @"boolean and test");
+    
+    STAssertEquals(BNO, GBBooleanAnd(BYES, BUndefined), @"boolean and test");
+    STAssertEquals(BNO, GBBooleanAnd(BYES, BNO), @"boolean and test");
+    STAssertEquals(BYES, GBBooleanAnd(BYES, BYES), @"boolean and test");
+    
+    //not
+    STAssertEquals(BYES, GBBooleanNot(BUndefined), @"boolean not test");
+    STAssertEquals(BYES, GBBooleanNot(BNO), @"boolean not test");
+    STAssertEquals(BNO, GBBooleanNot(BYES), @"boolean not test");
+    
+    //IsTruthy
+    STAssertEquals(NO, IsTruthyGBBoolean(BUndefined), @"boolean IsTruthy test");
+    STAssertEquals(NO, IsTruthyGBBoolean(BNO), @"boolean IsTruthy test");
+    STAssertEquals(YES, IsTruthyGBBoolean(BYES), @"boolean IsTruthy test");
+    
+    //Bool2GBBoolean
+    STAssertEquals(BNO, Bool2GBBoolean(NO), @"boolean Bool2GBBoolean test");
+    STAssertEquals(BYES, Bool2GBBoolean(YES), @"boolean Bool2GBBoolean test");
+    
+    //GBBoolean2Number
+    STAssertEqualObjects(nil, GBBoolean2Number(BUndefined), @"boolean Bool2GBBoolean test");
+    STAssertEqualObjects(@(NO), GBBoolean2Number(BNO), @"boolean Bool2GBBoolean test");
+    STAssertEqualObjects(@(YES), GBBoolean2Number(BYES), @"boolean Bool2GBBoolean test");
+}
+
 @end

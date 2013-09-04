@@ -73,6 +73,10 @@
 		8A9DA4B81792CF290074054E /* GBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9DA4B71792CF290074054E /* GBTableViewController.m */; };
 		8AB5C25417818F8F005A7A22 /* UIImage+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB5C25317818F8F005A7A22 /* UIImage+GBToolbox.m */; };
 		8AB5C2931781BD63005A7A22 /* GBAlertBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB5C2921781BD63005A7A22 /* GBAlertBadgeView.m */; };
+		8ABBE1F917D73F9300D1B14F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ABBE1F817D73F9300D1B14F /* AudioToolbox.framework */; };
+		8ABBE1FB17D73F9700D1B14F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ABBE1FA17D73F9700D1B14F /* MapKit.framework */; };
+		8ABBE1FD17D73FA200D1B14F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ABBE1FC17D73FA200D1B14F /* Social.framework */; };
+		8ABBE1FF17D73FAC00D1B14F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ABBE1FE17D73FAC00D1B14F /* Twitter.framework */; };
 		8ACE941716C1198900527E0D /* NSObject+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ACE941516C1198900527E0D /* NSObject+GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8ACE941816C1198900527E0D /* NSObject+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */; };
 		8ACE941916C1198900527E0D /* NSObject+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */; };
@@ -220,6 +224,10 @@
 		8AB5C25317818F8F005A7A22 /* UIImage+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GBToolbox.m"; sourceTree = "<group>"; };
 		8AB5C2911781BD63005A7A22 /* GBAlertBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBAlertBadgeView.h; sourceTree = "<group>"; };
 		8AB5C2921781BD63005A7A22 /* GBAlertBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBAlertBadgeView.m; sourceTree = "<group>"; };
+		8ABBE1F817D73F9300D1B14F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8ABBE1FA17D73F9700D1B14F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8ABBE1FC17D73FA200D1B14F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		8ABBE1FE17D73FAC00D1B14F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		8ACE941516C1198900527E0D /* NSObject+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GBToolbox.h"; sourceTree = "<group>"; };
 		8ACE941616C1198900527E0D /* NSObject+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GBToolbox.m"; sourceTree = "<group>"; };
 		8ACE941A16C119D100527E0D /* UITableView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+GBToolbox.h"; sourceTree = "<group>"; };
@@ -281,6 +289,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ABBE1FF17D73FAC00D1B14F /* Twitter.framework in Frameworks */,
+				8ABBE1FD17D73FA200D1B14F /* Social.framework in Frameworks */,
+				8ABBE1FB17D73F9700D1B14F /* MapKit.framework in Frameworks */,
+				8ABBE1F917D73F9300D1B14F /* AudioToolbox.framework in Frameworks */,
 				8A0C4E49165FA83400A990FB /* libGBToolbox.a in Frameworks */,
 				8A0C4E36165FA60C00A990FB /* SenTestingKit.framework in Frameworks */,
 				8A0C4E37165FA60C00A990FB /* UIKit.framework in Frameworks */,
@@ -345,6 +357,7 @@
 			children = (
 				8A0C4E3F165FA60C00A990FB /* GBToolboxUnitTests.h */,
 				8A0C4E40165FA60C00A990FB /* GBToolboxUnitTests.m */,
+				8ABBE20017D73FE500D1B14F /* Frameworks */,
 				8A0C4E3A165FA60C00A990FB /* Supporting Files */,
 			);
 			path = GBToolboxUnitTests;
@@ -386,6 +399,18 @@
 				8A3DA68C17832AB500072539 /* GBFrameChangedProtocol.h */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		8ABBE20017D73FE500D1B14F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8ABBE1FE17D73FAC00D1B14F /* Twitter.framework */,
+				8ABBE1FC17D73FA200D1B14F /* Social.framework */,
+				8ABBE1FA17D73F9700D1B14F /* MapKit.framework */,
+				8ABBE1F817D73F9300D1B14F /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		8ACE941216C1192E00527E0D /* Classes */ = {
