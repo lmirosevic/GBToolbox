@@ -87,4 +87,9 @@
     }
 }
 
+//Trims leading and trailing whitespace
+-(NSString *)stringByTrimmingLeadingAndTrailingWhitespace {
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
 @end

@@ -31,4 +31,7 @@
 //best attempt to get int out of string
 -(int)attemptConversionToInt;
 
+//Trims leading and trailing whitespace
+-(NSString *)stringByTrimmingLeadingAndTrailingWhitespace;
+
 @end
