@@ -198,7 +198,7 @@ void *kFrameObserver = &kFrameObserver;
     if (self.hidesWhenCountZero) {
         if (!self.badgeText ||
             [self.badgeText isEqualToString:@""] ||
-            self.badgeCount == 0) {
+            [self.badgeText isEqualToString:@"0"]) {
             self.hidden = YES;
         }
         else {
