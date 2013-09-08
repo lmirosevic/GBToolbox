@@ -196,7 +196,6 @@ static CGFloat kDefaultLastScrollPosition =                     -10e5;//some cra
     //noop
 }
 
-
 #pragma mark - util
 
 -(BOOL)_isTableEmpty {
