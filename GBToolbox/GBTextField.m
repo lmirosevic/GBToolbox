@@ -169,7 +169,7 @@
         return [[self delegate] textField:textField shouldChangeCharactersInRange:range replacementString:string];
     }
     else {
-        return YES;//foo find out what the default is
+        return YES;
     }
 }
 
