@@ -165,7 +165,7 @@
     });
     
     //forward original call
-    if ([[self delegate] respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString::)]) {
+    if ([[self delegate] respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)]) {
         return [[self delegate] textField:textField shouldChangeCharactersInRange:range replacementString:string];
     }
     else {
@@ -183,8 +183,7 @@
 }
 
 -(id<GBTextFieldDelegate>)delegate {
-    return (id)[super delegate];
-//    return _delegateInterceptor.receiver;
+    return _delegateInterceptor.receiver;
 }
 
 @end
