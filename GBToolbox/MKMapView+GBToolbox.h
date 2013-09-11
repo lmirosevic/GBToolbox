@@ -12,6 +12,9 @@
 
 //pans and zooms the map to include the points in the locationsArray, which should be CLLocation objects. second method lets you zoom out a little so the contained points arent right on the edges
 -(void)moveToRegionIncludingLocations:(NSArray *)locationsArray animated:(BOOL)animated;
--(void)moveToRegionIncludingLocations:(NSArray *)locationsArray withPaddingPercent:(CGFloat)paddingPercent animated:(BOOL)animated;
+-(void)moveToRegionIncludingLocations:(NSArray *)locationsArray withPaddingFactor:(CGFloat)paddingFactor animated:(BOOL)animated;
+
+//radius in meters
+-(void)moveToLocation:(CLLocation *)location showingRadius:(CGFloat)radius animated:(BOOL)animated;
 
 @end
