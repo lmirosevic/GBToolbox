@@ -154,7 +154,7 @@
 		8A03780416BFCD2F0096C448 /* GBToolbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GBToolbox-Info.plist"; sourceTree = "<group>"; };
 		8A03780816BFCD2F0096C448 /* GBToolbox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBToolbox-Prefix.pch"; sourceTree = "<group>"; };
 		8A03780916BFCD2F0096C448 /* GBToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBToolbox.h; sourceTree = "<group>"; };
-		8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GBToolboxUnitTests.octest; path = "GBToolboxUnitTests-iOS.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests-iOS.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GBToolboxUnitTests-iOS.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0C4E35165FA60C00A990FB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		8A0C4E3B165FA60C00A990FB /* GBToolboxUnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GBToolboxUnitTests-Info.plist"; sourceTree = "<group>"; };
 		8A0C4E3D165FA60C00A990FB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -516,7 +516,7 @@
 			isa = PBXGroup;
 			children = (
 				8AD911B1162D9E2200C9D287 /* libGBToolbox.a */,
-				8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests.octest */,
+				8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests-iOS.octest */,
 				8A0377FB16BFCD2F0096C448 /* GBToolbox.framework */,
 			);
 			name = Products;
@@ -680,7 +680,7 @@
 			);
 			name = "GBToolboxUnitTests-iOS";
 			productName = GBToolboxUnitTests;
-			productReference = 8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests.octest */;
+			productReference = 8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests-iOS.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		8AD911B0162D9E2200C9D287 /* GBToolbox-iOS */ = {
