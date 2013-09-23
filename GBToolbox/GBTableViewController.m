@@ -182,6 +182,18 @@ static CGFloat kDefaultLastScrollPosition =                     -10e5;//some cra
     self.isShowingEmpty = [self _isTableEmpty];
 }
 
+#pragma mark - override
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"GBTableViewController warning: Subclass tableView:numberOfRowsInSection: and don't call super.");
+    return 0;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"GBTableViewController warning: Subclass cellForRowAtIndexPath: and don't call super.");
+    return nil;
+}
+
 #pragma mark - Subclassing
 
 -(Class)classForTableView {
