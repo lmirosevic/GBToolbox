@@ -33,7 +33,7 @@
     }
     
     if (!self.placeholderColor) {
-        [self setPlaceholderColor:[UIColor colorWithWhite:0.7 alpha:1.]];
+        [self setPlaceholderColor:[self defaultPlaceHolderColor]];
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChanged:) name:UITextViewTextDidChangeNotification object:nil];
@@ -99,6 +99,15 @@
     }
     
     [super drawRect:rect];
+}
+
+-(UIColor *)defaultPlaceHolderColor {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+        return [UIColor colorWithRed:0 green:0 blue:0.098039 alpha:0.22];
+    }
+    else {
+        return [UIColor colorWithWhite:0.7 alpha:1.];
+    }
 }
 
 @end
