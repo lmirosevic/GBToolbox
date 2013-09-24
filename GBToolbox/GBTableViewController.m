@@ -223,7 +223,10 @@ static CGFloat kDefaultLastScrollPosition =                     -10e5;//some cra
 }
 
 -(void)_addEmptyView {
-    self.emptyView.center = self.view.center;
+    self.emptyView.frame = CGRectMake(self.view.bounds.origin.x + (self.view.bounds.size.width - self.emptyView.frame.size.width)/2,
+                                      self.view.bounds.origin.y + (self.view.bounds.size.height - self.emptyView.frame.size.height)/2,
+                                      self.emptyView.frame.size.width,
+                                      self.emptyView.frame.size.height);
     [self.view addSubview:self.emptyView];
 }
 
