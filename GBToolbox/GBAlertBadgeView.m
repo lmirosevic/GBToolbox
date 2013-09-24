@@ -164,6 +164,7 @@ static BOOL const kDefaultHidesWhenCountZero =      NO;
     self.label.font = kDefaultFont;
     self.label.textColor = kDefaultTextColor;
     self.label.backgroundColor = [UIColor clearColor];
+    
     [self addSubview:self.label];
     
     //defaults
@@ -228,7 +229,7 @@ void *kFrameObserver = &kFrameObserver;
 
 -(CGFloat)_width {
     //calculate width based on text size and padding
-    return [self.badgeText sizeWithFont:self.font].width + self.horizontalPadding * 2;
+    return [self.badgeText sizeWithFont:self.font forWidth:CGFLOAT_MAX lineBreakMode:NSLineBreakByClipping].width + self.horizontalPadding * 2;
 }
 
 -(CGFloat)_height {
