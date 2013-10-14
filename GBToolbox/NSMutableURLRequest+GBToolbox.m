@@ -109,7 +109,7 @@ static NSString * const kDefaultFormBoundary =      @"GBFormBoundary_B6bjp9UyZcX
         
         //request body
         if (body) {
-            NSString *contentLength = [NSString stringWithFormat:@"%u", body.length];
+            NSString *contentLength = [NSString stringWithFormat:@"%lu", (unsigned long)body.length];
             
             [request setValue:contentLength forHTTPHeaderField:@"Content-Length"];
             [request setHTTPBody:body];
