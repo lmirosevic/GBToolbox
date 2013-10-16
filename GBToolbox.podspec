@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "GBToolbox"
-  s.version      = "0.1.2"
-  s.source       = { :git => "https://github.com/lmirosevic/GBToolbox.git", :tag => "0.1.2" }
+  s.version      = "0.1.3"
+  s.source       = { :git => "https://github.com/lmirosevic/GBToolbox.git", :tag => "0.1.3" }
   s.summary      = "Goonbee's iOS development toolbox"
   s.homepage     = "https://github.com/lmirosevic/GBToolbox"
   s.license      = 'Apache License, Version 2.0'
@@ -66,6 +66,66 @@ Pod::Spec.new do |s|
                         'GBToolbox/GBSolidColorView.{h,m}',
                         'GBToolbox/NSImage+GBToolbox.{h,m}',
                         'GBToolbox/NSView+GBToolbox.{h,m}'
+
+s.public_header_files  =       'GBToolbox/GBToolbox.h',
+                               'GBToolbox/GBTypes_Common.h',
+                               'GBToolbox/GBConstants_Common.h',
+                               'GBToolbox/GBMacros_Common.h',
+                               'GBToolbox/GBUtility_Common.h',
+                               'GBToolbox/GBFastArray.h',
+                               'GBToolbox/GBMessageInterceptor.h',
+                               'GBToolbox/GBCompletable.h',
+                               'GBToolbox/NSObject+GBToolbox.h',
+                               'GBToolbox/NSTimer+GBToolbox.h',
+                               'GBToolbox/NSData+GBToolbox.h',
+                               'GBToolbox/NSString+GBToolbox.h',
+                               'GBToolbox/CALayer+GBToolbox.h',
+                               'GBToolbox/NSArray+GBToolbox.h',
+                               'GBToolbox/NSMutableArray+GBToolbox.h',
+                               'GBToolbox/NSDictionary+GBToolbox.h',
+                               'GBToolbox/NSMutableDictionary+GBToolbox.h',
+                               'GBToolbox/NSMutableURLRequest+GBToolbox.h',
+                               'GBToolbox/NSDate+GBToolbox.h',
+                               'GBToolbox/GBFrameChangedProtocol.h'
+  s.ios.public_header_files =  'GBToolbox/GBTypes_iOS.h',
+                               'GBToolbox/GBMacros_iOS.h',
+                               'GBToolbox/GBUtility_iOS.h',
+                               'GBToolbox/GBUtility_iOS.h',
+                               'GBToolbox/GBCustomNavigationBar.h',
+                               'GBToolbox/GBTextField.h',
+                               'GBToolbox/GBTextView.h',
+                               'GBToolbox/GBButton.h',
+                               'GBToolbox/GBToggleControl.h',
+                               'GBToolbox/GBToggleControlRadioGroupManager.h',
+                               'GBToolbox/GBAlertBadgeView.h',
+                               'GBToolbox/GBRoundBadgeView.h',
+                               'GBToolbox/GBColoredBarView.h',
+                               'GBToolbox/GBTextBox.h',
+                               'GBToolbox/GBTestView.h',
+                               'GBToolbox/GBTableViewController.h',
+                               'GBToolbox/UITableView+GBToolbox.h',
+                               'GBToolbox/UIViewController+GBToolbox.h',
+                               'GBToolbox/UIView+GBToolbox.h',
+                               'GBToolbox/UIImage+GBToolbox.h',
+                               'GBToolbox/UIScrollView+GBToolbox.h',
+                               'GBToolbox/UIImageView+GBToolbox.h',
+                               'GBToolbox/MKMapView+GBToolbox.h',
+                               'GBToolbox/UIColor+GBToolbox.h',
+                               'GBToolbox/UITableViewCell+AdditionalViews.h',
+                               'GBToolbox/UIView+GBPopUp.h'
+  s.osx.public_header_files =  'GBToolbox/GBTypes_OSX.h',
+                               'GBToolbox/GBMacros_OSX.h',
+                               'GBToolbox/GBUtility_OSX.h',
+                               'GBToolbox/GBUtility_OSX.h',
+                               'GBToolbox/GBResizableImageView.h',
+                               'GBToolbox/GBRadialGradientView.h',
+                               'GBToolbox/GBCustomViewButtonCell.h',
+                               'GBToolbox/GBCustomImageButtonCell.h',
+                               'GBToolbox/GBGlowingImageButtonCell.h',
+                               'GBToolbox/GBSolidColorView.h',
+                               'GBToolbox/NSImage+GBToolbox.h',
+                               'GBToolbox/NSView+GBToolbox.h'
+
   s.frameworks = 'QuartzCore', 'CoreGraphics'
   s.requires_arc = true
 end
