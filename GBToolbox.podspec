@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "GBToolbox"
-  s.version      = "0.1.3"
-  s.source       = { :git => "https://github.com/lmirosevic/GBToolbox.git", :tag => "0.1.3" }
+  s.version      = "0.1.4"
+  s.source       = { :git => "https://github.com/lmirosevic/GBToolbox.git", :tag => "0.1.4" }
   s.summary      = "Goonbee's iOS development toolbox"
   s.homepage     = "https://github.com/lmirosevic/GBToolbox"
   s.license      = 'Apache License, Version 2.0'
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
   s.source_files  =     'GBToolbox/GBToolbox.h',
                         'GBToolbox/GBTypes_Common.h',
-                        'GBToolbox/GBConstants_Common.h',
+                        'GBToolbox/GBConstants_Common.{h,m}',
                         'GBToolbox/GBMacros_Common.h',
                         'GBToolbox/GBUtility_Common.{h,m}',
                         'GBToolbox/GBFastArray.{h,m}',
