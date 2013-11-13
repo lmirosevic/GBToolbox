@@ -92,7 +92,7 @@ BOOL IsTwitterAccountAvailable() {
 #if TARGET_IPHONE_SIMULATOR
     return [TWTweetComposeViewController canSendTweet];
 #else
-    if (IsClassAvailableWithName(@"SLComposeViewController")) {
+    if (IsClassAvailable(@"SLComposeViewController")) {
         return [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter];
     }
     else {

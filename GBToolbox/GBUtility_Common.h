@@ -89,7 +89,7 @@ void ExecuteAfterScrolling(void(^block)(void));
 
 #pragma mark - Class availability
 
-BOOL IsClassAvailableWithName(NSString *className);
+BOOL IsClassAvailable(NSString *className);
 
 #pragma mark - App introspection
 
