@@ -101,8 +101,8 @@ static inline void _lBoolean(BOOL boolean) {l(@"Boolean: %@", _b(boolean));}
 #define IsEqual(a, b) ((a == b) || [a isEqual:b])
 
 //Strings
-#define IsEmptyString(string) ((![string isKindOfClass:[NSString class]] || (string == nil) || ([string isEqualToString:@""])) ? YES : NO)
-#define IsValidString(string) !IsEmptyString(string)
+#define IsValidString(string) (([string isKindOfClass:NSString.class] && ((NSString *)string).length > 0) ? YES : NO)
+#define IsEmptyString(string) !IsValidString(string)
 #define _f(string, ...) ([NSString stringWithFormat:string, __VA_ARGS__])
 
 //Arrays
