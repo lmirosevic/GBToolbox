@@ -8,6 +8,8 @@
 
 #import "GBUtility_iOS.h"
 
+#import "GBMacros_Common.h"
+
 #import <Twitter/Twitter.h>
 #import <Social/Social.h>
 #import <AudioToolbox/AudioToolbox.h>
@@ -92,7 +94,7 @@ BOOL IsTwitterAccountAvailable() {
 #if TARGET_IPHONE_SIMULATOR
     return [TWTweetComposeViewController canSendTweet];
 #else
-    if (IsClassAvailable(@"SLComposeViewController")) {
+    if (IsClassAvailable(SLComposeViewController)) {
         return [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter];
     }
     else {

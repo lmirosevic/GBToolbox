@@ -87,10 +87,6 @@ void CancelExecuteAfter(NSString *cancelIdentifier);
 void ExecuteSoon(void(^block)(void));
 void ExecuteAfterScrolling(void(^block)(void));
 
-#pragma mark - Class availability
-
-BOOL IsClassAvailable(NSString *className);
-
 #pragma mark - App introspection
 
 NSString * AppBundleName();

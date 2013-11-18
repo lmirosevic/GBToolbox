@@ -328,12 +328,6 @@ void ExecuteAfterScrolling(void(^block)(void)) {
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
-#pragma mark - Class availability
-
-BOOL IsClassAvailable(NSString *className) {
-    return [NSClassFromString(className) class] ? YES : NO;
-}
-
 #pragma mark - App introspection
 
 NSString * AppBundleName() {
