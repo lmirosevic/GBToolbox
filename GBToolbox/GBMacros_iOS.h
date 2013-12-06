@@ -60,4 +60,26 @@
 //Debugging
 static inline void _lEdgeInsets(UIEdgeInsets edgeInsets) {l(@"EdgeInsets: %f %f %f %f", edgeInsets.top, edgeInsets.left, edgeInsets.bottom, edgeInsets.right);}
 
+//Animation
+static inline UIViewAnimationOptions UIAnimationOptionsWithCurve(UIViewAnimationCurve curve) {
+    switch (curve) {
+        case UIViewAnimationCurveEaseInOut: {
+            return UIViewAnimationOptionCurveEaseInOut;
+        } break;
+            
+        case UIViewAnimationCurveEaseIn: {
+            return UIViewAnimationOptionCurveEaseIn;
+        } break;
+            
+        case UIViewAnimationCurveEaseOut: {
+            return UIViewAnimationOptionCurveEaseOut;
+        } break;
+            
+        case UIViewAnimationCurveLinear: {
+            return UIViewAnimationOptionCurveLinear;
+        } break;
+    }
+}
+
+
 #endif
