@@ -92,7 +92,11 @@ void DismissKeyboard() {
 
 BOOL IsTwitterAccountAvailable() {
 #if TARGET_IPHONE_SIMULATOR
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    //Suppressing deprecation warning as this is only used for the Simulator, and only so to work around a Simulator bug
     return [TWTweetComposeViewController canSendTweet];
+#pragma clang diagnostic pop
 #else
     if (IsClassAvailable(SLComposeViewController)) {
         return [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter];

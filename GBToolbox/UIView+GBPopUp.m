@@ -9,6 +9,7 @@
 #import "UIView+GBPopUp.h"
 
 #import "GBMacros_Common.h"
+#import "GBMacros_iOS.h"
 #import "GBTypes_Common.h"
 
 static CGFloat const kAnimationDuration =                       0.25;
@@ -219,7 +220,9 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
     CGPoint targetCenter = CGPointMake(self.containerView.center.x,
                                        self.containerView.center.y - (keyboardFrame.size.height * 0.5));
     
-    [UIView animateWithDuration:animationDuration delay:0 options:animationCurve animations:^{
+    
+    
+    [UIView animateWithDuration:animationDuration delay:0 options:UIAnimationOptionsWithCurve(animationCurve) animations:^{
         self.center = targetCenter;
     } completion:nil];
 }
@@ -233,7 +236,7 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
     CGPoint targetCenter = CGPointMake(self.containerView.center.x,
                                        self.containerView.center.y);
     
-    [UIView animateWithDuration:animationDuration delay:0 options:animationCurve animations:^{
+    [UIView animateWithDuration:animationDuration delay:0 options:UIAnimationOptionsWithCurve(animationCurve) animations:^{
         self.center = targetCenter;
     } completion:nil];
 }

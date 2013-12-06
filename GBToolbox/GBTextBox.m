@@ -192,7 +192,7 @@ static CGSize const kDefaultTextShadowOffset =                              (CGS
     [self addSubview:self.rightIconImageView];
     
     self.textLabel = [UILabel new];
-    self.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.textLabel.numberOfLines = 0;
     self.textLabel.autoresizingMask =  UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.textLabel.backgroundColor = [UIColor clearColor];
