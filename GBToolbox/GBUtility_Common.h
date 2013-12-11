@@ -113,5 +113,18 @@ BOOL IsUserLocaleMetric();
 
 //Returns the currency symbol in ISO 4271 for the user's current locale
 NSString * PreferredCurrency();
+
+#pragma mark - Random
+
+//Returns a random integer between min and max
+NSInteger RandomIntegerBetween(NSInteger min, NSInteger max);
+
+#pragma mark - Colors
+
+//Returns a random color with a bias towards the more saturated and brigther colors
+UIColor *RandomColor();
+
+//Returns a completely ranom hue
+CGFloat RandomHue();
     
 @end
