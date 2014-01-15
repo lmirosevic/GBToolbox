@@ -10,6 +10,47 @@
 
 @implementation NSDictionary (GBToolbox)
 
+#pragma mark - Funtional Programming
+
+//filter
+-(NSDictionary *)filter:(BOOL(^)(id key, id object))function {
+    // creates a results array in which to store results, sets the capacity for faster writes
+    NSUInteger count = self.count;
+    NSMutableDictionary *resultsDictionary = [[NSMutableDictionary alloc] initWithCapacity:count];
+    
+    // applies the function to each item and stores the result in the new dictionary
+    for (id key in self) {
+        if (function(key, self[key])) {
+            resultsDictionary[key] = self[key];
+        }
+    }
+    
+    // returns an immutable copy
+    return [resultsDictionary copy];
+}
+
+//aKey
+-(id)aKey:(BOOL(^)(id key, id object))function {
+    for (id key in self) {
+        if (function(key, self[key])) {
+            return key;
+        }
+    }
+    
+    return nil;
+}
+
+//anObject
+-(id)anObject:(BOOL(^)(id key, id object))function {
+    id key = [self aKey:function];
+    if (key) {
+        return self[key];
+    }
+    else {
+        return nil;
+    }
+}
+
 #pragma mark - pruning
 
 +(NSDictionary *)dictionaryByPruningNullsInDictionary:(NSDictionary *)dictionary {
