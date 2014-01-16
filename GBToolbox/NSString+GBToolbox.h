@@ -49,6 +49,9 @@
 //Converts "Mirosevic" -> "M." and "sloppy" -> "S."
 -(NSString *)stringByAbbreviating;
 
+//Converts "Luka Mirosevic" -> "Luka M." and "Vincent Van Gogh" -> "Vincent V. G."
+-(NSString *)abbreviatedName;
+
 //Hashes
 @property (nonatomic, readonly) NSString *md5;
 @property (nonatomic, readonly) NSString *sha1;
