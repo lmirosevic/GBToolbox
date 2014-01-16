@@ -31,8 +31,17 @@
 //best attempt to get int out of string
 -(int)attemptConversionToInt;
 
+//best attempt to get float out of a string
+-(CGFloat)attemptConversionToFloat;
+
 //Trims leading and trailing whitespace
 -(NSString *)stringByTrimmingLeadingAndTrailingWhitespace;
+
+//Returns a string with all the characters in the set removed
+-(NSString *)stringByRemovingCharactersInSet:(NSCharacterSet *)characterSet;
+
+//Returns a string consisting only of the characters in the characterSet
+-(NSString *)stringByRemovingCharactersNotInSet:(NSCharacterSet *)characterSet;
 
 //Hashes
 @property (nonatomic, readonly) NSString *md5;

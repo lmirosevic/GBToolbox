@@ -63,6 +63,17 @@
     return [numberString intValue];
 }
 
+//best attempt to get float out of a string
+-(CGFloat)attemptConversionToFloat {
+    NSString *decimalSeparator = [NSNumberFormatter new].decimalSeparator;
+    NSCharacterSet *allowedCharacterSet = [NSCharacterSet characterSetWithCharactersInString:[@"0123456789" stringByAppendingString:decimalSeparator]];
+    
+    NSString *cleanedPriceString = [self stringByRemovingCharactersNotInSet:allowedCharacterSet];
+    CGFloat rawAmount = [cleanedPriceString floatValue];
+    
+    return rawAmount;
+}
+
 //10.7 only
 //could rewrite this to simply scan for the . from the back and trim all of that off
 -(NSString *)stringByDeletingDNSSuffix {
@@ -92,6 +103,27 @@
 //Trims leading and trailing whitespace
 -(NSString *)stringByTrimmingLeadingAndTrailingWhitespace {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+//Returns a string with all the characters in the set removed
+-(NSString *)stringByRemovingCharactersInSet:(NSCharacterSet *)characterSet {
+    NSScanner *scanner = [NSScanner scannerWithString:self];
+    scanner.charactersToBeSkipped = characterSet;
+    
+    NSMutableString *aggregate = [NSMutableString new];
+    while (!scanner.isAtEnd) {
+        NSString *result;
+        if ([scanner scanUpToCharactersFromSet:characterSet intoString:&result]) {
+            [aggregate appendString:result];
+        }
+    }
+    
+    return aggregate;
+}
+
+//Returns a string consisting only of the characters in the characterSet
+-(NSString *)stringByRemovingCharactersNotInSet:(NSCharacterSet *)characterSet {
+    return [self stringByRemovingCharactersInSet:[characterSet invertedSet]];
 }
 
 //Hashes, original under Public Domain: https://github.com/hypercrypt/NSString-Hashes
