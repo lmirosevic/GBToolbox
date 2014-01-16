@@ -105,6 +105,15 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
+//Trims leading and trailing whitespace and flattens multtiple whitespaces into a single space
+-(NSString *)stringByCleaningWhitespace {
+    NSString *unNewlined = [self stringByReplacingOccurrencesOfString:@"\n" withString:@"" options:0 range:NSMakeRange(0, self.length)];
+    NSString *squashed = [unNewlined stringByReplacingOccurrencesOfString:@"[ ]+" withString:@" " options:NSRegularExpressionSearch range:NSMakeRange(0, unNewlined.length)];
+    NSString *final = [squashed stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    return final;
+}
+
 //Returns a string with all the characters in the set removed
 -(NSString *)stringByRemovingCharactersInSet:(NSCharacterSet *)characterSet {
     NSScanner *scanner = [NSScanner scannerWithString:self];

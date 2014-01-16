@@ -37,6 +37,9 @@
 //Trims leading and trailing whitespace
 -(NSString *)stringByTrimmingLeadingAndTrailingWhitespace;
 
+//Trims leading and trailing whitespace and flattens multtiple whitespaces into a single space
+-(NSString *)stringByCleaningWhitespace;
+
 //Returns a string with all the characters in the set removed
 -(NSString *)stringByRemovingCharactersInSet:(NSCharacterSet *)characterSet;
 
