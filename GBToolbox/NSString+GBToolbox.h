@@ -46,6 +46,9 @@
 //Returns a string consisting only of the characters in the characterSet
 -(NSString *)stringByRemovingCharactersNotInSet:(NSCharacterSet *)characterSet;
 
+//Converts "Mirosevic" -> "M." and "sloppy" -> "S."
+-(NSString *)stringByAbbreviating;
+
 //Hashes
 @property (nonatomic, readonly) NSString *md5;
 @property (nonatomic, readonly) NSString *sha1;

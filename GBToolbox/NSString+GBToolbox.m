@@ -135,6 +135,18 @@
     return [self stringByRemovingCharactersInSet:[characterSet invertedSet]];
 }
 
+//Converts "Mirosevic" -> "M." and "sloppy" -> "S."
+-(NSString *)stringByAbbreviating {
+    //trim, capitalize, punctuate
+    if (self.length >= 1) {
+        return [[[self substringToIndex:1] capitalizedStringWithLocale:[NSLocale currentLocale]] stringByAppendingString:@"."];
+    }
+    //we can't abbreviate sth that's 0 char
+    else {
+        return self;
+    }
+}
+
 //Hashes, original under Public Domain: https://github.com/hypercrypt/NSString-Hashes
 static inline NSString *NSStringCCHashFunction(unsigned char *(function)(const void *data, CC_LONG len, unsigned char *md), CC_LONG digestLength, NSString *string) {
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
