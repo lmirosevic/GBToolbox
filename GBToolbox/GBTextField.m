@@ -146,20 +146,20 @@
     ExecuteSoon(^{
         //return
         if ([string isEqualToString:@"\n"]) {
-            if ([[self delegate] respondsToSelector:@selector(specialKeyPressed:)]) {
-                [[self delegate] specialKeyPressed:GBSpecialKeyReturn];
+            if ([[self delegate] respondsToSelector:@selector(textField:specialKeyPressed:)]) {
+                [[self delegate] textField:self specialKeyPressed:GBSpecialKeyReturn];
             }
         }
         //normal letter
         else if (string.length > 0) {
-            if ([[self delegate] respondsToSelector:@selector(keyPressed:)]) {
-                [[self delegate] keyPressed:string];
+            if ([[self delegate] respondsToSelector:@selector(textField:keyPressed:)]) {
+                [[self delegate] textField:self keyPressed:string];
             }
         }
         //backspace
         else if (string.length == 0 && range.length == 1) {
-            if ([[self delegate] respondsToSelector:@selector(specialKeyPressed:)]) {
-                [[self delegate] specialKeyPressed:GBSpecialKeyBackspace];
+            if ([[self delegate] respondsToSelector:@selector(textField:specialKeyPressed:)]) {
+                [[self delegate] textField:self specialKeyPressed:GBSpecialKeyBackspace];
             }
         }
     });

@@ -41,7 +41,7 @@
 @protocol GBTextFieldDelegate <UITextFieldDelegate>
 @optional
 
--(void)keyPressed:(NSString *)key;
--(void)specialKeyPressed:(GBSpecialKey)specialKey;
+-(void)textField:(GBTextField *)textField keyPressed:(NSString *)string;
+-(void)textField:(GBTextField *)textField specialKeyPressed:(GBSpecialKey)specialKey;
 
 @end
