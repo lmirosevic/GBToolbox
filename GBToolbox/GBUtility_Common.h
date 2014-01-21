@@ -119,12 +119,7 @@ NSString * PreferredCurrency();
 //Returns a random integer between min and max
 NSInteger RandomIntegerBetween(NSInteger min, NSInteger max);
 
-#pragma mark - Colors
-
-//Returns a random color with a bias towards the more saturated and brigther colors
-UIColor *RandomColor();
-
-//Returns a completely ranom hue
-CGFloat RandomHue();
+//Returns a random CGFloat between 0 and 1
+CGFloat Random();
     
 @end

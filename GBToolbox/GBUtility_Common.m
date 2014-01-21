@@ -386,18 +386,8 @@ NSInteger RandomIntegerBetween(NSInteger min, NSInteger max) {
     return arc4random() % (max-min) + min;
 }
 
-#pragma mark - Colors
-
-//Returns a random color with a bias towards the more saturated and brigther colors
-UIColor *RandomColor() {
-    CGFloat hue = RandomHue();
-    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
-    return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
-}
-
-//Returns a completely ranom hue
-CGFloat RandomHue() {
+//Returns a random CGFloat between 0 and 1
+CGFloat Random() {
     return arc4random() % 256 / 256.0; //  0.0 to 1.0
 }
 

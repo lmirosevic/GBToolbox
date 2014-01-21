@@ -61,4 +61,9 @@ NSString * UIKitLocalizedString(NSString *string);
 
 void VibrateDevice();
 
+#pragma mark - Colors
+
+//Returns a random color with a bias towards the more saturated and brighter colors
+UIColor *RandomColor();
+
 @end
