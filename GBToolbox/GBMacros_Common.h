@@ -92,6 +92,11 @@ static inline BOOL _bitmask(int var, int comparison) {
 }
 #define _attachToBitmask(targetBitmask, whatToAttach, shouldAttach) if (shouldAttach) { targetBitmask |= whatToAttach; }
 
+//Arguments
+static inline BOOL _argument(NSString *argument) {
+    return [[[NSProcessInfo processInfo] arguments] containsObject:argument];
+}
+
 //Debugging
 static inline NSString * _b(BOOL expression) {if (expression) {return @"YES";} else {return @"NO";}}
 static inline void _lRect(CGRect rect) {l(@"Rect: %f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);}
