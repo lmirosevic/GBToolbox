@@ -93,8 +93,18 @@ static inline BOOL _bitmask(int var, int comparison) {
 #define _attachToBitmask(targetBitmask, whatToAttach, shouldAttach) if (shouldAttach) { targetBitmask |= whatToAttach; }
 
 //Arguments
-static inline BOOL _argument(NSString *argument) {
+static inline BOOL _argumentIsSet(NSString *argument) {
     return [[[NSProcessInfo processInfo] arguments] containsObject:argument];
+}
+static inline NSString *_argumentValue(NSString *argument) {
+    NSArray *arguments = [[NSProcessInfo processInfo] arguments];
+    NSUInteger index = [arguments indexOfObject:argument];
+    if (index != NSNotFound && arguments.count >= (index + 2)) {
+        return arguments[index + 1];
+    }
+    else {
+        return nil;
+    }
 }
 
 //Debugging
