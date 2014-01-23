@@ -86,6 +86,12 @@ static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NS
 //Singleton
 #define _singleton(Class, accessor) +(Class *)accessor {static Class *accessor;@synchronized(self) {if (!accessor) {accessor = [[Class alloc] init];}return accessor;}}
 
+//Bitmasks
+static inline BOOL _bitmask(int var, int comparison) {
+    return ((var & comparison) == comparison);
+}
+#define _attachToBitmask(targetBitmask, whatToAttach, shouldAttach) if (shouldAttach) { targetBitmask |= whatToAttach; }
+
 //Debugging
 static inline NSString * _b(BOOL expression) {if (expression) {return @"YES";} else {return @"NO";}}
 static inline void _lRect(CGRect rect) {l(@"Rect: %f %f %f %f", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);}
