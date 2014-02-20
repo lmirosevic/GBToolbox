@@ -26,7 +26,7 @@
 
 //View instantiation and controller hookup
 #define vSelfLink(nibName) [[NSBundle.mainBundle loadNibNamed:nibName owner:self options:nil] objectAtIndex:0];
-#define v(nibName) [[NSBundle.mainBundle loadNibNamed:nibName owner:nil options:nil]  objectAtIndex:0];
+#define v(nibName) [[NSBundle.mainBundle loadNibNamed:nibName owner:nil options:nil] objectAtIndex:0];
 
 //View loading from nib
 #define _loadFromNib(nibName) -(id)awakeAfterUsingCoder:(NSCoder *)aDecoder { \
