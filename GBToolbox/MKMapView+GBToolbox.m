@@ -22,10 +22,13 @@
         zoomRect = MKMapRectUnion(zoomRect, pointRect);
     }
     
-    MKMapRect paddedMapRect = MKMapRectMake(zoomRect.origin.x,
-                                            zoomRect.origin.y,
-                                            zoomRect.size.width*paddingFactor,
-                                            zoomRect.size.height*paddingFactor);
+    CGSize sizeDelta = CGSizeMake(zoomRect.size.width*(paddingFactor - 1.0),
+                              zoomRect.size.height*(paddingFactor - 1.0));
+    
+    MKMapRect paddedMapRect = MKMapRectMake(zoomRect.origin.x - (sizeDelta.width / 2.),
+                                            zoomRect.origin.y - (sizeDelta.height / 2.),
+                                            zoomRect.size.width + sizeDelta.width,
+                                            zoomRect.size.height + sizeDelta.height);
     
     [self setVisibleMapRect:paddedMapRect animated:animated];
 }
@@ -36,9 +39,6 @@
     CGFloat dlat = radius / 111111.;
     CGFloat dlng = radius*cos(dlat) / 111111.;
 
-    
-//    CGFloat scalingFactor = fabsf(cos(2*M_PI*location.coordinate.latitude/360.0));
-//    MKCoordinateSpan span = MKCoordinateSpanMake(radius, radius/scalingFactor);
     MKCoordinateSpan span = MKCoordinateSpanMake(dlat, dlng);
     MKCoordinateRegion region = MKCoordinateRegionMake(location.coordinate, span);
     
