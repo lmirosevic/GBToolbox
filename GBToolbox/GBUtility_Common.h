@@ -78,6 +78,7 @@ BOOL IsOddUInteger(NSUInteger number);
 #pragma mark - Method Swizzling
 
 void SwizzleInstanceMethodsInClass(Class aClass, SEL originalSelector, SEL newSelector);
+void SwizzleClassMethodsInClass(Class aClass, SEL originalSelector, SEL newSelector);
 
 #pragma mark - Delayed execution
 

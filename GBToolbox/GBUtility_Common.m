@@ -12,7 +12,7 @@
 #import "NSTimer+GBToolbox.h"
 
 //Swizzling
-#import <objc/runtime.h>
+#import <JRSwizzle/JRSwizzle.h>
 
 @implementation GBToolbox
 
@@ -263,7 +263,11 @@ BOOL IsOddUInteger(NSUInteger number) {
 #pragma mark - Method Swizzling
 
 void SwizzleInstanceMethodsInClass(Class aClass, SEL originalSelector, SEL newSelector) {
-    method_exchangeImplementations(class_getInstanceMethod(aClass, originalSelector), class_getInstanceMethod(aClass, newSelector));
+    [[aClass class] jr_swizzleMethod:originalSelector withMethod:newSelector error:nil];
+}
+
+void SwizzleClassMethodsInClass(Class aClass, SEL originalSelector, SEL newSelector) {
+    [[aClass class] jr_swizzleClassMethod:originalSelector withClassMethod:newSelector error:nil];
 }
 
 #pragma mark - Delayed execution
