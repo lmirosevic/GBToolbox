@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GBToolbox"
-  s.version      = "3.0.1"
+  s.version      = "3.1.0"
   s.source       = { :git => "https://github.com/lmirosevic/GBToolbox.git", :tag => s.version.to_s }
   s.summary      = "Goonbee's iOS development toolbox"
   s.homepage     = "https://github.com/lmirosevic/GBToolbox"
@@ -128,4 +128,6 @@ s.public_header_files  =       'GBToolbox/GBToolbox.h',
 
   s.frameworks = 'QuartzCore', 'CoreGraphics'
   s.requires_arc = true
+
+  s.dependency 'JRSwizzle'
 end
