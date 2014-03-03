@@ -46,6 +46,10 @@ Look inside header files.
 Dependencies
 ------------
 
+External:
+
+* [JRSwizzle](https://github.com/rentzsch/jrswizzle)
+
 iOS System Frameworks (link them in superproject):
 
 * CoreGraphics
