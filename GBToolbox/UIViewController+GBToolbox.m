@@ -15,6 +15,7 @@
 
 //returns YES when the view controller is visible
 static char gbIsVisibleKey;
+static char gbIsVisibleCurrentlyKey;
 
 -(void)setIsVisible:(BOOL)isVisible {
     objc_setAssociatedObject(self, &gbIsVisibleKey, @(isVisible), OBJC_ASSOCIATION_COPY);
@@ -24,25 +25,40 @@ static char gbIsVisibleKey;
     return [objc_getAssociatedObject(self, &gbIsVisibleKey) boolValue];
 }
 
--(void)_SwizzViewWillAppear:(BOOL)animated {
-    self.isVisible = YES;
-    
-    [self _SwizzViewWillAppear:animated];
+-(void)setIsVisibleCurrently:(BOOL)isVisibleCurrently {
+    objc_setAssociatedObject(self, &gbIsVisibleCurrentlyKey, @(isVisibleCurrently), OBJC_ASSOCIATION_COPY);
 }
 
--(void)_SwizzViewDidDisappear:(BOOL)animated {
+-(BOOL)isVisibleCurrently {
+    return [objc_getAssociatedObject(self, &gbIsVisibleCurrentlyKey) boolValue];
+}
+
+-(void)_swizz_viewWillAppear:(BOOL)animated {
+    self.isVisible = YES;
+    self.isVisibleCurrently = YES;
+    
+    [self _swizz_viewWillAppear:animated];
+}
+
+-(void)_swizz_viewWillDisappear:(BOOL)animated {
+    self.isVisibleCurrently = NO;
+    
+    [self _swizz_viewWillDisappear:animated];
+}
+
+-(void)_swizz_viewDidDisappear:(BOOL)animated {
     self.isVisible = NO;
     
-    [self _SwizzViewDidDisappear:animated];
+    [self _swizz_viewDidDisappear:animated];
 }
 
 +(void)load {
-    SwizzleInstanceMethodsInClass(self, @selector(viewWillAppear:), @selector(_SwizzViewWillAppear:));
-    SwizzleInstanceMethodsInClass(self, @selector(viewDidDisappear:), @selector(_SwizzViewDidDisappear:));
+    SwizzleInstanceMethodsInClass(self, @selector(viewWillAppear:), @selector(_swizz_viewWillAppear:));
+    SwizzleInstanceMethodsInClass(self, @selector(viewWillDisappear:), @selector(_swizz_viewWillDisappear:));
+    SwizzleInstanceMethodsInClass(self, @selector(viewDidDisappear:), @selector(_swizz_viewDidDisappear:));
 }
 
 //makes sure the view is loaded
-
 -(void)ensureViewIsLoaded {
     [self view];//this causes the view to get loaded
 }
