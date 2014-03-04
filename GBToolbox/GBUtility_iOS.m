@@ -25,6 +25,30 @@ NSUInteger tagFromUIViewSubclass(id sender) {
     else return 0;
 }
 
+#pragma mark - View Hierarchy
+
+UIViewController * TopmostViewController() {
+    return TopmostViewControllerWithRootViewController([UIApplication sharedApplication].keyWindow.rootViewController);
+}
+
+UIViewController * TopmostViewControllerWithRootViewController(UIViewController *rootViewController) {
+    if ([rootViewController isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabBarController = (UITabBarController *)rootViewController;
+        return TopmostViewControllerWithRootViewController(tabBarController.selectedViewController);
+    }
+    else if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navigationController = (UINavigationController *)rootViewController;
+        return TopmostViewControllerWithRootViewController(navigationController.visibleViewController);
+    }
+    else if (rootViewController.presentedViewController) {
+        UIViewController *presentedViewController = rootViewController.presentedViewController;
+        return TopmostViewControllerWithRootViewController(presentedViewController);
+    }
+    else {
+        return rootViewController;
+    }
+}
+
 #pragma mark - Screen Locking
 
 +(BOOL)isAutoScreenLockingEnabled {

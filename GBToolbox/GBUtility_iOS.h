@@ -19,6 +19,11 @@
 
 NSUInteger tagFromUIViewSubclass(id sender);
 
+#pragma mark - View Hierarchy
+
+UIViewController * TopmostViewController();
+UIViewController * TopmostViewControllerWithRootViewController(UIViewController *rootViewController);
+
 #pragma mark - Screen Locking
 
 +(BOOL)isAutoScreenLockingEnabled;
