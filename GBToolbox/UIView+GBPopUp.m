@@ -211,32 +211,27 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
 
 -(void)_GBPopUp_keyboardWillShow:(NSNotification *)notification {
     NSTimeInterval animationDuration;
-    UIViewAnimationCurve animationCurve;
     CGRect keyboardFrame;
-    [[notification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    
     [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
     [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardFrame];
     
     CGPoint targetCenter = CGPointMake(self.containerView.center.x,
                                        self.containerView.center.y - (keyboardFrame.size.height * 0.5));
     
-    
-    
-    [UIView animateWithDuration:animationDuration delay:0 options:UIAnimationOptionsWithCurve(animationCurve) animations:^{
+    [UIView animateWithDuration:animationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.center = targetCenter;
     } completion:nil];
 }
 
 -(void)_GBPopUp_keyboardWillHide:(NSNotification *)notification {
     NSTimeInterval animationDuration;
-    UIViewAnimationCurve animationCurve;
-    [[notification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
     [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
     
     CGPoint targetCenter = CGPointMake(self.containerView.center.x,
                                        self.containerView.center.y);
     
-    [UIView animateWithDuration:animationDuration delay:0 options:UIAnimationOptionsWithCurve(animationCurve) animations:^{
+    [UIView animateWithDuration:animationDuration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.center = targetCenter;
     } completion:nil];
 }
