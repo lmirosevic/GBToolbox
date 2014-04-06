@@ -201,6 +201,9 @@ static CGSize const kDefaultTextShadowOffset =                              (CGS
     //defaults
     _iconVerticalOffset = kDefaultIconVerticalOffset;
     _iconLeftMargin = kDefaultIconLeftMargin;
+    _rightIconVerticalOffset = kDefaultRightIconVerticalOffset;
+    _rightIconRightMargin = kDefaultRightIconRightMargin;
+    self.flexibleDimension = kDefaultFlexibleDimension;
     self.textLabel.font = kDefaultFont;
     self.textLabel.textColor = kDefaultColor;
     self.textLabel.shadowColor = kDefaultShadowColor;
@@ -234,7 +237,7 @@ static CGSize const kDefaultTextShadowOffset =                              (CGS
 -(void)_handleFrameGeometry {
     //commit the new frame
     self.frame = [self _dynamicSelfFrame];
-
+    
     //resize and reposition the label
     self.textLabel.frame = [self _dynamicLabelFrame];
     
