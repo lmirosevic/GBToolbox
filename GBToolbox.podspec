@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GBToolbox"
-  s.version      = "3.2.2"
+  s.version      = "3.3.0"
   s.source       = { :git => "https://github.com/lmirosevic/GBToolbox.git", :tag => s.version.to_s }
   s.summary      = "Goonbee's iOS development toolbox"
   s.homepage     = "https://github.com/lmirosevic/GBToolbox"
@@ -27,7 +27,8 @@ Pod::Spec.new do |s|
                         'GBToolbox/NSMutableDictionary+GBToolbox.{h,m}',
                         'GBToolbox/NSMutableURLRequest+GBToolbox.{h,m}',
                         'GBToolbox/NSDate+GBToolbox.{h,m}',
-                        'GBToolbox/GBFrameChangedProtocol.{h,m}'
+                        'GBToolbox/GBFrameChangedProtocol.{h,m}',
+                        'GBToolbox/GBCache.{h,m}'
   s.ios.source_files =  'GBToolbox/GBTypes_iOS.h',
                         'GBToolbox/GBMacros_iOS.h',
                         'GBToolbox/GBUtility_iOS.h',
@@ -86,7 +87,8 @@ s.public_header_files  =       'GBToolbox/GBToolbox.h',
                                'GBToolbox/NSMutableDictionary+GBToolbox.h',
                                'GBToolbox/NSMutableURLRequest+GBToolbox.h',
                                'GBToolbox/NSDate+GBToolbox.h',
-                               'GBToolbox/GBFrameChangedProtocol.h'
+                               'GBToolbox/GBFrameChangedProtocol.h',
+                               'GBToolbox/GBCache.h'
   s.ios.public_header_files =  'GBToolbox/GBTypes_iOS.h',
                                'GBToolbox/GBMacros_iOS.h',
                                'GBToolbox/GBUtility_iOS.h',
