@@ -107,6 +107,9 @@
 		8AD911B5162D9E2200C9D287 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B4162D9E2200C9D287 /* Foundation.framework */; };
 		8AD911C3162D9EBC00C9D287 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911C2162D9EBC00C9D287 /* UIKit.framework */; };
 		8ADBDEB5178DC33D0090EF04 /* MKMapView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADBDEB4178DC33D0090EF04 /* MKMapView+GBToolbox.m */; };
+		8AE8082418F7038500AC171D /* GBCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AE8082218F7038500AC171D /* GBCache.h */; };
+		8AE8082518F7038500AC171D /* GBCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8082318F7038500AC171D /* GBCache.m */; };
+		8AE8082618F7038500AC171D /* GBCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8082318F7038500AC171D /* GBCache.m */; };
 		8AE8348016C941BC00546249 /* GBRadialGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AE8347E16C941BC00546249 /* GBRadialGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8AE8348116C941BC00546249 /* GBRadialGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8347F16C941BC00546249 /* GBRadialGradientView.m */; };
 		8AF6878416B8057000FEF6A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878316B8057000FEF6A7 /* CoreGraphics.framework */; };
@@ -260,6 +263,8 @@
 		8AD911C4162D9EE000C9D287 /* GBMacros_Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBMacros_Common.h; sourceTree = "<group>"; };
 		8ADBDEB3178DC33D0090EF04 /* MKMapView+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+GBToolbox.h"; sourceTree = "<group>"; };
 		8ADBDEB4178DC33D0090EF04 /* MKMapView+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+GBToolbox.m"; sourceTree = "<group>"; };
+		8AE8082218F7038500AC171D /* GBCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBCache.h; sourceTree = "<group>"; };
+		8AE8082318F7038500AC171D /* GBCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBCache.m; sourceTree = "<group>"; };
 		8AE8347E16C941BC00546249 /* GBRadialGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBRadialGradientView.h; sourceTree = "<group>"; };
 		8AE8347F16C941BC00546249 /* GBRadialGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBRadialGradientView.m; sourceTree = "<group>"; };
 		8AE8348716C9494A00546249 /* GBTypes_Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBTypes_Common.h; sourceTree = "<group>"; };
@@ -598,6 +603,8 @@
 				8A6E833A1774A10E00BA485C /* GBMessageInterceptor.m */,
 				8AD431C2179450D000EE9F66 /* GBCompletable.h */,
 				8AD431C3179450D000EE9F66 /* GBCompletable.m */,
+				8AE8082218F7038500AC171D /* GBCache.h */,
+				8AE8082318F7038500AC171D /* GBCache.m */,
 			);
 			name = General;
 			sourceTree = "<group>";
@@ -637,6 +644,7 @@
 				8A4469951760A6D400F33E75 /* NSDictionary+GBToolbox.h in Headers */,
 				8A823D6C1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.h in Headers */,
 				8A1CF4AC17748CFF003D6DB5 /* NSDate+GBToolbox.h in Headers */,
+				8AE8082418F7038500AC171D /* GBCache.h in Headers */,
 				8A6E833B1774A10E00BA485C /* GBMessageInterceptor.h in Headers */,
 				8A3DA68D17832AB500072539 /* GBFrameChangedProtocol.h in Headers */,
 				8AD431C4179450D000EE9F66 /* GBCompletable.h in Headers */,
@@ -772,6 +780,7 @@
 				8ACE942916C11A9800527E0D /* NSTimer+GBToolbox.m in Sources */,
 				8ACE942E16C11AE900527E0D /* NSData+GBToolbox.m in Sources */,
 				8ACE943616C11B4C00527E0D /* NSString+GBToolbox.m in Sources */,
+				8AE8082618F7038500AC171D /* GBCache.m in Sources */,
 				8ACE943A16C11B7700527E0D /* NSImage+GBToolbox.m in Sources */,
 				8ACE944116C11C5B00527E0D /* GBUtility_OSX.m in Sources */,
 				8ACE944616C11C6E00527E0D /* GBUtility_Common.m in Sources */,
@@ -825,6 +834,7 @@
 				8A4469911760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m in Sources */,
 				8A4469961760A6D400F33E75 /* NSDictionary+GBToolbox.m in Sources */,
 				8A823D6D1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m in Sources */,
+				8AE8082518F7038500AC171D /* GBCache.m in Sources */,
 				8A1CF4A917747CAA003D6DB5 /* GBCustomNavigationBar.m in Sources */,
 				8A1CF4AD17748CFF003D6DB5 /* NSDate+GBToolbox.m in Sources */,
 				8A1CF4CF17749905003D6DB5 /* GBTextField.m in Sources */,
