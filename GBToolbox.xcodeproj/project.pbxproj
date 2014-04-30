@@ -10,6 +10,9 @@
 		8A0377FD16BFCD2F0096C448 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0377FC16BFCD2F0096C448 /* Cocoa.framework */; };
 		8A03780F16BFCE110096C448 /* GBMacros_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AD911C4162D9EE000C9D287 /* GBMacros_Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A03781116BFCE190096C448 /* GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A03780916BFCD2F0096C448 /* GBToolbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A049661191105460070FC71 /* NSInvocation+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A04965F191105460070FC71 /* NSInvocation+GBToolbox.h */; };
+		8A049662191105460070FC71 /* NSInvocation+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A049660191105460070FC71 /* NSInvocation+GBToolbox.m */; };
+		8A049663191105460070FC71 /* NSInvocation+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A049660191105460070FC71 /* NSInvocation+GBToolbox.m */; };
 		8A0C4E36165FA60C00A990FB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0C4E35165FA60C00A990FB /* SenTestingKit.framework */; };
 		8A0C4E37165FA60C00A990FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911C2162D9EBC00C9D287 /* UIKit.framework */; };
 		8A0C4E38165FA60C00A990FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B4162D9E2200C9D287 /* Foundation.framework */; };
@@ -157,6 +160,8 @@
 		8A03780416BFCD2F0096C448 /* GBToolbox-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GBToolbox-Info.plist"; sourceTree = "<group>"; };
 		8A03780816BFCD2F0096C448 /* GBToolbox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBToolbox-Prefix.pch"; sourceTree = "<group>"; };
 		8A03780916BFCD2F0096C448 /* GBToolbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBToolbox.h; sourceTree = "<group>"; };
+		8A04965F191105460070FC71 /* NSInvocation+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+GBToolbox.h"; sourceTree = "<group>"; };
+		8A049660191105460070FC71 /* NSInvocation+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+GBToolbox.m"; sourceTree = "<group>"; };
 		8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests-iOS.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GBToolboxUnitTests-iOS.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0C4E35165FA60C00A990FB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		8A0C4E3B165FA60C00A990FB /* GBToolboxUnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GBToolboxUnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -482,6 +487,8 @@
 				8ADBDEB4178DC33D0090EF04 /* MKMapView+GBToolbox.m */,
 				8A269E6717CE4FC1000C5B75 /* UIColor+GBToolbox.h */,
 				8A269E6817CE4FC1000C5B75 /* UIColor+GBToolbox.m */,
+				8A04965F191105460070FC71 /* NSInvocation+GBToolbox.h */,
+				8A049660191105460070FC71 /* NSInvocation+GBToolbox.m */,
 			);
 			name = "Categories (Utils & Extras)";
 			sourceTree = "<group>";
@@ -620,6 +627,7 @@
 				8A03780F16BFCE110096C448 /* GBMacros_Common.h in Headers */,
 				8AF8C6B216C00083005A5511 /* GBResizableImageView.h in Headers */,
 				8ACE941716C1198900527E0D /* NSObject+GBToolbox.h in Headers */,
+				8A049661191105460070FC71 /* NSInvocation+GBToolbox.h in Headers */,
 				8ACE942716C11A9800527E0D /* NSTimer+GBToolbox.h in Headers */,
 				8ACE942C16C11AE900527E0D /* NSData+GBToolbox.h in Headers */,
 				8A521B0B1701CCD600A89BE4 /* GBTypes_Common.h in Headers */,
@@ -792,6 +800,7 @@
 				8A8402DB16CBE1FA0017157C /* GBGlowingImageButtonCell.m in Sources */,
 				8A8402DF16CBE6490017157C /* GBSolidColorView.m in Sources */,
 				8A66400E16F9CBB800FDD892 /* NSArray+GBToolbox.m in Sources */,
+				8A049663191105460070FC71 /* NSInvocation+GBToolbox.m in Sources */,
 				8AF78D90173141BF00F61ECC /* GBFastArray.m in Sources */,
 				8A215D0A1743DDDA007C7DE2 /* GBConstants_Common.m in Sources */,
 				8AF92335174657BB00C8C9F4 /* NSMutableArray+GBToolbox.m in Sources */,
@@ -820,6 +829,7 @@
 				8ACE941816C1198900527E0D /* NSObject+GBToolbox.m in Sources */,
 				8ACE941F16C11A2300527E0D /* UITableView+GBToolbox.m in Sources */,
 				8ACE942316C11A6200527E0D /* UIViewController+GBToolbox.m in Sources */,
+				8A049662191105460070FC71 /* NSInvocation+GBToolbox.m in Sources */,
 				8ACE942816C11A9800527E0D /* NSTimer+GBToolbox.m in Sources */,
 				8ACE942D16C11AE900527E0D /* NSData+GBToolbox.m in Sources */,
 				8ACE943516C11B4C00527E0D /* NSString+GBToolbox.m in Sources */,
