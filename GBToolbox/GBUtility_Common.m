@@ -260,6 +260,12 @@ BOOL IsOddUInteger(NSUInteger number) {
     return !IsEvenUInteger(number);
 }
 
+#pragma mark - Runtime introspection
+
+void AssertCorrectClass(id object, Class class) {
+    if (![object isKindOfClass:class]) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"Expected object %@ to be of class %@, but it was class %@", object, NSStringFromClass(class), NSStringFromClass([object class])] userInfo:nil];
+}
+
 #pragma mark - Method Swizzling
 
 void SwizzleInstanceMethodsInClass(Class aClass, SEL originalSelector, SEL newSelector) {
