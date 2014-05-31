@@ -15,6 +15,8 @@
 
 typedef void(^VoidBlock)(void);
 typedef BOOL(^BoolBlock)(void);
+typedef void(^VoidBlockObject)(id object);
+typedef void(^VoidBlockDictionary)(NSDictionary *dictionary);
 typedef void(^VoidBlockBool)(BOOL isTrue);
 
 #pragma mark - Range
