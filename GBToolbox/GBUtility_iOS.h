@@ -12,6 +12,9 @@
 #import "GBUtility_Common.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import <CoreLocation/CoreLocation.h>
+
+@class GBAddress;
 
 @interface GBToolbox (iOS)
 
@@ -75,5 +78,20 @@ UIColor *RandomColor();
 #pragma mark - Auto Layout
 
 void AutoLayoutDebugOn();
+
+#pragma mark - Geocoding
+
+void ReverseGeocodeLocation(CLLocation *location, VoidBlockObject block);
+
+@end
+
+@interface GBAddress : NSObject
+
+@property (copy, nonatomic) NSString *street;
+@property (copy, nonatomic) NSString *city;
+@property (copy, nonatomic) NSString *zip;
+@property (copy, nonatomic) NSString *country;
+@property (copy, nonatomic) NSString *countryCode;
+@property (copy, nonatomic) NSString *state;
 
 @end

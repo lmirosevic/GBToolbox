@@ -13,6 +13,7 @@
 #import <Twitter/Twitter.h>
 #import <Social/Social.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <AddressBook/AddressBook.h>
 
 @implementation GBToolbox (iOS)
 
@@ -175,4 +176,31 @@ void AutoLayoutDebugOn() {
     }
 }
 
+#pragma mark - Geocoding
+
+void ReverseGeocodeLocation(CLLocation *location, VoidBlockObject block) {
+    CLGeocoder *geocoder = [CLGeocoder new];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        GBAddress *address;
+        
+        if (placemarks && placemarks.count > 0) {
+            CLPlacemark *placemark = [placemarks firstObject];
+            NSDictionary *addressDictionary = placemark.addressDictionary;
+            
+            address = [GBAddress new];
+            address.street = addressDictionary[(NSString *)kABPersonAddressStreetKey];
+            address.city = addressDictionary[(NSString *)kABPersonAddressCityKey];
+            address.zip = addressDictionary[(NSString *)kABPersonAddressZIPKey];
+            address.country = addressDictionary[(NSString *)kABPersonAddressCountryKey];
+            address.countryCode = addressDictionary[(NSString *)kABPersonAddressCountryCodeKey];
+            address.state = addressDictionary[(NSString *)kABPersonAddressStateKey];
+        }
+        
+        if (block) block(address);
+    }];
+}
+
+@end
+
+@implementation GBAddress
 @end
