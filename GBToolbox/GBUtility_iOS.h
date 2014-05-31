@@ -72,4 +72,8 @@ void VibrateDevice();
 //Returns a random color with a bias towards the more saturated and brighter colors
 UIColor *RandomColor();
 
+#pragma mark - Auto Layout
+
+void AutoLayoutDebugOn();
+
 @end

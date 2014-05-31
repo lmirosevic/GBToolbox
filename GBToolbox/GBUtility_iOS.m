@@ -160,4 +160,19 @@ UIColor *RandomColor() {
     return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
 }
 
+#pragma mark - Auto Layout
+
+void AutoLayoutDebugOn() {
+    UIWindow *keyWindow = [UIWindow performSelector:@selector(keyWindow)];
+    if (keyWindow.hasAmbiguousLayout) {
+        // we're calling a private method here so we need to do some trickery to avoid a compiler warning
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        NSLog(@"%@", [keyWindow performSelector:NSSelectorFromString(@"_autolayoutTrace")]);
+#pragma clang diagnostic pop
+        
+        NSCAssert(false, @"We have ambiguous layout");
+    }
+}
+
 @end
