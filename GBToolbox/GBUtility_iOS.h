@@ -35,6 +35,7 @@ void RedirectToAppStore(NSString *appID);
 
 #pragma mark - Images
 
+UIImage * Image(NSString *name);
 UIImage * ImageResizableWithCapInsets(NSString *name, CGFloat topCap, CGFloat leftCap, CGFloat bottomCap, CGFloat rightCap);
 
 #pragma mark - Clipping

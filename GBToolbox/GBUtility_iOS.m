@@ -69,6 +69,10 @@ void RedirectToAppStore(NSString *appID) {
 
 #pragma mark - Images
 
+UIImage * Image(NSString *name) {
+    return [UIImage imageNamed:name];
+}
+
 UIImage * ImageResizableWithCapInsets(NSString *name, CGFloat topCap, CGFloat leftCap, CGFloat bottomCap, CGFloat rightCap) {
     return [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(topCap, leftCap, bottomCap, rightCap)];
 }
