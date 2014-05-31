@@ -38,6 +38,9 @@
         if (mappedObject) {
             resultsArray[i] = mappedObject;
         }
+        else {
+            @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Mapping function must a non-nil object" userInfo:nil];
+        }
     }
     
     //returns an immutable copy
