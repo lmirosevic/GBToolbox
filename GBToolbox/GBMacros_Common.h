@@ -35,6 +35,9 @@
 //Abstract methods
 #define _abstract { @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:_f(@"Abstract method called on %@, override in subclass and don't call super!", NSStringFromClass(self.class)) userInfo:nil]; }
 
+//Views
+#define AutoLayout(view) [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+
 //Associated objects
 static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NSString *atomicity) {
     //_Pragma("clang diagnostic pop")
