@@ -31,7 +31,7 @@ static BOOL const kDefaultHidesWhenCountZero =      NO;
 #pragma mark - custom accessors
 
 -(void)setBadgeCount:(NSInteger)badgeCount {
-    self.badgeText = [NSString stringWithFormat:@"%d", badgeCount];
+    self.badgeText = [NSString stringWithFormat:@"%ld", (long)badgeCount];
 }
 
 -(NSInteger)badgeCount {
@@ -229,7 +229,14 @@ void *kFrameObserver = &kFrameObserver;
 
 -(CGFloat)_width {
     //calculate width based on text size and padding
-    return [self.badgeText sizeWithFont:self.font forWidth:CGFLOAT_MAX lineBreakMode:NSLineBreakByClipping].width + self.horizontalPadding * 2;
+    CGFloat prelimWidth = [self.badgeText sizeWithFont:self.font forWidth:CGFLOAT_MAX lineBreakMode:NSLineBreakByClipping].width;
+    
+    //iOS 7 only replacement
+//    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//    [paragraphStyle setLineBreakMode:NSLineBreakByClipping];
+//    CGFloat prelimWidth = [self.badgeText boundingRectWithSize:self.font.pointSize options:NSStringdraw attributes:@{NSParagraphStyleAttributeName: paragraphStyle} context:nil].width;
+    
+    return prelimWidth + self.horizontalPadding * 2;
 }
 
 -(CGFloat)_height {
