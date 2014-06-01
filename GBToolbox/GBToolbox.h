@@ -44,6 +44,7 @@
 #import "NSMutableURLRequest+GBToolbox.h"
 #import "NSDate+GBToolbox.h"
 #import "NSInvocation+GBToolbox.h"
+#import "NSMapTable+GBToolbox.h"
 
 #import "GBFrameChangedProtocol.h"
 

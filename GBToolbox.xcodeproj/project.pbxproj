@@ -34,6 +34,9 @@
 		8A27D5FF16C8F3B50071AE31 /* CALayer+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */; };
 		8A27D60216C8F5FC0071AE31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF6878516B8057400FEF6A7 /* QuartzCore.framework */; };
 		8A2CE6D7177D909900F1E3D6 /* GBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2CE6D6177D909900F1E3D6 /* GBTextView.m */; };
+		8A2FE4D1193B40ED004F43CC /* NSMapTable+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A2FE4CF193B40ED004F43CC /* NSMapTable+GBToolbox.h */; };
+		8A2FE4D2193B40ED004F43CC /* NSMapTable+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FE4D0193B40ED004F43CC /* NSMapTable+GBToolbox.m */; };
+		8A2FE4D3193B40ED004F43CC /* NSMapTable+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2FE4D0193B40ED004F43CC /* NSMapTable+GBToolbox.m */; };
 		8A335DF51790362600B46E8F /* GBTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A335DF41790362600B46E8F /* GBTestView.m */; };
 		8A3BF9A1178AD295003A3305 /* UIView+GBPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BF9A0178AD295003A3305 /* UIView+GBPopUp.m */; };
 		8A3BF9AE178B22BD003A3305 /* UITableViewCell+AdditionalViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3BF9AD178B22BD003A3305 /* UITableViewCell+AdditionalViews.m */; };
@@ -183,6 +186,8 @@
 		8A27D5FC16C8F3AA0071AE31 /* CALayer+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+GBToolbox.m"; sourceTree = "<group>"; };
 		8A2CE6D5177D909900F1E3D6 /* GBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTextView.h; sourceTree = "<group>"; };
 		8A2CE6D6177D909900F1E3D6 /* GBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTextView.m; sourceTree = "<group>"; };
+		8A2FE4CF193B40ED004F43CC /* NSMapTable+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMapTable+GBToolbox.h"; sourceTree = "<group>"; };
+		8A2FE4D0193B40ED004F43CC /* NSMapTable+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMapTable+GBToolbox.m"; sourceTree = "<group>"; };
 		8A335DF31790362600B46E8F /* GBTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTestView.h; sourceTree = "<group>"; };
 		8A335DF41790362600B46E8F /* GBTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTestView.m; sourceTree = "<group>"; };
 		8A3BF99F178AD295003A3305 /* UIView+GBPopUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GBPopUp.h"; sourceTree = "<group>"; };
@@ -489,6 +494,8 @@
 				8A269E6817CE4FC1000C5B75 /* UIColor+GBToolbox.m */,
 				8A04965F191105460070FC71 /* NSInvocation+GBToolbox.h */,
 				8A049660191105460070FC71 /* NSInvocation+GBToolbox.m */,
+				8A2FE4CF193B40ED004F43CC /* NSMapTable+GBToolbox.h */,
+				8A2FE4D0193B40ED004F43CC /* NSMapTable+GBToolbox.m */,
 			);
 			name = "Categories (Utils & Extras)";
 			sourceTree = "<group>";
@@ -635,6 +642,7 @@
 				8ACE943916C11B7700527E0D /* NSImage+GBToolbox.h in Headers */,
 				8ACE944016C11C5B00527E0D /* GBUtility_OSX.h in Headers */,
 				8ACE944416C11C6E00527E0D /* GBUtility_Common.h in Headers */,
+				8A2FE4D1193B40ED004F43CC /* NSMapTable+GBToolbox.h in Headers */,
 				8ACE94F116C12CC500527E0D /* NSView+GBToolbox.h in Headers */,
 				8A27D5FD16C8F3AA0071AE31 /* CALayer+GBToolbox.h in Headers */,
 				8AE8348016C941BC00546249 /* GBRadialGradientView.h in Headers */,
@@ -786,6 +794,7 @@
 				8AF8C6B416C00083005A5511 /* GBResizableImageView.m in Sources */,
 				8ACE941916C1198900527E0D /* NSObject+GBToolbox.m in Sources */,
 				8ACE942916C11A9800527E0D /* NSTimer+GBToolbox.m in Sources */,
+				8A2FE4D3193B40ED004F43CC /* NSMapTable+GBToolbox.m in Sources */,
 				8ACE942E16C11AE900527E0D /* NSData+GBToolbox.m in Sources */,
 				8ACE943616C11B4C00527E0D /* NSString+GBToolbox.m in Sources */,
 				8AE8082618F7038500AC171D /* GBCache.m in Sources */,
@@ -843,6 +852,7 @@
 				8A4043D8174CBF3400DF3166 /* UIView+GBToolbox.m in Sources */,
 				8A4469911760A5F900F33E75 /* NSMutableDictionary+GBToolbox.m in Sources */,
 				8A4469961760A6D400F33E75 /* NSDictionary+GBToolbox.m in Sources */,
+				8A2FE4D2193B40ED004F43CC /* NSMapTable+GBToolbox.m in Sources */,
 				8A823D6D1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.m in Sources */,
 				8AE8082518F7038500AC171D /* GBCache.m in Sources */,
 				8A1CF4A917747CAA003D6DB5 /* GBCustomNavigationBar.m in Sources */,
