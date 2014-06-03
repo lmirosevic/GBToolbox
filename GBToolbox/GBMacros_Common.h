@@ -37,7 +37,10 @@
 
 
 //Views
-#define AutoLayout(view) [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+static inline id AutoLayout(UIView *view) {
+    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    return view;
+}
 
 //Associated objects
 static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NSString *atomicity) {
