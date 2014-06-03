@@ -83,6 +83,12 @@ void AutoLayoutDebugOn();
 
 void ReverseGeocodeLocation(CLLocation *location, VoidBlockObject block);
 
+#pragma mark - UIViewController containment
+
+void AddChildViewController(UIViewController *hostViewController, UIViewController *childViewController);
+void RemoveChildViewController(UIViewController *hostViewController, UIViewController *childViewController);
+NSDictionary *AutoLayoutPointerViewsDictionaryForViews(NSArray *views);
+
 @end
 
 @interface GBAddress : NSObject

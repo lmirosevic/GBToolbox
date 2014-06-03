@@ -9,6 +9,8 @@
 #import "GBUtility_iOS.h"
 
 #import "GBMacros_Common.h"
+#import "NSObject+GBToolbox.h"
+#import "NSArray+GBToolbox.h"
 
 #import <Twitter/Twitter.h>
 #import <Social/Social.h>
@@ -198,6 +200,20 @@ void ReverseGeocodeLocation(CLLocation *location, VoidBlockObject block) {
         
         if (block) block(address);
     }];
+}
+
+#pragma mark - UIViewController containment
+
+void AddChildViewController(UIViewController *hostViewController, UIViewController *childViewController) {
+    [hostViewController addChildViewController:childViewController];
+    [hostViewController.view addSubview:childViewController.view];
+    [childViewController didMoveToParentViewController:hostViewController];
+}
+
+void RemoveChildViewController(UIViewController *hostViewController, UIViewController *childViewController) {
+    [childViewController willMoveToParentViewController:nil];
+    [childViewController.view removeFromSuperview];
+    [childViewController removeFromParentViewController];
 }
 
 @end
