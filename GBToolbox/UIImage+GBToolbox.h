@@ -21,4 +21,13 @@
 -(UIImage *)resizedImage:(CGSize)newSize interpolationQuality:(CGInterpolationQuality)quality;
 -(UIImage *)resizedImageWithContentMode:(UIViewContentMode)contentMode bounds:(CGSize)bounds interpolationQuality:(CGInterpolationQuality)quality;
 
+#pragma mark - Apple UIImage+ImageEffects
+
+-(UIImage *)applyLightEffect;
+-(UIImage *)applyExtraLightEffect;
+-(UIImage *)applyDarkEffect;
+-(UIImage *)applyTintEffectWithColor:(UIColor *)tintColor;
+
+-(UIImage *)applyBlurWithRadius:(CGFloat)blurRadius tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(UIImage *)maskImage;
+
 @end
