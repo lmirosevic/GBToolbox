@@ -401,4 +401,12 @@ CGFloat Random() {
     return arc4random() % 256 / 256.0; //  0.0 to 1.0
 }
 
+#pragma mark - Fonts
+
+void ListAvailableFonts() {
+    for (NSString *fontFamily in [UIFont familyNames]) {
+        NSLog(@"%@: %@", fontFamily, [UIFont fontNamesForFamilyName:fontFamily]);
+    }
+}
+
 @end
