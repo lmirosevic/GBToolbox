@@ -165,7 +165,7 @@ UIColor *RandomColor() {
 
 #pragma mark - Auto Layout
 
-void AutoLayoutDebugOn() {
+void AutoLayoutDebugOn(BOOL crashOnTrigger) {
     UIWindow *keyWindow = [UIWindow performSelector:@selector(keyWindow)];
     if (keyWindow.hasAmbiguousLayout) {
         // we're calling a private method here so we need to do some trickery to avoid a compiler warning
@@ -174,8 +174,24 @@ void AutoLayoutDebugOn() {
         NSLog(@"%@", [keyWindow performSelector:NSSelectorFromString(@"_autolayoutTrace")]);
 #pragma clang diagnostic pop
         
-        NSCAssert(false, @"We have ambiguous layout");
+        if (crashOnTrigger) {
+            NSCAssert(false, @"-----------------------We have ambiguous layout");
+        }
+        else {
+            NSLog(@"------------------------We have ambiguous layout");
+        }
     }
+}
+
+NSString *AutolayoutViewPointer(NSObject *object) {
+    return [NSString stringWithFormat:@"_%@", object.pointerAddress];
+}
+
+NSDictionary *AutoLayoutPointerViewsDictionaryForViews(NSArray *views) {
+    return [NSDictionary dictionaryWithObjects:views forKeys:[views map:^id(id object) {
+        // ...We need a unique string that points to the selected object. Sounds a bit like a pointer, so... why don't we use a pointer, just stringified, courtesy of a little utility  function.
+        return AutolayoutViewPointer(object);
+    }]];
 }
 
 #pragma mark - Geocoding
