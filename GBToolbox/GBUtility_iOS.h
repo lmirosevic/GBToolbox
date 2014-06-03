@@ -88,8 +88,8 @@ void ReverseGeocodeLocation(CLLocation *location, VoidBlockObject block);
 #pragma mark - UIViewController containment
 
 void AddChildViewController(UIViewController *hostViewController, UIViewController *childViewController);
-void RemoveChildViewController(UIViewController *hostViewController, UIViewController *childViewController);
-NSDictionary *AutoLayoutPointerViewsDictionaryForViews(NSArray *views);
+void AddChildViewControllerToView(UIViewController *hostViewController, UIView *hostView, UIViewController *childViewController);
+void RemoveChildViewController(UIViewController *childViewController);
 
 @end
 

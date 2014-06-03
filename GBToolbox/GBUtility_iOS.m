@@ -221,12 +221,16 @@ void ReverseGeocodeLocation(CLLocation *location, VoidBlockObject block) {
 #pragma mark - UIViewController containment
 
 void AddChildViewController(UIViewController *hostViewController, UIViewController *childViewController) {
+    AddChildViewControllerToView(hostViewController, hostViewController.view, childViewController);
+}
+
+void AddChildViewControllerToView(UIViewController *hostViewController, UIView *hostView, UIViewController *childViewController) {
     [hostViewController addChildViewController:childViewController];
-    [hostViewController.view addSubview:childViewController.view];
+    [hostView addSubview:childViewController.view];
     [childViewController didMoveToParentViewController:hostViewController];
 }
 
-void RemoveChildViewController(UIViewController *hostViewController, UIViewController *childViewController) {
+void RemoveChildViewController(UIViewController *childViewController) {
     [childViewController willMoveToParentViewController:nil];
     [childViewController.view removeFromSuperview];
     [childViewController removeFromParentViewController];
