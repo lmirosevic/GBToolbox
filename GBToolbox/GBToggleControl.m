@@ -56,7 +56,7 @@
     [self _handleButton];
 }
 
-#pragma mark - init
+#pragma mark - life
 
 -(id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -72,6 +72,10 @@
         [self _init];
     }
     return self;
+}
+
+-(CGSize)intrinsicContentSize {
+    return self.imageWhenOn.size;
 }
 
 -(void)_init {
@@ -95,6 +99,8 @@
 #pragma mark - util
 
 -(void)_handleButton {
+    [self invalidateIntrinsicContentSize];
+    
     if (self.isOn) {
         [self.button setImage:self.imageWhenOn forState:UIControlStateNormal];
         [self.button setBackgroundImage:self.backgroundImageWhenOn forState:UIControlStateNormal];
