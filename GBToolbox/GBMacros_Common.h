@@ -33,7 +33,8 @@
 #define _forwardUnimplementedMessages(target) -(id)forwardingTargetForSelector:(SEL)selector { if ([self respondsToSelector:selector]) { return self; } else if ([target respondsToSelector:selector]) { return target; } else return nil; }
 
 //Abstract methods
-#define _abstract { @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:_f(@"Abstract method called on %@, override in subclass and don't call super!", NSStringFromClass(self.class)) userInfo:nil]; }
+#define _abstract { @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"The class %@ does not implement the required %s method.", NSStringFromClass(self.class), __PRETTY_FUNCTION__] userInfo:nil]; }
+
 
 //Views
 #define AutoLayout(view) [view setTranslatesAutoresizingMaskIntoConstraints:NO];
