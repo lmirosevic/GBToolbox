@@ -183,14 +183,14 @@ void AutoLayoutDebugOn(BOOL crashOnTrigger) {
     }
 }
 
-NSString *AutolayoutViewPointer(NSObject *object) {
+NSString *AutoLayoutViewPointer(NSObject *object) {
     return [NSString stringWithFormat:@"_%@", object.pointerAddress];
 }
 
 NSDictionary *AutoLayoutPointerViewsDictionaryForViews(NSArray *views) {
     return [NSDictionary dictionaryWithObjects:views forKeys:[views map:^id(id object) {
         // ...We need a unique string that points to the selected object. Sounds a bit like a pointer, so... why don't we use a pointer, just stringified, courtesy of a little utility  function.
-        return AutolayoutViewPointer(object);
+        return AutoLayoutViewPointer(object);
     }]];
 }
 

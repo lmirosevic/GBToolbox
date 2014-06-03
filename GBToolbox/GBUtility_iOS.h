@@ -78,7 +78,7 @@ UIColor *RandomColor();
 #pragma mark - Auto Layout
 
 void AutoLayoutDebugOn(BOOL crashOnTrigger);
-NSString *AutolayoutViewPointer(NSObject *object);
+NSString *AutoLayoutViewPointer(NSObject *object);
 
 #pragma mark - Geocoding
 
