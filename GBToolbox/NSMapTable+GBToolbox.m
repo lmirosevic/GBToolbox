@@ -8,6 +8,8 @@
 
 #import "NSMapTable+GBToolbox.h"
 
+#import "NSArray+GBToolbox.h"
+
 @implementation NSMapTable (GBToolbox)
 
 -(id)objectForKeyedSubscript:(id)key {
@@ -16,6 +18,22 @@
 
 -(void)setObject:(id)object forKeyedSubscript:(id)key {
     [self setObject:object forKey:key];
+}
+
+-(NSArray *)allKeys {
+    NSMutableArray *allKeys = [[NSMutableArray alloc] initWithCapacity:self.count];
+    
+    for (id key in self) {
+        [allKeys addObject:key];
+    }
+    
+    return allKeys;
+}
+
+-(NSArray *)allObjects {
+    return [self.allKeys map:^id(id key) {
+        return [self objectForKey:key];
+    }];
 }
 
 @end

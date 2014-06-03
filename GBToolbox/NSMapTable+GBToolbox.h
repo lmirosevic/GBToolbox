@@ -20,4 +20,14 @@
  */
 -(void)setObject:(id)object forKeyedSubscript:(id)key;
 
+/**
+ Returns an array holding all the keys.
+ */
+@property (strong, nonatomic, readonly) NSArray *allKeys;
+
+/**
+ Returns an array holding all the objects.
+ */
+@property (strong, nonatomic, readonly) NSArray *allObjects;
+
 @end
