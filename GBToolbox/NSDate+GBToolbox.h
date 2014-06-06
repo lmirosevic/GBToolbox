@@ -12,5 +12,7 @@
 
 +(NSDate *)dateWithISO8601String:(NSString *)dateString;
 -(NSString *)iso8601String;
+-(BOOL)isInPast;
+-(BOOL)isDateBetweenStartDate:(NSDate*)beginDate andEndDate:(NSDate*)endDate;
 
 @end

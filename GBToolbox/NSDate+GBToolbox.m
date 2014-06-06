@@ -26,4 +26,20 @@
     return [dateFormatter stringFromDate:self];
 }
 
+-(BOOL)isInPast {
+    return ([self timeIntervalSinceNow] < 0.);
+}
+
+-(BOOL)isDateBetweenStartDate:(NSDate*)beginDate andEndDate:(NSDate*)endDate {
+    if ([self compare:beginDate] == NSOrderedAscending) {
+    	return NO;
+    }
+    else if ([self compare:endDate] == NSOrderedDescending) {
+        return NO;
+    }
+    else {
+        return YES;
+    }
+}
+
 @end
