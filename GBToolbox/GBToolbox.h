@@ -31,6 +31,7 @@
 #import "GBMessageInterceptor.h"
 #import "GBCompletable.h"
 #import "GBCache.h"
+#import "GBEnumWrapper.h"
 
 #import "NSObject+GBToolbox.h"
 #import "NSTimer+GBToolbox.h"

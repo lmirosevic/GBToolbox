@@ -24,6 +24,9 @@
 		8A1CF4AD17748CFF003D6DB5 /* NSDate+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF4AB17748CFF003D6DB5 /* NSDate+GBToolbox.m */; };
 		8A1CF4AE17748CFF003D6DB5 /* NSDate+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF4AB17748CFF003D6DB5 /* NSDate+GBToolbox.m */; };
 		8A1CF4CF17749905003D6DB5 /* GBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF4CE17749905003D6DB5 /* GBTextField.m */; };
+		8A1F3A761941FE97006D2AF1 /* GBEnumWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1F3A741941FE97006D2AF1 /* GBEnumWrapper.h */; };
+		8A1F3A771941FE97006D2AF1 /* GBEnumWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1F3A751941FE97006D2AF1 /* GBEnumWrapper.m */; };
+		8A1F3A781941FE97006D2AF1 /* GBEnumWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1F3A751941FE97006D2AF1 /* GBEnumWrapper.m */; };
 		8A215D071743DDDA007C7DE2 /* GBConstants_Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A215D051743DDDA007C7DE2 /* GBConstants_Common.h */; };
 		8A215D081743DDDA007C7DE2 /* GBConstants_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */; };
 		8A215D091743DDDA007C7DE2 /* GBConstants_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */; };
@@ -178,6 +181,8 @@
 		8A1CF4AB17748CFF003D6DB5 /* NSDate+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+GBToolbox.m"; sourceTree = "<group>"; };
 		8A1CF4CD17749905003D6DB5 /* GBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTextField.h; sourceTree = "<group>"; };
 		8A1CF4CE17749905003D6DB5 /* GBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTextField.m; sourceTree = "<group>"; };
+		8A1F3A741941FE97006D2AF1 /* GBEnumWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBEnumWrapper.h; sourceTree = "<group>"; };
+		8A1F3A751941FE97006D2AF1 /* GBEnumWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBEnumWrapper.m; sourceTree = "<group>"; };
 		8A215D051743DDDA007C7DE2 /* GBConstants_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBConstants_Common.h; sourceTree = "<group>"; };
 		8A215D061743DDDA007C7DE2 /* GBConstants_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBConstants_Common.m; sourceTree = "<group>"; };
 		8A269E6717CE4FC1000C5B75 /* UIColor+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+GBToolbox.h"; sourceTree = "<group>"; };
@@ -619,6 +624,8 @@
 				8AD431C3179450D000EE9F66 /* GBCompletable.m */,
 				8AE8082218F7038500AC171D /* GBCache.h */,
 				8AE8082318F7038500AC171D /* GBCache.m */,
+				8A1F3A741941FE97006D2AF1 /* GBEnumWrapper.h */,
+				8A1F3A751941FE97006D2AF1 /* GBEnumWrapper.m */,
 			);
 			name = General;
 			sourceTree = "<group>";
@@ -661,6 +668,7 @@
 				8A823D6C1769E3B7005DF73F /* NSMutableURLRequest+GBToolbox.h in Headers */,
 				8A1CF4AC17748CFF003D6DB5 /* NSDate+GBToolbox.h in Headers */,
 				8AE8082418F7038500AC171D /* GBCache.h in Headers */,
+				8A1F3A761941FE97006D2AF1 /* GBEnumWrapper.h in Headers */,
 				8A6E833B1774A10E00BA485C /* GBMessageInterceptor.h in Headers */,
 				8A3DA68D17832AB500072539 /* GBFrameChangedProtocol.h in Headers */,
 				8AD431C4179450D000EE9F66 /* GBCompletable.h in Headers */,
@@ -803,6 +811,7 @@
 				8ACE944616C11C6E00527E0D /* GBUtility_Common.m in Sources */,
 				8ACE94F216C12CC500527E0D /* NSView+GBToolbox.m in Sources */,
 				8A27D5FE16C8F3AA0071AE31 /* CALayer+GBToolbox.m in Sources */,
+				8A1F3A781941FE97006D2AF1 /* GBEnumWrapper.m in Sources */,
 				8AE8348116C941BC00546249 /* GBRadialGradientView.m in Sources */,
 				8A8402B916CBBC070017157C /* GBCustomViewButtonCell.m in Sources */,
 				8A8402D316CBC4DB0017157C /* GBCustomImageButtonCell.m in Sources */,
@@ -866,6 +875,7 @@
 				8A8CAC44177DC18400B661E0 /* GBToggleControl.m in Sources */,
 				8AB5C25417818F8F005A7A22 /* UIImage+GBToolbox.m in Sources */,
 				8AB5C2931781BD63005A7A22 /* GBAlertBadgeView.m in Sources */,
+				8A1F3A771941FE97006D2AF1 /* GBEnumWrapper.m in Sources */,
 				8A3F03661782C05300B67BCE /* GBColoredBarView.m in Sources */,
 				8A3F03671782C05300B67BCE /* GBRoundBadgeView.m in Sources */,
 				8A7C7A201786E4DC001FEE31 /* GBTextBox.m in Sources */,
