@@ -93,13 +93,3 @@ void RemoveChildViewController(UIViewController *childViewController);
 
 @end
 
-@interface GBAddress : NSObject
-
-@property (copy, nonatomic) NSString *street;
-@property (copy, nonatomic) NSString *city;
-@property (copy, nonatomic) NSString *zip;
-@property (copy, nonatomic) NSString *country;
-@property (copy, nonatomic) NSString *countryCode;
-@property (copy, nonatomic) NSString *state;
-
-@end

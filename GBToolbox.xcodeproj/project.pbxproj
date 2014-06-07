@@ -19,6 +19,8 @@
 		8A0C4E3E165FA60C00A990FB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A0C4E3C165FA60C00A990FB /* InfoPlist.strings */; };
 		8A0C4E41165FA60C00A990FB /* GBToolboxUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0C4E40165FA60C00A990FB /* GBToolboxUnitTests.m */; };
 		8A0C4E49165FA83400A990FB /* libGBToolbox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD911B1162D9E2200C9D287 /* libGBToolbox.a */; };
+		8A14886A19434E7100A26642 /* GBAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14886919434E7100A26642 /* GBAddress.m */; };
+		8A14886B19434E7500A26642 /* GBAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A14886919434E7100A26642 /* GBAddress.m */; };
 		8A1CF4A917747CAA003D6DB5 /* GBCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF49217747BC5003D6DB5 /* GBCustomNavigationBar.m */; };
 		8A1CF4AC17748CFF003D6DB5 /* NSDate+GBToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1CF4AA17748CFF003D6DB5 /* NSDate+GBToolbox.h */; };
 		8A1CF4AD17748CFF003D6DB5 /* NSDate+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1CF4AB17748CFF003D6DB5 /* NSDate+GBToolbox.m */; };
@@ -175,6 +177,8 @@
 		8A0C4E3F165FA60C00A990FB /* GBToolboxUnitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBToolboxUnitTests.h; sourceTree = "<group>"; };
 		8A0C4E40165FA60C00A990FB /* GBToolboxUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GBToolboxUnitTests.m; sourceTree = "<group>"; };
 		8A0C4E42165FA60C00A990FB /* GBToolboxUnitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBToolboxUnitTests-Prefix.pch"; sourceTree = "<group>"; };
+		8A14886819434E7100A26642 /* GBAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBAddress.h; sourceTree = "<group>"; };
+		8A14886919434E7100A26642 /* GBAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBAddress.m; sourceTree = "<group>"; };
 		8A1CF49117747BC5003D6DB5 /* GBCustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBCustomNavigationBar.h; sourceTree = "<group>"; };
 		8A1CF49217747BC5003D6DB5 /* GBCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBCustomNavigationBar.m; sourceTree = "<group>"; };
 		8A1CF4AA17748CFF003D6DB5 /* NSDate+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+GBToolbox.h"; sourceTree = "<group>"; };
@@ -626,6 +630,8 @@
 				8AE8082318F7038500AC171D /* GBCache.m */,
 				8A1F3A741941FE97006D2AF1 /* GBEnumWrapper.h */,
 				8A1F3A751941FE97006D2AF1 /* GBEnumWrapper.m */,
+				8A14886819434E7100A26642 /* GBAddress.h */,
+				8A14886919434E7100A26642 /* GBAddress.m */,
 			);
 			name = General;
 			sourceTree = "<group>";
@@ -800,6 +806,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AF8C6B416C00083005A5511 /* GBResizableImageView.m in Sources */,
+				8A14886B19434E7500A26642 /* GBAddress.m in Sources */,
 				8ACE941916C1198900527E0D /* NSObject+GBToolbox.m in Sources */,
 				8ACE942916C11A9800527E0D /* NSTimer+GBToolbox.m in Sources */,
 				8A2FE4D3193B40ED004F43CC /* NSMapTable+GBToolbox.m in Sources */,
@@ -849,6 +856,7 @@
 				8ACE942316C11A6200527E0D /* UIViewController+GBToolbox.m in Sources */,
 				8A049662191105460070FC71 /* NSInvocation+GBToolbox.m in Sources */,
 				8ACE942816C11A9800527E0D /* NSTimer+GBToolbox.m in Sources */,
+				8A14886A19434E7100A26642 /* GBAddress.m in Sources */,
 				8ACE942D16C11AE900527E0D /* NSData+GBToolbox.m in Sources */,
 				8ACE943516C11B4C00527E0D /* NSString+GBToolbox.m in Sources */,
 				8ACE943D16C11C2C00527E0D /* GBUtility_iOS.m in Sources */,

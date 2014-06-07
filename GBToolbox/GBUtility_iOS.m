@@ -12,6 +12,8 @@
 #import "NSObject+GBToolbox.h"
 #import "NSArray+GBToolbox.h"
 
+#import "GBAddress.h"
+
 #import <Twitter/Twitter.h>
 #import <Social/Social.h>
 #import <AudioToolbox/AudioToolbox.h>
@@ -236,7 +238,4 @@ void RemoveChildViewController(UIViewController *childViewController) {
     [childViewController removeFromParentViewController];
 }
 
-@end
-
-@implementation GBAddress
 @end
