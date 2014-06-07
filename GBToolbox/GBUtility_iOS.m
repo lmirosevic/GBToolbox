@@ -196,7 +196,7 @@ NSDictionary *AutoLayoutPointerViewsDictionaryForViews(NSArray *views) {
 
 #pragma mark - Geocoding
 
-void ReverseGeocodeLocation(CLLocation *location, VoidBlockObject block) {
+void ReverseGeocodeLocation(CLLocation *location, void(^block)(GBAddress *address)) {
     CLGeocoder *geocoder = [CLGeocoder new];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         GBAddress *address;

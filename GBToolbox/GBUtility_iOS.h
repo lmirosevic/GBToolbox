@@ -83,7 +83,7 @@ NSDictionary *AutoLayoutPointerViewsDictionaryForViews(NSArray *views);
 
 #pragma mark - Geocoding
 
-void ReverseGeocodeLocation(CLLocation *location, VoidBlockObject block);
+void ReverseGeocodeLocation(CLLocation *location, void(^block)(GBAddress *address));
 
 #pragma mark - UIViewController containment
 
