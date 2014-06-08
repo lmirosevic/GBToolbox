@@ -35,13 +35,6 @@
 //Abstract methods
 #define _abstract { @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"The class %@ does not implement the required %s method.", NSStringFromClass(self.class), __PRETTY_FUNCTION__] userInfo:nil]; }
 
-
-//Views
-static inline id AutoLayout(UIView *view) {
-    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
-    return view;
-}
-
 //Associated objects
 static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NSString *atomicity) {
     //_Pragma("clang diagnostic pop")

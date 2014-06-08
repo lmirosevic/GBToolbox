@@ -127,8 +127,4 @@ NSInteger RandomIntegerBetween(NSInteger min, NSInteger max);
 //Returns a random CGFloat between 0 and 1
 CGFloat Random();
 
-#pragma mark - Fonts
-
-void ListAvailableFonts();
-
 @end

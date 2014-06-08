@@ -81,5 +81,10 @@ static inline UIViewAnimationOptions UIAnimationOptionsWithCurve(UIViewAnimation
     }
 }
 
+//Views
+static inline id AutoLayout(UIView *view) {
+    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    return view;
+}
 
 #endif

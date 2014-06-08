@@ -91,5 +91,16 @@ void AddChildViewController(UIViewController *hostViewController, UIViewControll
 void AddChildViewControllerToView(UIViewController *hostViewController, UIView *hostView, UIViewController *childViewController);
 void RemoveChildViewController(UIViewController *childViewController);
 
+#pragma mark - Actions
+
+void OpenLinkInSafari(NSString *link);
+void OpenMap(CLLocation *location, NSString *name);
+void CallPhone(NSString *number);
+void SendSMS(NSString *number);
+
+#pragma mark - Fonts
+
+void ListAvailableFonts();
+
 @end
 

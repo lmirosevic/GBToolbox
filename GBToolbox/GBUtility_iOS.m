@@ -11,6 +11,7 @@
 #import "GBMacros_Common.h"
 #import "NSObject+GBToolbox.h"
 #import "NSArray+GBToolbox.h"
+#import "NSString+GBToolbox.h"
 
 #import "GBAddress.h"
 
@@ -18,6 +19,7 @@
 #import <Social/Social.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <AddressBook/AddressBook.h>
+#import <MapKit/MapKit.h>
 
 @implementation GBToolbox (iOS)
 
@@ -236,6 +238,50 @@ void RemoveChildViewController(UIViewController *childViewController) {
     [childViewController willMoveToParentViewController:nil];
     [childViewController.view removeFromSuperview];
     [childViewController removeFromParentViewController];
+}
+
+#pragma mark - Actions
+
+void OpenLinkInSafari(NSString *link) {
+    NSString *urlString = link;
+
+    // add protocol if it's not there yet
+    if (![urlString containsSubstring:@"://"]) {
+        urlString = [NSString stringWithFormat:@"http://%@", urlString];
+    }
+
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+}
+
+void OpenMap(CLLocation *location, NSString *name) {
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:location.coordinate addressDictionary:nil];
+    MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+    if (name) mapItem.name = name;
+    
+    [mapItem openInMapsWithLaunchOptions:nil];
+}
+
+static void _performPhoneNumberActionWithNumber(NSString *number, NSString *prefix) {
+    NSCharacterSet *characterSet = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789+"] invertedSet];
+    NSString *processedNumber = [[number componentsSeparatedByCharactersInSet:characterSet] componentsJoinedByString:@""];
+    NSString *urlString = [NSString stringWithFormat:@"%@://%@", prefix, processedNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+}
+
+void CallPhone(NSString *number) {
+    _performPhoneNumberActionWithNumber(number, @"tel");
+}
+
+void SendSMS(NSString *number) {
+    _performPhoneNumberActionWithNumber(number, @"sms");
+}
+
+#pragma mark - Fonts
+
+void ListAvailableFonts() {
+    for (NSString *fontFamily in [UIFont familyNames]) {
+        NSLog(@"%@: %@", fontFamily, [UIFont fontNamesForFamilyName:fontFamily]);
+    }
 }
 
 @end
