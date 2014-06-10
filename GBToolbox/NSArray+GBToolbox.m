@@ -39,7 +39,7 @@
             resultsArray[i] = mappedObject;
         }
         else {
-            @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Mapping function must a non-nil object" userInfo:nil];
+            @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Mapping function must return a non-nil object" userInfo:nil];
         }
     }
     
