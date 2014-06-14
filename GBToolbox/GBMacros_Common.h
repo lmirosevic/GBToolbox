@@ -139,4 +139,7 @@ static inline void _lBoolean(BOOL boolean) {l(@"Boolean: %@", _b(boolean));}
 //Localization
 #define PreferredLanguage [[NSLocale preferredLanguages] objectAtIndex:0]
 
+//Control flow
+#define loop while (YES)
+
 #endif
