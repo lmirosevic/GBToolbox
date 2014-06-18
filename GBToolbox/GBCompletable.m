@@ -66,12 +66,10 @@
 
 -(void)setCompletedCallback:(VoidBlock)successCallback {
     _successCallback = [successCallback copy];
-    [self _success];
 }
 
 -(void)setFailCallback:(VoidBlock)failCallback {
     _failCallback = [failCallback copy];
-    [self _fail];
 }
 
 -(void)success {
