@@ -64,12 +64,17 @@
 }
 
 //best attempt to get float out of a string
--(CGFloat)attemptConversionToFloat {
+-(float)attemptConversionToFloat {
+    return [self attemptConversionToDouble];
+}
+
+//best attempt to get double out of a string
+-(double)attemptConversionToDouble {
     NSString *decimalSeparator = [NSNumberFormatter new].decimalSeparator;
     NSCharacterSet *allowedCharacterSet = [NSCharacterSet characterSetWithCharactersInString:[@"0123456789" stringByAppendingString:decimalSeparator]];
     
     NSString *cleanedPriceString = [self stringByRemovingCharactersNotInSet:allowedCharacterSet];
-    CGFloat rawAmount = [cleanedPriceString floatValue];
+    CGFloat rawAmount = [cleanedPriceString doubleValue];
     
     return rawAmount;
 }
