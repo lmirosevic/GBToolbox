@@ -32,7 +32,10 @@
 -(int)attemptConversionToInt;
 
 //best attempt to get float out of a string
--(CGFloat)attemptConversionToFloat;
+-(float)attemptConversionToFloat;
+
+//best attempt to get double out of a string
+-(double)attemptConversionToDouble;
 
 //Trims leading and trailing whitespace
 -(NSString *)stringByTrimmingLeadingAndTrailingWhitespace;
