@@ -12,9 +12,12 @@
 
 @property (copy, nonatomic) NSString        *contentType;
 @property (copy, nonatomic) NSString        *name;
+@property (copy, nonatomic) NSString        *filename;
 @property (strong, nonatomic) NSData        *data;
 
++(GBFormPayload *)formPayloadWithName:(NSString *)name filename:(NSString *)filename contentType:(NSString *)contentType data:(NSData *)data;
 +(GBFormPayload *)formPayloadWithName:(NSString *)name contentType:(NSString *)contentType data:(NSData *)data;
+-(id)initWithName:(NSString *)name filename:(NSString *)filename contentType:(NSString *)contentType data:(NSData *)data;
 -(id)initWithName:(NSString *)name contentType:(NSString *)contentType data:(NSData *)data;
 
 -(NSData *)representationInMultipartForm;

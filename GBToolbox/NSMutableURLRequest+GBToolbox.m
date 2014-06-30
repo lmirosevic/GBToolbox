@@ -15,17 +15,27 @@ static NSString * const kDefaultFormBoundary =      @"GBFormBoundary_B6bjp9UyZcX
 
 #pragma mark - creation
 
--(id)initWithName:(NSString *)name contentType:(NSString *)contentType data:(NSData *)data {
+-(id)initWithName:(NSString *)name filename:(NSString *)filename contentType:(NSString *)contentType data:(NSData *)data {
     if (self = [super init]) {
         self.name = name;
         self.contentType = contentType;
+		self.filename = filename;
         self.data = data;
     }
     
     return self;
 }
 
-+(GBFormPayload *)formPayloadWithName:(NSString *)name contentType:(NSString *)contentType data:(NSData *)data{
+-(id)initWithName:(NSString *)name contentType:(NSString *)contentType data:(NSData *)data {
+	self = [self initWithName:name filename:nil contentType:contentType data:data];
+    return self;
+}
+
++(GBFormPayload *)formPayloadWithName:(NSString *)name filename:(NSString *)filename contentType:(NSString *)contentType data:(NSData *)data {
+    return [[self alloc] initWithName:name filename:filename contentType:contentType data:data];
+}
+
++(GBFormPayload *)formPayloadWithName:(NSString *)name contentType:(NSString *)contentType data:(NSData *)data {
     return [[self alloc] initWithName:name contentType:contentType data:data];
 }
 
@@ -34,7 +44,7 @@ static NSString * const kDefaultFormBoundary =      @"GBFormBoundary_B6bjp9UyZcX
 -(NSData *)representationInMultipartForm {
     //create the little subheader
     NSString *disposition = [NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"", self.name];
-    if ([self.contentType isEqualToString:@"application/octet-stream"]) disposition = [disposition stringByAppendingString:@"; filename=\"file\""];
+    if ([self.contentType isEqualToString:@"application/octet-stream"]) disposition = [disposition stringByAppendingString:[NSString stringWithFormat:@"; filename=\"%@\"", self.filename ? self.filename : @"file"]];
     NSString *type = [NSString stringWithFormat:@"Content-Type: %@", self.contentType];
     NSString *subheaderString = [NSString stringWithFormat:@"%@\r\n%@\r\n\r\n", disposition, type];
 
