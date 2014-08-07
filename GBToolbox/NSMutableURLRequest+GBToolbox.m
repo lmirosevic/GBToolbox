@@ -8,8 +8,8 @@
 
 #import "NSMutableURLRequest+GBToolbox.h"
 
-static CGFloat const kRequestTimeoutInterval =      30;
-static NSString * const kDefaultFormBoundary =      @"GBFormBoundary_B6bjp9UyZcXHTf_f)m(YsWW1S.aUbx/ls+zQbnF)dTCHX+e1lkJD";
+static CGFloat const kDefaultRequestTimeoutInterval =   30;
+static NSString * const kDefaultFormBoundary =          @"GBFormBoundary_B6bjp9UyZcXHTf_f)m(YsWW1S.aUbx/ls+zQbnF)dTCHX+e1lkJD";
 
 @implementation GBFormPayload
 
@@ -68,18 +68,26 @@ static NSString * const kDefaultFormBoundary =      @"GBFormBoundary_B6bjp9UyZcX
     return [self postRequestWithURLString:urlString payloadType:@"application/json" payloadData:data headers:headers];
 }
 
++(NSMutableURLRequest *)postRequestWithURLString:(NSString *)urlString jsonPayload:(NSData *)data headers:(NSDictionary *)headers timeout:(NSTimeInterval)timeout {
+    return [self postRequestWithURLString:urlString payloadType:@"application/json" payloadData:data headers:headers timeout:timeout];
+}
+
 
 +(NSMutableURLRequest *)postRequestWithURLString:(NSString *)urlString payloadType:(NSString *)contentType payloadData:(NSData *)data {
     return [self postRequestWithURLString:urlString payloadType:contentType payloadData:data headers:nil];
 }
 
 +(NSMutableURLRequest *)postRequestWithURLString:(NSString *)urlString payloadType:(NSString *)contentType payloadData:(NSData *)data headers:(NSDictionary *)headers {
+    return [self postRequestWithURLString:urlString payloadType:contentType payloadData:data headers:headers timeout:kDefaultRequestTimeoutInterval];
+}
+
++(NSMutableURLRequest *)postRequestWithURLString:(NSString *)urlString payloadType:(NSString *)contentType payloadData:(NSData *)data headers:(NSDictionary *)headers timeout:(NSTimeInterval)timeout {
     //augment headers with content type
     NSMutableDictionary *headers2 = headers ? [headers mutableCopy] : [NSMutableDictionary new];
     headers2[@"Content-Type"] = contentType;
     
     //return new request
-    return [NSMutableURLRequest requestWithURLString:urlString method:@"POST" body:data headers:headers2];
+    return [self requestWithURLString:urlString method:@"POST" body:data headers:headers2 timeout:timeout];
 }
 
 
@@ -88,6 +96,10 @@ static NSString * const kDefaultFormBoundary =      @"GBFormBoundary_B6bjp9UyZcX
 }
 
 +(NSMutableURLRequest *)multipartPostRequestWithURLString:(NSString *)urlString payloads:(NSArray *)payloads headers:(NSDictionary *)headers {
+    return [self multipartPostRequestWithURLString:urlString payloads:payloads headers:headers timeout:kDefaultRequestTimeoutInterval];
+}
+
++(NSMutableURLRequest *)multipartPostRequestWithURLString:(NSString *)urlString payloads:(NSArray *)payloads headers:(NSDictionary *)headers timeout:(NSTimeInterval)timeout {
     //augment headers with content type
     NSMutableDictionary *headers2 = headers ? [headers mutableCopy] : [NSMutableDictionary new];
     headers2[@"Content-Type"] = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", kDefaultFormBoundary];
@@ -106,13 +118,17 @@ static NSString * const kDefaultFormBoundary =      @"GBFormBoundary_B6bjp9UyZcX
     [body appendData:[[NSString stringWithFormat:@"--%@--", kDefaultFormBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
     
     //return new request
-    return [NSMutableURLRequest requestWithURLString:urlString method:@"POST" body:body headers:headers2];
+    return [self requestWithURLString:urlString method:@"POST" body:body headers:headers2 timeout:timeout];
 }
 
 
 +(NSMutableURLRequest *)requestWithURLString:(NSString *)urlString method:(NSString *)method body:(NSData *)body headers:(NSDictionary *)headers {
+    return [self requestWithURLString:urlString method:method body:body headers:headers timeout:kDefaultRequestTimeoutInterval];
+}
+
++(NSMutableURLRequest *)requestWithURLString:(NSString *)urlString method:(NSString *)method body:(NSData *)body headers:(NSDictionary *)headers timeout:(NSTimeInterval)timeout {
     if (urlString && method) {
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:kRequestTimeoutInterval];
+        NSMutableURLRequest *request = [self requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:timeout];
         
         //http method
         [request setHTTPMethod:method];

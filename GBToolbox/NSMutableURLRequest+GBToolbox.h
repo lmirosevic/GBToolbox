@@ -28,13 +28,17 @@
 
 +(NSMutableURLRequest *)postRequestWithURLString:(NSString *)urlString jsonPayload:(NSData *)data;
 +(NSMutableURLRequest *)postRequestWithURLString:(NSString *)urlString jsonPayload:(NSData *)data headers:(NSDictionary *)headers;
++(NSMutableURLRequest *)postRequestWithURLString:(NSString *)urlString jsonPayload:(NSData *)data headers:(NSDictionary *)headers timeout:(NSTimeInterval)timeout;
 
 +(NSMutableURLRequest *)postRequestWithURLString:(NSString *)urlString payloadType:(NSString *)contentType payloadData:(NSData *)data;
 +(NSMutableURLRequest *)postRequestWithURLString:(NSString *)urlString payloadType:(NSString *)contentType payloadData:(NSData *)data headers:(NSDictionary *)headers;
++(NSMutableURLRequest *)postRequestWithURLString:(NSString *)urlString payloadType:(NSString *)contentType payloadData:(NSData *)data headers:(NSDictionary *)headers timeout:(NSTimeInterval)timeout;
 
 +(NSMutableURLRequest *)multipartPostRequestWithURLString:(NSString *)urlString payloads:(NSArray *)payloads;
 +(NSMutableURLRequest *)multipartPostRequestWithURLString:(NSString *)urlString payloads:(NSArray *)payloads headers:(NSDictionary *)headers;
++(NSMutableURLRequest *)multipartPostRequestWithURLString:(NSString *)urlString payloads:(NSArray *)payloads headers:(NSDictionary *)headers timeout:(NSTimeInterval)timeout;
 
 +(NSMutableURLRequest *)requestWithURLString:(NSString *)urlString method:(NSString *)method body:(NSData *)body headers:(NSDictionary *)headers;
++(NSMutableURLRequest *)requestWithURLString:(NSString *)urlString method:(NSString *)method body:(NSData *)body headers:(NSDictionary *)headers timeout:(NSTimeInterval)timeout;
 
 @end
