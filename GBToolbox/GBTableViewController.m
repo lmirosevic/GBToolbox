@@ -65,6 +65,11 @@ static CGFloat kDefaultLastScrollPosition =                     -10e5;//some cra
 
 #pragma mark - Life
 
+-(void)dealloc {
+    _tableView.dataSource = nil;
+    _tableView.delegate = nil;
+}
+
 -(id)initWithStyle:(UITableViewStyle)style {
     if (self = [super init]) {
         self.lastScrollPostion = kDefaultLastScrollPosition;
