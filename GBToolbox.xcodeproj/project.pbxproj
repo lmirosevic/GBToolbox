@@ -744,6 +744,7 @@
 		8AD911A8162D9E2200C9D287 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Luka Mirosevic";
 			};
@@ -1081,7 +1082,6 @@
 					"$(inherited)",
 					"IPHONE=1",
 				);
-				HEADER_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = GBToolbox;
 				SKIP_INSTALL = YES;
@@ -1096,7 +1096,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GBToolbox/GBToolbox-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "IPHONE=1";
-				HEADER_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = GBToolbox;
 				SKIP_INSTALL = YES;
