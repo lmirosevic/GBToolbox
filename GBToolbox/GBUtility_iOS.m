@@ -106,7 +106,14 @@ UIBezierPath * RoundBezierPathForRectWithMargin(CGRect rect, UIEdgeInsets margin
 #pragma mark - Push Notifications
 
 BOOL IsPushDisabled() {
-    return [[UIApplication sharedApplication] enabledRemoteNotificationTypes] == UIRemoteNotificationTypeNone;
+    //iOS 8+
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(isRegisteredForRemoteNotifications)]) {
+        return [[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
+    }
+    //iOS 7 and below
+    else {
+        return [[UIApplication sharedApplication] enabledRemoteNotificationTypes] == UIRemoteNotificationTypeNone;
+    }
 }
 
 #pragma mark - UITableView
