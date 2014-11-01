@@ -140,7 +140,7 @@
 
 #pragma mark - clicking
 
--(NSUInteger)hitTestForEvent:(NSEvent *)event inRect:(NSRect)cellFrame ofView:(NSView *)controlView {
+-(NSCellHitResult)hitTestForEvent:(NSEvent *)event inRect:(NSRect)cellFrame ofView:(NSView *)controlView {
     //see if the hit is inside or outside of the cell
     NSPoint pointInWindow = event.locationInWindow;
     NSRect rectInWindow = [controlView convertRect:controlView.bounds toView:nil];

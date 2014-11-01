@@ -23,12 +23,14 @@
 @end
 
 
-@implementation GBResizableImageView
+@implementation GBResizableImageView {
+    NSImage *__image;
+}
 
 #pragma mark - public api
 
 -(void)setImage:(NSImage *)image {
-    _image = image;
+    __image = image;
     
     [self _generateFragmentImages];
     [self setNeedsDisplay:YES];

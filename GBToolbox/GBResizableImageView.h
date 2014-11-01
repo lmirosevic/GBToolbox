@@ -12,7 +12,7 @@
 
 @interface GBResizableImageView : NSImageView
 
-@property (strong, nonatomic) NSImage           *image;
+@property (strong, atomic) NSImage              *image;
 @property (assign, nonatomic) GBEdgeInsets      capInsets;
 
 @end

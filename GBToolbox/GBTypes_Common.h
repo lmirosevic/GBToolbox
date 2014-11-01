@@ -10,6 +10,7 @@
 #define GBToolbox_GBTypes_Common_h
 
 #import <CoreGraphics/CoreGraphics.h>
+#import <Foundation/Foundation.h>
 
 #pragma mark - General
 
