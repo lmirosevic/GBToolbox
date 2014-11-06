@@ -127,4 +127,16 @@ NSInteger RandomIntegerBetween(NSInteger min, NSInteger max);
 //Returns a random CGFloat between 0 and 1
 CGFloat Random();
 
+#pragma mark - Debug
+
+/**
+ Sends a debug message via the network for remote debugging. To listen for messages run `nc -l -k 10000`
+ */
+void SendRemoteDebugMessage(NSString *message);
+
+/**
+ Sends a debug message via the network for remote debugging to a custom server.
+ */
+void SendRemoteDebugMessageToServerOnPort(NSString *message, NSString *server, UInt32 port);
+
 @end
