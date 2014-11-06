@@ -36,4 +36,19 @@
     }];
 }
 
+-(BOOL)containsObject:(id)object {
+    return [self.allObjects containsObject:object];
+}
+
+-(id)keyForObject:(id)object {
+    for (id key in self) {
+        if ([self[key] isEqual:object]) {
+            return key;
+        }
+    }
+    
+    // fallback in case nothing is found
+    return nil;
+}
+
 @end

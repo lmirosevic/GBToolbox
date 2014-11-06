@@ -30,4 +30,14 @@
  */
 @property (strong, nonatomic, readonly) NSArray *allObjects;
 
+/**
+ Checks whether the map table contains the object.
+ */
+-(BOOL)containsObject:(id)object;
+
+/**
+ Returns the firs matching key for the object.
+ */
+-(id)keyForObject:(id)object;
+
 @end
