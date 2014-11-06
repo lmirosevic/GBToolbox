@@ -142,4 +142,12 @@ static inline void _lBoolean(BOOL boolean) {l(@"Boolean: %@", _b(boolean));}
 //Control flow
 #define loop while (YES)
 
+//Assertions
+#define AssertParameterNotNil(input) if (!input) { @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"Input parameter `%@` for method `%s` was nil, expected it not to be nil.", STRINGIFY(input), __PRETTY_FUNCTION__] userInfo:nil]; }
+#define AssertParameterNotEmptyArray(input) if (!input || ![input isKindOfClass:[NSArray class]] || (input.count == 0)) { @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"Input parameter `%@` for method `%s` was not a non-empty array, expected it to be an array with at least 1 element.", STRINGIFY(input), __PRETTY_FUNCTION__] userInfo:nil]; }
+
+
+#define AssertVariableNotNil(input) if (!input) { @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"Variable `%@` inside method `%s` was nil, expected it not to be nil.", STRINGIFY(input), __PRETTY_FUNCTION__] userInfo:nil]; }
+#define AssertVariableIsNil(input) if (input) { @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"Variable `%@` inside method `%s` was not nil, expected it to be nil.", STRINGIFY(input), __PRETTY_FUNCTION__] userInfo:nil]; }
+
 #endif
