@@ -59,6 +59,11 @@
 
 //Debugging
 static inline void _lEdgeInsets(UIEdgeInsets edgeInsets) {l(@"EdgeInsets: %f %f %f %f", edgeInsets.top, edgeInsets.left, edgeInsets.bottom, edgeInsets.right);}
+#ifdef DEBUG
+#define EnableAutolayoutDebugHotkeyWithCrash(shouldCrashIfAmbiguous) -(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event { NSLog(@"Checking autolayout..."); AutoLayoutDebugOn(shouldCrashIfAmbiguous); }
+#else
+#define EnableAutolayoutDebugHotkeyWithCrash(shouldCrashIfAmbiguous) /* noop */
+#endif
 
 //Animation
 static inline UIViewAnimationOptions UIAnimationOptionsWithCurve(UIViewAnimationCurve curve) {
