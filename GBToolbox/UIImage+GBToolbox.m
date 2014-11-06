@@ -169,6 +169,26 @@
     return transform;
 }
 
+#pragma mark - Programmatic images
+
++ (UIImage *)imageWithSolidColor:(UIColor *)color size:(CGSize)size {
+    return [self imageWithSolidColor:color size:size capInsets:UIEdgeInsetsZero];
+}
+
++ (UIImage *)imageWithSolidColor:(UIColor *)color size:(CGSize)size capInsets:(UIEdgeInsets)capInsets {
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = [UIGraphicsGetImageFromCurrentImageContext() resizableImageWithCapInsets:capInsets];
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
 #pragma mark - Apple UIImage+ImageEffects
 
 - (UIImage *)applyLightEffect

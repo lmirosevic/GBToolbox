@@ -21,6 +21,11 @@
 -(UIImage *)resizedImage:(CGSize)newSize interpolationQuality:(CGInterpolationQuality)quality;
 -(UIImage *)resizedImageWithContentMode:(UIViewContentMode)contentMode bounds:(CGSize)bounds interpolationQuality:(CGInterpolationQuality)quality;
 
+#pragma mark - Programmatic images
+
++ (UIImage *)imageWithSolidColor:(UIColor *)color size:(CGSize)size;
++ (UIImage *)imageWithSolidColor:(UIColor *)color size:(CGSize)size capInsets:(UIEdgeInsets)capInsets;
+
 #pragma mark - Apple UIImage+ImageEffects
 
 -(UIImage *)applyLightEffect;
