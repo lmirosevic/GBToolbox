@@ -401,36 +401,4 @@ CGFloat Random() {
     return arc4random() % 256 / 256.0; //  0.0 to 1.0
 }
 
-#pragma mark - Debugging
-
-void SendRemoteDebugMessage(NSString *message) {
-    SendRemoteDebugMessageToServerOnPort(message, @"localhost", 10000);
-}
-
-void SendRemoteDebugMessageToServerOnPort(NSString *message, NSString *server, UInt32 port) {
-    static NSOutputStream *outputStream;
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        // lazy creation of socket, we never close it, but that's ok since it's only for debug
-        if (!outputStream) {
-            // open socket and stream
-            CFWriteStreamRef writeStream;
-            CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (__bridge CFStringRef)server, port, NULL, &writeStream);
-            outputStream = (__bridge NSOutputStream *)writeStream;
-//            [outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-            [outputStream open];
-        }
-        
-        // add a newline to the string
-        NSString *messageToSend = [message stringByAppendingString:@"\n"];
-        
-        // convert string to bytes
-        NSData *messageData = [messageToSend dataUsingEncoding:NSUTF8StringEncoding];
-        
-        // send string
-        uint8_t *bytes = (uint8_t *)[messageData bytes];
-        [outputStream write:bytes maxLength:messageData.length];
-    });
-}
-
 @end

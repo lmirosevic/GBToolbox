@@ -32,7 +32,8 @@ Pod::Spec.new do |s|
                         'GBToolbox/GBCache.{h,m}',
                         'GBToolbox/NSMapTable+GBToolbox.{h,m}',
                         'GBToolbox/GBEnumWrapper.{h,m}',
-                        'GBToolbox/GBAddress.{h,m}'
+                        'GBToolbox/GBAddress.{h,m}',
+                        'GBToolbox/GBRemoteDebugMessages.{h,m}'
   s.ios.source_files =  'GBToolbox/GBTypes_iOS.h',
                         'GBToolbox/GBMacros_iOS.h',
                         'GBToolbox/GBUtility_iOS.h',
@@ -96,7 +97,8 @@ s.public_header_files  =       'GBToolbox/GBToolbox.h',
                                'GBToolbox/GBCache.h',
                                'GBToolbox/NSMapTable+GBToolbox.h',
                                'GBToolbox/GBEnumWrapper.h',
-                               'GBToolbox/GBAddress.h'
+                               'GBToolbox/GBAddress.h',
+		                       'GBToolbox/GBRemoteDebugMessages.h'
   s.ios.public_header_files =  'GBToolbox/GBTypes_iOS.h',
                                'GBToolbox/GBMacros_iOS.h',
                                'GBToolbox/GBUtility_iOS.h',

@@ -82,6 +82,7 @@
 		8A8CAC3D177DB9D500B661E0 /* UIImageView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CAC3C177DB9D500B661E0 /* UIImageView+GBToolbox.m */; };
 		8A8CAC44177DC18400B661E0 /* GBToggleControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CAC43177DC18400B661E0 /* GBToggleControl.m */; };
 		8A9DA4B81792CF290074054E /* GBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9DA4B71792CF290074054E /* GBTableViewController.m */; };
+		8AA19A6B1A0E2D5400E2C33A /* GBRemoteDebugMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA19A6A1A0E2D5400E2C33A /* GBRemoteDebugMessages.m */; };
 		8AB5C25417818F8F005A7A22 /* UIImage+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB5C25317818F8F005A7A22 /* UIImage+GBToolbox.m */; };
 		8AB5C2931781BD63005A7A22 /* GBAlertBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB5C2921781BD63005A7A22 /* GBAlertBadgeView.m */; };
 		8ABBE1F917D73F9300D1B14F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ABBE1F817D73F9300D1B14F /* AudioToolbox.framework */; };
@@ -242,6 +243,8 @@
 		8A8CAC43177DC18400B661E0 /* GBToggleControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBToggleControl.m; sourceTree = "<group>"; };
 		8A9DA4B61792CF290074054E /* GBTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTableViewController.h; sourceTree = "<group>"; };
 		8A9DA4B71792CF290074054E /* GBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTableViewController.m; sourceTree = "<group>"; };
+		8AA19A691A0E2D5400E2C33A /* GBRemoteDebugMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBRemoteDebugMessages.h; sourceTree = "<group>"; };
+		8AA19A6A1A0E2D5400E2C33A /* GBRemoteDebugMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBRemoteDebugMessages.m; sourceTree = "<group>"; };
 		8AB5C25217818F8F005A7A22 /* UIImage+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GBToolbox.h"; sourceTree = "<group>"; };
 		8AB5C25317818F8F005A7A22 /* UIImage+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GBToolbox.m"; sourceTree = "<group>"; };
 		8AB5C2911781BD63005A7A22 /* GBAlertBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBAlertBadgeView.h; sourceTree = "<group>"; };
@@ -632,6 +635,8 @@
 				8A1F3A751941FE97006D2AF1 /* GBEnumWrapper.m */,
 				8A14886819434E7100A26642 /* GBAddress.h */,
 				8A14886919434E7100A26642 /* GBAddress.m */,
+				8AA19A691A0E2D5400E2C33A /* GBRemoteDebugMessages.h */,
+				8AA19A6A1A0E2D5400E2C33A /* GBRemoteDebugMessages.m */,
 			);
 			name = General;
 			sourceTree = "<group>";
@@ -719,7 +724,7 @@
 			name = "GBToolboxUnitTests-iOS";
 			productName = GBToolboxUnitTests;
 			productReference = 8A0C4E34165FA60C00A990FB /* GBToolboxUnitTests-iOS.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 		8AD911B0162D9E2200C9D287 /* GBToolbox-iOS */ = {
 			isa = PBXNativeTarget;
@@ -856,6 +861,7 @@
 				8ACE941F16C11A2300527E0D /* UITableView+GBToolbox.m in Sources */,
 				8ACE942316C11A6200527E0D /* UIViewController+GBToolbox.m in Sources */,
 				8A049662191105460070FC71 /* NSInvocation+GBToolbox.m in Sources */,
+				8AA19A6B1A0E2D5400E2C33A /* GBRemoteDebugMessages.m in Sources */,
 				8ACE942816C11A9800527E0D /* NSTimer+GBToolbox.m in Sources */,
 				8A14886A19434E7100A26642 /* GBAddress.m in Sources */,
 				8ACE942D16C11AE900527E0D /* NSData+GBToolbox.m in Sources */,

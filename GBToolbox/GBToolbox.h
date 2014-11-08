@@ -33,6 +33,7 @@
 #import "GBCache.h"
 #import "GBEnumWrapper.h"
 #import "GBAddress.h"
+#import "GBRemoteDebugMessages.h"
 
 #import "NSObject+GBToolbox.h"
 #import "NSTimer+GBToolbox.h"
