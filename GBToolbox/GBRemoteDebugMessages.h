@@ -18,7 +18,7 @@
 /**
  Sends a debug message via the network for remote debugging. To listen for messages run `nc -l -k 10000` on the target host, where 10000 is the default port to which messages are sent if you don't specify a custom route. If you specify a port using `RouteRemoteDebugMessagesToServerOnPort` then you should listen on that port.
  */
-- (void)sendRemoteDebugMessage:(NSString *)message;
+- (void)sendRemoteDebugMessage:(NSString *)message, ...;
 
 /**
  Determines where to remote debug messages will be sent.
@@ -27,10 +27,6 @@
 
 @end
 
-static inline void SendRemoteDebugMessage(NSString *message) {
-    [[GBRemoteDebugMessages sharedMessages] sendRemoteDebugMessage:message];
-}
-
-static inline void RouteRemoteDebugMessagesToServerOnPort(NSString *server, UInt32 port) {
-    [[GBRemoteDebugMessages sharedMessages] routeRemoteDebugMessagesToServer:server onPort:port];
-}
+// Shorthands
+void SendRemoteDebugMessage(NSString *message, ...);
+void RouteRemoteDebugMessagesToServerOnPort(NSString *server, UInt32 port);

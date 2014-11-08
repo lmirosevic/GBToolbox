@@ -34,6 +34,7 @@ static BOOL const kDefaultShouldLogLocallyAsWell =  NO;
 - (id)init {
     if (self = [super init]) {
         self.messagesQueue = dispatch_queue_create("com.goonbee.GBToolbox.GBRemoteDebugMessages.Queue", DISPATCH_QUEUE_SERIAL);
+        self.shouldLogLocallyAsWell = kDefaultShouldLogLocallyAsWell;
         dispatch_async(self.messagesQueue, ^{
             self.buffer = [NSMutableString new];
         });
@@ -44,9 +45,18 @@ static BOOL const kDefaultShouldLogLocallyAsWell =  NO;
 
 #pragma mark - API
 
-- (void)sendRemoteDebugMessage:(NSString *)message {
+- (void)sendRemoteDebugMessage:(NSString *)message, ... {
+    va_list args;
+    va_start(args, message);
+    NSString *completeMessage = [[NSString alloc] initWithFormat:message arguments:args];
+    va_end(args);
+    
+    [[GBRemoteDebugMessages sharedMessages] _sendRemoteDebugMessage:completeMessage];
+}
+
+- (void)_sendRemoteDebugMessage:(NSString *)completeMessage {
     dispatch_async(self.messagesQueue, ^{
-        if (self.shouldLogLocallyAsWell) NSLog(@"%@", message);
+        if (self.shouldLogLocallyAsWell) NSLog(@"%@", completeMessage);
         
         // make sure the stream exists
         if (!self.outputStream) {
@@ -54,7 +64,7 @@ static BOOL const kDefaultShouldLogLocallyAsWell =  NO;
         }
         
         // just write the message to our buffer
-        [self _addMessageToBuffer:message];
+        [self _addMessageToBuffer:completeMessage];
     });
 }
 
@@ -125,3 +135,16 @@ static BOOL const kDefaultShouldLogLocallyAsWell =  NO;
 }
 
 @end
+
+void SendRemoteDebugMessage(NSString *message, ...) {
+    va_list args;
+    va_start(args, message);
+    NSString *completeMessage = [[NSString alloc] initWithFormat:message arguments:args];
+    va_end(args);
+    
+    [[GBRemoteDebugMessages sharedMessages] _sendRemoteDebugMessage:completeMessage];
+}
+
+void RouteRemoteDebugMessagesToServerOnPort(NSString *server, UInt32 port) {
+    [[GBRemoteDebugMessages sharedMessages] routeRemoteDebugMessagesToServer:server onPort:port];
+}
