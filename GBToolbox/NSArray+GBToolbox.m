@@ -129,6 +129,19 @@
     return NSNotFound;
 }
 
+#pragma mark - Conveniences
+
+-(id)firstObjectEqualToObject:(id)object {
+    NSUInteger index = [self indexOfObject:object];
+    
+    if (index == NSNotFound) {
+        return nil;
+    }
+    else {
+        return [self objectAtIndex:index];
+    }
+}
+
 #pragma mark - Set like operations
 
 -(NSArray *)arrayBySubtractingArray:(NSArray *)array {

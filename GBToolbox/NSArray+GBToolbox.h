@@ -44,8 +44,18 @@
 //indexOfFirst
 -(NSUInteger)indexOfFirst:(BOOL(^)(id object))function;
 
+#pragma mark - Conveniences
+
+/**
+ Returns the first object inside the receiver which is equal to the object. Returns nil if no object is equal.
+ */
+-(id)firstObjectEqualToObject:(id)object;
+
 #pragma mark - Set like operations
 
+/**
+ Returns a new array which is a copy of the receiver with all objects removed that are inside `array`
+ */
 -(NSArray *)arrayBySubtractingArray:(NSArray *)array;
 
 #pragma mark - Description
