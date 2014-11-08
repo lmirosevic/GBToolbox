@@ -145,6 +145,9 @@ static inline void _lBoolean(BOOL boolean) {l(@"Boolean: %@", _b(boolean));}
 //Assertions
 #define AssertParameterNotNil(input) if (!input) { @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"Input parameter `%@` for method `%s` was nil, expected it not to be nil.", STRINGIFY(input), __PRETTY_FUNCTION__] userInfo:nil]; }
 #define AssertParameterNotEmptyArray(input) if (!input || ![input isKindOfClass:[NSArray class]] || (input.count == 0)) { @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"Input parameter `%@` for method `%s` was not a non-empty array, expected it to be an array with at least 1 element.", STRINGIFY(input), __PRETTY_FUNCTION__] userInfo:nil]; }
+#define AssertParameterIsHomogenousArrayWithElementsOfType(parameter, objectClass) \
+if (![parameter isKindOfClass:NSArray.class]) { @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"Parameter must be an array, passed in object of type %@", NSStringFromClass([parameter class])] userInfo:nil]; } \
+for (id object in parameter) { if (![object isKindOfClass:objectClass]) { @throw [NSException exceptionWithName:NSInvalidArgumentException reason:[NSString stringWithFormat:@"Array contents must be of type %@, passed in object of type %@", NSStringFromClass(objectClass), NSStringFromClass([object class])] userInfo:nil]; } }
 
 
 #define AssertVariableNotNil(input) if (!input) { @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"Variable `%@` inside method `%s` was nil, expected it not to be nil.", STRINGIFY(input), __PRETTY_FUNCTION__] userInfo:nil]; }
