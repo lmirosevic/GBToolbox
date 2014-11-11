@@ -397,8 +397,9 @@ NSInteger RandomIntegerBetween(NSInteger min, NSInteger max) {
 }
 
 //Returns a random CGFloat between 0 and 1
+#define ARC4RANDOM_MAX      0x100000000
 CGFloat Random() {
-    return arc4random() % 256 / 256.0; //  0.0 to 1.0
+    return arc4random() / ARC4RANDOM_MAX; //  0.0 to 1.0
 }
 
 @end
