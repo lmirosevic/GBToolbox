@@ -127,4 +127,16 @@ NSInteger RandomIntegerBetween(NSInteger min, NSInteger max);
 //Returns a random CGFloat between 0 and 1
 CGFloat Random();
 
+#pragma mark - Crashing
+
+/**
+ Crashes the process by dereferencing a NULL pointer
+ */
+void CrashByDereferencingNullPointer();
+
+/**
+ Throws an exception.
+ */
+void CrashByThrowingExeption();
+
 @end

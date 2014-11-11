@@ -402,4 +402,15 @@ CGFloat Random() {
     return arc4random() / ARC4RANDOM_MAX; //  0.0 to 1.0
 }
 
+#pragma mark - Crashing
+
+void CrashByDereferencingNullPointer() {
+    int *prepCrash = NULL;
+    *prepCrash = 10;
+}
+
+void CrashByThrowingExeption() {
+    @throw [NSException exceptionWithName:NSGenericException reason:@"Crashing process on purpose!" userInfo:nil];
+}
+
 @end
