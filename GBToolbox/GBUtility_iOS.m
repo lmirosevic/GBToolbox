@@ -291,4 +291,20 @@ void ListAvailableFonts() {
     }
 }
 
+#pragma mark - Disk utils
+
+NSString * DocumentsDirectoryPath() {
+#if TARGET_OS_IPHONE
+    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+#else
+    NSString *documentsDirectory = [[NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[[NSBundle mainBundle] infoDictionary][@"CFBundleIdentifier"]];
+#endif
+    
+    return documentsDirectory;
+}
+
+NSURL * DocumentsDirectoryURL() {
+    return [NSURL fileURLWithPath:DocumentsDirectoryPath()];
+}
+
 @end

@@ -102,5 +102,10 @@ void SendSMS(NSString *number);
 
 void ListAvailableFonts();
 
+#pragma mark - Disk utils
+
+NSString * DocumentsDirectoryPath();
+NSURL * DocumentsDirectoryURL();
+
 @end
 
