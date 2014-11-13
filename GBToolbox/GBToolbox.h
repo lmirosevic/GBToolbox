@@ -73,6 +73,7 @@
 #import "GBTextBox.h"
 #import "GBTestView.h"
 #import "GBTableViewController.h"
+#import "GBGradientView.h"
 
 #import "UITableView+GBToolbox.h"
 #import "UIViewController+GBToolbox.h"
