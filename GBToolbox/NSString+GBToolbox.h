@@ -55,6 +55,9 @@
 //Converts "Luka Mirosevic" -> "Luka M." and "Vincent Van Gogh" -> "Vincent V. G."
 -(NSString *)abbreviatedName;
 
+//Removes a trailing slash if there is one
+-(NSString *)stringByRemovingTrailingSlash;
+
 //Hashes
 @property (nonatomic, readonly) NSString *md5;
 @property (nonatomic, readonly) NSString *sha1;
