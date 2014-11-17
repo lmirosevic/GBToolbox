@@ -413,4 +413,13 @@ void CrashByThrowingExeption() {
     @throw [NSException exceptionWithName:NSGenericException reason:@"Crashing process on purpose!" userInfo:nil];
 }
 
+#pragma mark - Bitmasks
+
+BOOL IsBitmaskASubsetOfBitmaskB(NSUInteger bitmaskA, NSUInteger bitmaskB) {
+    return ((bitmaskB & bitmaskA) == bitmaskA);
+}
+
+BOOL IsBitmaskASupersetOfBitmaskB(NSUInteger bitmaskA, NSUInteger bitmaskB) {
+    return ((bitmaskA & bitmaskB) == bitmaskB);
+}
 @end

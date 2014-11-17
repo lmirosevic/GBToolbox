@@ -139,4 +139,16 @@ void CrashByDereferencingNullPointer();
  */
 void CrashByThrowingExeption();
 
+#pragma mark - Bitmasks
+
+/**
+ Returns YES if bitmask A is a subset of bitmask B.
+ */
+BOOL IsBitmaskASubsetOfBitmaskB(NSUInteger bitmaskA, NSUInteger bitmaskB);
+
+/**
+ Returns YES if bitmask A is a superset of bitmask B.
+ */
+BOOL IsBitmaskASupersetOfBitmaskB(NSUInteger bitmaskA, NSUInteger bitmaskB);
+
 @end
