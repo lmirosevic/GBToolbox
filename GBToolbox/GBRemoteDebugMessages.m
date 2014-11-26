@@ -59,7 +59,7 @@ static BOOL const kDefaultShouldLogLocallyAsWell =  NO;
         if (self.shouldLogLocallyAsWell) NSLog(@"%@", completeMessage);
         
         // make sure the stream exists
-        if (!self.outputStream) {
+        if (!self.outputStream || !self.outputStream.hasSpaceAvailable) {
             [self _setupOutputStreamToServer:kDefaultServer onPort:kDefaultPort];
         }
         
@@ -98,10 +98,10 @@ static BOOL const kDefaultShouldLogLocallyAsWell =  NO;
     [self.buffer appendFormat:@"%@\n", message];
     
     // if we have space on our stream
-    if ([self.outputStream hasSpaceAvailable]) {
+//    if ([self.outputStream hasSpaceAvailable]) {
         // we flush the buffer
         [self _flushBufferToStream];
-    }
+//    }
 }
 
 - (void)_flushBufferToStream {
@@ -126,12 +126,12 @@ static BOOL const kDefaultShouldLogLocallyAsWell =  NO;
     }
     
     // open socket and stream
-    CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, (__bridge CFStringRef)server, port, NULL, &writeStream);
-    self.outputStream = (__bridge NSOutputStream *)writeStream;
+    NSOutputStream *outputStream;
+    [NSStream getStreamsToHostWithName:server port:port inputStream:nil outputStream:&outputStream];
+    self.outputStream = outputStream;
     self.outputStream.delegate = self;
     [self.outputStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [self. outputStream open];
+    [self.outputStream open];
 }
 
 @end
