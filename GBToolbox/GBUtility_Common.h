@@ -20,6 +20,7 @@ CGFloat ThresholdCGFloat(CGFloat value, CGFloat min, CGFloat max);
 float ThresholdFloat(float value, float min, float max);
 double ThresholdDouble(double value, double min, double max);
 int ThresholdInt(int value, int min, int max);
+long ThresholdLong(long value, long min, long max);
 
 #pragma mark - Degrees & Radians
 

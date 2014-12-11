@@ -72,6 +72,18 @@ int ThresholdInt(int value, int min, int max) {
     }
 }
 
+long ThresholdLong(long value, long min, long max) {
+    if (value < min) {
+        return min;
+    }
+    else if (value > max) {
+        return max;
+    }
+    else {
+        return value;
+    }
+}
+
 #pragma mark - Degrees & Radians
 
 CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
