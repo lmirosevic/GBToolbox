@@ -186,11 +186,14 @@ void AutoLayoutDebugOn(BOOL crashOnTrigger) {
 #pragma clang diagnostic pop
         
         if (crashOnTrigger) {
-            NSCAssert(false, @"-----------------------We have ambiguous layout");
+            NSCAssert(false, @"Checking Autolayout... AMBIGUOUS!!!");
         }
         else {
-            NSLog(@"------------------------We have ambiguous layout");
+            NSLog(@"Checking Autolayout... AMBIGUOUS!!!");
         }
+    }
+    else {
+        NSLog(@"Checking Autolayout... OK");
     }
 }
 
