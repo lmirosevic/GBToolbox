@@ -41,6 +41,9 @@
 //first
 -(id)first:(BOOL(^)(id object))function;
 
+//count
+-(NSUInteger)count:(BOOL(^)(id object))function;
+
 //indexOfFirst
 -(NSUInteger)indexOfFirst:(BOOL(^)(id object))function;
 

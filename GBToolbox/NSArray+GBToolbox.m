@@ -117,6 +117,11 @@
     }
 }
 
+//count
+-(NSUInteger)count:(BOOL(^)(id object))function {
+    return [[self filter:function] count];
+}
+
 //indexOfFirst
 -(NSUInteger)indexOfFirst:(BOOL(^)(id object))function {
     NSUInteger count = self.count;
