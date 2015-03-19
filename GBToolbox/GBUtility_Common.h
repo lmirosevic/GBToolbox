@@ -152,4 +152,16 @@ BOOL IsBitmaskASubsetOfBitmaskB(NSUInteger bitmaskA, NSUInteger bitmaskB);
  */
 BOOL IsBitmaskASupersetOfBitmaskB(NSUInteger bitmaskA, NSUInteger bitmaskB);
 
+#pragma mark - String formatting
+
+/**
+ Returns a simplified time string from the seconds, e.g. "59:59" or 23:59:59".
+ */
+NSString * PrettyTimeStringFromSeconds(NSInteger seconds);
+
+/**
+ Turns a dictionary of strings into the query string format for use in a URL.
+ */
+NSString * HTTPQueryStringFromDictionary(NSDictionary *getDictionary);
+
 @end

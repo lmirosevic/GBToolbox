@@ -434,4 +434,46 @@ BOOL IsBitmaskASubsetOfBitmaskB(NSUInteger bitmaskA, NSUInteger bitmaskB) {
 BOOL IsBitmaskASupersetOfBitmaskB(NSUInteger bitmaskA, NSUInteger bitmaskB) {
     return ((bitmaskA & bitmaskB) == bitmaskB);
 }
+
+#pragma mark - String formatting
+
+NSString * PrettyTimeStringFromSeconds(NSInteger seconds) {
+    NSInteger h = seconds / 3600;
+    NSInteger m = (seconds / 60) % 60;
+    NSInteger s = seconds % 60;
+    
+    if (seconds < 60) {
+        return [NSString stringWithFormat:@"0:%02ld", (long)s];
+    }
+    else if (seconds < 3600) {
+        return [NSString stringWithFormat:@"%ld:%02ld", (long)m, (long)s];
+    }
+    else {
+        return [NSString stringWithFormat:@"%ld:%02ld:%02ld", (long)h, (long)m, (long)s];
+    }
+}
+
+NSString * HTTPQueryStringFromDictionary(NSDictionary *getDictionary) {
+    //start preparing request
+    NSMutableString *tempGet = [[NSMutableString alloc] init];
+    
+    //convert dictionary into url params string
+    [getDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([key isKindOfClass:[NSString class]] && ([obj isKindOfClass:[NSString class]] || [obj isKindOfClass:[NSNumber class]])) {
+            [tempGet appendFormat:@"%@=%@&", key, obj];
+        }
+        else {
+            *stop = TRUE;
+        }
+    }];
+    
+    //clip trailing & char
+    NSString *getString;
+    if ([tempGet length] > 0) {
+        getString = [tempGet substringToIndex:[tempGet length] - 1];
+    }
+    
+    return getString;
+}
+
 @end
