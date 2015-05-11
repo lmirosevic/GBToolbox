@@ -27,6 +27,8 @@
     NSImage *__image;
 }
 
+@dynamic image;
+
 #pragma mark - public api
 
 -(void)setImage:(NSImage *)image {

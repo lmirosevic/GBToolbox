@@ -18,9 +18,12 @@
         return [self.window convertRectToScreen:self.frame];
     }
     else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         NSRect frame = [self frame];
         frame.origin = [self.window convertBaseToScreen:frame.origin];
         return frame;
+#pragma clang diagnostic pop
     }
 }
 

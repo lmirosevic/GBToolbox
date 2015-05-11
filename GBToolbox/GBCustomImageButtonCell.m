@@ -38,7 +38,7 @@
         _foregroundImageView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
         //set scaling and alignment to just center the image without resizing
         _foregroundImageView.imageAlignment = NSImageAlignCenter;
-        _foregroundImageView.imageScaling = NSScaleNone;
+        _foregroundImageView.imageScaling = NSImageScaleNone;
     }
     
     return _foregroundImageView;

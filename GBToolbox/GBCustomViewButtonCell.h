@@ -15,6 +15,6 @@
 @property (copy, nonatomic) NSString                *text;
 @property (copy, nonatomic) NSAttributedString      *attributedText;
 @property (strong, nonatomic) NSColor               *textColor;
-@property (strong, nonatomic) NSFont                *font;
+@property (strong, atomic) NSFont                   *font;
 
 @end
