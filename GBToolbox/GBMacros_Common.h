@@ -85,7 +85,7 @@ static inline int AssociationPolicyFromStorageAndAtomicity(NSString *storage, NS
 #define _res(bundle, resource) [NSString stringWithFormat:@"%@Resources.bundle/%@", bundle, resource]
 
 //Singleton
-#define _singleton(Class, accessor) +(Class *)accessor {static Class *accessor;@synchronized(self) {if (!accessor) {accessor = [[Class alloc] init];}return accessor;}}
+#define _singleton(accessor) +(instancetype)accessor {static id accessor;@synchronized(self) {if (!accessor) {accessor = [[self alloc] init];}return accessor;}}
 
 //Bitmasks
 static inline BOOL _bitmask(int var, int comparison) {
