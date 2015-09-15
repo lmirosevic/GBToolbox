@@ -310,4 +310,14 @@ NSURL * DocumentsDirectoryURL() {
     return [NSURL fileURLWithPath:DocumentsDirectoryPath()];
 }
 
+#pragma mark - Cookies
+
+void ClearCookies() {
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [storage cookies]) {
+        [storage deleteCookie:cookie];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 @end

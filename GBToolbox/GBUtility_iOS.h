@@ -107,5 +107,9 @@ void ListAvailableFonts();
 NSString * DocumentsDirectoryPath();
 NSURL * DocumentsDirectoryURL();
 
+#pragma mark - Cookies
+
+void ClearCookies();
+
 @end
 
