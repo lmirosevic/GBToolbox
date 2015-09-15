@@ -227,14 +227,10 @@ void *kFrameObserver = &kFrameObserver;
     }
 }
 
--(CGFloat)_width {
-    //calculate width based on text size and padding
-    CGFloat prelimWidth = [self.badgeText sizeWithFont:self.font forWidth:CGFLOAT_MAX lineBreakMode:NSLineBreakByClipping].width;
-    
-    //iOS 7 only replacement
-//    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-//    [paragraphStyle setLineBreakMode:NSLineBreakByClipping];
-//    CGFloat prelimWidth = [self.badgeText boundingRectWithSize:self.font.pointSize options:NSStringdraw attributes:@{NSParagraphStyleAttributeName: paragraphStyle} context:nil].width;
+-(CGFloat)_width {    
+    CGFloat prelimWidth = ceilf([self.badgeText sizeWithAttributes:@{
+        NSFontAttributeName: self.font
+    }].width);
     
     return prelimWidth + self.horizontalPadding * 2;
 }
