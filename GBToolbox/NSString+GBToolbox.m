@@ -186,6 +186,22 @@
     }
 }
 
+- (NSString *)stringByRemovingPrefix:(NSString *)prefix {
+    if ([self hasPrefix:prefix]) {
+        return [self substringFromIndex:prefix.length];
+    } else {
+        return self;
+    }
+}
+
+- (NSString *)stringByRemovingSuffix:(NSString *)suffix {
+    if ([self hasSuffix:suffix]) {
+        return [self substringWithRange:NSMakeRange(0, self.length-suffix.length)];
+    } else {
+        return self;
+    }
+}
+
 //Hashes, original under Public Domain: https://github.com/hypercrypt/NSString-Hashes
 static inline NSString *NSStringCCHashFunction(unsigned char *(function)(const void *data, CC_LONG len, unsigned char *md), CC_LONG digestLength, NSString *string) {
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];

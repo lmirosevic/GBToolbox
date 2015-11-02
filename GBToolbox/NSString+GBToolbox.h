@@ -58,6 +58,16 @@
 //Removes a trailing slash if there is one
 -(NSString *)stringByRemovingTrailingSlash;
 
+/**
+ Returns a new string with the prefix from the receiver removed if found, otherwise returns the receiver.
+ */
+- (NSString *)stringByRemovingPrefix:(NSString *)prefix;
+
+/**
+ Removes a new string with the suffix from the receiver removed if found, otherwise returns the receiver.
+ */
+- (NSString *)stringByRemovingSuffix:(NSString *)suffix;
+
 //Hashes
 @property (nonatomic, readonly) NSString *md5;
 @property (nonatomic, readonly) NSString *sha1;
