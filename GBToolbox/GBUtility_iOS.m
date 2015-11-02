@@ -22,6 +22,32 @@
 #import <MapKit/MapKit.h>
 #import <AVFoundation/AVFoundation.h>
 
+
+/**
+ Class that gives us some storage and that we can use as a delegate
+ */
+@interface EmailDelegateStorage<MFMailComposeViewControllerDelegate> : NSObject
+
+@property (nonatomic, weak) UIViewController *viewControllerForEmailWindow;
+
+@end
+
+@implementation EmailDelegateStorage
+
+_singleton(sharedStorage)
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    if (result == MFMailComposeResultFailed) {
+        [[[UIAlertView alloc]initWithTitle:nil message:@"Mail could not be sent. Please check your internet connection." delegate:self cancelButtonTitle:NSLocalizedString(@"OK", @"button") otherButtonTitles:nil]show];
+    }
+    
+    [self.viewControllerForEmailWindow dismissViewControllerAnimated:YES completion:nil];
+    self.viewControllerForEmailWindow = nil;
+}
+
+@end
+
+
 @implementation GBToolbox (iOS)
 
 #pragma mark - UIView
@@ -340,6 +366,25 @@ void ClearCookies() {
         [storage deleteCookie:cookie];
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+#pragma mark - Email
+
+void ShowContactEmailOnViewController( UIViewController * _Nonnull viewController,  NSArray<NSString *> * _Nullable toAdresses,  NSString * _Nullable subject,  NSString * _Nullable body) {
+    AssertParameterNotNil(viewController);
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        [EmailDelegateStorage sharedStorage].viewControllerForEmailWindow = viewController;
+        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+        mailViewController.mailComposeDelegate = (id<MFMailComposeViewControllerDelegate>)[EmailDelegateStorage sharedStorage];
+        if (subject) [mailViewController setSubject:subject];
+        if (toAdresses) [mailViewController setToRecipients:toAdresses];
+        if (body) [mailViewController setMessageBody:body isHTML:NO];
+        
+        [viewController presentViewController:mailViewController animated:YES completion:nil];
+    } else {
+        [[[UIAlertView alloc]initWithTitle:@"Mail Settings" message:@"Please set up an mail account in the Setting app" delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"button") otherButtonTitles:nil]show];
+    }
 }
 
 @end

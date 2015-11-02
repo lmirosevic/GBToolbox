@@ -13,6 +13,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
 @class GBAddress;
 
@@ -117,6 +119,10 @@ NSURL * DocumentsDirectoryURL();
 #pragma mark - Cookies
 
 void ClearCookies();
+
+#pragma mark - Email
+
+void ShowContactEmailOnViewController( UIViewController * _Nonnull viewController,  NSArray<NSString *> * _Nullable toAdresses,  NSString * _Nullable subject,  NSString * _Nullable body);
 
 @end
 
