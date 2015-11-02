@@ -67,4 +67,16 @@
 @property (copy, nonatomic, readonly) NSString *shortStringRepresentation;
 -(NSString *)shortStringRepresentation;
 
+#pragma mark - Sorting
+
+/**
+ Returns an array sorted by the properties in the objects.
+ */
+- (NSArray *)sortedArrayByPropertiesOfObjects:(NSArray<NSString *> *)properties ascending:(BOOL)ascending;
+
+/**
+ Returns an array sorted by the properties in the objects in ascending order.
+ */
+- (NSArray *)sortedArrayByPropertiesOfObjects:(NSArray<NSString *> *)properties;
+
 @end

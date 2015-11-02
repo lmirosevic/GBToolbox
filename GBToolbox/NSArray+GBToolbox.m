@@ -161,4 +161,18 @@
     return [self componentsJoinedByString:@", "];
 }
 
+#pragma mark - Sorting
+
+- (NSArray *)sortedArrayByPropertiesOfObjects:(NSArray<NSString *> *)properties ascending:(BOOL)ascending {
+    return [self sortedArrayUsingDescriptors:[properties map:^id(id object) {
+        return [NSSortDescriptor sortDescriptorWithKey:(NSString *)object ascending:ascending];
+    }]];
+}
+
+- (NSArray *)sortedArrayByPropertiesOfObjects:(NSArray<NSString *> *)properties {
+    return [self sortedArrayByPropertiesOfObjects:properties ascending:YES];
+}
+
 @end
+
+
