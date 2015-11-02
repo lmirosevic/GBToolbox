@@ -22,12 +22,12 @@
 
 #pragma mark - UIView
 
-NSUInteger tagFromUIViewSubclass(id sender);
+NSUInteger tagFromUIViewSubclass(_Nullable id sender);
 
 #pragma mark - View Hierarchy
 
-UIViewController * TopmostViewController();
-UIViewController * TopmostViewControllerWithRootViewController(UIViewController *rootViewController);
+UIViewController * _Nullable TopmostViewController();
+UIViewController * _Nullable TopmostViewControllerWithRootViewController(UIViewController * _Nullable rootViewController);
 
 #pragma mark - Screen Locking
 
@@ -43,17 +43,17 @@ void EnableTorch(BOOL enable);
 
 #pragma mark - App Store redirect
 
-void RedirectToAppStore(NSString *appID);
+void RedirectToAppStore(NSString * _Nonnull appID);
 
 #pragma mark - Images
 
-UIImage * Image(NSString *name);
-UIImage * ImageResizableWithCapInsets(NSString *name, CGFloat topCap, CGFloat leftCap, CGFloat bottomCap, CGFloat rightCap);
+UIImage * _Nullable Image(NSString * _Nonnull name);
+UIImage * _Nullable ImageResizableWithCapInsets(NSString * _Nonnull name, CGFloat topCap, CGFloat leftCap, CGFloat bottomCap, CGFloat rightCap);
 
 #pragma mark - Clipping
 
-CAShapeLayer * RoundClippingMaskInRectWithMargin(CGRect rect, UIEdgeInsets margin);
-UIBezierPath * RoundBezierPathForRectWithMargin(CGRect rect, UIEdgeInsets margin);
+CAShapeLayer * _Nonnull RoundClippingMaskInRectWithMargin(CGRect rect, UIEdgeInsets margin);
+UIBezierPath * _Nonnull RoundBezierPathForRectWithMargin(CGRect rect, UIEdgeInsets margin);
 
 #pragma mark - Push Notifications
 
@@ -61,7 +61,7 @@ BOOL IsPushDisabled();
 
 #pragma mark - UITableView
 
-BOOL IsCellAtIndexPathFullyVisible(NSIndexPath *indexPath, UITableView *tableView);
+BOOL IsCellAtIndexPathFullyVisible(NSIndexPath * _Nullable indexPath, UITableView * _Nullable tableView);
 
 #pragma mark - Keyboard hiding
 
@@ -73,7 +73,7 @@ BOOL IsTwitterAccountAvailable();
 
 #pragma mark - Localisation
 
-NSString * UIKitLocalizedString(NSString *string);
+NSString * _Nullable UIKitLocalizedString(NSString * _Nullable string);
 
 #pragma mark - Vibration
 
@@ -82,30 +82,30 @@ void VibrateDevice();
 #pragma mark - Colors
 
 //Returns a random color with a bias towards the more saturated and brighter colors
-UIColor *RandomColor();
+UIColor * _Nonnull RandomColor();
 
 #pragma mark - Auto Layout
 
 void AutoLayoutDebugOn(BOOL crashOnTrigger);
-NSString *AutoLayoutViewPointer(NSObject *object);
-NSDictionary *AutoLayoutPointerViewsDictionaryForViews(NSArray *views);
+NSString * _Nonnull AutoLayoutViewPointer(NSObject * _Nonnull object);
+NSDictionary * _Nonnull AutoLayoutPointerViewsDictionaryForViews(NSArray * _Nonnull views);
 
 #pragma mark - Geocoding
 
-void ReverseGeocodeLocation(CLLocation *location, void(^block)(GBAddress *address));
+void ReverseGeocodeLocation(CLLocation * _Nullable location, void(^_Nullable block)(GBAddress * _Nullable address));
 
 #pragma mark - UIViewController containment
 
-void AddChildViewController(UIViewController *hostViewController, UIViewController *childViewController);
-void AddChildViewControllerToView(UIViewController *hostViewController, UIView *hostView, UIViewController *childViewController);
-void RemoveChildViewController(UIViewController *childViewController);
+void AddChildViewController(UIViewController * _Nonnull hostViewController, UIViewController * _Nonnull childViewController);
+void AddChildViewControllerToView(UIViewController * _Nonnull hostViewController, UIView * _Nonnull hostView, UIViewController * _Nonnull childViewController);
+void RemoveChildViewController(UIViewController * _Nonnull childViewController);
 
 #pragma mark - Actions
 
-void OpenLinkInSafari(NSString *link);
-void OpenMap(CLLocation *location, NSString *name);
-void CallPhone(NSString *number);
-void SendSMS(NSString *number);
+void OpenLinkInSafari(NSString * _Nullable link);
+void OpenMap(CLLocation * _Nonnull location, NSString * _Nullable name);
+void CallPhone(NSString * _Nonnull number);
+void SendSMS(NSString * _Nonnull number);
 
 #pragma mark - Fonts
 
@@ -113,8 +113,8 @@ void ListAvailableFonts();
 
 #pragma mark - Disk utils
 
-NSString * DocumentsDirectoryPath();
-NSURL * DocumentsDirectoryURL();
+NSString * _Nonnull DocumentsDirectoryPath();
+NSURL * _Nonnull DocumentsDirectoryURL();
 
 #pragma mark - Cookies
 
