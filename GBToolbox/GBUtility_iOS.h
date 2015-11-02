@@ -32,6 +32,13 @@ UIViewController * TopmostViewControllerWithRootViewController(UIViewController 
 +(BOOL)isAutoScreenLockingEnabled;
 +(void)enableAutoScreenLocking:(BOOL)enable;
 
+#pragma mark - Torch
+
+/**
+ Enables or disables the device's flash/torch if the device has one
+ */
+void EnableTorch(BOOL enable);
+
 #pragma mark - App Store redirect
 
 void RedirectToAppStore(NSString *appID);

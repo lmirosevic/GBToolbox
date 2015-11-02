@@ -20,6 +20,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AddressBook/AddressBook.h>
 #import <MapKit/MapKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @implementation GBToolbox (iOS)
 
@@ -66,6 +67,27 @@ UIViewController * TopmostViewControllerWithRootViewController(UIViewController 
 +(void)enableAutoScreenLocking:(BOOL)enable {
 	UIApplication *me = [UIApplication sharedApplication];
 	me.idleTimerDisabled = !enable;
+}
+
+#pragma mark - Torch
+
+void EnableTorch(BOOL enable) {
+    // check if flashlight available
+    Class captureDeviceClass = NSClassFromString(@"AVCaptureDevice");
+    if (captureDeviceClass != nil) {
+        AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+        if ([device hasTorch] && [device hasFlash]){
+            [device lockForConfiguration:nil];
+            if (enable) {
+                [device setTorchMode:AVCaptureTorchModeOn];
+                [device setFlashMode:AVCaptureFlashModeOn];
+            } else {
+                [device setTorchMode:AVCaptureTorchModeOff];
+                [device setFlashMode:AVCaptureFlashModeOff];
+            }
+            [device unlockForConfiguration];
+        }
+    }
 }
 
 #pragma mark - App Store redirect
