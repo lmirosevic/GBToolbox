@@ -45,7 +45,7 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
 
 #pragma mark - ca
 
--(GBPopUpStorage *)storage {
+- (GBPopUpStorage *)storage {
     if (!self.internalStorage) {
         self.internalStorage = [GBPopUpStorage new];
     }
@@ -53,23 +53,23 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
     return self.internalStorage;
 }
 
--(void)setIsPresentedAsPopUp:(BOOL)isPresentedAsPopUp {
+- (void)setIsPresentedAsPopUp:(BOOL)isPresentedAsPopUp {
     self.storage.isPresentedAsPopUp = isPresentedAsPopUp;
 }
 
--(BOOL)isPresentedAsPopUp {
+- (BOOL)isPresentedAsPopUp {
     return self.storage.isPresentedAsPopUp;
 }
 
--(void)setPopUpBackgroundColor:(UIColor *)popUpBackgroundColor {
+- (void)setPopUpBackgroundColor:(UIColor *)popUpBackgroundColor {
     self.curtainView.backgroundColor = popUpBackgroundColor;
 }
 
--(UIColor *)popUpBackgroundColor {
+- (UIColor *)popUpBackgroundColor {
     return self.curtainView.backgroundColor;
 }
 
--(UIView *)curtainView {
+- (UIView *)curtainView {
     if (!self.storage.curtainView) {
         self.storage.curtainView = [UIView new];
         self.storage.curtainView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -78,7 +78,7 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
     return self.storage.curtainView;
 }
 
--(UIView *)containerView {
+- (UIView *)containerView {
     if (!self.storage.containerView) {
         //style self
         self.storage.containerView = [UIView new];
@@ -96,12 +96,19 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
 
 #pragma mark - API
 
--(void)presentAsPopUpOnWindowAnimated:(BOOL)animated {
-    UIView *window = [[UIApplication sharedApplication] keyWindow];
-    [self presentAsPopUpOnView:window animated:animated];
+- (void)presentAsPopUpOnWindowAnimated:(BOOL)animated {
+    [self presentAsPopUpOnWindowAnimated:animated installingAutolayout:nil];
 }
 
--(void)presentAsPopUpOnView:(UIView *)targetView animated:(BOOL)animated {
+- (void)presentAsPopUpOnWindowAnimated:(BOOL)animated installingAutolayout:(GBPopUpAutolayoutInstallationBlock)autolayoutInstallation {
+    [self presentAsPopUpOnView:[UIApplication sharedApplication].keyWindow animated:animated installingAutolayout:autolayoutInstallation];
+}
+
+- (void)presentAsPopUpOnView:(UIView *)targetView animated:(BOOL)animated {
+    [self presentAsPopUpOnView:targetView animated:animated installingAutolayout:nil];
+}
+
+- (void)presentAsPopUpOnView:(UIView *)targetView animated:(BOOL)animated installingAutolayout:(GBPopUpAutolayoutInstallationBlock)autolayoutInstallation {
     if (!self.isPresentedAsPopUp) {
         //bail if bad arguments
         if (!targetView) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Must provide non nil targetView" userInfo:nil];
@@ -119,21 +126,21 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
         //update curtain view frame, so it matches the container
         [self _handleCurtainViewFrame];
         
-        //handle our own frame
-        [self _handleOwnFrame];
-        
         //add ourselves
         [self.containerView addSubview:self];
         
-        VoidBlock actionsBlock = ^{
+        //handle our own frame/autolayout
+        [self _handleOwnLayout:autolayoutInstallation];
+        
+        // perform our animations
+        VoidBlock animationsBlock = ^{
             self.containerView.alpha = 1;
         };
-        
         if (animated) {
-            [UIView animateWithDuration:kAnimationDuration animations:actionsBlock completion:nil];
+            [UIView animateWithDuration:kAnimationDuration animations:animationsBlock completion:nil];
         }
         else {
-            actionsBlock();
+            animationsBlock();
         }
         
         //set this immediately
@@ -141,11 +148,17 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
     }
 }
 
--(void)dismissWithAnimation:(GBPopUpAnimation)animationType {
-    [self dismissWithAnimation:animationType animated:YES];
+- (void)dismissPopUpWithAnimation:(GBPopUpAnimation)animationType {
+    [self _dismissWithAnimation:animationType animated:YES];
 }
 
--(void)dismissWithAnimation:(GBPopUpAnimation)animationType animated:(BOOL)animated {
+- (void)dismissPopUpAnimated:(BOOL)animated {
+    [self _dismissWithAnimation:GBPopUpAnimationFadeAway animated:animated];
+}
+
+#pragma mark - Animations util
+
+- (void)_dismissWithAnimation:(GBPopUpAnimation)animationType animated:(BOOL)animated {
     if (self.isPresentedAsPopUp) {
         //start keyboard listening
         [self _stopListeningForKeyboardChanges];
@@ -169,7 +182,7 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
                 };
             } break;
         }
-
+        
         
         VoidBlock completionBlock = ^{
             //remove ourselves from the container
@@ -193,23 +206,19 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
     }
 }
 
--(void)dismissAsPopUpAnimated:(BOOL)animated {
-    [self dismissWithAnimation:GBPopUpAnimationFadeAway animated:animated];
-}
-
 #pragma mark - keyboard util
 
--(void)_startListeningForKeyboardChanges {
+- (void)_startListeningForKeyboardChanges {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_GBPopUp_keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_GBPopUp_keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
--(void)_stopListeningForKeyboardChanges {
+- (void)_stopListeningForKeyboardChanges {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
--(void)_GBPopUp_keyboardWillShow:(NSNotification *)notification {
+- (void)_GBPopUp_keyboardWillShow:(NSNotification *)notification {
     NSTimeInterval animationDuration;
     CGRect keyboardFrame;
     
@@ -224,7 +233,7 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
     } completion:nil];
 }
 
--(void)_GBPopUp_keyboardWillHide:(NSNotification *)notification {
+- (void)_GBPopUp_keyboardWillHide:(NSNotification *)notification {
     NSTimeInterval animationDuration;
     [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
     
@@ -238,19 +247,30 @@ _associatedObject(strong, nonatomic, GBPopUpStorage *, internalStorage, setInter
 
 #pragma mark - util
 
--(void)_handleOwnFrame {
-    //set our positioning mask
-    self.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    
-    //just centers ourselves
-    self.center = self.storage.containerView.center;
+- (void)_handleOwnLayout:(GBPopUpAutolayoutInstallationBlock)autolayoutBlock {
+    // autolayout
+    if (autolayoutBlock) {
+        // enable autolayout
+        AutoLayout(self);
+        
+        // call the block with the parent and ourselves so he can install the constraints
+        autolayoutBlock(self.storage.containerView, self);
+    }
+    // classic frames/bounds
+    else {
+        //set our positioning mask
+        self.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+        
+        //just centers ourselves
+        self.center = self.storage.containerView.center;
+    }
 }
 
--(void)_handleContainerViewFrame {
+- (void)_handleContainerViewFrame {
     self.storage.containerView.frame = self.storage.containerView.superview.bounds;
 }
 
--(void)_handleCurtainViewFrame {
+- (void)_handleCurtainViewFrame {
     self.storage.curtainView.frame = self.storage.curtainView.superview.bounds;
 }
 
