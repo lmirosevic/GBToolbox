@@ -78,7 +78,7 @@ BOOL IsOddUInteger(NSUInteger number);
 
 #pragma mark - Runtime introspection
 
-void AssertCorrectClass(id object, Class class);
+void AssertCorrectClass(id object, Class aClass);
 
 #pragma mark - Method Swizzling
 
