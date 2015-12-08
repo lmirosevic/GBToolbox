@@ -15,6 +15,7 @@
 
 #import "GBAddress.h"
 
+#import <Foundation/Foundation.h>
 #import <Twitter/Twitter.h>
 #import <Social/Social.h>
 #import <AudioToolbox/AudioToolbox.h>
@@ -154,6 +155,11 @@ UIBezierPath * RoundBezierPathForRectWithMargin(CGRect rect, UIEdgeInsets margin
 #pragma mark - Push Notifications
 
 BOOL IsPushDisabled() {
+// iOS 8+ deployment target, so we can use the simple case
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 80000
+    return [[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
+// Older dpeloyment target, so we want to choose the correct method at runtime
+#else
     //iOS 8+
     if ([[UIApplication sharedApplication] respondsToSelector:@selector(isRegisteredForRemoteNotifications)]) {
         return [[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
@@ -162,6 +168,7 @@ BOOL IsPushDisabled() {
     else {
         return [[UIApplication sharedApplication] enabledRemoteNotificationTypes] == UIRemoteNotificationTypeNone;
     }
+#endif
 }
 
 #pragma mark - UITableView
