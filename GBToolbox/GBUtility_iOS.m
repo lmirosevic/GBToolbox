@@ -199,7 +199,10 @@ BOOL IsTwitterAccountAvailable() {
         return [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter];
     }
     else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         return [TWTweetComposeViewController canSendTweet];
+#pragma clang diagnostic pop
     }
 #endif
 }
