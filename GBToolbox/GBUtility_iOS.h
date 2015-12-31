@@ -122,7 +122,11 @@ void ClearCookies();
 
 #pragma mark - Email
 
-void ShowContactEmailOnViewController( UIViewController * _Nonnull viewController,  NSArray<NSString *> * _Nullable toAdresses,  NSString * _Nullable subject,  NSString * _Nullable body);
+void ShowContactEmailOnViewController(UIViewController * _Nonnull viewController,  NSArray<NSString *> * _Nullable toAdresses,  NSString * _Nullable subject,  NSString * _Nullable body);
+
+#pragma mark - Alerts
+
+void ShowAlert(NSString * _Nullable title, NSString * _Nullable message, NSString * _Nullable dismissButtonTitle);
 
 @end
 

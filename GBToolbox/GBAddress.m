@@ -9,4 +9,5 @@
 #import "GBAddress.h"
 
 @implementation GBAddress
+
 @end

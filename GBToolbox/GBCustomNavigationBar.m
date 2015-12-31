@@ -45,7 +45,7 @@ static CGFloat _defaultNavBarHeightForClass = 44;
 #pragma mark - customizations
 
 -(CGSize)sizeThatFits:(CGSize)size {
-    CGRect frame = [UIScreen mainScreen].applicationFrame;
+    CGRect frame = [UIScreen mainScreen].bounds;
     
     return CGSizeMake(frame.size.width , self.navBarHeight);
 }

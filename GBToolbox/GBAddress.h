@@ -12,7 +12,7 @@
 
 @property (copy, nonatomic) NSString *street;
 @property (copy, nonatomic) NSString *city;
-@property (copy, nonatomic) NSString *zip;
+@property (copy, nonatomic) NSString *postCode;
 @property (copy, nonatomic) NSString *country;
 @property (copy, nonatomic) NSString *countryCode;
 @property (copy, nonatomic) NSString *state;

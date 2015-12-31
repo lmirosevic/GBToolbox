@@ -23,7 +23,6 @@
 #import <MapKit/MapKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-
 /**
  Class that gives us some storage and that we can use as a delegate
  */
@@ -39,7 +38,7 @@ _singleton(sharedStorage)
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
     if (result == MFMailComposeResultFailed) {
-        [[[UIAlertView alloc]initWithTitle:nil message:@"Mail could not be sent. Please check your internet connection." delegate:self cancelButtonTitle:NSLocalizedString(@"OK", @"button") otherButtonTitles:nil]show];
+        ShowAlert(nil, @"Mail could not be sent. Please check your internet connection.", @"OK");
     }
     
     [self.viewControllerForEmailWindow dismissViewControllerAnimated:YES completion:nil];
@@ -278,12 +277,12 @@ void ReverseGeocodeLocation(CLLocation *location, void(^block)(GBAddress *addres
             NSDictionary *addressDictionary = placemark.addressDictionary;
             
             address = [GBAddress new];
-            address.street = addressDictionary[(NSString *)kABPersonAddressStreetKey];
-            address.city = addressDictionary[(NSString *)kABPersonAddressCityKey];
-            address.zip = addressDictionary[(NSString *)kABPersonAddressZIPKey];
-            address.country = addressDictionary[(NSString *)kABPersonAddressCountryKey];
-            address.countryCode = addressDictionary[(NSString *)kABPersonAddressCountryCodeKey];
-            address.state = addressDictionary[(NSString *)kABPersonAddressStateKey];
+            address.street = addressDictionary[@"Street"];
+            address.city = addressDictionary[@"City"];
+            address.postCode = addressDictionary[@"ZIP"];
+            address.country = addressDictionary[@"Country"];
+            address.countryCode = addressDictionary[@"CountryCode"];
+            address.state = addressDictionary[@"State"];
         }
         
         if (block) block(address);
@@ -393,8 +392,26 @@ void ShowContactEmailOnViewController( UIViewController * _Nonnull viewControlle
         
         [viewController presentViewController:mailViewController animated:YES completion:nil];
     } else {
-        [[[UIAlertView alloc]initWithTitle:@"Mail Settings" message:@"Please set up an mail account in the Setting app" delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"button") otherButtonTitles:nil]show];
+        ShowAlert(@"Mail Settings", @"Please set up an email account in the Settings app", @"OK");
     }
+}
+
+#pragma mark - Alerts
+
+void ShowAlert(NSString * _Nullable title, NSString * _Nullable message, NSString * _Nullable dismissButtonTitle) {
+    // iOS 8+
+    if (UIAlertController.class) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        if (dismissButtonTitle) [alert addAction:[UIAlertAction actionWithTitle:dismissButtonTitle style:UIAlertActionStyleDefault handler:nil]];
+        [TopmostViewController() presentViewController:alert animated:YES completion:nil];
+    }
+    // iOS 7 and below
+    else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:dismissButtonTitle otherButtonTitles:nil] show];
+    }
+#pragma clang diagnostic pop
 }
 
 @end
