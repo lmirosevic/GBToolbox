@@ -30,4 +30,11 @@
 //Removes an object from the array by searching using pointer equality, rather than sending the isEqual: message
 -(void)removeObjectByIdentity:(id)object;
 
+#pragma mark - Moving
+
+/**
+ Moves an object from one index to another. toIndex is the final index *after* the move.
+ */
+- (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
+
 @end
