@@ -94,7 +94,7 @@
         }
         else {
             //hide darkness
-            self.customView.contentFilters = nil;
+            self.customView.contentFilters = @[];
         }
     }
     
