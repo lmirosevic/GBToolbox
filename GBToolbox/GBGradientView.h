@@ -10,9 +10,14 @@
 
 @interface GBGradientView : UIView
 
+typedef NS_ENUM(NSInteger, GBGradientDimension) {
+    GBGradientDimensionVertical,
+    GBGradientDimensionHorizontal,
+};
+
 /**
- Creates a UIView with it's background set to a gradient.
+ Creates a GBGradientView with it's background set to a gradient.
  */
-+ (UIView *)viewWithGradientWithColors:(NSArray *)colors;
++ (instancetype)gradientViewWithColors:(NSArray<UIColor *> *)colors dimension:(GBGradientDimension)dimension;
 
 @end
