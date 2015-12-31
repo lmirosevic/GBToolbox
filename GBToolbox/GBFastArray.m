@@ -21,11 +21,11 @@ static CGFloat const kDefaultInitialCapacity = 100;
 
 #pragma mark - Public API: Init
 
--(id)initWithTypeSize:(NSUInteger)typeSize {
+- (instancetype)initWithTypeSize:(NSUInteger)typeSize {
     return [self initWithTypeSize:typeSize initialCapacity:kDefaultInitialCapacity resizingFactor:kDefaultResizingFactor];
 }
 
--(id)initWithTypeSize:(NSUInteger)typeSize initialCapacity:(NSUInteger)initialCapacity resizingFactor:(CGFloat)resizingFactor {
+- (instancetype)initWithTypeSize:(NSUInteger)typeSize initialCapacity:(NSUInteger)initialCapacity resizingFactor:(CGFloat)resizingFactor {
     if (self = [super init]) {
         //State
         _typeSize = typeSize;
@@ -40,14 +40,14 @@ static CGFloat const kDefaultInitialCapacity = 100;
     return self;
 }
 
--(void)dealloc {
+- (void)dealloc {
     //clean up array
     free(_theArray);
 }
 
 #pragma mark - Public API: Properties
 
--(NSUInteger)count {
+- (NSUInteger)count {
     if (_lastElementIndex == NSUIntegerMax) {
         return 0;
     }
@@ -56,13 +56,13 @@ static CGFloat const kDefaultInitialCapacity = 100;
     }
 }
 
--(BOOL)isEmpty {
+- (BOOL)isEmpty {
     return (_lastElementIndex == NSUIntegerMax);
 }
 
 #pragma mark - Public API: Querying
 
--(void)insertItem:(void *)itemAddress atIndex:(NSUInteger)index {
+- (void)insertItem:(void *)itemAddress atIndex:(NSUInteger)index {
     //if its too short, resize the array
     if (index >= _allocationSize) {
         [self reallocToSize:(_allocationSize * _resizingFactor)];
@@ -77,17 +77,21 @@ static CGFloat const kDefaultInitialCapacity = 100;
     memcpy(_theArray + (index * _typeSize), itemAddress, _typeSize);
 }
 
--(void *)itemAtIndex:(NSUInteger)index {
+- (void)appendItem:(void *)itemAddress {
+    [self insertItem:itemAddress atIndex:_lastElementIndex + 1];
+}
+
+- (void *)itemAtIndex:(NSUInteger)index {
     return _theArray + (index * _typeSize);
 }
 
 #pragma mark - Public API: Searching
 
--(NSUInteger)binarySearchForIndexWithSearchLambda:(SearchLambda)searchLambda {
+- (NSUInteger)binarySearchForIndexWithSearchLambda:(SearchLambda)searchLambda {
     return [self binarySearchForIndexWithLow:0 high:_lastElementIndex searchLambda:searchLambda];
 }
 
--(NSUInteger)binarySearchForIndexWithLow:(NSUInteger)lowIndex high:(NSUInteger)highIndex searchLambda:(SearchLambda)searchLambda {
+- (NSUInteger)binarySearchForIndexWithLow:(NSUInteger)lowIndex high:(NSUInteger)highIndex searchLambda:(SearchLambda)searchLambda {
     //make sure its well formed
     if (searchLambda && lowIndex <= highIndex) {
         //prepare
@@ -128,15 +132,15 @@ static CGFloat const kDefaultInitialCapacity = 100;
 
 #pragma mark - Public API: Size management
 
--(NSUInteger)typeSize {
+- (NSUInteger)typeSize {
     return _typeSize;
 }
 
--(NSUInteger)currentAllocationSize {
+-( NSUInteger)currentAllocationSize {
     return _allocationSize;
 }
 
--(void)reallocToSize:(NSUInteger)newSize {
+- (void)reallocToSize:(NSUInteger)newSize {
     _allocationSize = newSize;
     _theArray = realloc(_theArray, (newSize * _typeSize));
     
@@ -145,7 +149,7 @@ static CGFloat const kDefaultInitialCapacity = 100;
     }
 }
 
--(void)setResizingFactor:(CGFloat)resizingFactor {
+- (void)setResizingFactor:(CGFloat)resizingFactor {
     if (resizingFactor > 1.0) {
         _resizingFactor = resizingFactor;
     }
