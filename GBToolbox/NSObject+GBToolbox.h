@@ -22,5 +22,4 @@
 //pointer address
 @property (copy, nonatomic, readonly) NSString      *pointerAddress;
 
-
 @end

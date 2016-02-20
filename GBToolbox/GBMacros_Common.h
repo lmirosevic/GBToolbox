@@ -114,6 +114,7 @@ static inline void _lRect(CGRect rect) {l(@"Rect: %f %f %f %f", rect.origin.x, r
 static inline void _lPoint(CGPoint point) {l(@"Point: %f %f", point.x, point.y);}
 static inline void _lSize(CGSize size) {l(@"Size: %f %f", size.width, size.height);}
 static inline void _lObject(id object) {l(@"Object: %@", object);}
+static inline void _lObjectWithPrefix(NSString *prefix, id object) {l(@"%@: %@", prefix, object);}
 static inline void _lString(NSString *string) {l(@"String: %@", string);}
 static inline void _lFloating(CGFloat floating) {l(@"Floating: %f", floating);}
 static inline void _lIntegral(NSInteger integer) {l(@"Integer: %ld", (long)integer);}
