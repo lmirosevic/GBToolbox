@@ -10,11 +10,11 @@
 
 @interface GBToggleControl : UIControl
 
-@property (strong, nonatomic) UIImage       *imageWhenOff;
-@property (strong, nonatomic) UIImage       *imageWhenOn;
-@property (strong, nonatomic) UIImage       *backgroundImageWhenOff;
-@property (strong, nonatomic) UIImage       *backgroundImageWhenOn;
+@property (strong, nonatomic) IBInspectable UIImage       *imageWhenOff;
+@property (strong, nonatomic) IBInspectable UIImage       *imageWhenOn;
+@property (strong, nonatomic) IBInspectable UIImage       *backgroundImageWhenOff;
+@property (strong, nonatomic) IBInspectable UIImage       *backgroundImageWhenOn;
 
-@property (assign, nonatomic) BOOL          isOn;
+@property (assign, nonatomic) IBInspectable BOOL          isOn;
 
 @end
