@@ -12,17 +12,17 @@
 
 #pragma mark - Conveniences
 
--(void)removeAllSubviews {
+- (void)removeAllSubviews {
     NSArray *subviews = [self.subviews copy];
     [subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
 
--(void)embedView:(UIView *)view {
+- (void)embedView:(UIView *)view {
     view.frame = self.bounds;
     [self addSubview:view];
 }
 
--(BOOL)findAndResignFirstResponder {
+- (BOOL)findAndResignFirstResponder {
     if (self.isFirstResponder) {
         [self resignFirstResponder];
         return YES;
