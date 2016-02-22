@@ -60,7 +60,8 @@ Pod::Spec.new do |s|
                         'GBToolbox/UIColor+GBToolbox.{h,m}',
                         'GBToolbox/UITableViewCell+AdditionalViews.{h,m}',
                         'GBToolbox/UIView+GBPopUp.{h,m}',
-                        'GBToolbox/GBGradientView.{h,m}'
+                        'GBToolbox/GBGradientView.{h,m}',
+                        'GBToolbox/UIControl+GBToolbox.{h,m}'
   s.osx.source_files =  'GBToolbox/GBTypes_OSX.h',
                         'GBToolbox/GBMacros_OSX.h',
                         'GBToolbox/GBUtility_OSX.h',
@@ -99,7 +100,7 @@ s.public_header_files  =       'GBToolbox/GBToolbox.h',
                                'GBToolbox/NSMapTable+GBToolbox.h',
                                'GBToolbox/GBEnumWrapper.h',
                                'GBToolbox/GBAddress.h',
-		                       'GBToolbox/GBRemoteDebugMessages.h'
+		                           'GBToolbox/GBRemoteDebugMessages.h'
   s.ios.public_header_files =  'GBToolbox/GBTypes_iOS.h',
                                'GBToolbox/GBMacros_iOS.h',
                                'GBToolbox/GBUtility_iOS.h',
@@ -126,7 +127,8 @@ s.public_header_files  =       'GBToolbox/GBToolbox.h',
                                'GBToolbox/UIColor+GBToolbox.h',
                                'GBToolbox/UITableViewCell+AdditionalViews.h',
                                'GBToolbox/UIView+GBPopUp.h',
-                               'GBToolbox/GBGradientView.h'
+                               'GBToolbox/GBGradientView.h',
+                               'GBToolbox/UIControl+GBToolbox.h'
   s.osx.public_header_files =  'GBToolbox/GBTypes_OSX.h',
                                'GBToolbox/GBMacros_OSX.h',
                                'GBToolbox/GBUtility_OSX.h',
