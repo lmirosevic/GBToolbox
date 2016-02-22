@@ -27,4 +27,18 @@
  */
 - (BOOL)findAndResignFirstResponder;
 
+/**
+ Returns a view controller whose view has the receiver added as a subview, laid out in Autolayout to have it's view the same size as the receiver (edges are pinned).
+ 
+ Warning: Always creates a new instance, every time it is called.
+ */
+- (UIViewController *)wrappingViewController;
+
+/**
+ Returns a view controller whose view has the receiver added as a subview, laid out in Autolayout to have it's view the same size as the receiver (edges are pinned) taking into account the edge margins.
+ 
+ Warning: Always creates a new instance, every time it is called.
+ */
+- (UIViewController *)wrappingViewControllerWithMargins:(UIEdgeInsets)margins;
+
 @end
