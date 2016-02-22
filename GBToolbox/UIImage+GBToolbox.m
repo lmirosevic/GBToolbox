@@ -363,4 +363,17 @@
     return outputImage;
 }
 
+#pragma mark - Tint
+
+- (UIImage *)tintedImage:(UIColor *)tintColor {
+    UIImage *newImage = [self imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
+    [tintColor set];
+    [newImage drawInRect:CGRectMake(0, 0, newImage.size.width, newImage.size.height)];
+    newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
 @end

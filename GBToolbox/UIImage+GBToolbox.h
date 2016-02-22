@@ -35,4 +35,8 @@
 
 -(UIImage *)applyBlurWithRadius:(CGFloat)blurRadius tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(UIImage *)maskImage;
 
+#pragma mark - Tint
+
+- (UIImage *)tintedImage:(UIColor *)tintColor;
+
 @end
