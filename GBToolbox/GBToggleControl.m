@@ -16,7 +16,7 @@
 
 @implementation GBToggleControl
 
-#pragma mark - custom accessors
+#pragma mark - CA
 
 -(void)setImageWhenOff:(UIImage *)imageWhenOff {
     if (_imageWhenOff != imageWhenOff) {
@@ -56,7 +56,7 @@
     [self _handleButton];
 }
 
-#pragma mark - life
+#pragma mark - Life
 
 -(id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -88,15 +88,15 @@
     [self addSubview:self.button];
 }
 
-#pragma mark - actions
+#pragma mark - Actions
 
--(void)internalButtonAction:(UIButton *)sender {
+- (void)internalButtonAction:(UIButton *)sender {
     self.isOn = !self.isOn;
     
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
-#pragma mark - util
+#pragma mark - Util
 
 -(void)_handleButton {
     [self invalidateIntrinsicContentSize];
