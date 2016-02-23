@@ -10,13 +10,24 @@
 
 @interface UIViewController (GBToolbox)
 
-//returns YES when the view controller is visible (in between viewWillAppear: and viewDidDisappear:)
+/**
+ Returns YES when the view controller is visible (in between viewWillAppear: and viewDidDisappear:)
+ */
 @property (assign, nonatomic) BOOL isVisible;
 
-//returns YES when the view controller is visible (in between viewWillAppear: and viewWillDisappear:)
+/**
+ Returns YES when the view controller is visible (in between viewWillAppear: and viewWillDisappear:)
+ */
 @property (assign, nonatomic) BOOL isVisibleCurrently;
 
-//makes sure the view is loaded
--(void)ensureViewIsLoaded;
+/**
+ Makes sure that the view is loaded
+ */
+- (void)ensureViewIsLoaded;
+
+/**
+ Returns the preferred status bar style of the view controller that's currently shown.
+ */
+@property (assign, nonatomic, readonly) UIStatusBarStyle inheritedPreferredStatusBarStyle;
 
 @end
