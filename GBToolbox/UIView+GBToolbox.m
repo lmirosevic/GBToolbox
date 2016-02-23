@@ -53,4 +53,18 @@
     return viewController;
 }
 
+- (UIView *)wrappingViewWithMargins:(UIEdgeInsets)margins {
+    // Create a new view
+    UIView *view = [UIView new];
+    
+    // Add self as a subview, configuring Autolayout
+    [view addSubview:self];
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(left)-[self]-(right)-|" options:0 metrics:@{@"left": @(margins.left), @"right": @(margins.right)} views:NSDictionaryOfVariableBindings(self)]];// full width
+    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(top)-[self]-(bottom)-|" options:0 metrics:@{@"top": @(margins.top), @"bottom": @(margins.bottom)} views:NSDictionaryOfVariableBindings(self)]];// full height
+    
+    // Return the view
+    return view;
+}
+
 @end

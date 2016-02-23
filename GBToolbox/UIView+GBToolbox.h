@@ -41,4 +41,11 @@
  */
 - (UIViewController *)wrappingViewControllerWithMargins:(UIEdgeInsets)margins;
 
+/**
+ Returns a view with the receiver added as a subview, laid out in Autolayout to have it's view the same size as the receiver (edges are pinned) taking into account the edge margins.
+ 
+ Warning: Always creates a new instance, every time it is called.
+ */
+- (UIView *)wrappingViewWithMargins:(UIEdgeInsets)margins;
+
 @end
