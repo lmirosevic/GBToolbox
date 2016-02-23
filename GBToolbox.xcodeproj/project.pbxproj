@@ -82,6 +82,7 @@
 		8A8CAC3D177DB9D500B661E0 /* UIImageView+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CAC3C177DB9D500B661E0 /* UIImageView+GBToolbox.m */; };
 		8A8CAC44177DC18400B661E0 /* GBToggleControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CAC43177DC18400B661E0 /* GBToggleControl.m */; };
 		8A9DA4B81792CF290074054E /* GBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9DA4B71792CF290074054E /* GBTableViewController.m */; };
+		8AA0FFA51C7C83B400EB2280 /* UIScreen+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA0FFA41C7C83B400EB2280 /* UIScreen+GBToolbox.m */; };
 		8AA19A6B1A0E2D5400E2C33A /* GBRemoteDebugMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA19A6A1A0E2D5400E2C33A /* GBRemoteDebugMessages.m */; };
 		8AA3A0AB1C78FEC200D99602 /* UIControl+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA3A0AA1C78FEC200D99602 /* UIControl+GBToolbox.m */; };
 		8AB5C25417818F8F005A7A22 /* UIImage+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB5C25317818F8F005A7A22 /* UIImage+GBToolbox.m */; };
@@ -244,6 +245,8 @@
 		8A8CAC43177DC18400B661E0 /* GBToggleControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBToggleControl.m; sourceTree = "<group>"; };
 		8A9DA4B61792CF290074054E /* GBTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTableViewController.h; sourceTree = "<group>"; };
 		8A9DA4B71792CF290074054E /* GBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTableViewController.m; sourceTree = "<group>"; };
+		8AA0FFA31C7C83B400EB2280 /* UIScreen+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+GBToolbox.h"; sourceTree = "<group>"; };
+		8AA0FFA41C7C83B400EB2280 /* UIScreen+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+GBToolbox.m"; sourceTree = "<group>"; };
 		8AA19A691A0E2D5400E2C33A /* GBRemoteDebugMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBRemoteDebugMessages.h; sourceTree = "<group>"; };
 		8AA19A6A1A0E2D5400E2C33A /* GBRemoteDebugMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBRemoteDebugMessages.m; sourceTree = "<group>"; };
 		8AA3A0A91C78FEC200D99602 /* UIControl+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+GBToolbox.h"; sourceTree = "<group>"; };
@@ -513,6 +516,8 @@
 				8A2FE4D0193B40ED004F43CC /* NSMapTable+GBToolbox.m */,
 				8AA3A0A91C78FEC200D99602 /* UIControl+GBToolbox.h */,
 				8AA3A0AA1C78FEC200D99602 /* UIControl+GBToolbox.m */,
+				8AA0FFA31C7C83B400EB2280 /* UIScreen+GBToolbox.h */,
+				8AA0FFA41C7C83B400EB2280 /* UIScreen+GBToolbox.m */,
 			);
 			name = "Categories (Utils & Extras)";
 			sourceTree = "<group>";
@@ -871,6 +876,7 @@
 				8A14886A19434E7100A26642 /* GBAddress.m in Sources */,
 				8ACE942D16C11AE900527E0D /* NSData+GBToolbox.m in Sources */,
 				8ACE943516C11B4C00527E0D /* NSString+GBToolbox.m in Sources */,
+				8AA0FFA51C7C83B400EB2280 /* UIScreen+GBToolbox.m in Sources */,
 				8ACE943D16C11C2C00527E0D /* GBUtility_iOS.m in Sources */,
 				8ACE944516C11C6E00527E0D /* GBUtility_Common.m in Sources */,
 				8A27D5FF16C8F3B50071AE31 /* CALayer+GBToolbox.m in Sources */,

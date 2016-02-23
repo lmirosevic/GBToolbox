@@ -84,6 +84,7 @@
 #import "MKMapView+GBToolbox.h"
 #import "UIColor+GBToolbox.h"
 #import "UIControl+GBToolbox.h"
+#import "UIScreen+GBToolbox.h"
 
 #import "UITableViewCell+AdditionalViews.h"
 #import "UIView+GBPopUp.h"

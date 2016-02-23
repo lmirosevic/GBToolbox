@@ -61,7 +61,8 @@ Pod::Spec.new do |s|
                         'GBToolbox/UITableViewCell+AdditionalViews.{h,m}',
                         'GBToolbox/UIView+GBPopUp.{h,m}',
                         'GBToolbox/GBGradientView.{h,m}',
-                        'GBToolbox/UIControl+GBToolbox.{h,m}'
+                        'GBToolbox/UIControl+GBToolbox.{h,m}',
+                        'GBToolbox/UIScreen+GBToolbox.{h,m}'
   s.osx.source_files =  'GBToolbox/GBTypes_OSX.h',
                         'GBToolbox/GBMacros_OSX.h',
                         'GBToolbox/GBUtility_OSX.h',
@@ -128,7 +129,8 @@ s.public_header_files  =       'GBToolbox/GBToolbox.h',
                                'GBToolbox/UITableViewCell+AdditionalViews.h',
                                'GBToolbox/UIView+GBPopUp.h',
                                'GBToolbox/GBGradientView.h',
-                               'GBToolbox/UIControl+GBToolbox.h'
+                               'GBToolbox/UIControl+GBToolbox.h',
+                               'GBToolbox/UIScreen+GBToolbox.h'
   s.osx.public_header_files =  'GBToolbox/GBTypes_OSX.h',
                                'GBToolbox/GBMacros_OSX.h',
                                'GBToolbox/GBUtility_OSX.h',
