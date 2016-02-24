@@ -83,6 +83,8 @@
 		8A8CAC44177DC18400B661E0 /* GBToggleControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CAC43177DC18400B661E0 /* GBToggleControl.m */; };
 		8A9DA4B81792CF290074054E /* GBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9DA4B71792CF290074054E /* GBTableViewController.m */; };
 		8AA0FFA51C7C83B400EB2280 /* UIScreen+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA0FFA41C7C83B400EB2280 /* UIScreen+GBToolbox.m */; };
+		8AA0FFAB1C7DDB3A00EB2280 /* GBControlAggregator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA0FFAA1C7DDB3A00EB2280 /* GBControlAggregator.m */; };
+		8AA0FFAE1C7DDB4600EB2280 /* GBMultiStateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA0FFAD1C7DDB4600EB2280 /* GBMultiStateButton.m */; };
 		8AA19A6B1A0E2D5400E2C33A /* GBRemoteDebugMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA19A6A1A0E2D5400E2C33A /* GBRemoteDebugMessages.m */; };
 		8AA3A0AB1C78FEC200D99602 /* UIControl+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA3A0AA1C78FEC200D99602 /* UIControl+GBToolbox.m */; };
 		8AB5C25417818F8F005A7A22 /* UIImage+GBToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB5C25317818F8F005A7A22 /* UIImage+GBToolbox.m */; };
@@ -247,6 +249,10 @@
 		8A9DA4B71792CF290074054E /* GBTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTableViewController.m; sourceTree = "<group>"; };
 		8AA0FFA31C7C83B400EB2280 /* UIScreen+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+GBToolbox.h"; sourceTree = "<group>"; };
 		8AA0FFA41C7C83B400EB2280 /* UIScreen+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+GBToolbox.m"; sourceTree = "<group>"; };
+		8AA0FFA91C7DDB3A00EB2280 /* GBControlAggregator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBControlAggregator.h; sourceTree = "<group>"; };
+		8AA0FFAA1C7DDB3A00EB2280 /* GBControlAggregator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBControlAggregator.m; sourceTree = "<group>"; };
+		8AA0FFAC1C7DDB4600EB2280 /* GBMultiStateButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBMultiStateButton.h; sourceTree = "<group>"; };
+		8AA0FFAD1C7DDB4600EB2280 /* GBMultiStateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBMultiStateButton.m; sourceTree = "<group>"; };
 		8AA19A691A0E2D5400E2C33A /* GBRemoteDebugMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBRemoteDebugMessages.h; sourceTree = "<group>"; };
 		8AA19A6A1A0E2D5400E2C33A /* GBRemoteDebugMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBRemoteDebugMessages.m; sourceTree = "<group>"; };
 		8AA3A0A91C78FEC200D99602 /* UIControl+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+GBToolbox.h"; sourceTree = "<group>"; };
@@ -626,6 +632,10 @@
 				8A485305178AA05C0053FAD3 /* GBToggleControlRadioGroupManager.m */,
 				8A9DA4B61792CF290074054E /* GBTableViewController.h */,
 				8A9DA4B71792CF290074054E /* GBTableViewController.m */,
+				8AA0FFA91C7DDB3A00EB2280 /* GBControlAggregator.h */,
+				8AA0FFAA1C7DDB3A00EB2280 /* GBControlAggregator.m */,
+				8AA0FFAC1C7DDB4600EB2280 /* GBMultiStateButton.h */,
+				8AA0FFAD1C7DDB4600EB2280 /* GBMultiStateButton.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -896,11 +906,13 @@
 				8A6E833C1774A10E00BA485C /* GBMessageInterceptor.m in Sources */,
 				8A6D3697177C635F0096AE66 /* UIScrollView+GBToolbox.m in Sources */,
 				8A2CE6D7177D909900F1E3D6 /* GBTextView.m in Sources */,
+				8AA0FFAB1C7DDB3A00EB2280 /* GBControlAggregator.m in Sources */,
 				8A8CAC3A177DB3DD00B661E0 /* GBButton.m in Sources */,
 				8A8CAC3D177DB9D500B661E0 /* UIImageView+GBToolbox.m in Sources */,
 				8A8CAC44177DC18400B661E0 /* GBToggleControl.m in Sources */,
 				8AB5C25417818F8F005A7A22 /* UIImage+GBToolbox.m in Sources */,
 				8AB5C2931781BD63005A7A22 /* GBAlertBadgeView.m in Sources */,
+				8AA0FFAE1C7DDB4600EB2280 /* GBMultiStateButton.m in Sources */,
 				8A1F3A771941FE97006D2AF1 /* GBEnumWrapper.m in Sources */,
 				8A3F03661782C05300B67BCE /* GBColoredBarView.m in Sources */,
 				8A3F03671782C05300B67BCE /* GBRoundBadgeView.m in Sources */,

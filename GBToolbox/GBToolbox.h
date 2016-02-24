@@ -74,6 +74,8 @@
 #import "GBTestView.h"
 #import "GBTableViewController.h"
 #import "GBGradientView.h"
+#import "GBControlAggregator.h"
+#import "GBMultiStateButton.h"
 
 #import "UITableView+GBToolbox.h"
 #import "UIViewController+GBToolbox.h"

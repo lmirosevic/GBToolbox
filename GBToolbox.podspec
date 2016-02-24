@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'GBToolbox'
-  s.version      = '20.4.0'
+  s.version      = '20.5.0'
   s.source       = { git: "https://github.com/lmirosevic/GBToolbox.git", tag: s.version.to_s }
   s.summary      = 'Goonbee\'s iOS development toolbox'
   s.homepage     = 'https://github.com/lmirosevic/GBToolbox'
@@ -62,7 +62,9 @@ Pod::Spec.new do |s|
                         'GBToolbox/UIView+GBPopUp.{h,m}',
                         'GBToolbox/GBGradientView.{h,m}',
                         'GBToolbox/UIControl+GBToolbox.{h,m}',
-                        'GBToolbox/UIScreen+GBToolbox.{h,m}'
+                        'GBToolbox/UIScreen+GBToolbox.{h,m}',
+                        'GBToolbox/GBControlAggregator.{h,m}',
+                        'GBToolbox/GBMultiStateButton.{h,m}'
   s.osx.source_files =  'GBToolbox/GBTypes_OSX.h',
                         'GBToolbox/GBMacros_OSX.h',
                         'GBToolbox/GBUtility_OSX.h',
@@ -130,7 +132,9 @@ s.public_header_files  =       'GBToolbox/GBToolbox.h',
                                'GBToolbox/UIView+GBPopUp.h',
                                'GBToolbox/GBGradientView.h',
                                'GBToolbox/UIControl+GBToolbox.h',
-                               'GBToolbox/UIScreen+GBToolbox.h'
+                               'GBToolbox/UIScreen+GBToolbox.h',
+                               'GBToolbox/GBControlAggregator.h',
+                               'GBToolbox/GBMultiStateButton.h'
   s.osx.public_header_files =  'GBToolbox/GBTypes_OSX.h',
                                'GBToolbox/GBMacros_OSX.h',
                                'GBToolbox/GBUtility_OSX.h',
