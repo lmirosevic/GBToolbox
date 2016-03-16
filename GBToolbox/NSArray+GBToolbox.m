@@ -173,6 +173,10 @@
     return [self sortedArrayByPropertiesOfObjects:properties ascending:YES];
 }
 
+#pragma mark - Unique
+
+- (NSArray *)uniquedArray {
+    return [[NSOrderedSet orderedSetWithArray:self] array];
+}
+
 @end
-
-

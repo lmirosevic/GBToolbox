@@ -79,4 +79,8 @@
  */
 - (NSArray *)sortedArrayByPropertiesOfObjects:(NSArray<NSString *> *)properties;
 
+#pragma mark - Unique
+
+- (NSArray *)uniquedArray;
+
 @end
