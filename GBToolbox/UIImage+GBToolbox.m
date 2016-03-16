@@ -5,13 +5,6 @@
 //  Created by Luka Mirosevic on 05/02/2013.
 //  Copyright (c) 2013 Luka Mirosevic. All rights reserved.
 //
-//
-//  Based on:
-//
-// UIImage+Resize.h
-// Created by Trevor Harmon on 8/5/09.
-// Free for personal or commercial use, with or without modification.
-// No warranty is expressed or implied.
 
 #import "UIImage+GBToolbox.h"
 
@@ -374,6 +367,35 @@
     UIGraphicsEndImageContext();
     
     return newImage;
+}
+
+
+#pragma mark - Blending
+
+/**
+ Blends multiple images together, by drawing each successive image in the array on top of the previous one.
+ */
++ (UIImage *)imageByBlending:(NSArray<UIImage *> *)images {
+    CGSize contextSize = CGSizeZero;
+    
+    for (UIImage *image in images) {
+        contextSize.width = fmax(contextSize.width, image.size.width);
+        contextSize.height = fmax(contextSize.height, image.size.height);
+    }
+    
+    UIGraphicsBeginImageContextWithOptions(contextSize, false, [UIScreen mainScreen].scale);
+    
+    for (UIImage *image in images) {
+        CGPoint origin = CGPointMake((contextSize.width - image.size.width) / 2, (contextSize.height - image.size.height) / 2);
+        
+        [image drawInRect:CGRectMake(origin.x, origin.y, image.size.width, image.size.height)];
+    }
+    
+    UIImage *combinedImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return combinedImage;
 }
 
 @end
