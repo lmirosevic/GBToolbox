@@ -15,6 +15,7 @@
 @property (strong, nonatomic, readonly) NSArray <GBMultiStateButtonState *>     *states;
 @property (strong, nonatomic) GBMultiStateButtonState                           *activeState;
 @property (strong, nonatomic) id                                                activeStateIdentifier;
+@property (assign, nonatomic) BOOL                                              adjustsImageWhenHighlighted;
 
 - (instancetype)initWithStates:(NSArray<GBMultiStateButtonState *> *)states;
 

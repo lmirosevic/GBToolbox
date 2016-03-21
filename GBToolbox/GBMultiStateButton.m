@@ -23,6 +23,14 @@
 
 #pragma mark - CA
 
+- (void)setAdjustsImageWhenHighlighted:(BOOL)adjustsImageWhenHighlighted {
+    self.button.adjustsImageWhenHighlighted = adjustsImageWhenHighlighted;
+}
+
+- (BOOL)adjustsImageWhenHighlighted {
+    return self.button.adjustsImageWhenHighlighted;
+}
+
 - (void)setStates:(NSArray<GBMultiStateButtonState *> *)states {
     AssertParameterNotNil(states);
     
