@@ -81,6 +81,11 @@
     
     _leftViewFrame = CGRectNull;
     _rightViewFrame = CGRectNull;
+    
+    _invalidatesIntrinsicContentSizeDuringEditing = YES;
+    
+    // need this one to trigger the intrinsic content size change
+    [self addTarget:self action:@selector(_textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 }
 
 -(id)initWithCoder:(NSCoder *)coder {
@@ -142,7 +147,7 @@
 #pragma mark - delegate overrides
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    //defer this because if the delegate decides to query to the textfield before this method returns, then the text won't reflect the new change. We are going for didPress semantics rather than willPress.
+    // defer this because if the delegate's method decides to query in this stack frame, then the returned text won't yet reflect the new change. We are going for didPress semantics rather than willPress.
     ExecuteSoon(^{
         //return
         if ([string isEqualToString:@"\n"]) {
@@ -164,7 +169,7 @@
         }
     });
     
-    //forward original call
+    // forward original call
     if ([[self delegate] respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)]) {
         return [[self delegate] textField:textField shouldChangeCharactersInRange:range replacementString:string];
     }
@@ -184,6 +189,14 @@
 
 -(id<GBTextFieldDelegate>)delegate {
     return _delegateInterceptor.receiver;
+}
+
+#pragma mark - target/action
+
+- (void)_textFieldDidChange:(id)sender {
+    if (self.invalidatesIntrinsicContentSizeDuringEditing) {
+        [sender invalidateIntrinsicContentSize];
+    }
 }
 
 @end

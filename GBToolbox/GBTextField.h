@@ -32,6 +32,8 @@
 @property (assign, nonatomic) CGRect                    leftViewFrame;
 @property (assign, nonatomic) CGRect                    rightViewFrame;
 
+@property (assign, nonatomic) BOOL                      invalidatesIntrinsicContentSizeDuringEditing;// default: YES
+
 //This is an augmented protocol. Adds 2 new methods, see below.
 -(id<GBTextFieldDelegate>)delegate;
 -(void)setDelegate:(id<GBTextFieldDelegate>)delegate;
