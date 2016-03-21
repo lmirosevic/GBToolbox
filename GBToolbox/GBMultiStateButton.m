@@ -80,6 +80,13 @@
 - (instancetype)initWithStates:(NSArray<GBMultiStateButtonState *> *)states {
     AssertParameterNotNil(states);
     
+    // make sure that at least one of the states is user selectable
+    if (![states any:^BOOL(id object) {
+        return ((GBMultiStateButtonState *)object).isUserSelectable;
+    }]) {
+        @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Must pass at least one user selectable state!" userInfo:nil];
+    }
+    
     if (self = [super init]) {
         // create the button first
         self.button = AutoLayout([UIButton buttonWithType:UIButtonTypeCustom]);
@@ -109,8 +116,17 @@
     if (currentStateIndex == NSNotFound) @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Cannot be possible that self.activeState isn't in self.states." userInfo:nil];
     
     // Increment the state
-    NSUInteger nextState = (currentStateIndex + 1) % self.states.count;
-    self.activeState = self.states[nextState];
+    NSUInteger nextStateIndex = currentStateIndex;
+    while (YES) {
+        // get the next candidate
+        nextStateIndex = (nextStateIndex + 1) % self.states.count;
+        
+        // make sure it's user selectable
+        if (self.states[nextStateIndex].isUserSelectable) {
+            self.activeState = self.states[nextStateIndex];
+            break;
+        }
+    }
     
     // Notify via target/action
     [self sendActionsForControlEvents:UIControlEventValueChanged];
@@ -129,12 +145,17 @@
 }
 
 + (instancetype)stateWithIdentifier:(id)identifier image:(UIImage *)image backgroundImage:(UIImage *)backgroundImage imageWhenHighlighted:(UIImage *)imageWhenHighlighted backgroundImageWhenHighlighted:(UIImage *)backgroundImageWhenHighlighted {
+    return [self stateWithIdentifier:identifier image:image backgroundImage:backgroundImage imageWhenHighlighted:imageWhenHighlighted backgroundImageWhenHighlighted:backgroundImageWhenHighlighted userSelectable:YES];
+}
+
++ (instancetype)stateWithIdentifier:(id)identifier image:(UIImage *)image backgroundImage:(UIImage *)backgroundImage imageWhenHighlighted:(UIImage *)imageWhenHighlighted backgroundImageWhenHighlighted:(UIImage *)backgroundImageWhenHighlighted userSelectable:(BOOL)userSelectable {
     GBMultiStateButtonState *state = [self.class new];
     state.stateIdentifier = identifier;
     state.image = image;
     state.backgroundImage = backgroundImage;
     state.imageWhenHighlighted = imageWhenHighlighted;
     state.backgroundImageWhenHighlighted = backgroundImageWhenHighlighted;
+    state.userSelectable = userSelectable;
     
     return state;
 }

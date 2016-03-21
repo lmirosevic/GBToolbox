@@ -23,14 +23,16 @@
 
 @interface GBMultiStateButtonState : NSObject
 
-@property (strong, nonatomic) id            stateIdentifier;
-@property (strong, nonatomic) UIImage       *image;
-@property (strong, nonatomic) UIImage       *backgroundImage;
-@property (strong, nonatomic) UIImage       *imageWhenHighlighted;
-@property (strong, nonatomic) UIImage       *backgroundImageWhenHighlighted;
+@property (strong, nonatomic) id                                                stateIdentifier;
+@property (strong, nonatomic) UIImage                                           *image;
+@property (strong, nonatomic) UIImage                                           *backgroundImage;
+@property (strong, nonatomic) UIImage                                           *imageWhenHighlighted;
+@property (strong, nonatomic) UIImage                                           *backgroundImageWhenHighlighted;
+@property (assign, nonatomic, getter=isUserSelectable) BOOL                     userSelectable;
 
 + (instancetype)stateWithIdentifier:(id)identifier image:(UIImage *)image;
 + (instancetype)stateWithIdentifier:(id)identifier image:(UIImage *)image backgroundImage:(UIImage *)backgroundImage;
 + (instancetype)stateWithIdentifier:(id)identifier image:(UIImage *)image backgroundImage:(UIImage *)backgroundImage imageWhenHighlighted:(UIImage *)imageWhenHighlighted backgroundImageWhenHighlighted:(UIImage *)backgroundImageWhenHighlighted;
++ (instancetype)stateWithIdentifier:(id)identifier image:(UIImage *)image backgroundImage:(UIImage *)backgroundImage imageWhenHighlighted:(UIImage *)imageWhenHighlighted backgroundImageWhenHighlighted:(UIImage *)backgroundImageWhenHighlighted userSelectable:(BOOL)userSelectable;
 
 @end
