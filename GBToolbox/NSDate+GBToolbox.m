@@ -14,9 +14,16 @@
     if (!dateString) return nil;
     if ([dateString hasSuffix:@"Z"]) dateString = [[dateString substringToIndex:(dateString.length-1)] stringByAppendingString:@"+0000"];
     
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZ";
-    return [dateFormatter dateFromString:dateString];
+    NSArray<NSString *> *formats = @[@"yyyy-MM-dd'T'HH:mm:ssZZ", @"yyyy-MM-dd'T'HH:mm:ss.SSSZZ"];
+    NSDate *date;
+    for (NSString *format in formats) {
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+        dateFormatter.dateFormat = format;
+        date = [dateFormatter dateFromString:dateString];
+        if (date) break;
+    }
+    
+    return date;
 }
 
 -(NSString *)iso8601String {
