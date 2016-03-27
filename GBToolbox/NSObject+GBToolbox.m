@@ -20,4 +20,9 @@ _associatedObject(strong, nonatomic, id, GBPayload, setGBPayload)
     return [NSString stringWithFormat:@"%p", self];
 }
 
+- (instancetype)tap:(void (^)(id object))block {
+    if (block) block(self);
+    return self;
+}
+
 @end
