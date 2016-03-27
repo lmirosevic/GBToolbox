@@ -44,13 +44,15 @@
 //count
 -(NSUInteger)count:(BOOL(^)(id object))function;
 
-//indexOfFirst
--(NSUInteger)indexOfFirst:(BOOL(^)(id object))function;
+/**
+ Returns the index of the first object that returns YES for the block. If no object returns YES, returns NSNotFound
+ */
+- (NSUInteger)indexOfFirst:(BOOL(^)(id object))function;
 
 #pragma mark - Conveniences
 
 /**
- Returns the first object inside the receiver which is equal to the object. Returns nil if no object is equal.
+ Returns the first object inside the receiver which is equal to the object (compared using isEqual:). Returns nil if no object is equal.
  */
 -(id)firstObjectEqualToObject:(id)object;
 

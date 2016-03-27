@@ -122,8 +122,7 @@
     return [[self filter:function] count];
 }
 
-//indexOfFirst
--(NSUInteger)indexOfFirst:(BOOL(^)(id object))function {
+- (NSUInteger)indexOfFirst:(BOOL(^)(id object))function {
     NSUInteger count = self.count;
     for (NSUInteger i=0; i<count; i++) {
         id myObject = [self objectAtIndex:i];
