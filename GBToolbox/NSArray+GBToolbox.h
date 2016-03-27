@@ -56,6 +56,11 @@
  */
 -(id)firstObjectEqualToObject:(id)object;
 
+/**
+ Returns YES if the received contains the specific passed in object instance.
+ */
+- (BOOL)containsObjectIdenticalTo:(id)anObject;
+
 #pragma mark - Set like operations
 
 /**

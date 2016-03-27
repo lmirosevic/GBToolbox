@@ -146,6 +146,10 @@
     }
 }
 
+- (BOOL)containsObjectIdenticalTo:(id)anObject {
+    return ([self indexOfObjectIdenticalTo:anObject] != NSNotFound);
+}
+
 #pragma mark - Set like operations
 
 -(NSArray *)arrayBySubtractingArray:(NSArray *)array {
