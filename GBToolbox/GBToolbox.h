@@ -52,6 +52,7 @@
 #import "NSOrderedSet+GBToolbox.h"
 
 #import "GBFrameChangedProtocol.h"
+#import "GBDebuggableInstanceVendor.h"
 
 
 /* iOS imports */

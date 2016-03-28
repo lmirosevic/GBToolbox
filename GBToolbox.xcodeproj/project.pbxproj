@@ -272,6 +272,7 @@
 		8AB9DA701CA98B2900E7A09A /* NSSet+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+GBToolbox.m"; sourceTree = "<group>"; };
 		8AB9DA741CA98B3300E7A09A /* NSOrderedSet+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOrderedSet+GBToolbox.h"; sourceTree = "<group>"; };
 		8AB9DA751CA98B3300E7A09A /* NSOrderedSet+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOrderedSet+GBToolbox.m"; sourceTree = "<group>"; };
+		8AB9DA791CA98BB000E7A09A /* GBDebuggableInstanceVendor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDebuggableInstanceVendor.h; sourceTree = "<group>"; };
 		8ABBE1F817D73F9300D1B14F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8ABBE1FA17D73F9700D1B14F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8ABBE1FC17D73FA200D1B14F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -446,6 +447,7 @@
 		8A3DA68B17832AA000072539 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				8AB9DA791CA98BB000E7A09A /* GBDebuggableInstanceVendor.h */,
 				8A3DA68C17832AB500072539 /* GBFrameChangedProtocol.h */,
 			);
 			name = Protocols;
@@ -701,6 +703,7 @@
 				8A27D5FD16C8F3AA0071AE31 /* CALayer+GBToolbox.h in Headers */,
 				8AE8348016C941BC00546249 /* GBRadialGradientView.h in Headers */,
 				8A8402B816CBBC070017157C /* GBCustomViewButtonCell.h in Headers */,
+				8AB9DA7A1CA98BB000E7A09A /* GBDebuggableInstanceVendor.h in Headers */,
 				8A8402D216CBC4DB0017157C /* GBCustomImageButtonCell.h in Headers */,
 				8A8402DA16CBE1FA0017157C /* GBGlowingImageButtonCell.h in Headers */,
 				8A8402DE16CBE6490017157C /* GBSolidColorView.h in Headers */,
