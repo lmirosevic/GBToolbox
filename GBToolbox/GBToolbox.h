@@ -49,6 +49,7 @@
 #import "NSInvocation+GBToolbox.h"
 #import "NSMapTable+GBToolbox.h"
 #import "NSSet+GBToolbox.h"
+#import "NSOrderedSet+GBToolbox.h"
 
 #import "GBFrameChangedProtocol.h"
 

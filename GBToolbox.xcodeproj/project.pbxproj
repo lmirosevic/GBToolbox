@@ -270,6 +270,8 @@
 		8AB5C2921781BD63005A7A22 /* GBAlertBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBAlertBadgeView.m; sourceTree = "<group>"; };
 		8AB9DA6F1CA98B2900E7A09A /* NSSet+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+GBToolbox.h"; sourceTree = "<group>"; };
 		8AB9DA701CA98B2900E7A09A /* NSSet+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+GBToolbox.m"; sourceTree = "<group>"; };
+		8AB9DA741CA98B3300E7A09A /* NSOrderedSet+GBToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOrderedSet+GBToolbox.h"; sourceTree = "<group>"; };
+		8AB9DA751CA98B3300E7A09A /* NSOrderedSet+GBToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOrderedSet+GBToolbox.m"; sourceTree = "<group>"; };
 		8ABBE1F817D73F9300D1B14F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8ABBE1FA17D73F9700D1B14F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8ABBE1FC17D73FA200D1B14F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -535,6 +537,8 @@
 				8AA0FFA41C7C83B400EB2280 /* UIScreen+GBToolbox.m */,
 				8AB9DA6F1CA98B2900E7A09A /* NSSet+GBToolbox.h */,
 				8AB9DA701CA98B2900E7A09A /* NSSet+GBToolbox.m */,
+				8AB9DA741CA98B3300E7A09A /* NSOrderedSet+GBToolbox.h */,
+				8AB9DA751CA98B3300E7A09A /* NSOrderedSet+GBToolbox.m */,
 			);
 			name = "Categories (Utils & Extras)";
 			sourceTree = "<group>";
@@ -684,6 +688,7 @@
 				8AF8C6B216C00083005A5511 /* GBResizableImageView.h in Headers */,
 				8ACE941716C1198900527E0D /* NSObject+GBToolbox.h in Headers */,
 				8A049661191105460070FC71 /* NSInvocation+GBToolbox.h in Headers */,
+				8AB9DA761CA98B3300E7A09A /* NSOrderedSet+GBToolbox.h in Headers */,
 				8ACE942716C11A9800527E0D /* NSTimer+GBToolbox.h in Headers */,
 				8ACE942C16C11AE900527E0D /* NSData+GBToolbox.h in Headers */,
 				8A521B0B1701CCD600A89BE4 /* GBTypes_Common.h in Headers */,
@@ -843,6 +848,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AB9DA781CA98B3300E7A09A /* NSOrderedSet+GBToolbox.m in Sources */,
 				8AF8C6B416C00083005A5511 /* GBResizableImageView.m in Sources */,
 				8A14886B19434E7500A26642 /* GBAddress.m in Sources */,
 				8ACE941916C1198900527E0D /* NSObject+GBToolbox.m in Sources */,
@@ -932,6 +938,7 @@
 				8A3F03671782C05300B67BCE /* GBRoundBadgeView.m in Sources */,
 				8A7C7A201786E4DC001FEE31 /* GBTextBox.m in Sources */,
 				8A485306178AA05C0053FAD3 /* GBToggleControlRadioGroupManager.m in Sources */,
+				8AB9DA771CA98B3300E7A09A /* NSOrderedSet+GBToolbox.m in Sources */,
 				8A3BF9A1178AD295003A3305 /* UIView+GBPopUp.m in Sources */,
 				8A3BF9AE178B22BD003A3305 /* UITableViewCell+AdditionalViews.m in Sources */,
 				8ADBDEB5178DC33D0090EF04 /* MKMapView+GBToolbox.m in Sources */,
