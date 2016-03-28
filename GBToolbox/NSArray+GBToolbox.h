@@ -32,11 +32,19 @@
 //filter
 -(NSArray *)filter:(BOOL(^)(id object))function;
 
-//all
--(BOOL)all:(BOOL(^)(id object))function;
+/**
+ Returns YES if all of the elements in the receiver return true for the function.
+ 
+ Returns NO for an empty array.
+ */
+- (BOOL)all:(BOOL(^)(id object))function;
 
-//any
--(BOOL)any:(BOOL(^)(id object))function;
+/**
+ Returns YES if at least one of the elements in the receiver return true for the function.
+ 
+ Returns NO for an empty array.
+ */
+- (BOOL)any:(BOOL(^)(id object))function;
 
 //first
 -(id)first:(BOOL(^)(id object))function;
@@ -88,6 +96,21 @@
 
 #pragma mark - Unique
 
+/**
+ Returns a copy of the receiver with all duplicates removed.
+ */
 - (NSArray *)uniquedArray;
+
+#pragma mark - Convenience
+
+/**
+ Returns a set initialized with the contents of the receiver.
+ */
+- (NSSet *)set;
+
+/**
+ Returns an ordered set initialized with the contents of the receiver.
+ */
+- (NSOrderedSet *)orderedSet;
 
 @end

@@ -87,22 +87,28 @@
     return [resultsArray copy];
 }
 
-//all
--(BOOL)all:(BOOL(^)(id object))function {
-    return [[[self map:^id(id object) {
-        return @(function(object));
-    }] reduce:^id(id objectA, id objectB) {
-        return @([objectA boolValue] && [objectB boolValue]);
-    } lastObject:@(YES)] boolValue];
+- (BOOL)all:(BOOL(^)(id object))function {
+    if (self.count > 0) {
+        return [[[self map:^id(id object) {
+            return @(function(object));
+        }] reduce:^id(id objectA, id objectB) {
+            return @([objectA boolValue] && [objectB boolValue]);
+        } lastObject:@(YES)] boolValue];
+    } else {
+        return NO;
+    }
 }
 
-//any
--(BOOL)any:(BOOL(^)(id object))function {
-    return [[[self map:^id(id object) {
-        return @(function(object));
-    }] reduce:^id(id objectA, id objectB) {
-        return @([objectA boolValue] || [objectB boolValue]);
-    } lastObject:@(NO)] boolValue];
+- (BOOL)any:(BOOL(^)(id object))function {
+    if (self.count > 0) {
+        return [[[self map:^id(id object) {
+            return @(function(object));
+        }] reduce:^id(id objectA, id objectB) {
+            return @([objectA boolValue] || [objectB boolValue]);
+        } lastObject:@(NO)] boolValue];
+    } else {
+        return NO;
+    }
 }
 
 //first
@@ -180,6 +186,16 @@
 
 - (NSArray *)uniquedArray {
     return [[NSOrderedSet orderedSetWithArray:self] array];
+}
+
+#pragma mark - Convenience
+
+- (NSSet *)set {
+    return [NSSet setWithArray:self];
+}
+
+- (NSOrderedSet *)orderedSet {
+    return [NSOrderedSet orderedSetWithArray:self];
 }
 
 @end
