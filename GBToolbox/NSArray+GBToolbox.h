@@ -17,20 +17,30 @@
 
 #pragma mark - Functional Programming
 
-//map
--(NSArray *)map:(id(^)(id object))function;
+/**
+ Returns a new array with the elements from the receiver transformed by function.
+ */
+- (NSArray *)map:(id(^)(id object))function;
 
-//fold left
--(id)foldLeft:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject;
+/**
+ Fold Left
+ */
+- (id)foldLeft:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject;
 
-//fold right
--(id)foldRight:(id(^)(id objectA, id objectB))function initialObject:(id)initialObject;
+/**
+ Fold Right.
+ */
+- (id)foldRight:(id(^)(id objectA, id objectB))function initialObject:(id)initialObject;
 
-//synonym for foldLeft
--(id)reduce:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject;
+/**
+ Synonym for foldLeft
+ */
+- (id)reduce:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject;
 
-//filter
--(NSArray *)filter:(BOOL(^)(id object))function;
+/**
+ Returns a copy of the array containing only the objects for which function returns YES.
+ */
+- (NSArray *)filter:(BOOL(^)(id object))function;
 
 /**
  Returns YES if all of the elements in the receiver return true for the function.
@@ -46,8 +56,10 @@
  */
 - (BOOL)any:(BOOL(^)(id object))function;
 
-//first
--(id)first:(BOOL(^)(id object))function;
+/**
+ Returns the first object for which the function returns YES, nil otherwise.
+ */
+- (id)first:(BOOL(^)(id object))function;
 
 //count
 -(NSUInteger)count:(BOOL(^)(id object))function;

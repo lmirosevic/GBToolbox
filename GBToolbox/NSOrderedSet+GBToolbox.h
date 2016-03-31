@@ -15,4 +15,24 @@
  */
 - (NSUInteger)indexOfObjectIdenticalTo:(id)anObject;
 
+/**
+ Returns a new array with the elements from the receiver transformed by function.
+ */
+- (NSOrderedSet *)map:(id(^)(id object))function;
+
+/**
+ Fold Left
+ */
+- (id)foldLeft:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject;
+
+/**
+ Fold Right.
+ */
+- (id)foldRight:(id(^)(id objectA, id objectB))function initialObject:(id)initialObject;
+
+/**
+ Synonym for foldLeft
+ */
+- (id)reduce:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject;
+
 @end

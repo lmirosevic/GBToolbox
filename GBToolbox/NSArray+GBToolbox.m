@@ -26,8 +26,7 @@
 
 #pragma mark - Functional Programming
 
-//map
--(NSArray *)map:(id(^)(id object))function {
+- (NSArray *)map:(id(^)(id object))function {
     //creates a results array in which to store results, presets the capacity for faster writes
     NSUInteger count = self.count;
     NSMutableArray *resultsArray = [[NSMutableArray alloc] initWithCapacity:count];
@@ -47,8 +46,7 @@
     return [resultsArray copy];
 }
 
-//fold left
--(id)foldLeft:(id(^)(id objectA, id objectB))function lastObject:(id)accumulator {
+- (id)foldLeft:(id(^)(id objectA, id objectB))function lastObject:(id)accumulator {
     for (id object in self) {
         accumulator = function(accumulator, object);
     }
@@ -56,8 +54,7 @@
     return accumulator;
 }
 
-//fold right
--(id)foldRight:(id(^)(id objectA, id objectB))function initialObject:(id)accumulator {
+- (id)foldRight:(id(^)(id objectA, id objectB))function initialObject:(id)accumulator {
     for (id object in [self reverseObjectEnumerator]) {
         accumulator = function(accumulator, object);
     }
@@ -65,13 +62,11 @@
     return accumulator;
 }
 
-//synonym for foldLeft
--(id)reduce:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject {
+- (id)reduce:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject {
     return [self foldLeft:function lastObject:lastObject];
 }
 
-//filter
--(NSArray *)filter:(BOOL(^)(id object))function {
+- (NSArray *)filter:(BOOL(^)(id object))function {
     // creates a results array in which to store results, sets the capacity for faster writes
     NSUInteger count = self.count;
     NSMutableArray *resultsArray = [[NSMutableArray alloc] initWithCapacity:count];
@@ -111,8 +106,7 @@
     }
 }
 
-//first
--(id)first:(BOOL(^)(id object))function {
+- (id)first:(BOOL(^)(id object))function {
     NSInteger index = [self indexOfFirst:function];
     
     if (index != NSNotFound) {
