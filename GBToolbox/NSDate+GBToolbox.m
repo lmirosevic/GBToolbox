@@ -10,15 +10,30 @@
 
 @implementation NSDate (GBToolbox)
 
+static NSDateFormatter *outDateFormatter;
+static NSArray<NSDateFormatter *> *inDateFormatters;
+
++(void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        outDateFormatter = [NSDateFormatter new];
+        outDateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZ";
+        outDateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+        
+        NSDateFormatter *inDateFormatter1 = [NSDateFormatter new];
+        inDateFormatter1.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZ";
+        NSDateFormatter *inDateFormatter2 = [NSDateFormatter new];
+        inDateFormatter2.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZ";
+        inDateFormatters = @[inDateFormatter1, inDateFormatter2];
+    });
+}
+
 +(NSDate *)dateWithISO8601String:(NSString *)dateString {
     if (!dateString) return nil;
     if ([dateString hasSuffix:@"Z"]) dateString = [[dateString substringToIndex:(dateString.length-1)] stringByAppendingString:@"+0000"];
     
-    NSArray<NSString *> *formats = @[@"yyyy-MM-dd'T'HH:mm:ssZZ", @"yyyy-MM-dd'T'HH:mm:ss.SSSZZ"];
     NSDate *date;
-    for (NSString *format in formats) {
-        NSDateFormatter *dateFormatter = [NSDateFormatter new];
-        dateFormatter.dateFormat = format;
+    for (NSDateFormatter *dateFormatter in inDateFormatters) {
         date = [dateFormatter dateFromString:dateString];
         if (date) break;
     }
@@ -27,10 +42,7 @@
 }
 
 -(NSString *)iso8601String {
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZ";
-    dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-    return [dateFormatter stringFromDate:self];
+    return [outDateFormatter stringFromDate:self];
 }
 
 -(BOOL)isInPast {
