@@ -23,6 +23,6 @@
 /**
  Yields self to the block, and then returns self. The primary purpose of this method is to “tap into” a method chain, in order to perform operations on intermediate results within the chain.
  */
-- (nonnull instancetype)tap:(void (^)(__nonnull id object))block;
+- (nonnull instancetype)tap:(void (^ _Nonnull)(id _Nonnull object))block;
 
 @end
