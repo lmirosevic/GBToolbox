@@ -12,15 +12,13 @@
 
 @implementation NSObject (GBToolbox)
 
-_associatedObject(copy, nonatomic, NSString *, GBDescription, setGBDescription)
-_associatedObject(copy, nonatomic, NSString *, GBIdentifier, setGBIdentifier)
 _associatedObject(strong, nonatomic, id, GBPayload, setGBPayload)
 
--(NSString *)pointerAddress {
+- (nonnull NSString *)pointerAddress {
     return [NSString stringWithFormat:@"%p", self];
 }
 
-- (instancetype)tap:(void (^)(id object))block {
+- (nonnull instancetype)tap:(void (^)(__nonnull id object))block {
     if (block) block(self);
     return self;
 }
