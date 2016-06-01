@@ -20,6 +20,7 @@ _associatedObject(strong, nonatomic, id, GBPayload, setGBPayload)
 
 - (nonnull instancetype)tap:(void (^ _Nonnull)(id _Nonnull object))block {
     if (block) block(self);
+    
     return self;
 }
 
