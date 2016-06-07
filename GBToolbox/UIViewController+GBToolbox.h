@@ -37,4 +37,9 @@
  */
 - (void)styleNavigationBarWithColor:(nullable UIColor *)color;
 
+/**
+ Hides the title next to the back button, showing only the chevron.
+ */
+- (void)hideBackButtonTitle;
+
 @end

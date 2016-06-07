@@ -95,4 +95,8 @@ static char gbIsVisibleCurrentlyKey;
     }
 }
 
+- (void)hideBackButtonTitle {
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:self.navigationItem.backBarButtonItem.style target:nil action:nil];
+}
+
 @end
