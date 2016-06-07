@@ -10,10 +10,14 @@
 
 @interface UIImageView (GBToolbox)
 
-//returns a imageview with it's image set, and its frame size set to the image size
-+(UIImageView *)imageViewWithImage:(UIImage *)image;
+/**
+ Returns a UIImageView with its image set to image, and its frame size set to the image size
+ */
++ (UIImageView *)imageViewWithImage:(UIImage *)image;
 
-//returns a imageview with it's image set to the image with name imageName, and its frame size set to the image size
-+(UIImageView *)imageViewWithImageNamed:(NSString *)imageName;
+/**
+ Returns a UIImageView with its image set to the image with name imageName, and its frame size set to the image size.
+ */
++ (UIImageView *)imageViewWithImageNamed:(NSString *)imageName;
 
 @end

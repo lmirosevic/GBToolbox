@@ -10,13 +10,13 @@
 
 @implementation UIImageView (GBToolbox)
 
-+(UIImageView *)imageViewWithImage:(UIImage *)image {
++ (UIImageView *)imageViewWithImage:(UIImage *)image {
     UIImageView *imageView = [[UIImageView new] initWithImage:image];
     imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     return imageView;
 }
 
-+(UIImageView *)imageViewWithImageNamed:(NSString *)imageName {
++ (UIImageView *)imageViewWithImageNamed:(NSString *)imageName {
     return [self imageViewWithImage:[UIImage imageNamed:imageName]];
 }
 
