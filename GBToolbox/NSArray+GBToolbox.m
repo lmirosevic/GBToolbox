@@ -8,6 +8,8 @@
 
 #import "NSArray+GBToolbox.h"
 
+#import "GBUtility_Common.h"
+
 @implementation NSArray (GBToolbox)
 
 #pragma mark - Helper methods
@@ -190,6 +192,19 @@
 
 - (NSOrderedSet *)orderedSet {
     return [NSOrderedSet orderedSetWithArray:self];
+}
+
+#pragma mark - NSAttributedString
+
+- (NSAttributedString *)concatenatedArrayOfAttributedStrings {
+    NSMutableAttributedString *concatenatedAttributedString = [NSMutableAttributedString new];
+    for (NSAttributedString *attributedString in self) {
+        AssertCorrectClass(attributedString, NSAttributedString.class);
+        
+        [concatenatedAttributedString appendAttributedString:attributedString];
+    }
+    
+    return [concatenatedAttributedString copy];
 }
 
 @end

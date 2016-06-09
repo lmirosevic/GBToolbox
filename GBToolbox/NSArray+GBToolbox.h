@@ -125,4 +125,11 @@
  */
 - (NSOrderedSet *)orderedSet;
 
+#pragma mark - NSAttributedString
+
+/**
+ Returns a new NSAttributedString by concatenating all the NSAttributedString's in the receiver.
+ */
+- (NSAttributedString *)concatenatedArrayOfAttributedStrings;
+
 @end
