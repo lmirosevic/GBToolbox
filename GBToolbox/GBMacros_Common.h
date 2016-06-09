@@ -124,12 +124,24 @@ static inline void _lBoolean(BOOL boolean) {l(@"Boolean: %@", _b(boolean));}
 #define IsEqual(a, b) ((a == b) || [a isEqual:b])
 
 //Strings
-#define IsValidString(string) (([string isKindOfClass:NSString.class] && ((NSString *)string).length > 0) ? YES : NO)
-#define IsEmptyString(string) !IsValidString(string)
+static inline BOOL IsValidString(NSString *string) {
+    return ([string isKindOfClass:NSString.class] && string.length > 0);
+}
+
+static inline BOOL IsValidAttributedString(NSAttributedString *attributedString) {
+    return ([attributedString isKindOfClass:NSAttributedString.class] && attributedString.length > 0);
+}
+
+static inline BOOL IsEmptyString(NSString *string) {
+    return !IsValidString(string);
+}
+
 #define _f(string, ...) ([NSString stringWithFormat:string, __VA_ARGS__])
 
 //Arrays
-#define IsPopulatedArray(array) ([array isKindOfClass:[NSArray class]] && array.count > 0)
+static inline BOOL IsPopulatedArray(NSArray *array) {
+    return ([array isKindOfClass:[NSArray class]] && array.count > 0);
+}
 
 //Code introspection
 #define IsClassAvailable(classType) ([NSClassFromString(STRINGIFY(classType)) class] ? YES : NO)
