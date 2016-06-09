@@ -202,6 +202,10 @@
     }
 }
 
+- (nonnull NSAttributedString *)attributedStringWithAttributes:(nullable NSDictionary<NSString *, id> *)attributes {
+    return [[NSAttributedString alloc] initWithString:self attributes:attributes];
+}
+
 //Hashes, original under Public Domain: https://github.com/hypercrypt/NSString-Hashes
 static inline NSString *NSStringCCHashFunction(unsigned char *(function)(const void *data, CC_LONG len, unsigned char *md), CC_LONG digestLength, NSString *string) {
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];

@@ -68,6 +68,11 @@
  */
 - (NSString *)stringByRemovingSuffix:(NSString *)suffix;
 
+/**
+ Returns an attributed string initialized with self, with the attributes from `attributes`.
+ */
+- (nonnull NSAttributedString *)attributedStringWithAttributes:(nullable NSDictionary<NSString *, id> *)attributes;
+
 //Hashes
 @property (nonatomic, readonly) NSString *md5;
 @property (nonatomic, readonly) NSString *sha1;
