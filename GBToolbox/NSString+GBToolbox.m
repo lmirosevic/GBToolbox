@@ -12,25 +12,26 @@
 
 @implementation NSString (GBToolbox)
 
-//check if string is an integer
--(BOOL)isInteger {
+- (BOOL)isInteger {
     NSCharacterSet *alphaNums = [NSCharacterSet decimalDigitCharacterSet];
     NSCharacterSet *stringSet = [NSCharacterSet characterSetWithCharactersInString:self];
     
     return [alphaNums isSupersetOfSet:stringSet];
 }
 
-//check if it contains a substring
--(BOOL)containsSubstring:(NSString *)substring {
+- (BOOL)containsSubstring:(nullable NSString *)substring {
     return [self containsSubstring:substring caseSensitive:YES];
 }
 
--(BOOL)containsSubstring:(NSString *)substring caseSensitive:(BOOL)isCaseSensitive {
-    return [self rangeOfString:substring options:(isCaseSensitive ? 0 : NSCaseInsensitiveSearch)].location != NSNotFound;
+- (BOOL)containsSubstring:(nullable NSString *)substring caseSensitive:(BOOL)isCaseSensitive {
+    if (substring ) {
+        return [self rangeOfString:substring options:(isCaseSensitive ? 0 : NSCaseInsensitiveSearch)].location != NSNotFound;
+    } else {
+        return NO;
+    }
 }
 
-//returns yes if the receiver equals any of the strings in the strings array
--(BOOL)isEqualToOneOf:(NSArray *)strings {
+- (BOOL)isEqualToOneOf:(nonnull NSArray<NSString *> *)strings {
     for (NSString *string in strings) {
         if ([string isKindOfClass:NSString.class]) {
             if ([self isEqualToString:string]) {
@@ -46,8 +47,7 @@
     return NO;
 }
 
-//best attempt to get int out of string
--(int)attemptConversionToInt {
+- (int)attemptConversionToInt {
     NSString *numberString;
     
     NSScanner *scanner = [NSScanner scannerWithString:self];
@@ -63,13 +63,11 @@
     return [numberString intValue];
 }
 
-//best attempt to get float out of a string
--(float)attemptConversionToFloat {
+- (float)attemptConversionToFloat {
     return [self attemptConversionToDouble];
 }
 
-//best attempt to get double out of a string
--(double)attemptConversionToDouble {
+- (double)attemptConversionToDouble {
     NSString *decimalSeparator = [NSNumberFormatter new].decimalSeparator;
     NSCharacterSet *allowedCharacterSet = [NSCharacterSet characterSetWithCharactersInString:[@"0123456789" stringByAppendingString:decimalSeparator]];
     
@@ -79,9 +77,7 @@
     return rawAmount;
 }
 
-//10.7 only
-//could rewrite this to simply scan for the . from the back and trim all of that off
--(NSString *)stringByDeletingDNSSuffix {
+- (nonnull NSString *)stringByDeletingDNSSuffix {
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^(([0-9a-zA-Z]+[0-9a-zA-Z-]*[0-9a-zA-Z]+|[0-9a-zA-Z]+)[.][a-zA-Z]+)$" options:NSRegularExpressionCaseInsensitive error:NULL];
     NSRange rangeOfFirstMatch = [regex rangeOfFirstMatchInString:self options:0 range:NSMakeRange(0, [self length])];
     if (!NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0))) {
@@ -93,8 +89,7 @@
     }
 }
 
-//checks to see if a string is an IP. requires 10.7+
--(BOOL)isIp {
+- (BOOL)isIP {
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^(([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])[.]([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])[.]([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])[.]([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))$" options:0 error:NULL];
     NSRange rangeOfFirstMatch = [regex rangeOfFirstMatchInString:self options:0 range:NSMakeRange(0, [self length])];
     if (!NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0))) {
@@ -105,13 +100,11 @@
     }
 }
 
-//Trims leading and trailing whitespace
--(NSString *)stringByTrimmingLeadingAndTrailingWhitespace {
+- (nonnull NSString *)stringByTrimmingLeadingAndTrailingWhitespace {
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
-//Trims leading and trailing whitespace and flattens multtiple whitespaces into a single space
--(NSString *)stringByCleaningWhitespace {
+- (nonnull NSString *)stringByCleaningWhitespace {
     NSString *unNewlined = [self stringByReplacingOccurrencesOfString:@"\n" withString:@"" options:0 range:NSMakeRange(0, self.length)];
     NSString *squashed = [unNewlined stringByReplacingOccurrencesOfString:@"[ ]+" withString:@" " options:NSRegularExpressionSearch range:NSMakeRange(0, unNewlined.length)];
     NSString *final = [squashed stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -119,8 +112,7 @@
     return final;
 }
 
-//Returns a string with all the characters in the set removed
--(NSString *)stringByRemovingCharactersInSet:(NSCharacterSet *)characterSet {
+- (nonnull NSString *)stringByRemovingCharactersInSet:(nonnull NSCharacterSet *)characterSet {
     NSScanner *scanner = [NSScanner scannerWithString:self];
     scanner.charactersToBeSkipped = characterSet;
     
@@ -135,13 +127,11 @@
     return aggregate;
 }
 
-//Returns a string consisting only of the characters in the characterSet
--(NSString *)stringByRemovingCharactersNotInSet:(NSCharacterSet *)characterSet {
+- (nonnull NSString *)stringByRemovingCharactersNotInSet:(nonnull NSCharacterSet *)characterSet {
     return [self stringByRemovingCharactersInSet:[characterSet invertedSet]];
 }
 
-//Converts "Mirosevic" -> "M." and "sloppy" -> "S."
--(NSString *)stringByAbbreviating {
+- (nonnull NSString *)stringByAbbreviating {
     //trim, capitalize, punctuate
     if (self.length >= 1) {
         return [[[self substringToIndex:1] capitalizedStringWithLocale:[NSLocale currentLocale]] stringByAppendingString:@"."];
@@ -152,8 +142,7 @@
     }
 }
 
-//Converts "Luka Mirosevic" -> "Luka M." and "Vincent Van Gogh" -> "Vincent V. G."
--(NSString *)abbreviatedName {
+- (nonnull NSString *)abbreviatedName {
     NSString *processedName = [self stringByCleaningWhitespace];
     NSArray *nameComponents = [processedName componentsSeparatedByString:@" "];
     NSMutableArray *processedNameComponents = [[NSMutableArray alloc] initWithCapacity:nameComponents.count];
@@ -172,7 +161,7 @@
     return shortName;
 }
 
--(NSString *)stringByRemovingTrailingSlash {
+- (nonnull NSString *)stringByRemovingTrailingSlash {
     if (self.length >= 1) {
         if ([[self substringFromIndex:self.length - 1] isEqualToString:@"/"]) {
             return [self substringToIndex:self.length - 1];
@@ -186,7 +175,7 @@
     }
 }
 
-- (NSString *)stringByRemovingPrefix:(NSString *)prefix {
+- (nonnull NSString *)stringByRemovingPrefix:(nonnull NSString *)prefix {
     if ([self hasPrefix:prefix]) {
         return [self substringFromIndex:prefix.length];
     } else {
@@ -194,7 +183,7 @@
     }
 }
 
-- (NSString *)stringByRemovingSuffix:(NSString *)suffix {
+- (nonnull NSString *)stringByRemovingSuffix:(nonnull NSString *)suffix {
     if ([self hasSuffix:suffix]) {
         return [self substringWithRange:NSMakeRange(0, self.length-suffix.length)];
     } else {

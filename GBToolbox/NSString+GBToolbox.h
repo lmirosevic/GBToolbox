@@ -12,61 +12,101 @@
 
 #define GBStringUtilsLocalDNSSuffixes @{@"local", @"lan", @"group"}
 
-//check if string is integer
--(BOOL)isInteger;
+/**
+ Checks if string is an integer.
+ */
+- (BOOL)isInteger;
 
-//check if it contains a substring
--(BOOL)containsSubstring:(NSString *)substring; //this is case sensitive
--(BOOL)containsSubstring:(NSString *)substring caseSensitive:(BOOL)isCaseSensitive;
+/**
+ Checks if the receiver contains a substring.
+ 
+ This check is case sensitive.
+ */
+- (BOOL)containsSubstring:(nullable NSString *)substring;
 
-//returns yes if the receiver equals any of the strings in the strings array
--(BOOL)isEqualToOneOf:(NSArray *)strings;
+/**
+ Checks if the receiver contains a substring.
+ */
+- (BOOL)containsSubstring:(nullable NSString *)substring caseSensitive:(BOOL)isCaseSensitive;
 
-//deletes DNS suffix in a string. requires 10.7+
--(NSString *)stringByDeletingDNSSuffix;
+/**
+ Returns YES if the receiver equals any of the strings in the strings array.
+ */
+- (BOOL)isEqualToOneOf:(nonnull NSArray<NSString *> *)strings;
 
-//checks to see if a string is an IP. requires 10.7+
--(BOOL)isIp;
+/**
+ Returns a new string with the DNS suffix removed from the receiver.
+ 
+ Requires 10.7+
+ */
+- (nonnull NSString *)stringByDeletingDNSSuffix;
 
-//best attempt to get int out of string
--(int)attemptConversionToInt;
+/**
+ Checks to see if the receiver looks like an IPv4 IP address. 
+ 
+ Requires 10.7+
+ */
+- (BOOL)isIP;
 
-//best attempt to get float out of a string
--(float)attemptConversionToFloat;
+/**
+ Attempt to get int out of string.
+ */
+- (int)attemptConversionToInt;
 
-//best attempt to get double out of a string
--(double)attemptConversionToDouble;
+/**
+ Attempt to get float out of a string.
+ */
+- (float)attemptConversionToFloat;
 
-//Trims leading and trailing whitespace
--(NSString *)stringByTrimmingLeadingAndTrailingWhitespace;
+/**
+ Attempt to get double out of a string.
+ */
+- (double)attemptConversionToDouble;
 
-//Trims leading and trailing whitespace and flattens multtiple whitespaces into a single space
--(NSString *)stringByCleaningWhitespace;
+/**
+ Return a new string with the leading and trailing whitespace trimmed.
+ */
+-(nonnull NSString *)stringByTrimmingLeadingAndTrailingWhitespace;
 
-//Returns a string with all the characters in the set removed
--(NSString *)stringByRemovingCharactersInSet:(NSCharacterSet *)characterSet;
+/**
+ Return a new string with the leading and trailing whitespace trimmed, and multiple whitespaces coalesced into a single space.
+ */
+- (nonnull NSString *)stringByCleaningWhitespace;
 
-//Returns a string consisting only of the characters in the characterSet
--(NSString *)stringByRemovingCharactersNotInSet:(NSCharacterSet *)characterSet;
+/**
+ Returns a string with all the characters in the set removed from receiver.
+ */
+- (nonnull NSString *)stringByRemovingCharactersInSet:(nonnull NSCharacterSet *)characterSet;
 
-//Converts "Mirosevic" -> "M." and "sloppy" -> "S."
--(NSString *)stringByAbbreviating;
+/**
+ Returns a string consisting only of the characters in the characterSet.
+ */
+- (nonnull NSString *)stringByRemovingCharactersNotInSet:(nonnull NSCharacterSet *)characterSet;
 
-//Converts "Luka Mirosevic" -> "Luka M." and "Vincent Van Gogh" -> "Vincent V. G."
--(NSString *)abbreviatedName;
+/**
+ Converts "Mirosevic" -> "M." and "sloppy" -> "S."
+ */
+- (nonnull NSString *)stringByAbbreviating;
 
-//Removes a trailing slash if there is one
--(NSString *)stringByRemovingTrailingSlash;
+/**
+ Converts "Luka Mirosevic" -> "Luka M." and "Vincent Van Gogh" -> "Vincent V. G."
+ */
+- (nonnull NSString *)abbreviatedName;
+
+/**
+ Return a string with the trailing slash removed from the receiver if there was one.
+ */
+- (nonnull NSString *)stringByRemovingTrailingSlash;
 
 /**
  Returns a new string with the prefix from the receiver removed if found, otherwise returns the receiver.
  */
-- (NSString *)stringByRemovingPrefix:(NSString *)prefix;
+- (nonnull NSString *)stringByRemovingPrefix:(nonnull NSString *)prefix;
 
 /**
  Removes a new string with the suffix from the receiver removed if found, otherwise returns the receiver.
  */
-- (NSString *)stringByRemovingSuffix:(NSString *)suffix;
+- (nonnull NSString *)stringByRemovingSuffix:(nonnull NSString *)suffix;
 
 /**
  Returns an attributed string initialized with self, with the attributes from `attributes`.
@@ -74,11 +114,11 @@
 - (nonnull NSAttributedString *)attributedStringWithAttributes:(nullable NSDictionary<NSString *, id> *)attributes;
 
 //Hashes
-@property (nonatomic, readonly) NSString *md5;
-@property (nonatomic, readonly) NSString *sha1;
-@property (nonatomic, readonly) NSString *sha224;
-@property (nonatomic, readonly) NSString *sha256;
-@property (nonatomic, readonly) NSString *sha384;
-@property (nonatomic, readonly) NSString *sha512;
+@property (nonatomic, readonly, nonnull) NSString *md5;
+@property (nonatomic, readonly, nonnull) NSString *sha1;
+@property (nonatomic, readonly, nonnull) NSString *sha224;
+@property (nonatomic, readonly, nonnull) NSString *sha256;
+@property (nonatomic, readonly, nonnull) NSString *sha384;
+@property (nonatomic, readonly, nonnull) NSString *sha512;
 
 @end
