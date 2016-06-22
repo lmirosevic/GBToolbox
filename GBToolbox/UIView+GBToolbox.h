@@ -48,4 +48,9 @@
  */
 - (UIView *)wrappingViewWithMargins:(UIEdgeInsets)margins;
 
+/**
+ Returns the part of the view rendered into an image inside the rect.
+ */
+- (UIImage *)renderToImageForRect:(CGRect)rect;
+
 @end

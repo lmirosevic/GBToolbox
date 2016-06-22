@@ -67,4 +67,13 @@
     return view;
 }
 
+- (UIImage *)renderToImageForRect:(CGRect)rect {
+    UIGraphicsBeginImageContextWithOptions(rect.size, self.isOpaque, 0.0);
+    [self drawViewHierarchyInRect:rect afterScreenUpdates:YES];
+    UIImage *snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return snapshotImage;
+}
+
 @end
