@@ -49,8 +49,10 @@
 - (UIView *)wrappingViewWithMargins:(UIEdgeInsets)margins;
 
 /**
- Returns the part of the view rendered into an image inside the rect.
+ Returns the part of the view rendered into an image inside the rect. 
+ 
+ Setting legacy to YES will use the older (more reliable) method of rendering. Always try with legacy:NO first as it is more efficient in iOS7+. If it doesn't work fallback to legacy:YES.
  */
-- (UIImage *)renderToImageForRect:(CGRect)rect;
+- (UIImage *)renderToImageForRect:(CGRect)rect legacy:(BOOL)legacy;
 
 @end

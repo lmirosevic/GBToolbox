@@ -67,9 +67,15 @@
     return view;
 }
 
-- (UIImage *)renderToImageForRect:(CGRect)rect {
-    UIGraphicsBeginImageContextWithOptions(rect.size, self.isOpaque, 0.0);
-    [self drawViewHierarchyInRect:rect afterScreenUpdates:YES];
+- (UIImage *)renderToImageForRect:(CGRect)rect legacy:(BOOL)legacy {
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, [UIScreen mainScreen].scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextConcatCTM(context, CGAffineTransformMakeTranslation(-rect.origin.x, -rect.origin.y));
+    if (legacy) {
+        [self.layer renderInContext:context];
+    } else {
+        [self drawViewHierarchyInRect:rect afterScreenUpdates:YES];
+    }
     UIImage *snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
