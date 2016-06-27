@@ -20,4 +20,9 @@
  */
 + (UIImageView *)imageViewWithImageNamed:(NSString *)imageName;
 
+/**
+ Returns the image bounds of the displayed image inside the receiver. Useful when the contentMode is aspect fit.
+ */
+- (CGRect)displayedImageBounds;
+
 @end
