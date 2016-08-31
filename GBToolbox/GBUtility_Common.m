@@ -230,6 +230,19 @@ void Toc() {
     NSLog(@"TicToc: %f", TocInterval());
 }
 
+NSTimeInterval _TimeToRun(void(^block)()) {
+    // tic
+    CFTimeInterval startTime = CACurrentMediaTime();
+
+    // work
+    block();
+
+    // toc
+    CFTimeInterval endTime = CACurrentMediaTime();
+
+    return endTime - startTime;
+}
+
 #pragma mark - Truthy/Falsy
 
 BOOL IsTruthy(id object) {
