@@ -29,9 +29,13 @@
 }
 */
 
--(void)setFrame:(CGRect)frame {
-    _lRect(frame);
+- (void)setFrame:(CGRect)frame {
+//    _lRect(frame);
     [super setFrame:frame];
+}
+
+- (void)dealloc {
+    NSLog(@"deallocating GBTestView instance %@", self);
 }
 
 @end
