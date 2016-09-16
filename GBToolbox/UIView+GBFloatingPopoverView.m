@@ -38,34 +38,54 @@ static NSTimeInterval kShowDuration =       3;
     [self.class _releaseFadoutAnimatorForView:self];
     
     // get the existing view for the context
-    __weak UIView *existingView = [self.class _viewForContext:context];
+    __weak UIView *existingView = [self.class _visibleViewForContext:context];
     
     // if we have an old one get rid of it immediately. This ref is weak so this also immediately releases it if the superview was the only one retaining it.
     BOOL existingOneWasPresent = !!existingView;
-    [existingView removeFromSuperview];
+    BOOL showingSameViewAgain = (existingView == self);
+    BOOL viewStillShown = (self.superview == view);
     
-    // prepare ourselves
-    self.alpha = 0.0;
-    [view addSubview:self];
+    // if it;s a new one: add it as a subview
+    // if its the same one, don't do anything
+    
+    NSLog(@"existingOneWasPresent: %@", existingOneWasPresent ? @"Yes": @"no");
+    NSLog(@"showingSameViewAgain:  %@", showingSameViewAgain ? @"Yes": @"no");
+    NSLog(@"viewStillShown:        %@", viewStillShown ? @"Yes": @"no");
+    
+    if (!viewStillShown) {
+        // remove old view
+//        NSLog(@"removing old one");
+        [existingView removeFromSuperview];
+        
+        // prepare ourselves
+        self.alpha = 0.0;
+        [view addSubview:self];
+    } else {
+        self.alpha = 1.0;
+    }
     
     // configure layout
     if (layoutBlock) layoutBlock(self);
     
     // fade us in
-    [UIView animateWithDuration:((animated && !existingOneWasPresent) ? kFadeInDuration : 0.0) animations:^{
+    void(^fadeIn)() = ^{
         self.alpha = 1.0;
-    }];
+    };
+    if (animated && !existingOneWasPresent) {
+        [UIView animateWithDuration:kFadeInDuration animations:fadeIn];
+    } else {
+        fadeIn();
+    }
     
-    // autofade it out after a few seconds and then remove it from the superview. We weakify because we don't want the block to retain the view.
+    // autofade it out after a few seconds and then remove it from the superview. We weakify the animator because we want to control it's existence externally--as a mechanism for cancelling the block.
     __weak typeof(self) weakSelf = self;
-    __weak void(^animator)() = [self.class _fadoutAnimator:^{
-        // fade out animation
-        [UIView animateWithDuration:kFadeOutDuration animations:^{
-            weakSelf.alpha = 0.0;
-        } completion:^(BOOL finished) {
-            [weakSelf removeFromSuperview];
-        }];
-    } forView:self];
+    __weak void(^animator)() = [self.class _fadoutAnimatorForView:self duration:kFadeOutDuration context:context animations:^{
+//        NSLog(@"alpha: 0");
+        weakSelf.alpha = 0.0;
+    } completion:^(BOOL finished) {
+//        NSLog(@"finished?: %@", finished ? @"yes" :@"no");
+        [weakSelf removeFromSuperview];
+    }];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kShowDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // call our animator if it still exists
@@ -77,7 +97,7 @@ static NSTimeInterval kShowDuration =       3;
     });
     
     // associate the current view to the context
-    [self.class _setView:self forContext:context];
+    [self.class _setVisibleView:self forContext:context];
 }
 
 #pragma mark - Private: Fadout Animator
@@ -85,23 +105,62 @@ static NSTimeInterval kShowDuration =       3;
 static NSMapTable *_fadeoutAnimatorsMap;
 
 + (void)_releaseFadoutAnimatorForView:(UIView *)view {
+//    NSLog(@"removing TOR:       %@", [_fadeoutAnimatorsMap objectForKey:view]);
     [_fadeoutAnimatorsMap removeObjectForKey:view];
 }
 
-+ (void(^)())_fadoutAnimator:(void(^)())animations forView:(UIView *)view {
++ (void(^)())_fadoutAnimatorForView:(UIView *)view duration:(NSTimeInterval)duration context:(id)context animations:(void(^)())animations completion:(void(^)(BOOL finished))completion {
     if (!_fadeoutAnimatorsMap) {
-        _fadeoutAnimatorsMap = [NSMapTable mapTableWithKeyOptions:NSMapTableStrongMemory valueOptions:NSMapTableCopyIn];
+        _fadeoutAnimatorsMap = [NSMapTable mapTableWithKeyOptions:NSMapTableStrongMemory valueOptions:NSMapTableStrongMemory];
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     // create our animator block
     __weak typeof(view) weakView = view;
     void(^animator)() = ^{
+        // if the view is the last view for our context, then remove it. If not then it has been superceded and it will be removed by it's handler
+        if ([self _visibleViewForContext:context] == view) {
+            [self _removeVisibleViewForContext:context];
+        }
+        
         // run the animations
-        animations();
+        [UIView animateWithDuration:duration animations:animations completion:^(BOOL finished) {
+            // if this view is still in the context then we skip this part
+            if ([self _visibleViewForContext:context] == view) {
+                NSLog(@"still in context");
+                
+                
+                
+            } else {
+                NSLog(@"out of context");
+                
+                completion(finished);
+            }
+            
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                NSLog(@"and now? %@", [self _viewForContext:context] == view ? @"yes" : @"no");
+//            });
+        }];
         
         // remove the animator from the map
         [_fadeoutAnimatorsMap removeObjectForKey:weakView];
     };
+    
+//    NSLog(@"created TOR:        %@", animator);
     
     // retain the animator block inside our map table. The map table will automatically copy the animator to the heap
     [_fadeoutAnimatorsMap setObject:animator forKey:view];
@@ -112,24 +171,49 @@ static NSMapTable *_fadeoutAnimatorsMap;
 
 #pragma mark - Private: Contexts Map
 
-static NSMapTable *_contextsMap;
+static NSMapTable *_contextToVisibleViewsMap;
+static NSMapTable *_contextToAnimatingViewsMap;
 
-+ (nullable UIView *)_viewForContext:(id)context {
-    return [_contextsMap objectForKey:context];
+
++ (nullable UIView *)_visibleViewForContext:(id)context {
+    return [_contextToVisibleViewsMap objectForKey:context];
 }
 
-+ (void)_setView:(nonnull UIView *)view forContext:(nonnull id)context {
++ (void)_setVisibleView:(nonnull UIView *)view forContext:(nonnull id)context {
     // lazy create it
-    if (!_contextsMap) {
-        _contextsMap = [NSMapTable strongToWeakObjectsMapTable];
+    if (!_contextToVisibleViewsMap) {
+        _contextToVisibleViewsMap = [NSMapTable strongToWeakObjectsMapTable];
     }
     
-    [_contextsMap setObject:view forKey:context];
+    [_contextToVisibleViewsMap setObject:view forKey:context];
 }
 
-- (void)dealloc {
-    // clean ourselves up from the animator map
-    [self.class _releaseFadoutAnimatorForView:self];
++ (nullable UIView *)_animatingViewForContext:(id)context {
+    return [_contextToAnimatingViewsMap objectForKey:context];
 }
+
++ (void)_removeVisibleViewForContext:(id)context {
+    [_contextToVisibleViewsMap removeObjectForKey:context];
+}
+
++ (void)_setAnimatingView:(nonnull UIView *)view forContext:(nonnull id)context {
+    // lazy create it
+    if (!_contextToAnimatingViewsMap) {
+        _contextToAnimatingViewsMap = [NSMapTable strongToWeakObjectsMapTable];
+    }
+    
+    [_contextToAnimatingViewsMap setObject:view forKey:context];
+}
+
++ (void)_removeAnimatingViewForContext:(id)context {
+    [_contextToAnimatingViewsMap removeObjectForKey:context];
+}
+
+
+
+//- (void)dealloc {
+//    // clean ourselves up from the animator map
+//    [self.class _releaseFadoutAnimatorForView:self];
+//}
 
 @end
