@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 
 typedef void(^GBCAAnimationDidStartBlock)(CAAnimation *animation);
 typedef void(^GBCAAnimationDidStopBlock)(CAAnimation *animation, BOOL finished);
