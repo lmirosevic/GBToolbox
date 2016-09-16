@@ -10,11 +10,11 @@
 
 #import "GBCAAnimationDelegateHandler.h"
 
-static NSTimeInterval kFadeInDuration =     0.3;
-static NSTimeInterval kFadeOutDuration =    0.3;
-static NSTimeInterval kShowDuration =       3.0;
+static NSTimeInterval kDefaultFadeInDuration =      0.25;
+static NSTimeInterval kDefaultFadeOutDuration =     0.25;
+static NSTimeInterval kDefaultShowDuration =        3.0;
 
-static NSString *kAnimationKey =            @"com.goonbee.GBToolbox.FloatingPopoverAnimation";
+static NSString *kAnimationKey =                    @"com.goonbee.GBToolbox.FloatingPopoverAnimation";
 
 @implementation UIView (GBFloatingPopoverView)
 
@@ -29,6 +29,10 @@ static NSString *kAnimationKey =            @"com.goonbee.GBToolbox.FloatingPopo
 #pragma mark - API
 
 - (void)floatOnView:(nonnull UIView *)targetView animated:(BOOL)animated context:(nonnull id)context layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock {
+    [self floatOnView:targetView animated:animated context:context fadeInDuration:kDefaultFadeInDuration showDuration:kDefaultShowDuration fadeOutDuration:kDefaultFadeInDuration layoutConfigurationBlock:layoutBlock];
+}
+
+- (void)floatOnView:(nonnull UIView *)targetView animated:(BOOL)animated context:(nonnull id)context fadeInDuration:(NSTimeInterval)fadeInDuration showDuration:(NSTimeInterval)showDuration fadeOutDuration:(NSTimeInterval)fadeOutDuration layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock {
     if (!targetView) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"`view` cannot be nil." userInfo:nil];
     if (!context) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"`context` cannot be nil." userInfo:nil];
     
@@ -38,7 +42,7 @@ static NSString *kAnimationKey =            @"com.goonbee.GBToolbox.FloatingPopo
     // compute our params for the animation
     BOOL isOldViewAnimating = !![existingView.layer animationForKey:kAnimationKey];
     CGFloat currentAlpha = isOldViewAnimating ? ((NSNumber *)[existingView.layer.presentationLayer valueForKeyPath:@"opacity"]).doubleValue : 0.0;
-    NSTimeInterval remainingFadeInAnimationTime = (1.0 - currentAlpha) * kFadeInDuration;    
+    NSTimeInterval remainingFadeInAnimationTime = (1.0 - currentAlpha) * fadeInDuration;
     BOOL isDifferentView = (existingView != self);
     
     // clean up old view if the new one coming in is different
@@ -57,9 +61,9 @@ static NSString *kAnimationKey =            @"com.goonbee.GBToolbox.FloatingPopo
     CAKeyframeAnimation *newAnimation = [CAKeyframeAnimation animation];
     newAnimation.keyPath = @"opacity";
     newAnimation.values = @[@(currentAlpha), @1, @1, @0];
-    NSTimeInterval totalDuration = remainingFadeInAnimationTime + kShowDuration + kFadeOutDuration;
+    NSTimeInterval totalDuration = remainingFadeInAnimationTime + showDuration + fadeOutDuration;
     NSTimeInterval normalizedPostFadeInKeyTime = remainingFadeInAnimationTime / totalDuration;
-    NSTimeInterval normalisedPostFreezeKeyTime = (remainingFadeInAnimationTime + kShowDuration) / totalDuration;
+    NSTimeInterval normalisedPostFreezeKeyTime = (remainingFadeInAnimationTime + showDuration) / totalDuration;
     newAnimation.keyTimes = @[@0, @(normalizedPostFadeInKeyTime), @(normalisedPostFreezeKeyTime), @1];
     newAnimation.duration = totalDuration;
     newAnimation.removedOnCompletion = YES;
