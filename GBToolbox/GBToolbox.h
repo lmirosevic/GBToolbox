@@ -34,6 +34,7 @@
 #import "GBEnumWrapper.h"
 #import "GBAddress.h"
 #import "GBRemoteDebugMessages.h"
+#import "GBCAAnimationDelegateHandler.h"
 
 #import "NSObject+GBToolbox.h"
 #import "NSTimer+GBToolbox.h"
