@@ -29,10 +29,10 @@ static NSString *kAnimationKey =                    @"com.goonbee.GBToolbox.Floa
 #pragma mark - API
 
 - (void)floatOnView:(nonnull UIView *)targetView animated:(BOOL)animated context:(nonnull id)context layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock {
-    [self floatOnView:targetView animated:animated context:context fadeInDuration:kDefaultFadeInDuration showDuration:kDefaultShowDuration fadeOutDuration:kDefaultFadeInDuration layoutConfigurationBlock:layoutBlock];
+    [self floatOnView:targetView context:context fadeInDuration:(animated ? kDefaultFadeInDuration : 0) showDuration:kDefaultShowDuration fadeOutDuration:(animated ? kDefaultFadeOutDuration : 0) layoutConfigurationBlock:layoutBlock];
 }
 
-- (void)floatOnView:(nonnull UIView *)targetView animated:(BOOL)animated context:(nonnull id)context fadeInDuration:(NSTimeInterval)fadeInDuration showDuration:(NSTimeInterval)showDuration fadeOutDuration:(NSTimeInterval)fadeOutDuration layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock {
+- (void)floatOnView:(nonnull UIView *)targetView context:(nonnull id)context fadeInDuration:(NSTimeInterval)fadeInDuration showDuration:(NSTimeInterval)showDuration fadeOutDuration:(NSTimeInterval)fadeOutDuration layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock {
     if (!targetView) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"`view` cannot be nil." userInfo:nil];
     if (!context) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"`context` cannot be nil." userInfo:nil];
     

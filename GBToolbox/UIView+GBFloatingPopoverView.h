@@ -22,6 +22,6 @@ typedef void(^GBFloatingPopoverAutolayoutConfigurationBlock)(UIView * _Nonnull v
  
  Warning: Passing different durations for a particular context, will have undefined behaviour if another view is already being shown in this context.
  */
-- (void)floatOnView:(nonnull UIView *)targetView animated:(BOOL)animated context:(nonnull id)context fadeInDuration:(NSTimeInterval)fadeInDuration showDuration:(NSTimeInterval)showDuration fadeOutDuration:(NSTimeInterval)fadeOutDuration layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock;
+- (void)floatOnView:(nonnull UIView *)targetView context:(nonnull id)context fadeInDuration:(NSTimeInterval)fadeInDuration showDuration:(NSTimeInterval)showDuration fadeOutDuration:(NSTimeInterval)fadeOutDuration layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock;
 
 @end
