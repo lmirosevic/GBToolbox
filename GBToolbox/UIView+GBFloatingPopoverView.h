@@ -12,6 +12,9 @@ typedef void(^GBFloatingPopoverAutolayoutConfigurationBlock)(UIView * _Nonnull v
 
 @interface UIView (GBFloatingPopoverView)
 
-- (void)showOnView:(nonnull UIView *)view animated:(BOOL)animated context:(nonnull id)context layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock;
+/**
+ Shows receiver on the targetView. `layoutBlock` is called synchonously as soon as the view has been added to targetView (unless if the view is already a subview of targetView. Handles intelligent nesting of views within a context.
+ */
+- (void)floatOnView:(nonnull UIView *)targetView animated:(BOOL)animated context:(nonnull id)context layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock;
 
 @end
