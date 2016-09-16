@@ -67,7 +67,8 @@ Pod::Spec.new do |s|
                         'GBToolbox/UIControl+GBToolbox.{h,m}',
                         'GBToolbox/UIScreen+GBToolbox.{h,m}',
                         'GBToolbox/GBControlAggregator.{h,m}',
-                        'GBToolbox/GBMultiStateButton.{h,m}'
+                        'GBToolbox/GBMultiStateButton.{h,m}',
+                        'GBToolbox/UIView+GBFloatingPopoverView.{h,m}'
   s.osx.source_files =  'GBToolbox/GBTypes_OSX.h',
                         'GBToolbox/GBMacros_OSX.h',
                         'GBToolbox/GBUtility_OSX.h',
@@ -140,7 +141,8 @@ s.public_header_files  =       'GBToolbox/GBToolbox.h',
                                'GBToolbox/UIControl+GBToolbox.h',
                                'GBToolbox/UIScreen+GBToolbox.h',
                                'GBToolbox/GBControlAggregator.h',
-                               'GBToolbox/GBMultiStateButton.h'
+                               'GBToolbox/GBMultiStateButton.h',
+                               'GBToolbox/UIView+GBFloatingPopoverView.h'
   s.osx.public_header_files =  'GBToolbox/GBTypes_OSX.h',
                                'GBToolbox/GBMacros_OSX.h',
                                'GBToolbox/GBUtility_OSX.h',
