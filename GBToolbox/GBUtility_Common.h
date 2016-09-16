@@ -60,6 +60,11 @@ void Tic();
 NSTimeInterval TocInterval();
 void Toc();
 
+/**
+ * Runs the block immediately (on the same thread), and returns the time it took to execute.
+ */
+NSTimeInterval _TimeToRun(void(^block)());
+
 #pragma mark - Truthy/Falsy
 
 BOOL IsTruthy(id object);
