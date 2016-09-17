@@ -82,4 +82,13 @@
     return snapshotImage;
 }
 
+- (void)addCrossFadeAnimationToLayerWithDuration:(NSTimeInterval)duration {
+    CATransition *fadeAnimation = [CATransition animation];
+    fadeAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    fadeAnimation.type = kCATransitionFade;
+    fadeAnimation.duration = duration;
+ 
+    [self.layer addAnimation:fadeAnimation forKey:@"kCATransitionFade"];
+}
+
 @end

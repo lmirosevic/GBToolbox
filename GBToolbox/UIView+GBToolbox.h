@@ -55,4 +55,9 @@
  */
 - (UIImage *)renderToImageForRect:(CGRect)rect legacy:(BOOL)legacy;
 
+/**
+ Adds a fade animation to receiver's layer. A useful case is for animating label content changes.
+ */
+- (void)addCrossFadeAnimationToLayerWithDuration:(NSTimeInterval)duration;
+
 @end
