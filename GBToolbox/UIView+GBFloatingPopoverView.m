@@ -10,11 +10,13 @@
 
 #import "GBCAAnimationDelegateHandler.h"
 
-static NSTimeInterval kDefaultFadeInDuration =      0.25;
-static NSTimeInterval kDefaultFadeOutDuration =     0.25;
-static NSTimeInterval kDefaultShowDuration =        3.0;
+NSTimeInterval const kGBFloatingPopoverShowForever =        DBL_MAX;
 
-static NSString *kAnimationKey =                    @"com.goonbee.GBToolbox.FloatingPopoverAnimation";
+static NSTimeInterval const kDefaultFadeInDuration =        0.25;
+static NSTimeInterval const kDefaultFadeOutDuration =       0.25;
+static NSTimeInterval const kDefaultShowDuration =          3.0;
+
+static NSString * const kAnimationKey =                     @"com.goonbee.GBToolbox.FloatingPopoverAnimation";
 
 @implementation UIView (GBFloatingPopoverView)
 
@@ -29,7 +31,11 @@ static NSString *kAnimationKey =                    @"com.goonbee.GBToolbox.Floa
 #pragma mark - API
 
 - (void)floatOnView:(nonnull UIView *)targetView animated:(BOOL)animated context:(nonnull id)context layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock {
-    [self floatOnView:targetView context:context fadeInDuration:(animated ? kDefaultFadeInDuration : 0) showDuration:kDefaultShowDuration fadeOutDuration:(animated ? kDefaultFadeOutDuration : 0) layoutConfigurationBlock:layoutBlock];
+    [self floatOnView:targetView animated:animated autoDismiss:YES context:context layoutConfigurationBlock:layoutBlock];
+}
+
+- (void)floatOnView:(nonnull UIView *)targetView animated:(BOOL)animated autoDismiss:(BOOL)autoDismiss context:(nonnull id)context layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock {
+    [self floatOnView:targetView context:context fadeInDuration:(animated ? kDefaultFadeInDuration : 0) showDuration:(autoDismiss ? kDefaultShowDuration : kGBFloatingPopoverShowForever) fadeOutDuration:(animated ? kDefaultFadeOutDuration : 0) layoutConfigurationBlock:layoutBlock];
 }
 
 - (void)floatOnView:(nonnull UIView *)targetView context:(nonnull id)context fadeInDuration:(NSTimeInterval)fadeInDuration showDuration:(NSTimeInterval)showDuration fadeOutDuration:(NSTimeInterval)fadeOutDuration layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock {
@@ -68,18 +74,52 @@ static NSString *kAnimationKey =                    @"com.goonbee.GBToolbox.Floa
     newAnimation.duration = totalDuration;
     newAnimation.removedOnCompletion = YES;
     __weak typeof(self) weakSelf = self;
-    newAnimation.delegate = [GBCAAnimationDelegateHandler delegateWithDidStart:nil didStop:^(CAAnimation *animation, BOOL finished) {
+    newAnimation.delegate = [GBCAAnimationDelegateHandler delegateWithDidStart:nil didStop:[self _animationCleanupBlockForContext:context]];
+    [self.layer addAnimation:newAnimation forKey:kAnimationKey];
+    
+    // remember the new view
+    [self.class _setView:self forContext:context];
+}
+
+- (void)floatingViewDismissForContext:(id)context animated:(BOOL)animated {
+    [self floatingViewDismissForContext:context fadeOutDuration:(animated ? kDefaultFadeOutDuration : 0)];
+}
+
+- (void)floatingViewDismissForContext:(id)context fadeOutDuration:(NSTimeInterval)fadeOutDuration {
+    if (!context) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"`context` cannot be nil." userInfo:nil];
+    
+    // get the currently displayed view
+    UIView *existingView = [self.class _viewForContext:context];
+    
+    // compute our params for the animation
+    BOOL isOldViewAnimating = !![existingView.layer animationForKey:kAnimationKey];
+    CGFloat currentAlpha = isOldViewAnimating ? ((NSNumber *)[existingView.layer.presentationLayer valueForKeyPath:@"opacity"]).doubleValue : 0.0;
+    NSTimeInterval remainingFadeOutAnimationTime = currentAlpha * fadeOutDuration;
+    
+    // create and schedule the new animation
+    CAKeyframeAnimation *newAnimation = [CAKeyframeAnimation animation];
+    newAnimation.keyPath = @"opacity";
+    newAnimation.values = @[@(currentAlpha), @0];
+    newAnimation.keyTimes = @[@0, @1];
+    newAnimation.duration = remainingFadeOutAnimationTime;
+    newAnimation.removedOnCompletion = YES;
+    __weak typeof(self) weakSelf = self;
+    newAnimation.delegate = [GBCAAnimationDelegateHandler delegateWithDidStart:nil didStop:[self _animationCleanupBlockForContext:context]];
+    [self.layer addAnimation:newAnimation forKey:kAnimationKey];
+}
+
+#pragma mark - Private: Utils
+
+- (GBCAAnimationDidStopBlock)_animationCleanupBlockForContext:(id)context {
+    __weak typeof(self) weakSelf = self;
+    return ^(CAAnimation *animation, BOOL finished) {
         // if this animation ran it's natural course
         if (finished) {
             // remove this view from the superview
             [weakSelf removeFromSuperview];
             [weakSelf.class _removeViewForContext:context];
         }
-    }];
-    [self.layer addAnimation:newAnimation forKey:kAnimationKey];
-    
-    // remember the new view
-    [self.class _setView:self forContext:context];
+    };
 }
 
 #pragma mark - Private: Contexts Map
