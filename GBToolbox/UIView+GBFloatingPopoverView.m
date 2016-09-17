@@ -124,7 +124,7 @@ static NSString * const kAnimationKey =                     @"com.goonbee.GBTool
 
 #pragma mark - Private: Contexts Map
 
-static NSMapTable *_contextToViewsMap;
+static NSMapTable<id, UIView *> *_contextToViewsMap;
 
 + (nullable UIView *)_viewForContext:(id)context {
     return [_contextToViewsMap objectForKey:context];
