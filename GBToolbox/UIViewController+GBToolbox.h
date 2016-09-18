@@ -31,7 +31,7 @@
 @property (assign, nonatomic, readonly) UIStatusBarStyle inheritedPreferredStatusBarStyle;
 
 /**
- Set the navigation bar background color with a more sane behaviour than the standard Cocoa Touch methods.
+ Set this viewcontroller's navigation bar background color with a more sane behaviour than the standard Cocoa Touch methods.
  
  If color is nil, the bar will be transparent.
  */

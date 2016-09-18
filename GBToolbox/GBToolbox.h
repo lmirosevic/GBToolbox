@@ -95,6 +95,7 @@
 #import "UITableViewCell+AdditionalViews.h"
 #import "UIView+GBPopUp.h"
 #import "UIView+GBFloatingPopoverView.h"
+#import "UINavigationBar+GBToolbox.h"
 
 #endif
 

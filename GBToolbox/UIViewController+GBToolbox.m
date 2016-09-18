@@ -9,6 +9,7 @@
 #import "UIViewController+GBToolbox.h"
 
 #import "GBUtility_Common.h"
+#import "UINavigationBar+GBToolbox.h"
 #import <objc/runtime.h>
 
 @implementation UIViewController (GBToolbox)
@@ -81,18 +82,7 @@ static char gbIsVisibleCurrentlyKey;
 }
 
 - (void)styleNavigationBarWithColor:(nullable UIColor *)color {
-    // an actual color
-    if (color && ![color isEqual:[UIColor clearColor]]) {
-        [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-        self.navigationController.navigationBar.shadowImage = nil;
-        self.navigationController.navigationBar.barTintColor = color;
-    }
-    // no color -> seethrough bar
-    else {
-        [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-        self.navigationController.navigationBar.shadowImage = [UIImage new];
-        self.navigationController.navigationBar.barTintColor = nil;
-    }
+    [self.navigationController.navigationBar styleWithColor:color];
 }
 
 - (void)hideBackButtonTitle {
