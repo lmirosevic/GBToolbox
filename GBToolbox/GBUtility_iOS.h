@@ -10,6 +10,7 @@
 #import "GBTypes_iOS.h"
 
 #import "GBUtility_Common.h"
+#import "UIControl+GBToolbox.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import <CoreLocation/CoreLocation.h>
@@ -89,6 +90,12 @@ UIColor * _Nonnull RandomColor();
 void AutoLayoutDebugOn(BOOL crashOnTrigger);
 NSString * _Nonnull AutoLayoutViewPointer(NSObject * _Nonnull object);
 NSDictionary * _Nonnull AutoLayoutPointerViewsDictionaryForViews(NSArray * _Nonnull views);
+
+#pragma mark - Debugging
+
+void DebugCode(VoidBlock code);
+
+UIButton *RegisterDebugButton(NSString *title, GBActionBlock action);
 
 #pragma mark - Geocoding
 

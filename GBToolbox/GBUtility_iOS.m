@@ -265,6 +265,46 @@ NSDictionary *AutoLayoutPointerViewsDictionaryForViews(NSArray *views) {
     }]];
 }
 
+#pragma mark - Debugging
+
+void DebugCode(VoidBlock code) {
+#ifdef DEBUG
+    code();
+#endif
+}
+
+static NSInteger GBToolboxDebugButtonCount = 0;
+UIButton *RegisterDebugButton(NSString *title, GBActionBlock action) {
+#ifdef DEBUG
+    CGFloat inset = 20;
+    CGSize buttonSize = CGSizeMake(40, 20);
+    CGFloat buttonSpacing = 4;
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.backgroundColor = [UIColor grayColor];
+    [button setTitle:title forState:UIControlStateNormal];
+    button.titleLabel.minimumScaleFactor = 0.5;
+    button.titleLabel.adjustsFontSizeToFitWidth = YES;
+    button.titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+    button.alpha = 0.5;
+    [button addTargetActionForControlEvents:UIControlEventTouchUpInside withBlock:action];
+    [window addSubview:button];
+    button.translatesAutoresizingMaskIntoConstraints = NO;
+    CGSize distance = CGSizeMake(
+                                 GBToolboxDebugButtonCount * (buttonSize.width + buttonSpacing) + inset,
+                                 inset
+                                 );
+    [window addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[button(==size)]-(distance)-|" options:0 metrics:@{@"size": @(buttonSize.width), @"distance": @(distance.width)} views:NSDictionaryOfVariableBindings(button)]];
+    [window addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[button(==size)]-(distance)-|" options:0 metrics:@{@"size": @(buttonSize.height), @"distance": @(distance.height)} views:NSDictionaryOfVariableBindings(button)]];
+    
+    GBToolboxDebugButtonCount += 1;
+    
+    return button;
+#else
+    return nil;
+#endif
+}
+
 #pragma mark - Geocoding
 
 void ReverseGeocodeLocation(CLLocation *location, void(^block)(GBAddress *address)) {
