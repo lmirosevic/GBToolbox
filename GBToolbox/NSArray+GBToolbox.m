@@ -29,13 +29,23 @@
 #pragma mark - Functional Programming
 
 - (NSArray *)map:(id(^)(id object))function {
+    return [self mapWithIndex:^id(id object, NSUInteger index) {
+        if (function) {
+            return function(object);
+        } else {
+            return nil;
+        }
+    }];
+}
+
+- (NSArray *)mapWithIndex:(id(^)(id object, NSUInteger index))function {
     //creates a results array in which to store results, presets the capacity for faster writes
     NSUInteger count = self.count;
     NSMutableArray *resultsArray = [[NSMutableArray alloc] initWithCapacity:count];
     
     //applies the function to each item and stores the result in the new array, except if it's nil
     for (NSUInteger i=0; i<count; i++) {
-        id mappedObject = function(self[i]);
+        id mappedObject = function(self[i], i);
         if (mappedObject) {
             resultsArray[i] = mappedObject;
         }

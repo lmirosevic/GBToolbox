@@ -23,6 +23,11 @@
 - (NSArray *)map:(id(^)(id object))function;
 
 /**
+ Returns a new array with the elements from the receiver transformed by function.
+ */
+- (NSArray *)mapWithIndex:(id(^)(id object, NSUInteger index))function;
+
+/**
  Fold Left
  */
 - (id)foldLeft:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject;
