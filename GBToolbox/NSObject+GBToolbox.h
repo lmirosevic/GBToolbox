@@ -25,4 +25,14 @@
  */
 - (nonnull instancetype)tap:(void (^ _Nonnull)(id _Nonnull object))block;
 
+/**
+ Returns the getter selector for a property with a name.
+ */
++ (SEL)getterForPropertyWithName:(nonnull NSString *)name;
+
+/**
+ Returns the setter selector for a property with a name.
+ */
++ (SEL)setterForPropertyWithName:(nonnull NSString *)name;
+
 @end
