@@ -20,14 +20,6 @@ static NSString * const kAnimationKey =                     @"com.goonbee.GBTool
 
 @implementation UIView (GBFloatingPopoverView)
 
-#pragma mark - Life
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-    self.backgroundColor = [UIColor clearColor];
-}
-
 #pragma mark - API
 
 - (void)floatOnView:(nonnull UIView *)targetView animated:(BOOL)animated context:(nonnull id)context layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock {
