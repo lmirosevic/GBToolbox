@@ -51,8 +51,14 @@ static NSString * const kAnimationKey =                     @"com.goonbee.GBTool
     
     // add and lay out the new view if it is different
     if (self.superview != targetView) {
+        // first add to view hierachy
         [targetView addSubview:self];
+        
+        // now we can set constraints, inverting control
         if (layoutBlock) layoutBlock(self);
+        
+        // we set the alpha to 0 to avoid a potential flickering issue when the animation is removed from the layer, and the removing from the superview doesn't happen in the same run loop interation which could lead to a short flicker of the view at the original alpha after the animation is removed but before the view is removed from the superview
+        self.alpha = 0;
     }
     
     // create and schedule the new animation
