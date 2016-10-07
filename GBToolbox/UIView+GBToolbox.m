@@ -8,9 +8,39 @@
 
 #import "UIView+GBToolbox.h"
 
+#import "GBUtility_Common.h"
+#import <objc/runtime.h>
+
 @implementation UIView (GBToolbox)
 
-#pragma mark - Conveniences
+#pragma mark - CA
+
+static char gbDesignTimeOnlyBackgroundColor;
+
+- (void)setDesignTimeOnlyBackgroundColor:(BOOL)designTimeOnlyBackgroundColor {
+    objc_setAssociatedObject(self, &gbDesignTimeOnlyBackgroundColor, @(designTimeOnlyBackgroundColor), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)designTimeOnlyBackgroundColor {
+        return ((NSNumber *)objc_getAssociatedObject(self, &gbDesignTimeOnlyBackgroundColor)).boolValue;
+}
+
+#pragma mark - Overrides
+
++ (void)load {
+    SwizzleInstanceMethodsInClass(self, @selector(awakeFromNib), @selector(_swizz_awakeFromNib));
+}
+
+- (void)_swizz_awakeFromNib {
+    [self _swizz_awakeFromNib];
+    
+    if (self.designTimeOnlyBackgroundColor) {
+        self.backgroundColor = [UIColor clearColor];
+    }
+}
+
+
+#pragma mark - Extensions
 
 - (void)removeAllSubviews {
     NSArray *subviews = [self.subviews copy];

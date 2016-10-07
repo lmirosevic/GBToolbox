@@ -10,7 +10,10 @@
 
 @interface UIView (GBToolbox)
 
-#pragma mark - Conveniences
+/**
+ Set this to YES if the background color that you specifed in IB was for design time only and you would like the background to be clearColor when it is unarchived from the NIB. Useful if you want IB to show a different color at design time, such as a placeholder color, but you don't want this visible at runtime.
+ */
+@property (assign, nonatomic) IBInspectable BOOL designTimeOnlyBackgroundColor;
 
 /**
  Removes all subviews.
