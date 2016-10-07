@@ -17,6 +17,8 @@
 static char gbIsVisibleKey;
 static char gbIsVisibleCurrentlyKey;
 
+#pragma mark - CA
+
 - (void)setIsVisible:(BOOL)isVisible {
     objc_setAssociatedObject(self, &gbIsVisibleKey, @(isVisible), OBJC_ASSOCIATION_COPY);
 }
@@ -31,6 +33,14 @@ static char gbIsVisibleCurrentlyKey;
 
 - (BOOL)isVisibleCurrently {
     return [objc_getAssociatedObject(self, &gbIsVisibleCurrentlyKey) boolValue];
+}
+
+#pragma mark - Overrides
+
++ (void)load {
+    SwizzleInstanceMethodsInClass(self, @selector(viewWillAppear:), @selector(_swizz_viewWillAppear:));
+    SwizzleInstanceMethodsInClass(self, @selector(viewWillDisappear:), @selector(_swizz_viewWillDisappear:));
+    SwizzleInstanceMethodsInClass(self, @selector(viewDidDisappear:), @selector(_swizz_viewDidDisappear:));
 }
 
 - (void)_swizz_viewWillAppear:(BOOL)animated {
@@ -52,11 +62,7 @@ static char gbIsVisibleCurrentlyKey;
     [self _swizz_viewDidDisappear:animated];
 }
 
-+ (void)load {
-    SwizzleInstanceMethodsInClass(self, @selector(viewWillAppear:), @selector(_swizz_viewWillAppear:));
-    SwizzleInstanceMethodsInClass(self, @selector(viewWillDisappear:), @selector(_swizz_viewWillDisappear:));
-    SwizzleInstanceMethodsInClass(self, @selector(viewDidDisappear:), @selector(_swizz_viewDidDisappear:));
-}
+#pragma mark - Extensions
 
 - (void)ensureViewIsLoaded {
     [self view];//this causes the view to get loaded
