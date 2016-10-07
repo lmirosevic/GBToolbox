@@ -34,11 +34,11 @@ typedef void(^GBFloatingPopoverAutolayoutConfigurationBlock)(UIView * _Nonnull v
 /**
  Dismisses the receiver.
  */
-- (void)floatingViewDismissForContext:(id)context animated:(BOOL)animated;
+- (void)floatingViewDismissForContext:(nonnull id)context animated:(BOOL)animated;
 
 /**
  Dismisses the receiver with a desired animation duration.
  */
-- (void)floatingViewDismissForContext:(id)context fadeOutDuration:(NSTimeInterval)fadeOutDuration;
+- (void)floatingViewDismissForContext:(nonnull id)context fadeOutDuration:(NSTimeInterval)fadeOutDuration;
 
 @end

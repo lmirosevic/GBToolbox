@@ -273,7 +273,9 @@ void DebugCode(VoidBlock code) {
 #endif
 }
 
+#ifdef DEBUG
 static NSInteger GBToolboxDebugButtonCount = 0;
+#endif
 UIButton *RegisterDebugButton(NSString *title, GBActionBlock action) {
 #ifdef DEBUG
     CGFloat inset = 20;

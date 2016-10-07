@@ -93,9 +93,9 @@ NSDictionary * _Nonnull AutoLayoutPointerViewsDictionaryForViews(NSArray * _Nonn
 
 #pragma mark - Debugging
 
-void DebugCode(VoidBlock code);
+void DebugCode(VoidBlock _Nonnull code);
 
-UIButton *RegisterDebugButton(NSString *title, GBActionBlock action);
+UIButton * _Nonnull RegisterDebugButton(NSString * _Nonnull title, GBActionBlock _Nonnull action);
 
 #pragma mark - Geocoding
 

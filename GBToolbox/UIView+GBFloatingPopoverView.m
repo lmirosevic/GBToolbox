@@ -71,7 +71,6 @@ static NSString * const kAnimationKey =                     @"com.goonbee.GBTool
     newAnimation.keyTimes = @[@0, @(normalizedPostFadeInKeyTime), @(normalisedPostFreezeKeyTime), @1];
     newAnimation.duration = totalDuration;
     newAnimation.removedOnCompletion = YES;
-    __weak typeof(self) weakSelf = self;
     newAnimation.delegate = [GBCAAnimationDelegateHandler delegateWithDidStart:nil didStop:[self _animationCleanupBlockForContext:context]];
     [self.layer addAnimation:newAnimation forKey:kAnimationKey];
     
@@ -101,7 +100,6 @@ static NSString * const kAnimationKey =                     @"com.goonbee.GBTool
     newAnimation.keyTimes = @[@0, @1];
     newAnimation.duration = remainingFadeOutAnimationTime;
     newAnimation.removedOnCompletion = YES;
-    __weak typeof(self) weakSelf = self;
     newAnimation.delegate = [GBCAAnimationDelegateHandler delegateWithDidStart:nil didStop:[self _animationCleanupBlockForContext:context]];
     [self.layer addAnimation:newAnimation forKey:kAnimationKey];
 }

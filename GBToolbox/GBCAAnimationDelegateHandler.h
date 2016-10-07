@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 
-typedef void(^GBCAAnimationDidStartBlock)(CAAnimation *animation);
-typedef void(^GBCAAnimationDidStopBlock)(CAAnimation *animation, BOOL finished);
+typedef void(^GBCAAnimationDidStartBlock)(CAAnimation * _Nonnull animation);
+typedef void(^GBCAAnimationDidStopBlock)(CAAnimation * _Nonnull animation, BOOL finished);
 
 @interface GBCAAnimationDelegateHandler : NSObject <CAAnimationDelegate>
 
@@ -20,7 +20,7 @@ typedef void(^GBCAAnimationDidStopBlock)(CAAnimation *animation, BOOL finished);
 
 @interface GBCAAnimationDelegateHandler ()
 
-@property (copy, nonatomic) GBCAAnimationDidStartBlock  didStart;
-@property (copy, nonatomic) GBCAAnimationDidStopBlock   didStop;
+@property (copy, nonatomic, nullable) GBCAAnimationDidStartBlock  didStart;
+@property (copy, nonatomic, nullable) GBCAAnimationDidStopBlock   didStop;
 
 @end

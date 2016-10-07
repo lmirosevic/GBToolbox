@@ -28,11 +28,11 @@
 /**
  Returns the getter selector for a property with a name.
  */
-+ (SEL)getterForPropertyWithName:(nonnull NSString *)name;
++ (nullable SEL)getterForPropertyWithName:(nonnull NSString *)name;
 
 /**
  Returns the setter selector for a property with a name.
  */
-+ (SEL)setterForPropertyWithName:(nonnull NSString *)name;
++ (nullable SEL)setterForPropertyWithName:(nonnull NSString *)name;
 
 @end
