@@ -157,6 +157,7 @@ static BOOL const kDefaultClipsToPillShape =                    YES;
             [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeRight   relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight    multiplier:1.0 constant:-padding.right],
         ];
         [self addConstraints:paddingConstraints];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0]];// circle is never squashed (width >= height)
         self.paddingConstraints = paddingConstraints;
         self.label = label;
     }
