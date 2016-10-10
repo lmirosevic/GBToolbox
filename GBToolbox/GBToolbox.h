@@ -72,6 +72,7 @@
 #import "GBToggleControl.h"
 #import "GBToggleControlRadioGroupManager.h"
 #import "GBAlertBadgeView.h"
+#import "GBAlertBadgeView2.h"
 #import "GBRoundBadgeView.h"
 #import "GBColoredBarView.h"
 #import "GBTextBox.h"
