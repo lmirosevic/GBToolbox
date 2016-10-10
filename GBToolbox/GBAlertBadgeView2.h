@@ -24,6 +24,14 @@
 @property (assign, nonatomic) BOOL                      hidesWhenCountZero;//default: NO
 @property (assign, nonatomic) BOOL                      clipsToPillShape;//default: YES
 
+/**
+ Creates a badge with a background color and clipped to a pill shape.
+ */
++ (nonnull instancetype)badgeWithFont:(nonnull UIFont *)font textColor:(nonnull UIColor *)textColor backgroundColor:(nonnull UIColor *)backgroundColor padding:(UIEdgeInsets)padding;
+
+/**
+ Creates a badge with a background image.
+ */
 + (nonnull instancetype)badgeWithFont:(nonnull UIFont *)font textColor:(nonnull UIColor *)textColor backgroundImage:(nullable UIImage *)backgroundImage padding:(UIEdgeInsets)padding;
 - (nonnull instancetype)initWithFont:(nonnull UIFont *)font textColor:(nonnull UIColor *)textColor backgroundImage:(nullable UIImage *)backgroundImage padding:(UIEdgeInsets)padding;
 

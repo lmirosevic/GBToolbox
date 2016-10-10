@@ -102,6 +102,18 @@ static BOOL const kDefaultClipsToPillShape =                    YES;
 
 #pragma mark - API
 
++ (instancetype)badgeWithFont:(UIFont *)font textColor:(UIColor *)textColor backgroundColor:(UIColor *)backgroundColor padding:(UIEdgeInsets)padding {
+    AssertParameterNotNil(font);
+    AssertParameterNotNil(textColor);
+    AssertParameterNotNil(backgroundColor);
+    
+    GBAlertBadgeView2 *badge = [[self alloc] initWithFont:font textColor:textColor backgroundImage:nil padding:padding];
+    badge.clipsToPillShape = YES;
+    badge.backgroundColor = backgroundColor;
+    
+    return badge;
+}
+
 + (instancetype)badgeWithFont:(UIFont *)font textColor:(UIColor *)textColor backgroundImage:(UIImage *)backgroundImage padding:(UIEdgeInsets)padding {
     return [[self alloc] initWithFont:font textColor:textColor backgroundImage:backgroundImage padding:padding];
 }
