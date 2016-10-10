@@ -153,8 +153,8 @@ static BOOL const kDefaultClipsToPillShape =                    YES;
         NSArray<NSLayoutConstraint *> *paddingConstraints = @[
             [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeTop     relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop      multiplier:1.0 constant:padding.top],
             [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeLeft    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft     multiplier:1.0 constant:padding.left],
-            [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeBottom  relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom   multiplier:1.0 constant:padding.bottom],
-            [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeRight   relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight    multiplier:1.0 constant:padding.right],
+            [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeBottom  relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom   multiplier:1.0 constant:-padding.bottom],
+            [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeRight   relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight    multiplier:1.0 constant:-padding.right],
         ];
         [self addConstraints:paddingConstraints];
         self.paddingConstraints = paddingConstraints;
