@@ -30,15 +30,15 @@ static BOOL const kDefaultHidesWhenCountZero =      NO;
 
 #pragma mark - custom accessors
 
--(void)setBadgeCount:(NSInteger)badgeCount {
+- (void)setBadgeCount:(NSInteger)badgeCount {
     self.badgeText = [NSString stringWithFormat:@"%ld", (long)badgeCount];
 }
 
--(NSInteger)badgeCount {
+- (NSInteger)badgeCount {
     return [self.badgeText integerValue];
 }
 
--(void)setBadgeText:(NSString *)badgeText {
+- (void)setBadgeText:(NSString *)badgeText {
     self.label.text = badgeText;
     
     [self _handleAutoHiding];
@@ -46,45 +46,45 @@ static BOOL const kDefaultHidesWhenCountZero =      NO;
     [self _repositionBadge];
 }
 
--(NSString *)badgeText {
+- (NSString *)badgeText {
     return self.label.text;
 }
 
--(void)setFont:(UIFont *)font {
+- (void)setFont:(UIFont *)font {
     self.label.font = font;
     
     [self _resizeBadge];
     [self _repositionBadge];
 }
 
--(UIFont *)font {
+- (UIFont *)font {
     return self.label.font;
 }
 
--(void)setTextColor:(UIColor *)textColor {
+- (void)setTextColor:(UIColor *)textColor {
     self.label.textColor = textColor;
 }
 
--(UIColor *)textColor {
+- (UIColor *)textColor {
     return self.label.textColor;
 }
     
--(void)setBackgroundImage:(UIImage *)backgroundImage {
+- (void)setBackgroundImage:(UIImage *)backgroundImage {
     self.backgroundImageView.image = backgroundImage;
 }
 
--(UIImage *)backgroundImage {
+- (UIImage *)backgroundImage {
     return self.backgroundImageView.image;
 }
 
--(void)setHorizontalPadding:(CGFloat)horizontalPadding {
+- (void)setHorizontalPadding:(CGFloat)horizontalPadding {
     _horizontalPadding = horizontalPadding;
     
     [self _resizeBadge];
     [self _repositionBadge];
 }
 
--(void)setHeight:(CGFloat)height {
+- (void)setHeight:(CGFloat)height {
     _height = height;
     
     [self _resizeBadge];
@@ -93,13 +93,13 @@ static BOOL const kDefaultHidesWhenCountZero =      NO;
 
 #pragma mark - convenience
 
-+(GBAlertBadgeView *)badgeWithHeight:(CGFloat)height font:(UIFont *)font textColor:(UIColor *)textColor backgroundImage:(UIImage *)backgroundImage horizontalPadding:(CGFloat)horizontalPadding {
++ (GBAlertBadgeView *)badgeWithHeight:(CGFloat)height font:(UIFont *)font textColor:(UIColor *)textColor backgroundImage:(UIImage *)backgroundImage horizontalPadding:(CGFloat)horizontalPadding {
     return [[self alloc] initWithHeight:height font:font textColor:textColor backgroundImage:backgroundImage horizontalPadding:horizontalPadding];
 }
 
 #pragma mark - API
 
--(void)syncFrameWithView:(UIView *)view offset:(CGPoint)offset {
+- (void)syncFrameWithView:(UIView *)view offset:(CGPoint)offset {
     //remove old KVO
     [self _removeKVO];
     
@@ -110,13 +110,13 @@ static BOOL const kDefaultHidesWhenCountZero =      NO;
     [self  _repositionBadge];
 }
 
--(void)stopSyncingFrame {
+- (void)stopSyncingFrame {
     [self _removeKVO];
 }
 
 #pragma mark - life
 
--(id)initWithHeight:(CGFloat)height font:(UIFont *)font textColor:(UIColor *)textColor backgroundImage:(UIImage *)backgroundImage horizontalPadding:(CGFloat)horizontalPadding {
+- (id)initWithHeight:(CGFloat)height font:(UIFont *)font textColor:(UIColor *)textColor backgroundImage:(UIImage *)backgroundImage horizontalPadding:(CGFloat)horizontalPadding {
     if (self = [super init]) {
         [self _init];
         
@@ -146,7 +146,7 @@ static BOOL const kDefaultHidesWhenCountZero =      NO;
     return self;
 }
 
--(void)_init {
+- (void)_init {
     //common config
     self.userInteractionEnabled = NO;
     
@@ -176,7 +176,7 @@ static BOOL const kDefaultHidesWhenCountZero =      NO;
     self.hidesWhenCountZero = kDefaultHidesWhenCountZero;
 }
 
--(void)dealloc {
+- (void)dealloc {
     self.backgroundImageView = nil;
     self.label = nil;
     
@@ -187,7 +187,7 @@ static BOOL const kDefaultHidesWhenCountZero =      NO;
 
 void *kFrameObserver = &kFrameObserver;
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if (context == kFrameObserver) {
         [self _repositionBadge];
     }
@@ -195,7 +195,7 @@ void *kFrameObserver = &kFrameObserver;
 
 #pragma mark - util
 
--(void)_handleAutoHiding {
+- (void)_handleAutoHiding {
     if (self.hidesWhenCountZero) {
         if (!self.badgeText ||
             [self.badgeText isEqualToString:@""] ||
@@ -211,14 +211,14 @@ void *kFrameObserver = &kFrameObserver;
     }
 }
 
--(void)_resizeBadge {
+- (void)_resizeBadge {
     self.frame = CGRectMake(self.frame.origin.x,
                             self.frame.origin.y,
                             [self _width],
                             [self _height]);
 }
 
--(void)_repositionBadge {
+- (void)_repositionBadge {
     if (self.observedView) {
         self.frame = CGRectMake(self.observedView.frame.origin.x + self.observedView.frame.size.width + self.offset.x,
                                 self.observedView.frame.origin.y + self.observedView.frame.size.height * 0.5 - self.frame.size.height * 0.5 + self.offset.y,
@@ -227,7 +227,7 @@ void *kFrameObserver = &kFrameObserver;
     }
 }
 
--(CGFloat)_width {    
+- (CGFloat)_width {    
     CGFloat prelimWidth = ceilf([self.badgeText sizeWithAttributes:@{
         NSFontAttributeName: self.font
     }].width);
@@ -235,16 +235,16 @@ void *kFrameObserver = &kFrameObserver;
     return prelimWidth + self.horizontalPadding * 2;
 }
 
--(CGFloat)_height {
+- (CGFloat)_height {
     return self.height;
 }
 
--(void)_addKVOForView:(UIView *)view withOffset:(CGPoint)offset {
+- (void)_addKVOForView:(UIView *)view withOffset:(CGPoint)offset {
     [view addObserver:self forKeyPath:@"frame" options:0 context:kFrameObserver];
     self.observedView = view;
 }
 
--(void)_removeKVO {
+- (void)_removeKVO {
     [self.observedView removeObserver:self forKeyPath:@"frame" context:kFrameObserver];
     self.observedView = nil;
 }
