@@ -72,7 +72,6 @@
 #import "GBToggleControl.h"
 #import "GBToggleControlRadioGroupManager.h"
 #import "GBAlertBadgeView.h"
-#import "GBAlertBadgeView2.h"
 #import "GBRoundBadgeView.h"
 #import "GBColoredBarView.h"
 #import "GBTextBox.h"
@@ -81,6 +80,7 @@
 #import "GBGradientView.h"
 #import "GBControlAggregator.h"
 #import "GBMultiStateButton.h"
+#import "GBAlertBadge.h"
 
 #import "UITableView+GBToolbox.h"
 #import "UIViewController+GBToolbox.h"

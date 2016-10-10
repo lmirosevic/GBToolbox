@@ -1,9 +1,9 @@
 //
-//  GBAlertBadgeView.h
-//  Russia
+//  GBAlertBadge.h
+//  GBToolBox
 //
-//  Created by Luka Mirosevic on 01/07/2013.
-//  Copyright (c) 2013 Goonbee. All rights reserved.
+//  Created by Luka Mirosevic on 10/10/2016.
+//  Copyright © 2016 Goonbee e.U. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,7 +13,7 @@
  
  Useful for signalling things that have unread notifications or similar.
  */
-@interface GBAlertBadgeView2 : UIView
+@interface GBAlertBadge : UIView
 
 @property (copy, nonatomic, nullable) NSString          *badgeText;
 @property (assign, nonatomic) NSInteger                 badgeCount;

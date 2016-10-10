@@ -1,12 +1,12 @@
 //
-//  GBAlertBadgeView.m
-//  Russia
+//  GBAlertBadge.h
+//  GBToolBox
 //
-//  Created by Luka Mirosevic on 01/07/2013.
-//  Copyright (c) 2013 Goonbee. All rights reserved.
+//  Created by Luka Mirosevic on 10/10/2016.
+//  Copyright © 2016 Goonbee e.U. All rights reserved.
 //
 
-#import "GBAlertBadgeView2.h"
+#import "GBAlertBadge.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -16,7 +16,7 @@
 static BOOL const kDefaultHidesWhenCountZero =                  NO;
 static BOOL const kDefaultClipsToPillShape =                    YES;
 
-@interface GBAlertBadgeView2 ()
+@interface GBAlertBadge ()
 
 @property (strong, nonatomic) UIImageView                       *backgroundImageView;
 @property (strong, nonatomic) UILabel                           *label;
@@ -24,7 +24,7 @@ static BOOL const kDefaultClipsToPillShape =                    YES;
 
 @end
 
-@implementation GBAlertBadgeView2
+@implementation GBAlertBadge
 
 #pragma mark - CA
 
@@ -107,7 +107,7 @@ static BOOL const kDefaultClipsToPillShape =                    YES;
     AssertParameterNotNil(textColor);
     AssertParameterNotNil(backgroundColor);
     
-    GBAlertBadgeView2 *badge = [[self alloc] initWithFont:font textColor:textColor backgroundImage:nil padding:padding];
+    GBAlertBadge *badge = [[self alloc] initWithFont:font textColor:textColor backgroundImage:nil padding:padding];
     badge.clipsToPillShape = YES;
     badge.backgroundColor = backgroundColor;
     
