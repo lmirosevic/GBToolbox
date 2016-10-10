@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ A round badge view, that is composed of a background image that is aspect filled and a foreground image whose content mode can be freely specified. 
+ 
+ It clips the edges to create a circle. 
+ 
+ Useful for rounded profile pics, with an optional background image.
+ */
 @interface GBRoundBadgeView : UIView
 
 @property (strong, nonatomic) UIImage                   *backgroundImage;
