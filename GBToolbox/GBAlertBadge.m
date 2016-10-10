@@ -137,8 +137,8 @@ static BOOL const kDefaultClipsToPillShape =                    YES;
         backgroundImageView.contentMode = UIViewContentModeScaleToFill;
         backgroundImageView.backgroundColor = [UIColor clearColor];
         [self addSubview:backgroundImageView];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[backgroundImageView]|" options:nil metrics:nil views:NSDictionaryOfVariableBindings(backgroundImageView)]];// full width
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[backgroundImageView]|" options:nil metrics:nil views:NSDictionaryOfVariableBindings(backgroundImageView)]];// full height
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[backgroundImageView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(backgroundImageView)]];// full width
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[backgroundImageView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(backgroundImageView)]];// full height
         self.backgroundImageView = backgroundImageView;
         
         // label
