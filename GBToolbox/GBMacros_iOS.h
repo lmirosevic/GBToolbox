@@ -58,7 +58,7 @@
 #define _o (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]) ? Portrait : Landscape)
 
 //Debugging
-static inline void _lEdgeInsets(UIEdgeInsets edgeInsets) {l(@"EdgeInsets: %f %f %f %f", edgeInsets.top, edgeInsets.left, edgeInsets.bottom, edgeInsets.right);}
+static inline void _lEdgeInsets(UIEdgeInsets edgeInsets) {NSLog(@"EdgeInsets: %f %f %f %f", edgeInsets.top, edgeInsets.left, edgeInsets.bottom, edgeInsets.right);}
 #ifdef DEBUG
 #define EnableAutolayoutDebugHotkeyWithCrash(shouldCrashIfAmbiguous) -(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event { AutoLayoutDebugOn(shouldCrashIfAmbiguous); }
 #else
