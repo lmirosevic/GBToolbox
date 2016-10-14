@@ -10,15 +10,31 @@
 
 #import "GBMacros_Common.h"
 
+@interface NSObject ()
+
+@property (strong, nonatomic, readwrite) NSMapTable *GBPayloadMap_storage;
+
+@end
+
 @implementation NSObject (GBToolbox)
 
 _associatedObject(strong, nonatomic, id, GBPayload, setGBPayload)
 
-- (nonnull NSString *)pointerAddress {
+_associatedObject(strong, nonatomic, NSMapTable *, GBPayloadMap_storage, setGBPayloadMap_storage)
+
+- (NSMapTable *)GBPayloadMap {
+    if (!self.GBPayloadMap_storage) {
+        self.GBPayloadMap_storage = [NSMapTable strongToStrongObjectsMapTable];
+    }
+    
+    return self.GBPayloadMap_storage;
+}
+
+- (NSString *)pointerAddress {
     return [NSString stringWithFormat:@"%p", self];
 }
 
-- (nonnull instancetype)tap:(void (^ _Nonnull)(id _Nonnull object))block {
+- (instancetype)tap:(void (^)(id object))block {
     if (block) block(self);
     
     return self;

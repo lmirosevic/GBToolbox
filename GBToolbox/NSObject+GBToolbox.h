@@ -13,12 +13,19 @@
 /**
  An easy way to associate an arbitrary payload with an object. e.g. when you create a button which pertains to changing some model, you can attach the model to the button and then get to it in the button action method.
  */
-@property (strong, nonatomic, nullable) id              GBPayload;
+@property (strong, nonatomic, nullable) id                      GBPayload;
+
+/**
+ An easy way to associate arbitrary key value paris to an object. e.g. when you create a button which pertains to changing some model, you can attach the model to the button and then get to it in the button action method.
+ 
+ Keys and values are strongly retained. Keys are not copied in.
+ */
+@property (strong, nonatomic, nonnull, readonly) NSMapTable     *GBPayloadMap;
 
 /**
  Returns the pointer address of an object as a string.
  */
-@property (copy, nonatomic, readonly, nonnull) NSString *pointerAddress;
+@property (copy, nonatomic, readonly, nonnull) NSString         *pointerAddress;
 
 /**
  Yields self to the block, and then returns self. The primary purpose of this method is to “tap into” a method chain, in order to perform operations on intermediate results within the chain.
