@@ -63,4 +63,15 @@
  */
 - (void)addCrossFadeAnimationToLayerWithDuration:(NSTimeInterval)duration;
 
+/**
+ Setting this to YES disables user interactions on the the receiver, without disabling it for the child views.
+ 
+ This is in contrast to simply setting userInteractionEnabled to NO, in which case the view will not receive touch input, will however also not forward it to it's children.
+ 
+ Setting this to YES is useful in cases where one might want to add a container view that has some children, where the container view should not exist for purposes of handling touch input--it should neither receive touch input, not prevent its children from receiving it.
+ 
+ Defaults to YES.
+ */
+@property (assign, nonatomic) BOOL shouldParticipateInUserInput;
+
 @end

@@ -9,6 +9,7 @@
 #import "UIView+GBToolbox.h"
 
 #import "GBUtility_Common.h"
+#import "GBMacros_Common.h"
 #import <objc/runtime.h>
 
 @implementation UIView (GBToolbox)
@@ -22,13 +23,24 @@ static char gbDesignTimeOnlyBackgroundColor;
 }
 
 - (BOOL)designTimeOnlyBackgroundColor {
-        return ((NSNumber *)objc_getAssociatedObject(self, &gbDesignTimeOnlyBackgroundColor)).boolValue;
+    return ((NSNumber *)objc_getAssociatedObject(self, &gbDesignTimeOnlyBackgroundColor)).boolValue;
+}
+
+static char gbShouldParticipateInUserInput;
+
+- (void)setShouldParticipateInUserInput:(BOOL)shouldParticipateInUserInput {
+    objc_setAssociatedObject(self, &gbShouldParticipateInUserInput, @(shouldParticipateInUserInput), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)shouldParticipateInUserInput {
+    return ((NSNumber *)objc_getAssociatedObject(self, &gbShouldParticipateInUserInput) ?: @YES).boolValue;
 }
 
 #pragma mark - Overrides
 
 + (void)load {
     SwizzleInstanceMethodsInClass(self, @selector(awakeFromNib), @selector(_swizz_awakeFromNib));
+    SwizzleInstanceMethodsInClass(self, @selector(hitTest:withEvent:), @selector(_swizz_hitTest:withEvent:));
 }
 
 - (void)_swizz_awakeFromNib {
@@ -39,6 +51,23 @@ static char gbDesignTimeOnlyBackgroundColor;
     }
 }
 
+- (UIView *)_swizz_hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    // determine what we normally would have hit tested
+    UIView *hitView = [self _swizz_hitTest:point withEvent:event];
+ 
+    // if we should participate in user input, then do what we normally do
+    if (self.shouldParticipateInUserInput) {
+        return hitView;
+    }
+    // otherwise do our magic
+    else {
+        if (hitView == self) {
+            return nil;
+        } else {
+            return hitView;
+        }
+    }
+}
 
 #pragma mark - Extensions
 
