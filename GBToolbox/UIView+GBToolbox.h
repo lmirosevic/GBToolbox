@@ -74,4 +74,11 @@
  */
 @property (assign, nonatomic) BOOL shouldParticipateInUserInput;
 
+/**
+ Sets a mask to this view's layer that clips the corners by cornerRadius.
+ 
+ You must call this again if your view resizes.
+ */
+- (void)roundCorners:(UIRectCorner)corners withRadius:(CGFloat)cornerRadius;
+
 @end

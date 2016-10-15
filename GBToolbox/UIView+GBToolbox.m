@@ -150,4 +150,10 @@ static char gbShouldParticipateInUserInput;
     [self.layer addAnimation:fadeAnimation forKey:@"kCATransitionFade"];
 }
 
+- (void)roundCorners:(UIRectCorner)corners withRadius:(CGFloat)cornerRadius {
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.path = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(cornerRadius, cornerRadius)].CGPath;
+    self.layer.mask = maskLayer;
+}
+
 @end
