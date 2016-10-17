@@ -113,6 +113,11 @@
  */
 - (nonnull NSAttributedString *)attributedStringWithAttributes:(nullable NSDictionary<NSString *, id> *)attributes;
 
+/**
+ Returns a copy of the receiver sanitized by removing all characters which could be unsafe inside a filename. Not just for OS X but across other systems as well.
+ */
+- (nonnull NSString *)filenameSanitizedString;
+
 //Hashes
 @property (nonatomic, readonly, nonnull) NSString *md5;
 @property (nonatomic, readonly, nonnull) NSString *sha1;

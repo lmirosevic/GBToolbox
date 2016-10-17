@@ -195,6 +195,11 @@
     return [[NSAttributedString alloc] initWithString:self attributes:attributes];
 }
 
+- (nonnull NSString *)filenameSanitizedString {
+    NSCharacterSet *illegalFileNameCharacters = [NSCharacterSet characterSetWithCharactersInString:@"\"\\/?<>:%*|"];
+    return [[self componentsSeparatedByCharactersInSet:illegalFileNameCharacters] componentsJoinedByString:@""];
+}
+
 //Hashes, original under Public Domain: https://github.com/hypercrypt/NSString-Hashes
 static inline NSString *NSStringCCHashFunction(unsigned char *(function)(const void *data, CC_LONG len, unsigned char *md), CC_LONG digestLength, NSString *string) {
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
