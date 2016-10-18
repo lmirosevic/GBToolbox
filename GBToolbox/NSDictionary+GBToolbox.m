@@ -77,4 +77,14 @@
     return [self.class dictionaryByPruningNullsInDictionary:self];
 }
 
+- (nonnull NSDictionary *)dictionaryByMergingWithDictionary:(nullable NSDictionary *)dictionary {
+    NSMutableDictionary *newDictionary = [self mutableCopy];
+    
+    for (id key in dictionary) {
+        newDictionary[key] = dictionary[key];
+    }
+    
+    return newDictionary;
+}
+
 @end

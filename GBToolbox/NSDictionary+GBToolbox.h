@@ -37,4 +37,9 @@
  */
 - (nonnull NSDictionary *)dictionaryByPruningNulls;
 
+/**
+ Returns a new dictionary (shallow copy) that contains both key/value pairs from the receiver and dictionary. In case of duplicate keys, dictionary's values will override those of the receiver.
+ */
+- (nonnull NSDictionary *)dictionaryByMergingWithDictionary:(nullable NSDictionary *)dictionary;
+
 @end
