@@ -12,17 +12,24 @@
 
 #pragma mark - Funtional Programming
 
-//filter
--(NSDictionary *)filter:(BOOL(^)(id key, id object))function;
+/**
+ Classic functional filter.
+ */
+- (nonnull NSDictionary *)filter:(nonnull BOOL(^)(id _Nonnull key, id _Nonnull object))function;
 
-//aKey: returns a key which the function return YES
--(id)aKey:(BOOL(^)(id key, id object))function;
+/**
+ Returns a random key for which the function returns YES.
+ */
+- (nullable id)aKey:(nonnull BOOL(^)(id _Nonnull key, id _Nonnull object))function;
 
-//anObject: returns an object for which the function return YES
--(id)anObject:(BOOL(^)(id key, id object))function;
+/**
+ Returns a random object for which the function return YES.
+ */
+- (nullable id)anObject:(nonnull BOOL(^)(id _Nonnull key, id _Nonnull object))function;
 
-#pragma mark - pruning
-
-+(NSDictionary *)dictionaryByPruningNullsInDictionary:(NSDictionary *)dictionary;
+/**
+ Returns a new dictionary with all key/value pairs removed whose values was an instance of NSNull.
+ */
++ (nonnull NSDictionary *)dictionaryByPruningNullsInDictionary:(nullable NSDictionary *)dictionary;
 
 @end

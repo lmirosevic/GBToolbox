@@ -12,8 +12,7 @@
 
 #pragma mark - Funtional Programming
 
-//filter
--(NSDictionary *)filter:(BOOL(^)(id key, id object))function {
+- (NSDictionary *)filter:(BOOL(^)(id key, id object))function {
     // creates a results array in which to store results, sets the capacity for faster writes
     NSUInteger count = self.count;
     NSMutableDictionary *resultsDictionary = [[NSMutableDictionary alloc] initWithCapacity:count];
@@ -29,8 +28,7 @@
     return [resultsDictionary copy];
 }
 
-//aKey
--(id)aKey:(BOOL(^)(id key, id object))function {
+- (id)aKey:(BOOL(^)(id key, id object))function {
     for (id key in self) {
         if (function(key, self[key])) {
             return key;
@@ -40,8 +38,7 @@
     return nil;
 }
 
-//anObject
--(id)anObject:(BOOL(^)(id key, id object))function {
+- (id)anObject:(BOOL(^)(id key, id object))function {
     id key = [self aKey:function];
     if (key) {
         return self[key];
@@ -53,7 +50,7 @@
 
 #pragma mark - pruning
 
-+(NSDictionary *)dictionaryByPruningNullsInDictionary:(NSDictionary *)dictionary {
++ (NSDictionary *)dictionaryByPruningNullsInDictionary:(NSDictionary *)dictionary {
     NSMutableDictionary *temp = [[NSMutableDictionary alloc] initWithCapacity:dictionary.count];
     
     for (id key in dictionary) {
@@ -70,7 +67,7 @@
         }
     }
     
-    return temp;//always returns a mutable one, but it shudn't be a prob
+    return temp;
 }
 
 @end
