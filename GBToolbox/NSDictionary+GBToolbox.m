@@ -51,6 +51,9 @@
 #pragma mark - pruning
 
 + (NSDictionary *)dictionaryByPruningNullsInDictionary:(NSDictionary *)dictionary {
+    // fallback for nil dictionaries.
+    if (!dictionary) dictionary = @{};
+    
     NSMutableDictionary *temp = [[NSMutableDictionary alloc] initWithCapacity:dictionary.count];
     
     for (id key in dictionary) {
@@ -68,6 +71,10 @@
     }
     
     return temp;
+}
+
+- (nonnull NSDictionary *)dictionaryByPruningNulls {
+    return [self.class dictionaryByPruningNullsInDictionary:self];
 }
 
 @end

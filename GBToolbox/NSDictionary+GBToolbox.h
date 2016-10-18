@@ -28,8 +28,13 @@
 - (nullable id)anObject:(nonnull BOOL(^)(id _Nonnull key, id _Nonnull object))function;
 
 /**
- Returns a new dictionary with all key/value pairs removed whose values was an instance of NSNull.
+ Returns a new dictionary with all key/value pairs from dictionary removed whose values was an instance of NSNull. Works recursively.
  */
 + (nonnull NSDictionary *)dictionaryByPruningNullsInDictionary:(nullable NSDictionary *)dictionary;
+
+/**
+ Returns a copy of the receiver with all key/value pairs removed whose values was an instance of NSNull. Works recursively.
+ */
+- (nonnull NSDictionary *)dictionaryByPruningNulls;
 
 @end
