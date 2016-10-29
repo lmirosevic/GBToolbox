@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMutableDictionary (GBToolbox)
+@interface NSMutableDictionary<KeyType, ObjectType> (GBToolbox)
 
-#pragma mark - pruning
+#pragma mark - Pruning
 
--(void)pruneNulls;
+/**
+ Removes all intances of NSNull from this dictionary (shallow search only).
+ */
+- (void)pruneNulls;
 
 @end

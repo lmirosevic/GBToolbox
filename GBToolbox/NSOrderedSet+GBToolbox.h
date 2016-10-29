@@ -8,31 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSOrderedSet (GBToolbox)
+@interface NSOrderedSet<__covariant ObjectType> (GBToolbox)
 
 /**
  Returns the index of the object that is identical to anObject, or NSNotFound if the set doesn't contain it.
  */
-- (NSUInteger)indexOfObjectIdenticalTo:(id)anObject;
+- (NSUInteger)indexOfObjectIdenticalTo:(nonnull id)anObject;
 
 /**
- Returns a new array with the elements from the receiver transformed by function.
+ Returns a new set with the elements from the receiver transformed by function.
  */
-- (NSOrderedSet *)map:(id(^)(id object))function;
+- (nonnull NSOrderedSet<ObjectType> *)map:(id _Nonnull(^ _Nonnull)(ObjectType _Nonnull object))function;
 
 /**
  Fold Left
  */
-- (id)foldLeft:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject;
+- (nonnull ObjectType)foldLeft:(ObjectType _Nonnull(^ _Nonnull)(ObjectType _Nonnull objectA, ObjectType _Nonnull objectB))function lastObject:(nonnull ObjectType)lastObject;
 
 /**
  Fold Right.
  */
-- (id)foldRight:(id(^)(id objectA, id objectB))function initialObject:(id)initialObject;
+- (nonnull ObjectType)foldRight:(ObjectType _Nonnull(^ _Nonnull)(ObjectType _Nonnull objectA, ObjectType _Nonnull objectB))function initialObject:(nonnull ObjectType)initialObject;
 
 /**
  Synonym for foldLeft
  */
-- (id)reduce:(id(^)(id objectA, id objectB))function lastObject:(id)lastObject;
+- (nonnull ObjectType)reduce:(ObjectType _Nonnull(^ _Nonnull)(ObjectType _Nonnull objectA, ObjectType _Nonnull objectB))function lastObject:(nonnull ObjectType)lastObject;
 
 @end

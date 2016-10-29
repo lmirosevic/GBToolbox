@@ -11,7 +11,7 @@
 @implementation NSOrderedSet (GBToolbox)
 
 - (NSUInteger)indexOfObjectIdenticalTo:(id)anObject {
-    for (NSUInteger i=0; i<self.count; i++) {
+    for (NSUInteger i = 0; i < self.count; i++) {
         if (self[i] == anObject) {
             return i;
         }

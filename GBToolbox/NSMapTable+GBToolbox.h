@@ -8,36 +8,36 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMapTable (GBToolbox)
+@interface NSMapTable<KeyType, ObjectType> (GBToolbox)
 
 /**
  Returns the object for a key, assuming both object and key are objects.
  */
--(id)objectForKeyedSubscript:(id)key;
+- (nullable ObjectType)objectForKeyedSubscript:(nullable KeyType)key;
 
 /**
  Stores an object into the map table for the given key. Assumes both object and key are objects.
  */
--(void)setObject:(id)object forKeyedSubscript:(id)key;
+- (void)setObject:(nullable ObjectType)object forKeyedSubscript:(nullable KeyType)key;
 
 /**
  Returns an array holding all the keys.
  */
-@property (strong, nonatomic, readonly) NSArray *allKeys;
+@property (strong, nonatomic, nonnull, readonly) NSArray<KeyType> *allKeys;
 
 /**
  Returns an array holding all the objects.
  */
-@property (strong, nonatomic, readonly) NSArray *allObjects;
+@property (strong, nonatomic, nonnull, readonly) NSArray<ObjectType> *allObjects;
 
 /**
  Checks whether the map table contains the object.
  */
--(BOOL)containsObject:(id)object;
+- (BOOL)containsObject:(nullable ObjectType)object;
 
 /**
- Returns the firs matching key for the object.
+ Returns the first matching key for the object.
  */
--(id)keyForObject:(id)object;
+- (nullable KeyType)keyForObject:(nullable ObjectType)object;
 
 @end

@@ -14,11 +14,11 @@
 
 #pragma mark - pruning
 
--(void)pruneNulls {
-    //create a pruned copy
+- (void)pruneNulls {
+    // create a pruned copy
     NSDictionary *prunedVersion = [NSDictionary dictionaryByPruningNullsInDictionary:self];
     
-    //now reassing everything in so that this object retains it's identity
+    // now reassing everything in so that this object retains it's identity
     [self removeAllObjects];
     for (id key in prunedVersion) {
         [self setObject:[prunedVersion objectForKey:key] forKey:key];

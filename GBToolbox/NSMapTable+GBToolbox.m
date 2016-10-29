@@ -12,15 +12,15 @@
 
 @implementation NSMapTable (GBToolbox)
 
--(id)objectForKeyedSubscript:(id)key {
+- (id)objectForKeyedSubscript:(id)key {
     return [self objectForKey:key];
 }
 
--(void)setObject:(id)object forKeyedSubscript:(id)key {
+- (void)setObject:(id)object forKeyedSubscript:(id)key {
     [self setObject:object forKey:key];
 }
 
--(NSArray *)allKeys {
+- (NSArray *)allKeys {
     NSMutableArray *allKeys = [[NSMutableArray alloc] initWithCapacity:self.count];
     
     for (id key in self) {
@@ -30,17 +30,17 @@
     return allKeys;
 }
 
--(NSArray *)allObjects {
+- (NSArray *)allObjects {
     return [self.allKeys map:^id(id key) {
         return [self objectForKey:key];
     }];
 }
 
--(BOOL)containsObject:(id)object {
+- (BOOL)containsObject:(id)object {
     return [self.allObjects containsObject:object];
 }
 
--(id)keyForObject:(id)object {
+- (id)keyForObject:(id)object {
     for (id key in self) {
         if ([self[key] isEqual:object]) {
             return key;
