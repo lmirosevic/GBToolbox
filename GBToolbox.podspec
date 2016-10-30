@@ -115,8 +115,7 @@ s.public_header_files  =       'GBToolbox/GBToolbox.h',
 		                           'GBToolbox/GBRemoteDebugMessages.h',
                                'GBToolbox/NSSet+GBToolbox.h',
                                'GBToolbox/NSOrderedSet+GBToolbox.h',
-                               'GBToolbox/GBCAAnimationDelegateHandler.h',
-                               'GBToolbox/UINavigationBar+GBToolbox.h'
+                               'GBToolbox/GBCAAnimationDelegateHandler.h'
   s.ios.public_header_files =  'GBToolbox/GBTypes_iOS.h',
                                'GBToolbox/GBMacros_iOS.h',
                                'GBToolbox/GBUtility_iOS.h',
@@ -149,6 +148,7 @@ s.public_header_files  =       'GBToolbox/GBToolbox.h',
                                'GBToolbox/GBControlAggregator.h',
                                'GBToolbox/GBMultiStateButton.h',
                                'GBToolbox/UIView+GBFloatingPopoverView.h',
+                               'GBToolbox/UINavigationBar+GBToolbox.h',
                                'GBToolbox/GBAlertBadge.h',
                                'GBToolbox/UISearchBar+GBToolbox.h'
   s.osx.public_header_files =  'GBToolbox/GBTypes_OSX.h',
