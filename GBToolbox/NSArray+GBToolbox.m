@@ -14,14 +14,12 @@
 
 #pragma mark - Helper methods
 
-//returns a random object from the array
--(id)randomObject {
+- (id)randomObject {
     NSUInteger count = self.count;
     
     if (count > 0) {
         return self[arc4random() % count];
-    }
-    else {
+    } else {
         return nil;
     }
 }
@@ -129,8 +127,7 @@
     }
 }
 
-//count
--(NSUInteger)count:(BOOL(^)(id object))function {
+- (NSUInteger)count:(BOOL(^)(id object))function {
     return [[self filter:function] count];
 }
 
@@ -147,7 +144,7 @@
 
 #pragma mark - Conveniences
 
--(id)firstObjectEqualToObject:(id)object {
+- (id)firstObjectEqualToObject:(id)object {
     NSUInteger index = [self indexOfObject:object];
     
     if (index == NSNotFound) {
@@ -164,15 +161,14 @@
 
 #pragma mark - Set like operations
 
--(NSArray *)arrayBySubtractingArray:(NSArray *)array {
+- (NSArray *)arrayBySubtractingArray:(NSArray *)array {
     NSPredicate *relativeComplementPredicate = [NSPredicate predicateWithFormat:@"NOT SELF IN %@", array];
     return [self filteredArrayUsingPredicate:relativeComplementPredicate];
 }
 
 #pragma mark - Description
 
-//returns the array concatenated by ", "
--(NSString *)shortStringRepresentation {
+- (NSString *)shortStringRepresentation {
     return [self componentsJoinedByString:@", "];
 }
 
