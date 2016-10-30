@@ -142,6 +142,10 @@
     return NSNotFound;
 }
 
+- (BOOL)contains:(BOOL (^)(id))function {
+    return ([self indexOfFirst:function] != NSNotFound);
+}
+
 #pragma mark - Conveniences
 
 - (id)firstObjectEqualToObject:(id)object {

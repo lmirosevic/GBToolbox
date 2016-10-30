@@ -78,6 +78,11 @@
  */
 - (NSUInteger)indexOfFirst:(BOOL(^ _Nonnull)(ObjectType _Nonnull object))function;
 
+/**
+ Returns YES if any the function returns YES for at least one object in the set.
+ */
+- (BOOL)contains:(BOOL(^ _Nonnull)(ObjectType _Nonnull object))function;
+
 #pragma mark - Conveniences
 
 /**
