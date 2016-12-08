@@ -37,7 +37,8 @@ Pod::Spec.new do |s|
                         'GBToolbox/GBRemoteDebugMessages.{h,m}',
                         'GBToolbox/NSSet+GBToolbox.{h,m}',
                         'GBToolbox/NSOrderedSet+GBToolbox.{h,m}',
-                        'GBToolbox/GBCAAnimationDelegateHandler.{h,m}'
+                        'GBToolbox/GBCAAnimationDelegateHandler.{h,m}',
+                        'GBToolbox/GBAsyncOperation.{h,m}'
   s.ios.source_files =  'GBToolbox/GBTypes_iOS.h',
                         'GBToolbox/GBMacros_iOS.h',
                         'GBToolbox/GBUtility_iOS.h',
@@ -116,7 +117,8 @@ s.public_header_files  =       'GBToolbox/GBToolbox.h',
                                'GBToolbox/NSSet+GBToolbox.h',
                                'GBToolbox/NSOrderedSet+GBToolbox.h',
                                'GBToolbox/GBCAAnimationDelegateHandler.h',
-                               'GBToolbox/UINavigationBar+GBToolbox.h'
+                               'GBToolbox/UINavigationBar+GBToolbox.h',
+                               'GBToolbox/GBAsyncOperation.h'
   s.ios.public_header_files =  'GBToolbox/GBTypes_iOS.h',
                                'GBToolbox/GBMacros_iOS.h',
                                'GBToolbox/GBUtility_iOS.h',
