@@ -19,7 +19,7 @@
 }
 
 -(void)scrollToBottomAnimated:(BOOL)animated {
-    [self setContentOffset:CGPointMake(self.contentOffset.x, self.contentSize.height - self.bounds.size.height + self.contentInset.bottom) animated:YES];
+    [self setContentOffset:CGPointMake(self.contentOffset.x, MAX(-self.contentInset.top, self.contentSize.height - self.bounds.size.height + self.contentInset.bottom)) animated:animated];
 }
 
 -(void)scrollToLeftAnimated:(BOOL)animated {
@@ -27,7 +27,7 @@
 }
 
 -(void)scrollToRightAnimated:(BOOL)animated {
-    [self setContentOffset:CGPointMake(self.contentSize.height - self.bounds.size.width + self.contentInset.right, self.contentOffset.y) animated:YES];
+    [self setContentOffset:CGPointMake(MAX(-self.contentInset.right, self.contentSize.width - self.bounds.size.width + self.contentInset.right), self.contentOffset.y) animated:animated];
 }
 
 @end
