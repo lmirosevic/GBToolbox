@@ -15,7 +15,7 @@ static BOOL const kDefaultShouldLogLocallyAsWell =  NO;
 @interface GBRemoteDebugMessages () <NSStreamDelegate>
 
 @property (strong, nonatomic) NSMutableString       *buffer;
-@property (assign, nonatomic) dispatch_queue_t      messagesQueue;
+@property (strong, nonatomic) dispatch_queue_t      messagesQueue;
 @property (strong, nonatomic) NSOutputStream        *outputStream;
 
 @end
