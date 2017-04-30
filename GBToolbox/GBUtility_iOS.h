@@ -135,5 +135,9 @@ void ShowContactEmailOnViewController(UIViewController * _Nonnull viewController
 
 void ShowAlert(NSString * _Nullable title, NSString * _Nullable message, NSString * _Nullable dismissButtonTitle);
 
+#pragma mark - Network
+
+NSString * _Nullable CurrentWifiNetworkName();
+
 @end
 

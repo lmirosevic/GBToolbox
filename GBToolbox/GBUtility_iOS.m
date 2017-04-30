@@ -22,6 +22,7 @@
 #import <AddressBook/AddressBook.h>
 #import <MapKit/MapKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <SystemConfiguration/CaptiveNetwork.h>
 
 /**
  Class that gives us some storage and that we can use as a delegate
@@ -454,6 +455,21 @@ void ShowAlert(NSString * _Nullable title, NSString * _Nullable message, NSStrin
         [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:dismissButtonTitle otherButtonTitles:nil] show];
     }
 #pragma clang diagnostic pop
+}
+
+#pragma mark - Network
+
+// http://stackoverflow.com/questions/5198716/iphone-get-ssid-without-private-library/14288648#14288648
+NSString *CurrentWifiNetworkName() {
+    NSString *wifiName = nil;
+    NSArray *ifs = (__bridge_transfer id)CNCopySupportedInterfaces();
+    for (NSString *ifnam in ifs) {
+        NSDictionary *info = (__bridge_transfer id)CNCopyCurrentNetworkInfo((__bridge CFStringRef)ifnam);
+        if (info[@"SSID"]) {
+            wifiName = info[@"SSID"];
+        }
+    }
+    return wifiName;
 }
 
 @end
