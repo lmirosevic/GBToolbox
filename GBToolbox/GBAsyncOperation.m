@@ -59,6 +59,11 @@
     [self didChangeValueForKey:@"isExecuting"];
 }
 
+- (void)cancel {
+    // we implement this only so that we can highlight it in the interface, and to keep the compiler happy
+    [super cancel];
+}
+
 - (BOOL)isConcurrent {
     return YES;
 }
