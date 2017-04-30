@@ -118,7 +118,6 @@ s.public_header_files  =       'GBToolbox/GBToolbox.h',
                                'GBToolbox/NSSet+GBToolbox.h',
                                'GBToolbox/NSOrderedSet+GBToolbox.h',
                                'GBToolbox/GBCAAnimationDelegateHandler.h',
-                               'GBToolbox/UINavigationBar+GBToolbox.h',
                                'GBToolbox/GBAsyncOperation.h',
                                'GBToolbox/GBHighPrecisionTimer.h'
   s.ios.public_header_files =  'GBToolbox/GBTypes_iOS.h',
