@@ -45,6 +45,6 @@
 /**
  Returns the view controller that is modally presenting the receiver, even if the receiver is embedded inside a tab bar or navigation controller
  */
-@property (strong, nonatomic, nullable) UIViewController *presentingViewControllerAcrossParents;
+@property (strong, nonatomic, readonly, nullable) UIViewController *presentingViewControllerAcrossParents;
 
 @end
