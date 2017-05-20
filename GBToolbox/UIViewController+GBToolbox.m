@@ -95,4 +95,16 @@ static char gbIsVisibleCurrentlyKey;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:self.navigationItem.backBarButtonItem.style target:nil action:nil];
 }
 
+- (UIViewController *)presentingViewControllerAcrossParents {
+    // parent view controller
+    if (self.parentViewController) {
+        // -> recurse out at the parent;s level
+        return self.tabBarController.presentingViewControllerAcrossParents;
+    }
+    // base case
+    else {
+        return self.presentingViewController;
+    }
+}
+
 @end
