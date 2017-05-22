@@ -74,7 +74,8 @@ Pod::Spec.new do |s|
                         'GBToolbox/UIView+GBFloatingPopoverView.{h,m}',
                         'GBToolbox/UINavigationBar+GBToolbox.{h,m}',
                         'GBToolbox/GBAlertBadge.{h,m}',
-                        'GBToolbox/UISearchBar+GBToolbox.{h,m}'
+                        'GBToolbox/UISearchBar+GBToolbox.{h,m}',
+                        'GBToolbox/GBKeyboardListener.{h,m}'
   s.osx.source_files =  'GBToolbox/GBTypes_OSX.h',
                         'GBToolbox/GBMacros_OSX.h',
                         'GBToolbox/GBUtility_OSX.h',
@@ -154,7 +155,8 @@ s.public_header_files  =       'GBToolbox/GBToolbox.h',
                                'GBToolbox/UIView+GBFloatingPopoverView.h',
                                'GBToolbox/UINavigationBar+GBToolbox.h',
                                'GBToolbox/GBAlertBadge.h',
-                               'GBToolbox/UISearchBar+GBToolbox.h'
+                               'GBToolbox/UISearchBar+GBToolbox.h',
+                               'GBToolbox/GBKeyboardListener.h'
   s.osx.public_header_files =  'GBToolbox/GBTypes_OSX.h',
                                'GBToolbox/GBMacros_OSX.h',
                                'GBToolbox/GBUtility_OSX.h',

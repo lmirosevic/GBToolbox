@@ -83,6 +83,7 @@
 #import "GBControlAggregator.h"
 #import "GBMultiStateButton.h"
 #import "GBAlertBadge.h"
+#import "GBKeyboardListener.h"
 
 #import "UITableView+GBToolbox.h"
 #import "UIViewController+GBToolbox.h"
