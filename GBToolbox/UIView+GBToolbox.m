@@ -36,6 +36,30 @@ static char gbShouldParticipateInUserInput;
     return ((NSNumber *)objc_getAssociatedObject(self, &gbShouldParticipateInUserInput) ?: @YES).boolValue;
 }
 
+static char gbViewRelatedChangesDelegate;
+
+- (void)setViewRelatedChangesDelegate:(id<GBViewViewRelatedChangesDelegate>)viewRelatedChangesDelegate {
+    // on first call, enable the hooks by swizzling the implentation
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        SwizzleInstanceMethodsInClass(self.class, @selector(didAddSubview:), @selector(_swizz_didAddSubview:));
+        SwizzleInstanceMethodsInClass(self.class, @selector(willRemoveSubview:), @selector(_swizz_willRemoveSubview:));
+        SwizzleInstanceMethodsInClass(self.class, @selector(willMoveToSuperview:), @selector(_swizz_willMoveToSuperview:));
+        SwizzleInstanceMethodsInClass(self.class, @selector(didMoveToSuperview), @selector(_swizz_didMoveToSuperview));
+        SwizzleInstanceMethodsInClass(self.class, @selector(willMoveToWindow:), @selector(_swizz_willMoveToWindow:));
+        SwizzleInstanceMethodsInClass(self.class, @selector(didMoveToWindow), @selector(_swizz_didMoveToWindow));
+    });
+    
+    // make sure that it's nil first
+    if (viewRelatedChangesDelegate && self.viewRelatedChangesDelegate) @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"The viewRelatedChangesDelegate has already been set. Overriding it might break other code that has previously set the delegate. If you're sure you want to replace this delegate, then set it to nil before setting the new value." userInfo:nil];
+    
+    objc_setAssociatedObject(self, &gbViewRelatedChangesDelegate, viewRelatedChangesDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (id<GBViewViewRelatedChangesDelegate>)viewRelatedChangesDelegate {
+    return (id<GBViewViewRelatedChangesDelegate>)objc_getAssociatedObject(self, &gbViewRelatedChangesDelegate);
+}
+
 #pragma mark - Overrides
 
 + (void)load {
@@ -154,6 +178,57 @@ static char gbShouldParticipateInUserInput;
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(cornerRadius, cornerRadius)].CGPath;
     self.layer.mask = maskLayer;
+}
+
+#pragma mark - View related changes
+
+
+- (void)_swizz_didAddSubview:(UIView *)subview {
+    [self _swizz_didAddSubview:subview];
+    
+    if ([self.viewRelatedChangesDelegate respondsToSelector:@selector(view:didAddSubview:)]) {
+        [self.viewRelatedChangesDelegate view:self didAddSubview:subview];
+    }
+}
+
+- (void)_swizz_willRemoveSubview:(UIView *)subview {
+    [self _swizz_willRemoveSubview:subview];
+    
+    if ([self.viewRelatedChangesDelegate respondsToSelector:@selector(view:willRemoveSubview:)]) {
+        [self.viewRelatedChangesDelegate view:self willRemoveSubview:subview];
+    }
+}
+
+- (void)_swizz_willMoveToSuperview:(UIView *)newSuperview {
+    [self _swizz_willMoveToSuperview:newSuperview];
+    
+    if ([self.viewRelatedChangesDelegate respondsToSelector:@selector(view:willMoveToSuperview:)]) {
+        [self.viewRelatedChangesDelegate view:self willMoveToSuperview:newSuperview];
+    }
+}
+
+- (void)_swizz_didMoveToSuperview {
+    [self _swizz_didMoveToSuperview];
+    
+    if ([self.viewRelatedChangesDelegate respondsToSelector:@selector(view:didMoveToSuperview:)]) {
+        [self.viewRelatedChangesDelegate view:self didMoveToSuperview:self.superview];
+    }
+}
+
+- (void)_swizz_willMoveToWindow:(UIWindow *)newWindow {
+    [self _swizz_willMoveToWindow:newWindow];
+    
+    if ([self.viewRelatedChangesDelegate respondsToSelector:@selector(view:willMoveToWindow:)]) {
+        [self.viewRelatedChangesDelegate view:self willMoveToWindow:newWindow];
+    }
+}
+
+- (void)_swizz_didMoveToWindow {
+    [self _swizz_didMoveToWindow];
+    
+    if ([self.viewRelatedChangesDelegate respondsToSelector:@selector(view:didMoveToWindow:)]) {
+        [self.viewRelatedChangesDelegate view:self didMoveToWindow:self.window];
+    }
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol GBViewViewRelatedChangesDelegate;
+
 @interface UIView (GBToolbox)
 
 /**
@@ -80,5 +82,25 @@
  You must call this again if your view resizes.
  */
 - (void)roundCorners:(UIRectCorner)corners withRadius:(CGFloat)cornerRadius;
+
+/**
+ The delegate that will be notified of view related changes.
+ */
+@property (weak, nonatomic) id<GBViewViewRelatedChangesDelegate> viewRelatedChangesDelegate;
+
+@end
+
+/**
+ Allows getting notified of changes to the view from outside of the view.
+ */
+@protocol GBViewViewRelatedChangesDelegate <NSObject>
+@optional
+
+- (void)view:(UIView *)view didAddSubview:(UIView *)subview;
+- (void)view:(UIView *)view willRemoveSubview:(UIView *)subview;
+- (void)view:(UIView *)view willMoveToSuperview:(UIView *)superview;
+- (void)view:(UIView *)view didMoveToSuperview:(UIView *)superview;
+- (void)view:(UIView *)view willMoveToWindow:(UIWindow *)window;
+- (void)view:(UIView *)view didMoveToWindow:(UIWindow *)window;
 
 @end
