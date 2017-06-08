@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'GBToolbox'
-  s.version      = '22.3.0'
+  s.version      = '22.4.0'
   s.source       = { git: "https://github.com/lmirosevic/GBToolbox.git", tag: s.version.to_s }
   s.summary      = 'Goonbee\'s iOS development toolbox'
   s.homepage     = 'https://github.com/lmirosevic/GBToolbox'
