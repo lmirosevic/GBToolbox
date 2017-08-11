@@ -27,6 +27,8 @@ typedef void(^GBFloatingPopoverAutolayoutConfigurationBlock)(UIView * _Nonnull v
 /**
  Shows receiver on the targetView. `layoutBlock` is called synchronously as soon as the view has been added to targetView (unless if the view is already a subview of targetView. Handles intelligent nesting of views within a context. If you do not want the view to dismiss, pass a `kGBFloatingPopoverShowForever` as the `showDuration.`
  
+ Note: If you pass a non-nil layoutConfigurationBlock, the `view` will have its `translatesAutoresizingMaskIntoConstraints` property set to NO.
+ 
  Warning: Passing different durations for a particular context, will have undefined behaviour if another view is already being shown in this context.
  */
 - (void)floatOnView:(nonnull UIView *)targetView context:(nonnull id)context fadeInDuration:(NSTimeInterval)fadeInDuration showDuration:(NSTimeInterval)showDuration fadeOutDuration:(NSTimeInterval)fadeOutDuration layoutConfigurationBlock:(nullable GBFloatingPopoverAutolayoutConfigurationBlock)layoutBlock;
