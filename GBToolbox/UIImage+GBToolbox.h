@@ -13,6 +13,7 @@
 -(UIImage *)cropToRect:(CGRect)rect;
 -(UIImage *)resizedImage:(CGSize)newSize interpolationQuality:(CGInterpolationQuality)quality;
 -(UIImage *)resizedImageWithContentMode:(UIViewContentMode)contentMode bounds:(CGSize)bounds interpolationQuality:(CGInterpolationQuality)quality;
+-(UIImage *)downscaledImageWithMaxResolution:(CGFloat)maxResolution;
 
 #pragma mark - Programmatic images
 

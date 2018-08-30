@@ -70,6 +70,28 @@
     return [self resizedImage:newSize interpolationQuality:quality];
 }
 
+- (UIImage *)downscaledImageWithMaxResolution:(CGFloat)maxResolution {
+  UIImage *downscaledImage;
+  
+  // original size
+  CGFloat w = self.size.width;
+  CGFloat h = self.size.height;
+  
+  // image needs to be resized
+  if (w * h > maxResolution) {
+    CGFloat scaleFactor = sqrt(maxResolution / w / h);
+    CGSize newSize = (CGSize) {floor(w * scaleFactor), floor(h * scaleFactor)};
+    downscaledImage = [self resizedImage:newSize interpolationQuality:kCGInterpolationHigh];
+  }
+  // size is smaller than max resolution, so don't change image
+  else {
+    downscaledImage = self;
+  }
+  
+  return downscaledImage;
+}
+
+
 #pragma mark -
 #pragma mark Private helper methods
 
