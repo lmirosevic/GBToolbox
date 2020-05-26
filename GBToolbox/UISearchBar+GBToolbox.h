@@ -13,6 +13,6 @@
 /**
  Returns the UITextField inside the UISearchBar.
  */
-- (nullable UITextField *)searchTextField;
+- (nullable UITextField *)textField;
 
 @end
