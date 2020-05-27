@@ -10,8 +10,12 @@
 
 @implementation UISearchBar (GBToolbox)
 
-- (nullable UITextField *)searchTextField {
-    return (UITextField *)[self valueForKey:@"searchField"];
+- (nullable UITextField *)textField {
+    if (@available(iOS 13, *)) {
+        return [self searchTextField];
+    } else {
+        return (UITextField *)[self valueForKey:@"searchField"];
+    }
 }
 
 @end
